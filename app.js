@@ -1,8 +1,8 @@
 // ============================================================
-// 38-0 — Anadolu Efes Efsane Kadro Simülasyonu
+// Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v12";
+const APP_VERSION = "v13";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -10,6 +10,10 @@ const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: 
 const state = {
   budgetType: "unlimited", // "unlimited" | "cap"
   challenge: "none",
+  captainName: null,
+  tradeMode: false,
+  tradeUsed: false,
+  lockedSeasons: [],
   lastPlacedName: null,
   budgetTotal: 100,
   budgetSpent: 0,
@@ -122,6 +126,10 @@ function startDraft(mode) {
   state.armedPlayer = null;
   state.respinsUsed = 0;
   state.respinsAllowed = mode === "5" ? 1 : 3;
+  state.captainName = null;
+  state.tradeMode = false;
+  state.tradeUsed = false;
+  state.lockedSeasons = [];
   state.budgetSpent = 0;
   document.getElementById("budget-panel").hidden = state.budgetType !== "cap";
   document.getElementById("budget-panel-sub").textContent = `Credits remaining out of ${state.budgetTotal}`;
@@ -189,6 +197,7 @@ function isPickable(player) {
 function eligibleSeasons() {
   const seasons = [];
   for (const [season, list] of Object.entries(state.playersBySeason)) {
+    if (state.lockedSeasons.includes(season)) continue;
     const hasEligible = list.some((p) => !state.usedPlayerNames.has(p.name) && isPickable(p));
     if (hasEligible) seasons.push(season);
   }
@@ -450,8 +459,23 @@ function doSpin() {
 
 function respin() {
   if (state.respinsAllowed - state.respinsUsed <= 0) return;
+  // Re-spinning burns the season you walked away from: it's locked out for the
+  // rest of the draft, so a re-spin is a real commitment rather than a free reroll.
+  if (state.currentSpinSeason && !state.lockedSeasons.includes(state.currentSpinSeason)) {
+    state.lockedSeasons.push(state.currentSpinSeason);
+  }
   state.respinsUsed++;
+  renderLockedSeasons();
   doSpin();
+}
+
+function renderLockedSeasons() {
+  const el = document.getElementById("locked-seasons");
+  if (!el) return;
+  if (!state.lockedSeasons.length) { el.hidden = true; return; }
+  el.hidden = false;
+  el.innerHTML = `<span class="locked-label">Locked out:</span>` +
+    state.lockedSeasons.map((s2) => `<span class="locked-chip">🔒 ${s2}</span>`).join("");
 }
 
 function renderFilterTabs() {
@@ -612,6 +636,7 @@ function renderPlayerPool(pool) {
         <div class="player-name">${p.name}</div>
       </div>
       <div class="player-meta">${state.currentSpinSeason}${isConstrainedPhase() ? ` · <span class="open-line">${openMatches.length ? "OPEN: " + openMatches.join(" / ") : "position filled"}</span>` : ""}</div>
+      ${bioLineHtml(p)}
       ${honorsHtml(honorsFor(p, state.currentSpinSeason))}
       ${blocksHtml}
       <button class="info-btn" data-player="${p.name}" title="Career detail">i</button>
@@ -705,9 +730,15 @@ function renderRosterCards(containerId, coachBannerId) {
         <div class="player-name">${p.name}</div>
       </div>
       <div class="player-meta">${p.season}</div>
+      ${bioLineHtml(p)}
+      ${state.captainName === p.name ? '<div class="captain-badge">★ CAPTAIN</div>' : ""}
       ${honorsHtml(honorsFor(p, p.season))}
       ${buildStatBlocksHtml(p)}
     `;
+    card.addEventListener("click", () => {
+      if (state.tradeMode) executeTrade(p);
+      else setCaptain(p.name);
+    });
     grid.appendChild(card);
   });
 
@@ -862,7 +893,9 @@ function computeExpectedMargin() {
   const bench = state.roster.filter((p) => p.tier !== "starter");
   const starterWeight = STARTER_WEIGHT[state.mode === "12" ? 12 : 5];
 
-  const avgStarterRating = starters.reduce((s, p) => s + playerRating(p), 0) / (starters.length || 1);
+  const captainBoost = (p) => (state.captainName === p.name ? 1.15 : 1);
+  const avgStarterRating =
+    starters.reduce((s, p) => s + playerRating(p) * captainBoost(p), 0) / (starters.length || 1);
   const starterDiff = avgStarterRating - LEAGUE_AVG_RATING;
 
   let benchTerm = 0;
@@ -923,6 +956,8 @@ function animateScoreboard(results, onDone) {
     if (i >= results.length) {
       clearInterval(interval);
       if (liveEl) liveEl.hidden = true;
+      drawSeasonChart(results);
+      renderMvpAndLeaders();
       onDone();
       return;
     }
@@ -933,6 +968,15 @@ function animateScoreboard(results, onDone) {
     cells[i].classList.add(res === "W" ? "win" : "loss");
     cells[i].classList.add("flip-in");
     if (res === "W") SFX.win(); else SFX.loss();
+
+    if (i === 18) {
+      const hb = document.getElementById("halftime-banner");
+      if (hb) {
+        hb.hidden = false;
+        hb.textContent = `Halfway mark: ${w}–${l}`;
+        setTimeout(() => { hb.hidden = true; }, 2200);
+      }
+    }
 
     if (res === "W") w++; else l++;
     if (res === streakType) streak++;
@@ -960,7 +1004,7 @@ function letterGrade(wins) {
 
 function verdictText(wins, losses) {
   if (losses === 0) return "THE IMPOSSIBLE JUST HAPPENED. No real team has ever done this — you just did.";
-  if (losses === 1) return "That close to perfect is legendary in itself. One game short of 38-0.";
+  if (losses === 1) return "A perfect regular season slipped away by a single night.";
   if (losses <= 3) return "A phenomenal season — the kind that goes down in history.";
   if (losses <= 8) return "A strong roster, but staying perfect every single night is brutal.";
   if (wins >= losses) return "Balanced, but missing that extra edge — bolder picks were needed.";
@@ -968,7 +1012,7 @@ function verdictText(wins, losses) {
 }
 
 function triggerConfetti() {
-  const colors = ["#00A4D2", "#D73430", "#F4EFE3", "#3F9463"];
+  const colors = ["#213557", "#F4EFE3", "#00A4D2"];
   const container = document.createElement("div");
   container.className = "confetti-layer";
   document.body.appendChild(container);
@@ -1036,7 +1080,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("scoreboard-track").innerHTML = "";
     document.getElementById("final-record").hidden = true;
     document.getElementById("season-narrative").hidden = true;
-    document.getElementById("playoff-block").hidden = true;
     document.getElementById("result-actions").hidden = true;
     document.getElementById("sim-btn").hidden = false;
   });
@@ -1048,7 +1091,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const finalEl = document.getElementById("final-record");
       finalEl.hidden = false;
       finalEl.innerHTML = `
-        <div class="big-record">${wins}–${losses}</div>
+        <div class="big-record" id="big-record">0–0</div>
         <div class="grade-strip">GRADE: ${letterGrade(wins)}</div>
         <div class="verdict">${verdictText(wins, losses)}</div>
       `;
@@ -1056,23 +1099,19 @@ document.addEventListener("DOMContentLoaded", () => {
       narrEl.hidden = false;
       narrEl.textContent = buildNarrative(results);
 
-      const { champion } = renderPlayoffs(computeExpectedMargin());
-
+      countUpRecord(wins, losses);
       document.getElementById("result-actions").hidden = false;
-      lastResult = { wins, losses, champion };
+      document.getElementById("to-playoffs-btn").hidden = false;
+      lastResult = { wins, losses, champion: false };
+      lastMargin = computeExpectedMargin();
 
       saveHistoryEntry({
-        wins, losses, champion,
+        wins, losses, champion: false,
         mode: state.mode === "12" ? "12-Man" : "Starting 5",
         budget: state.budgetType === "cap" ? "Salary Cap" : "Unlimited",
         starters: state.roster.filter((p) => p.tier === "starter").map((p) => p.name),
       });
-      if (losses === 0 || champion) SFX.crowd();
-
-      const unlocked = evaluateAchievements(wins, champion);
-      if (unlocked.length) showAchievementToasts(unlocked);
-
-      if (losses === 0 || champion) triggerConfetti();
+      if (losses === 0) { SFX.crowd(); triggerConfetti(); }
     });
   });
 
@@ -1128,13 +1167,13 @@ function saveProfile(profile) {
 }
 
 const ACHIEVEMENTS = [
-  { id: "perfect", name: "The Impossible", desc: "Finish a season 38–0" },
+  { id: "perfect", name: "The Impossible", desc: "Go undefeated through the regular season" },
   { id: "near", name: "One Away", desc: "Finish 37–1" },
   { id: "thirty", name: "Thirty Club", desc: "Win 30+ games" },
   { id: "oneseason", name: "Time Capsule", desc: "Build a starting five from a single season" },
   { id: "homegrown", name: "Homegrown", desc: "Win 25+ with a starting five of Turkish players" },
   { id: "thrifty", name: "Bargain Hunter", desc: "Win 30+ using under half the salary cap" },
-  { id: "champion", name: "Crowned", desc: "Win the playoff title" },
+  { id: "champion", name: "Glory", desc: "Lift the EuroLeague trophy" },
 ];
 
 // A conservative Turkish-player check: names we can verify from the club's own
@@ -1218,21 +1257,21 @@ function buildNarrative(results) {
 
 // ---------- Playoffs (real EuroLeague format: QF, SF, Final) ----------
 const PLAYOFF_ROUNDS = [
-  { round: "Quarterfinal", strength: 9, bestOf: 5 },
-  { round: "Semifinal", strength: 12, bestOf: 1 },
-  { round: "Final", strength: 13, bestOf: 1 },
+  { round: "Quarterfinal", label: "Best of 5 — first to 3 wins", strength: 9, bestOf: 5 },
+  { round: "Final Four — Semifinal", label: "Single game", strength: 12, bestOf: 1 },
+  { round: "Final Four — Final", label: "Single game", strength: 13, bestOf: 1 },
 ];
-
-// Generates a plausible final score for a single game given win probability.
-function simGameScore(winProb, won) {
-  const base = 78 + Math.round(Math.random() * 12);
-  const gap = Math.max(1, Math.round(Math.abs(gaussian()) * 7) + 1);
-  return won ? [base + gap, base] : [base, base + gap];
-}
 
 function gaussian() {
   const u = Math.random() || 1e-9, v = Math.random() || 1e-9;
   return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+}
+
+// Plausible final score for a single game.
+function simGameScore(_winProb, won) {
+  const base = 78 + Math.round(Math.random() * 12);
+  const gap = Math.max(1, Math.round(Math.abs(gaussian()) * 7) + 1);
+  return won ? [base + gap, base] : [base, base + gap];
 }
 
 function runPlayoffs(regularMargin) {
@@ -1246,33 +1285,56 @@ function runPlayoffs(regularMargin) {
     const needed = Math.ceil(cfg.bestOf / 2);
     while (w < needed && l < needed) {
       const won = Math.random() < p;
-      const score = simGameScore(p, won);
-      games.push({ won, score });
+      games.push({ won, score: simGameScore(p, won) });
       if (won) w++; else l++;
     }
     const seriesWon = w >= needed;
-    rounds.push({ round: cfg.round, bestOf: cfg.bestOf, games, w, l, won: seriesWon });
+    rounds.push({ round: cfg.round, label: cfg.label, bestOf: cfg.bestOf, games, w, l, won: seriesWon });
     if (!seriesWon) alive = false;
   }
   return { rounds, champion: alive };
 }
 
-function renderPlayoffs(regularMargin) {
-  const block = document.getElementById("playoff-block");
+// Playoffs now live on their own screen and reveal round by round.
+function playPlayoffs(regularMargin) {
   const roundsEl = document.getElementById("playoff-rounds");
   const verdictEl = document.getElementById("playoff-verdict");
-  if (!block) return { champion: false };
+  const trophyEl = document.getElementById("trophy-stage");
+  const actionsEl = document.getElementById("playoff-actions");
+  roundsEl.innerHTML = "";
+  verdictEl.textContent = "";
+  verdictEl.className = "playoff-verdict";
+  trophyEl.hidden = true;
+  actionsEl.hidden = true;
 
   const { rounds, champion } = runPlayoffs(regularMargin);
-  block.hidden = false;
-  roundsEl.innerHTML = "";
-  rounds.forEach((r, idx) => {
+  lastPlayoffChampion = champion;
+
+  let i = 0;
+  function revealNext() {
+    if (i >= rounds.length) {
+      if (champion) {
+        trophyEl.hidden = false;
+        verdictEl.textContent = "The trophy is yours.";
+        verdictEl.className = "playoff-verdict champion";
+        SFX.crowd();
+        triggerConfetti();
+      } else {
+        const last = rounds[rounds.length - 1];
+        verdictEl.textContent = `Eliminated in the ${last.round}. The road ends here.`;
+      }
+      actionsEl.hidden = false;
+      if (lastResult) lastResult.champion = champion;
+      const unlocked = evaluateAchievements(lastResult ? lastResult.wins : 0, champion);
+      if (unlocked.length) showAchievementToasts(unlocked);
+      return;
+    }
+    const r = rounds[i];
     const el = document.createElement("div");
     el.className = "playoff-round " + (r.won ? "won" : "lost");
-    el.style.animationDelay = idx * 0.7 + "s";
-    const seriesLabel = r.bestOf > 1 ? `Best of ${r.bestOf} · ${r.w}–${r.l}` : "Single game";
+    const seriesLabel = r.bestOf > 1 ? `${r.label} · ${r.w}–${r.l}` : r.label;
     const gamesHtml = r.games
-      .map((g) => `<div class="pr-game ${g.won ? "w" : "l"}">${g.won ? "W" : "L"} ${g.score[0]}–${g.score[1]}</div>`)
+      .map((g, gi) => `<div class="pr-game ${g.won ? "w" : "l"}">G${gi + 1} ${g.won ? "W" : "L"} ${g.score[0]}–${g.score[1]}</div>`)
       .join("");
     el.innerHTML = `
       <div class="pr-name">${r.round}</div>
@@ -1280,13 +1342,14 @@ function renderPlayoffs(regularMargin) {
       <div class="pr-games">${gamesHtml}</div>
       <div class="pr-res">${r.won ? "ADVANCED" : "ELIMINATED"}</div>`;
     roundsEl.appendChild(el);
-  });
-  verdictEl.textContent = champion
-    ? "🏆 EUROLEAGUE CHAMPIONS."
-    : `Eliminated in the ${rounds[rounds.length - 1].round}.`;
-  verdictEl.className = "playoff-verdict " + (champion ? "champion" : "");
-  return { champion };
+    if (r.won) SFX.win(); else SFX.loss();
+    i++;
+    setTimeout(revealNext, 1600);
+  }
+  revealNext();
 }
+
+let lastPlayoffChampion = false;
 
 // ---------- Special challenge modes ----------
 const CHALLENGES = [
@@ -1369,7 +1432,7 @@ function drawShareCard(wins, losses, champion) {
   ctx.textAlign = "center";
   ctx.fillStyle = "#00A4D2";
   ctx.font = "600 34px Oswald, sans-serif";
-  ctx.fillText("ANADOLU EFES · LEGENDARY LINEUP", W / 2, 110);
+  ctx.fillText("ANADOLU EFES · ROAD TO GLORY", W / 2, 110);
 
   ctx.fillStyle = "#EDEAE2";
   ctx.font = "700 210px Oswald, sans-serif";
@@ -1428,7 +1491,7 @@ function drawShareCard(wins, losses, champion) {
   ctx.textAlign = "center";
   ctx.fillStyle = "#8B9CB5";
   ctx.font = "400 26px 'Work Sans', sans-serif";
-  ctx.fillText("Can your all-time Efes roster go 38–0?", W / 2, H - 60);
+  ctx.fillText("Can your all-time Efes roster lift the trophy?", W / 2, H - 60);
 
   const link = document.getElementById("share-download");
   if (link) link.href = canvas.toDataURL("image/png");
@@ -1728,7 +1791,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (resimBtn) resimBtn.addEventListener("click", () => {
     document.getElementById("final-record").hidden = true;
     document.getElementById("season-narrative").hidden = true;
-    document.getElementById("playoff-block").hidden = true;
     document.getElementById("result-actions").hidden = true;
     document.getElementById("scoreboard-track").innerHTML = "";
     document.getElementById("sim-btn").hidden = false;
@@ -1749,3 +1811,318 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 100);
   setTimeout(() => { clearInterval(check); hideOverlay(); }, 8000);
 });
+
+// ============================================================
+// v13 additions: captain, trade, halftime, chart, leaders, MVP,
+// legends, timeline, flags, height, tutorial, tips, error guard
+// ============================================================
+
+let lastMargin = 0;
+
+// ---------- Captain ----------
+function setCaptain(name) {
+  state.captainName = name;
+  renderRosterCards("roster-grid", null);
+  const hint = document.getElementById("captain-hint");
+  if (hint) hint.textContent = `Captain: ${name} — their contribution counts for more.`;
+  SFX.place();
+}
+
+// ---------- Trade one player ----------
+function startTrade() {
+  state.tradeMode = true;
+  const hint = document.getElementById("captain-hint");
+  if (hint) hint.textContent = "Trade mode: tap a player to send them back and re-spin for a replacement.";
+  renderRosterCards("roster-grid", null);
+}
+
+function executeTrade(player) {
+  const idx = state.roster.findIndex((p) => p.name === player.name);
+  if (idx === -1) return;
+  const removed = state.roster.splice(idx, 1)[0];
+  state.usedPlayerNames.delete(removed.name);
+  if (removed.tier !== "free" && removed.filledPosition) {
+    openSetForTier(removed.tier).add(removed.filledPosition);
+  }
+  if (state.budgetType === "cap") {
+    state.budgetSpent -= getPlayerPrice(removed);
+    updateBudgetGauge();
+  }
+  if (state.captainName === removed.name) state.captainName = null;
+  state.tradeUsed = true;
+  state.tradeMode = false;
+  state.currentSlot = state.roster.length;
+  showScreen("screen-draft");
+  renderDraftStep();
+}
+
+// ---------- Nationality flag + height on cards ----------
+function flagEmoji(code) {
+  if (!code || code.length !== 2) return "";
+  return String.fromCodePoint(...[...code.toUpperCase()].map((c) => 127397 + c.charCodeAt(0)));
+}
+
+function bioLineHtml(p) {
+  const bits = [];
+  if (p.countryCode) bits.push(`<span class="bio-flag" title="${p.country || ""}">${flagEmoji(p.countryCode)}</span>`);
+  if (p.height) bits.push(`<span class="bio-height">${p.height} m</span>`);
+  return bits.length ? `<div class="bio-line">${bits.join("")}</div>` : "";
+}
+
+// ---------- Season MVP + stat leaders ----------
+function renderMvpAndLeaders() {
+  const mvpEl = document.getElementById("mvp-card");
+  const leadersEl = document.getElementById("stat-leaders");
+  if (!mvpEl || !leadersEl) return;
+
+  const roster = state.roster;
+  if (!roster.length) return;
+
+  const mvp = roster.reduce((best, p) => (p.rating > best.rating ? p : best));
+  mvpEl.hidden = false;
+  mvpEl.innerHTML = `
+    <div class="mvp-label">Team MVP</div>
+    <div class="mvp-body">
+      ${avatarHtml(mvp.name)}
+      <div>
+        <div class="mvp-name">${mvp.name}</div>
+        <div class="mvp-season">${mvp.season}${state.captainName === mvp.name ? " · Captain" : ""}</div>
+      </div>
+    </div>`;
+
+  function leaderIn(stat) {
+    let best = null, bestVal = -1;
+    roster.forEach((p) => {
+      const v = statValue(p, stat);
+      if (v > bestVal) { bestVal = v; best = p; }
+    });
+    return best ? `<div class="leader"><span class="leader-stat">${stat.toUpperCase()}</span><span class="leader-name">${best.name}</span><span class="leader-val">${bestVal.toFixed(1)}</span></div>` : "";
+  }
+  leadersEl.hidden = false;
+  leadersEl.innerHTML = `<div class="leaders-title">Squad Leaders</div><div class="leaders-row">${["pts","reb","ast","blk","stl"].map(leaderIn).join("")}</div>`;
+}
+
+// ---------- Season chart ----------
+function drawSeasonChart(results) {
+  const canvas = document.getElementById("season-chart");
+  if (!canvas) return;
+  canvas.hidden = false;
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const style = getComputedStyle(document.documentElement);
+  const accent = style.getPropertyValue("--accent").trim() || "#00A4D2";
+  const muted = style.getPropertyValue("--muted").trim() || "#8B9CB5";
+
+  // running win differential
+  let diff = 0;
+  const pts = results.map((r) => (diff += r === "W" ? 1 : -1));
+  const maxAbs = Math.max(4, ...pts.map(Math.abs));
+  const pad = 24;
+  const stepX = (W - pad * 2) / (pts.length - 1);
+  const midY = H / 2;
+  const scaleY = (H / 2 - pad) / maxAbs;
+
+  ctx.strokeStyle = muted;
+  ctx.globalAlpha = 0.35;
+  ctx.beginPath(); ctx.moveTo(pad, midY); ctx.lineTo(W - pad, midY); ctx.stroke();
+  ctx.globalAlpha = 1;
+
+  ctx.strokeStyle = accent;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  pts.forEach((v, i) => {
+    const x = pad + i * stepX, y = midY - v * scaleY;
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  ctx.fillStyle = muted;
+  ctx.font = "11px 'Work Sans', sans-serif";
+  ctx.fillText("Game 1", pad, H - 6);
+  ctx.fillText("Game 38", W - pad - 48, H - 6);
+  ctx.fillText("Win differential", pad, 14);
+}
+
+// ---------- Month labels on the scoreboard ----------
+const SEASON_MONTHS = ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"];
+function renderMonthLabels() {
+  const el = document.getElementById("scoreboard-months");
+  if (!el) return;
+  el.innerHTML = SEASON_MONTHS.map((m) => `<span>${m}</span>`).join("");
+}
+
+// ---------- Legends showcase ----------
+function renderLegends() {
+  const grid = document.getElementById("legends-grid");
+  if (!grid) return;
+  const all = [];
+  for (const [season, list] of Object.entries(state.playersBySeason)) {
+    list.forEach((p) => all.push({ ...p, season }));
+  }
+  const bestByName = new Map();
+  all.forEach((p) => {
+    if (!bestByName.has(p.name) || bestByName.get(p.name).rating < p.rating) bestByName.set(p.name, p);
+  });
+  const top = [...bestByName.values()].sort((a, b) => b.rating - a.rating).slice(0, 20);
+
+  grid.innerHTML = "";
+  top.forEach((p, i) => {
+    const el = document.createElement("div");
+    el.className = "legend-card";
+    el.innerHTML = `
+      <div class="legend-rank">${i + 1}</div>
+      ${avatarHtml(p.name)}
+      <div class="legend-info">
+        <div class="legend-name">${p.name}</div>
+        <div class="legend-sub">${p.season} · ${p.positions.join("/")} ${p.countryCode ? flagEmoji(p.countryCode) : ""}</div>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+
+// ---------- Club timeline (verified club milestones) ----------
+const TIMELINE = [
+  { year: "1996", text: "First Turkish club to win a European trophy — the Korać Cup." },
+  { year: "2000", text: "First Turkish team to reach a EuroLeague Final Four." },
+  { year: "2001", text: "Reached the SuproLeague Final Four." },
+  { year: "2019", text: "EuroLeague runners-up." },
+  { year: "2020", text: "Leading the EuroLeague when the season was cancelled." },
+  { year: "2021", text: "EuroLeague Champions — the club's first continental title." },
+  { year: "2022", text: "EuroLeague Champions again — back-to-back." },
+];
+
+function renderTimeline() {
+  const el = document.getElementById("timeline");
+  if (!el) return;
+  el.innerHTML = TIMELINE.map(
+    (t) => `<div class="tl-item"><div class="tl-year">${t.year}</div><div class="tl-text">${t.text}</div></div>`
+  ).join("");
+}
+
+// ---------- Loading tips ----------
+const LOADING_TIPS = [
+  "Tip: Build your starting five from a single season to unlock Time Capsule.",
+  "Tip: A best-of-five quarterfinal awaits — depth matters.",
+  "Tip: Your captain's contribution counts for more.",
+  "Tip: You get one trade after the roster is complete.",
+  "Tip: Winning the trophy matters more than a perfect record.",
+];
+
+// ---------- First-time tutorial ----------
+function maybeShowTutorial() {
+  if (localStorage.getItem("efes380_tutorial_seen")) return;
+  const steps = [
+    "1 — Spin to reveal a season from Efes history.",
+    "2 — Pick any player from that season's squad.",
+    "3 — Place them on the court, then chase the trophy.",
+  ];
+  const el = document.createElement("div");
+  el.className = "tutorial-overlay";
+  el.innerHTML = `
+    <div class="tutorial-box">
+      <div class="tutorial-title">How it works</div>
+      ${steps.map((s) => `<div class="tutorial-step">${s}</div>`).join("")}
+      <button class="btn-primary" id="tutorial-close">Got it</button>
+    </div>`;
+  document.body.appendChild(el);
+  el.querySelector("#tutorial-close").addEventListener("click", () => {
+    localStorage.setItem("efes380_tutorial_seen", "1");
+    el.remove();
+  });
+}
+
+// ---------- Error guard ----------
+window.addEventListener("error", (e) => {
+  if (document.querySelector(".fatal-error")) return;
+  const box = document.createElement("div");
+  box.className = "fatal-error";
+  box.innerHTML = `
+    <div class="fatal-box">
+      <div class="fatal-title">Something went wrong</div>
+      <div class="fatal-desc">The game hit an unexpected error. Restarting usually fixes it.</div>
+      <button class="btn-primary" onclick="location.reload()">Restart</button>
+    </div>`;
+  document.body.appendChild(box);
+});
+
+// ---------- v13 event wiring ----------
+document.addEventListener("DOMContentLoaded", () => {
+  renderLegends_whenReady();
+  renderTimeline();
+  renderMonthLabels();
+  maybeShowTutorial();
+
+  // Loading tips cycle
+  const tipEl = document.getElementById("loading-text");
+  if (tipEl) {
+    let ti = 0;
+    tipEl.textContent = LOADING_TIPS[0];
+    setInterval(() => {
+      ti = (ti + 1) % LOADING_TIPS.length;
+      tipEl.textContent = LOADING_TIPS[ti];
+    }, 1800);
+  }
+
+  // Home tabs
+  document.querySelectorAll(".home-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".home-tab").forEach((t) => t.classList.remove("active"));
+      document.querySelectorAll(".home-panel").forEach((p) => p.classList.remove("active"));
+      tab.classList.add("active");
+      document.getElementById(tab.dataset.panel).classList.add("active");
+    });
+  });
+
+  // Trade
+  const tradeBtn = document.getElementById("trade-btn");
+  if (tradeBtn) tradeBtn.addEventListener("click", () => {
+    if (state.tradeUsed) return;
+    startTrade();
+    tradeBtn.disabled = true;
+    tradeBtn.textContent = "Tap a player to trade";
+  });
+
+  // Playoffs entry
+  const toPo = document.getElementById("to-playoffs-btn");
+  if (toPo) toPo.addEventListener("click", () => {
+    showScreen("screen-playoffs");
+    SFX.whistle();
+    playPlayoffs(lastMargin);
+  });
+
+  const poShare = document.getElementById("playoff-share-btn");
+  if (poShare) poShare.addEventListener("click", () => {
+    if (!lastResult) return;
+    drawShareCard(lastResult.wins, lastResult.losses, lastPlayoffChampion);
+    document.getElementById("share-modal").hidden = false;
+  });
+
+  const poRestart = document.getElementById("playoff-restart-btn");
+  if (poRestart) poRestart.addEventListener("click", resetToCategory);
+});
+
+function renderLegends_whenReady() {
+  const t = setInterval(() => {
+    if (state.dataReady) { clearInterval(t); renderLegends(); }
+  }, 150);
+  setTimeout(() => clearInterval(t), 10000);
+}
+
+// Confetti in the club's kit colours.
+const KIT_CONFETTI = ["#213557", "#F4EFE3", "#00A4D2"];
+
+function countUpRecord(wins, losses) {
+  const el = document.getElementById("big-record");
+  if (!el) return;
+  const steps = 26;
+  let i = 0;
+  const t = setInterval(() => {
+    i++;
+    const w = Math.round((wins * i) / steps);
+    const l = Math.round((losses * i) / steps);
+    el.textContent = `${w}–${l}`;
+    if (i >= steps) { clearInterval(t); el.textContent = `${wins}–${losses}`; }
+  }, 45);
+}

@@ -14,7 +14,10 @@
         "rating_raw": 10.1,
         "stl": 0.44
       },
-      "rating": 10.1
+      "rating": 10.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Brian Howard",
@@ -30,7 +33,10 @@
         "rating_raw": 14.2,
         "stl": 1.42
       },
-      "rating": 14.2
+      "rating": 14.2,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Erdal Bibo",
@@ -46,7 +52,10 @@
         "rating_raw": 5.8,
         "stl": 1.0
       },
-      "rating": 5.8
+      "rating": 5.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.96"
     },
     {
       "name": "Hidayet Türkoğlu",
@@ -62,7 +71,10 @@
         "rating_raw": 9.6,
         "stl": 1.2
       },
-      "rating": 9.6
+      "rating": 9.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Hüseyin Beşok",
@@ -78,7 +90,10 @@
         "rating_raw": 9.7,
         "stl": 0.5
       },
-      "rating": 9.7
+      "rating": 9.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.12"
     },
     {
       "name": "Mirsad Türkcan",
@@ -94,7 +109,10 @@
         "rating_raw": 16.1,
         "stl": 1.06
       },
-      "rating": 16.1
+      "rating": 16.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Murat Evliyaoğlu",
@@ -110,7 +128,10 @@
         "rating_raw": 6.9,
         "stl": 0.94
       },
-      "rating": 6.9
+      "rating": 6.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Ömer Onan",
@@ -126,7 +147,10 @@
         "rating_raw": 5.1,
         "stl": 1.0
       },
-      "rating": 5.1
+      "rating": 5.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Petar Naumoski",
@@ -142,7 +166,10 @@
         "rating_raw": 17.7,
         "stl": 1.75
       },
-      "rating": 17.7
+      "rating": 17.7,
+      "country": "Kuzey Makedonya",
+      "countryCode": "MK",
+      "height": "1.94"
     },
     {
       "name": "Rod Sellers",
@@ -158,7 +185,10 @@
         "rating_raw": 16.0,
         "stl": 1.19
       },
-      "rating": 16.0
+      "rating": 16.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.05"
     },
     {
       "name": "Tamer Oyguç",
@@ -174,7 +204,10 @@
         "rating_raw": 5.4,
         "stl": 0.5
       },
-      "rating": 5.4
+      "rating": 5.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.10"
     },
     {
       "name": "Ufuk Sarıca",
@@ -190,7 +223,10 @@
         "rating_raw": 8.4,
         "stl": 1.32
       },
-      "rating": 8.4
+      "rating": 8.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Volkan Aydın",
@@ -206,7 +242,10 @@
         "rating_raw": 6.7,
         "stl": 0.82
       },
-      "rating": 6.7
+      "rating": 6.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     }
   ],
   "1998-99": [
@@ -224,7 +263,10 @@
         "rating_raw": 12.9,
         "stl": 1.52
       },
-      "rating": 12.9
+      "rating": 12.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Hüseyin Beşok",
@@ -240,7 +282,10 @@
         "rating_raw": 14.4,
         "stl": 0.83
       },
-      "rating": 14.4
+      "rating": 14.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.12"
     },
     {
       "name": "Mehmet Mumcuoğulları",
@@ -256,7 +301,10 @@
         "rating_raw": 2.0,
         "stl": 0.0
       },
-      "rating": 2.0
+      "rating": 2.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.03"
     },
     {
       "name": "Murat Evliyaoğlu",
@@ -272,7 +320,10 @@
         "rating_raw": 7.1,
         "stl": 0.83
       },
-      "rating": 7.1
+      "rating": 7.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Nedim Dal",
@@ -288,7 +339,10 @@
         "rating_raw": 1.7,
         "stl": 0.0
       },
-      "rating": 1.7
+      "rating": 1.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.14"
     },
     {
       "name": "Ömer Onan",
@@ -304,7 +358,10 @@
         "rating_raw": 6.7,
         "stl": 0.64
       },
-      "rating": 6.7
+      "rating": 6.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Petar Naumoski",
@@ -320,7 +377,10 @@
         "rating_raw": 18.2,
         "stl": 1.33
       },
-      "rating": 18.2
+      "rating": 18.2,
+      "country": "Kuzey Makedonya",
+      "countryCode": "MK",
+      "height": "1.94"
     },
     {
       "name": "Predrag Drobnjak",
@@ -336,7 +396,10 @@
         "rating_raw": 13.8,
         "stl": 0.78
       },
-      "rating": 13.8
+      "rating": 13.8,
+      "country": "Karadağ",
+      "countryCode": "ME",
+      "height": "2.11"
     },
     {
       "name": "Ufuk Sarıca",
@@ -352,7 +415,10 @@
         "rating_raw": 8.3,
         "stl": 1.26
       },
-      "rating": 8.3
+      "rating": 8.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Volkan Aydın",
@@ -368,7 +434,10 @@
         "rating_raw": 6.5,
         "stl": 0.5
       },
-      "rating": 6.5
+      "rating": 6.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Zoran Savic",
@@ -384,7 +453,10 @@
         "rating_raw": 12.3,
         "stl": 0.79
       },
-      "rating": 12.3
+      "rating": 12.3,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "2.08"
     }
   ],
   "1999-00": [
@@ -402,7 +474,10 @@
         "rating_raw": 2.5,
         "stl": 0.27
       },
-      "rating": 2.5
+      "rating": 2.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Bora Sancar",
@@ -418,7 +493,10 @@
         "rating_raw": 2.1,
         "stl": 0.42
       },
-      "rating": 2.1
+      "rating": 2.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.78"
     },
     {
       "name": "Damir Mulaomerović",
@@ -434,7 +512,10 @@
         "rating_raw": 14.9,
         "stl": 1.41
       },
-      "rating": 14.9
+      "rating": 14.9,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "1.94"
     },
     {
       "name": "Hidayet Türkoğlu",
@@ -450,7 +531,10 @@
         "rating_raw": 14.7,
         "stl": 1.38
       },
-      "rating": 14.7
+      "rating": 14.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Hüseyin Beşok",
@@ -466,7 +550,10 @@
         "rating_raw": 16.9,
         "stl": 0.88
       },
-      "rating": 16.9
+      "rating": 16.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.12"
     },
     {
       "name": "İbrahim Kutluay",
@@ -482,7 +569,10 @@
         "rating_raw": 12.1,
         "stl": 0.92
       },
-      "rating": 12.1
+      "rating": 12.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Kareem Reid",
@@ -498,7 +588,10 @@
         "rating_raw": 2.0,
         "stl": 0.0
       },
-      "rating": 2.0
+      "rating": 2.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.78"
     },
     {
       "name": "Marc Jackson",
@@ -514,7 +607,10 @@
         "rating_raw": 10.7,
         "stl": 0.86
       },
-      "rating": 10.7
+      "rating": 10.7,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "Nedim Dal",
@@ -530,7 +626,10 @@
         "rating_raw": 2.0,
         "stl": 0.13
       },
-      "rating": 2.0
+      "rating": 2.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.14"
     },
     {
       "name": "Ömer Onan",
@@ -546,7 +645,10 @@
         "rating_raw": 4.1,
         "stl": 0.66
       },
-      "rating": 4.1
+      "rating": 4.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Predrag Drobnjak",
@@ -562,7 +664,10 @@
         "rating_raw": 15.1,
         "stl": 1.14
       },
-      "rating": 15.1
+      "rating": 15.1,
+      "country": "Karadağ",
+      "countryCode": "ME",
+      "height": "2.11"
     },
     {
       "name": "Rickie Winslow",
@@ -578,7 +683,10 @@
         "rating_raw": 8.9,
         "stl": 0.73
       },
-      "rating": 8.9
+      "rating": 8.9,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.04"
     },
     {
       "name": "Stephen Howard",
@@ -594,7 +702,10 @@
         "rating_raw": 14.0,
         "stl": 1.0
       },
-      "rating": 14.0
+      "rating": 14.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.07"
     },
     {
       "name": "Tufan Ersöz",
@@ -610,7 +721,10 @@
         "rating_raw": 5.0,
         "stl": 0.0
       },
-      "rating": 5.0
+      "rating": 5.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.96"
     }
   ],
   "2000-01": [
@@ -628,7 +742,10 @@
         "rating_raw": 4.9,
         "stl": 0.87
       },
-      "rating": 4.9
+      "rating": 4.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Damir Mulaomerović",
@@ -644,7 +761,10 @@
         "rating_raw": 16.9,
         "stl": 1.44
       },
-      "rating": 16.9
+      "rating": 16.9,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "1.94"
     },
     {
       "name": "Ender Arslan",
@@ -660,7 +780,10 @@
         "rating_raw": 2.5,
         "stl": 1.27
       },
-      "rating": 2.5
+      "rating": 2.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Engin Atsür",
@@ -676,7 +799,10 @@
         "rating_raw": 1.7,
         "stl": 1.0
       },
-      "rating": 1.7
+      "rating": 1.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Erdal Bibo",
@@ -692,7 +818,10 @@
         "rating_raw": 6.0,
         "stl": 0.8
       },
-      "rating": 6.0
+      "rating": 6.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.96"
     },
     {
       "name": "Hüseyin Beşok",
@@ -708,7 +837,10 @@
         "rating_raw": 15.4,
         "stl": 0.73
       },
-      "rating": 15.4
+      "rating": 15.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.12"
     },
     {
       "name": "Kaya Peker",
@@ -724,7 +856,10 @@
         "rating_raw": 7.3,
         "stl": 0.57
       },
-      "rating": 7.3
+      "rating": 7.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Kerem Tunçeri",
@@ -740,7 +875,10 @@
         "rating_raw": 8.7,
         "stl": 1.41
       },
-      "rating": 8.7
+      "rating": 8.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Mehmet Okur",
@@ -757,7 +895,10 @@
         "rating_raw": 12.4,
         "stl": 0.53
       },
-      "rating": 12.4
+      "rating": 12.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.11"
     },
     {
       "name": "Ömer Onan",
@@ -773,7 +914,10 @@
         "rating_raw": 9.4,
         "stl": 1.18
       },
-      "rating": 9.4
+      "rating": 9.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Predrag Drobnjak",
@@ -789,7 +933,10 @@
         "rating_raw": 15.5,
         "stl": 0.85
       },
-      "rating": 15.5
+      "rating": 15.5,
+      "country": "Karadağ",
+      "countryCode": "ME",
+      "height": "2.11"
     },
     {
       "name": "Vlado Šćepanović",
@@ -805,7 +952,10 @@
         "rating_raw": 8.4,
         "stl": 0.97
       },
-      "rating": 8.4
+      "rating": 8.4,
+      "country": "Karadağ",
+      "countryCode": "ME",
+      "height": "1.96"
     }
   ],
   "2001-02": [
@@ -831,7 +981,10 @@
         "rating_raw": 18.9,
         "stl": 1.55
       },
-      "rating": 17.1
+      "rating": 17.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.91"
     },
     {
       "name": "Kaspars Kambala",
@@ -855,7 +1008,10 @@
         "rating_raw": 13.7,
         "stl": 0.94
       },
-      "rating": 13.0
+      "rating": 13.0,
+      "country": "Letonya",
+      "countryCode": "LV",
+      "height": "2.06"
     },
     {
       "name": "Mehmet Okur",
@@ -880,7 +1036,10 @@
         "rating_raw": 17.7,
         "stl": 1.03
       },
-      "rating": 15.95
+      "rating": 15.95,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.11"
     },
     {
       "name": "Saulius Stombergas",
@@ -904,7 +1063,10 @@
         "rating_raw": 11.1,
         "stl": 1.06
       },
-      "rating": 9.35
+      "rating": 9.35,
+      "country": "Litvanya",
+      "countryCode": "LT",
+      "height": "2.04"
     },
     {
       "name": "Omer Onan",
@@ -928,7 +1090,10 @@
         "rating_raw": 6.7,
         "stl": 0.77
       },
-      "rating": 5.5
+      "rating": 5.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Kerem Tunceri",
@@ -952,7 +1117,10 @@
         "rating_raw": 9.9,
         "stl": 1.4
       },
-      "rating": 5.75
+      "rating": 5.75,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Alper Yılmaz",
@@ -968,7 +1136,10 @@
         "rating_raw": 5.7,
         "stl": 1.13
       },
-      "rating": 5.7
+      "rating": 5.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Arda Vekiloğlu",
@@ -984,7 +1155,10 @@
         "rating_raw": 7.0,
         "stl": 0.42
       },
-      "rating": 7.0
+      "rating": 7.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Ender Arslan",
@@ -1000,7 +1174,10 @@
         "rating_raw": 6.0,
         "stl": 0.72
       },
-      "rating": 6.0
+      "rating": 6.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Enver Ekmen",
@@ -1016,7 +1193,10 @@
         "rating_raw": -1.0,
         "stl": 0.0
       },
-      "rating": -1.0
+      "rating": -1.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Kaya Peker",
@@ -1032,7 +1212,10 @@
         "rating_raw": 7.1,
         "stl": 1.09
       },
-      "rating": 7.1
+      "rating": 7.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     }
   ],
   "2002-03": [
@@ -1058,7 +1241,10 @@
         "rating_raw": 14.5,
         "stl": 0.93
       },
-      "rating": 14.65
+      "rating": 14.65,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.91"
     },
     {
       "name": "Kaspars Kambala",
@@ -1082,7 +1268,10 @@
         "rating_raw": 17.9,
         "stl": 0.88
       },
-      "rating": 16.2
+      "rating": 16.2,
+      "country": "Letonya",
+      "countryCode": "LV",
+      "height": "2.06"
     },
     {
       "name": "Antonio Granger",
@@ -1106,7 +1295,10 @@
         "rating_raw": 13.2,
         "stl": 0.74
       },
-      "rating": 11.0
+      "rating": 11.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Jurica Golemac",
@@ -1130,7 +1322,10 @@
         "rating_raw": 9.4,
         "stl": 0.93
       },
-      "rating": 7.6
+      "rating": 7.6,
+      "country": "Slovenya",
+      "countryCode": "SI",
+      "height": "2.09"
     },
     {
       "name": "Kerem Tunceri",
@@ -1154,7 +1349,10 @@
         "rating_raw": 11.1,
         "stl": 1.61
       },
-      "rating": 8.85
+      "rating": 8.85,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Kaya Peker",
@@ -1178,7 +1376,10 @@
         "rating_raw": 12.2,
         "stl": 0.79
       },
-      "rating": 7.85
+      "rating": 7.85,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Alper Yilmaz",
@@ -1202,7 +1403,10 @@
         "rating_raw": 7.0,
         "stl": 1.09
       },
-      "rating": 5.55
+      "rating": 5.55,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Asım Pars",
@@ -1218,7 +1422,10 @@
         "rating_raw": 7.9,
         "stl": 0.85
       },
-      "rating": 7.9
+      "rating": 7.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.10"
     },
     {
       "name": "Ender Arslan",
@@ -1234,7 +1441,10 @@
         "rating_raw": 6.3,
         "stl": 0.77
       },
-      "rating": 6.3
+      "rating": 6.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Enver Ekmen",
@@ -1250,7 +1460,10 @@
         "rating_raw": 2.7,
         "stl": 0.24
       },
-      "rating": 2.7
+      "rating": 2.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Ira Clark",
@@ -1266,7 +1479,10 @@
         "rating_raw": 11.0,
         "stl": 0.7
       },
-      "rating": 11.0
+      "rating": 11.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Ömer Onan",
@@ -1282,7 +1498,10 @@
         "rating_raw": 8.2,
         "stl": 0.87
       },
-      "rating": 8.2
+      "rating": 8.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Valentin Pastal",
@@ -1298,7 +1517,10 @@
         "rating_raw": 2.5,
         "stl": 0.6
       },
-      "rating": 2.5
+      "rating": 2.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     }
   ],
   "2003-04": [
@@ -1324,7 +1546,10 @@
         "rating_raw": 17.1,
         "stl": 1.09
       },
-      "rating": 14.8
+      "rating": 14.8,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Trajan Langdon",
@@ -1348,7 +1573,10 @@
         "rating_raw": 10.6,
         "stl": 1.06
       },
-      "rating": 10.2
+      "rating": 10.2,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.91"
     },
     {
       "name": "Kaya Peker",
@@ -1372,7 +1600,10 @@
         "rating_raw": 13.7,
         "stl": 1.45
       },
-      "rating": 10.85
+      "rating": 10.85,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Ermal Kuqo",
@@ -1396,7 +1627,10 @@
         "rating_raw": 10.1,
         "stl": 0.51
       },
-      "rating": 7.8
+      "rating": 7.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Goran Nikolic",
@@ -1420,7 +1654,10 @@
         "rating_raw": 11.9,
         "stl": 0.75
       },
-      "rating": 11.35
+      "rating": 11.35,
+      "country": "Karadağ",
+      "countryCode": "ME",
+      "height": "2.07"
     },
     {
       "name": "Ender Arslan",
@@ -1444,7 +1681,10 @@
         "rating_raw": 5.4,
         "stl": 0.91
       },
-      "rating": 5.2
+      "rating": 5.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Nikola Prkacin",
@@ -1468,7 +1708,10 @@
         "rating_raw": 12.4,
         "stl": 1.29
       },
-      "rating": 9.15
+      "rating": 9.15,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.08"
     },
     {
       "name": "Alper Yilmaz",
@@ -1492,7 +1735,10 @@
         "rating_raw": 5.3,
         "stl": 0.97
       },
-      "rating": 3.55
+      "rating": 3.55,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Cenk Akyol",
@@ -1508,7 +1754,10 @@
         "rating_raw": 5.7,
         "stl": 2.0
       },
-      "rating": 5.7
+      "rating": 5.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Kerem Tunçeri",
@@ -1524,7 +1773,10 @@
         "rating_raw": 9.3,
         "stl": 1.33
       },
-      "rating": 9.3
+      "rating": 9.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Ömer Onan",
@@ -1540,7 +1792,10 @@
         "rating_raw": 5.1,
         "stl": 0.96
       },
-      "rating": 5.1
+      "rating": 5.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Selim Saygın",
@@ -1556,7 +1811,10 @@
         "rating_raw": 1.3,
         "stl": 0.13
       },
-      "rating": 1.3
+      "rating": 1.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Valentin Pastal",
@@ -1572,7 +1830,10 @@
         "rating_raw": 1.3,
         "stl": 0.08
       },
-      "rating": 1.3
+      "rating": 1.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     }
   ],
   "2004-05": [
@@ -1598,7 +1859,10 @@
         "rating_raw": 13.2,
         "stl": 1.67
       },
-      "rating": 11.25
+      "rating": 11.25,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.88"
     },
     {
       "name": "Henry Domercant",
@@ -1622,7 +1886,10 @@
         "rating_raw": 13.1,
         "stl": 1.34
       },
-      "rating": 11.95
+      "rating": 11.95,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Nikola Prkacin",
@@ -1646,7 +1913,10 @@
         "rating_raw": 9.5,
         "stl": 0.85
       },
-      "rating": 8.95
+      "rating": 8.95,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.08"
     },
     {
       "name": "Goran Nikolic",
@@ -1670,7 +1940,10 @@
         "rating_raw": 13.5,
         "stl": 0.46
       },
-      "rating": 12.1
+      "rating": 12.1,
+      "country": "Karadağ",
+      "countryCode": "ME",
+      "height": "2.07"
     },
     {
       "name": "Ermal Kuqo",
@@ -1694,7 +1967,10 @@
         "rating_raw": 11.0,
         "stl": 0.57
       },
-      "rating": 8.05
+      "rating": 8.05,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Ender Arslan",
@@ -1718,7 +1994,10 @@
         "rating_raw": 6.5,
         "stl": 0.82
       },
-      "rating": 5.65
+      "rating": 5.65,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Kaya Peker",
@@ -1742,7 +2021,10 @@
         "rating_raw": 15.0,
         "stl": 0.97
       },
-      "rating": 9.9
+      "rating": 9.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Alper Yilmaz",
@@ -1766,7 +2048,10 @@
         "rating_raw": 6.6,
         "stl": 0.95
       },
-      "rating": 4.1
+      "rating": 4.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Barış Ermiş",
@@ -1782,7 +2067,10 @@
         "rating_raw": 2.9,
         "stl": 0.75
       },
-      "rating": 2.9
+      "rating": 2.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Cenk Akyol",
@@ -1798,7 +2086,10 @@
         "rating_raw": 5.9,
         "stl": 0.79
       },
-      "rating": 5.9
+      "rating": 5.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Mustafa Abi",
@@ -1814,7 +2105,10 @@
         "rating_raw": 6.7,
         "stl": 0.94
       },
-      "rating": 6.7
+      "rating": 6.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Valentin Pastal",
@@ -1830,7 +2124,10 @@
         "rating_raw": 2.0,
         "stl": 0.08
       },
-      "rating": 2.0
+      "rating": 2.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     }
   ],
   "2005-06": [
@@ -1856,7 +2153,10 @@
         "rating_raw": 10.7,
         "stl": 0.67
       },
-      "rating": 9.9
+      "rating": 9.9,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Henry Domercant",
@@ -1880,7 +2180,10 @@
         "rating_raw": 8.2,
         "stl": 0.79
       },
-      "rating": 8.35
+      "rating": 8.35,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Nikola Prkacin",
@@ -1904,7 +2207,10 @@
         "rating_raw": 11.9,
         "stl": 1.49
       },
-      "rating": 11.3
+      "rating": 11.3,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.08"
     },
     {
       "name": "Kaya Peker",
@@ -1928,7 +2234,10 @@
         "rating_raw": 13.1,
         "stl": 1.19
       },
-      "rating": 10.15
+      "rating": 10.15,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Ender Arslan",
@@ -1952,7 +2261,10 @@
         "rating_raw": 7.0,
         "stl": 0.89
       },
-      "rating": 4.5
+      "rating": 4.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Kerem Gonlum",
@@ -1976,7 +2288,10 @@
         "rating_raw": 10.9,
         "stl": 0.7
       },
-      "rating": 8.95
+      "rating": 8.95,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Alper Yılmaz",
@@ -1992,7 +2307,10 @@
         "rating_raw": 4.8,
         "stl": 1.14
       },
-      "rating": 4.8
+      "rating": 4.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Barış Ermiş",
@@ -2008,7 +2326,10 @@
         "rating_raw": 5.2,
         "stl": 0.79
       },
-      "rating": 5.2
+      "rating": 5.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.94"
     },
     {
       "name": "Cenk Akyol",
@@ -2024,7 +2345,10 @@
         "rating_raw": 5.2,
         "stl": 0.69
       },
-      "rating": 5.2
+      "rating": 5.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Charles Smith",
@@ -2040,7 +2364,10 @@
         "rating_raw": 11.1,
         "stl": 2.0
       },
-      "rating": 11.1
+      "rating": 11.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.95"
     },
     {
       "name": "Ermal Kuqo",
@@ -2056,7 +2383,10 @@
         "rating_raw": 8.9,
         "stl": 0.56
       },
-      "rating": 8.9
+      "rating": 8.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Marko Popovic",
@@ -2072,7 +2402,10 @@
         "rating_raw": 7.4,
         "stl": 0.9
       },
-      "rating": 7.4
+      "rating": 7.4,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "1.82"
     },
     {
       "name": "Mustafa Abi",
@@ -2088,7 +2421,10 @@
         "rating_raw": 4.5,
         "stl": 0.61
       },
-      "rating": 4.5
+      "rating": 4.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Mutlu Demir",
@@ -2104,7 +2440,10 @@
         "rating_raw": 2.9,
         "stl": 0.23
       },
-      "rating": 2.9
+      "rating": 2.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     }
   ],
   "2006-07": [
@@ -2130,7 +2469,10 @@
         "rating_raw": 13.5,
         "stl": 0.39
       },
-      "rating": 13.75
+      "rating": 13.75,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.07"
     },
     {
       "name": "Drew Nicholas",
@@ -2154,7 +2496,10 @@
         "rating_raw": 16.7,
         "stl": 1.18
       },
-      "rating": 13.7
+      "rating": 13.7,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Ermal Kuqo",
@@ -2178,7 +2523,10 @@
         "rating_raw": 11.1,
         "stl": 0.51
       },
-      "rating": 8.8
+      "rating": 8.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Nikola Prkacin",
@@ -2202,7 +2550,10 @@
         "rating_raw": 7.2,
         "stl": 0.69
       },
-      "rating": 6.1
+      "rating": 6.1,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.08"
     },
     {
       "name": "Kerem Gonlum",
@@ -2226,7 +2577,10 @@
         "rating_raw": 14.9,
         "stl": 1.26
       },
-      "rating": 11.2
+      "rating": 11.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Cuneyt Erden",
@@ -2250,7 +2604,10 @@
         "rating_raw": 6.7,
         "stl": 1.03
       },
-      "rating": 4.6
+      "rating": 4.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Mustafa Abi",
@@ -2274,7 +2631,10 @@
         "rating_raw": 3.4,
         "stl": 0.66
       },
-      "rating": 1.4
+      "rating": 1.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Aleksandar Rasic",
@@ -2290,7 +2650,10 @@
         "rating_raw": 5.6,
         "stl": 0.2
       },
-      "rating": 5.6
+      "rating": 5.6,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "1.95"
     },
     {
       "name": "Antonio Granger",
@@ -2306,7 +2669,10 @@
         "rating_raw": 9.9,
         "stl": 0.33
       },
-      "rating": 9.9
+      "rating": 9.9,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Barış Hersek",
@@ -2322,7 +2688,10 @@
         "rating_raw": 3.1,
         "stl": 0.31
       },
-      "rating": 3.1
+      "rating": 3.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Bora Paçun",
@@ -2338,7 +2707,10 @@
         "rating_raw": 1.8,
         "stl": 0.0
       },
-      "rating": 1.8
+      "rating": 1.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.10"
     },
     {
       "name": "Can Akın",
@@ -2354,7 +2726,10 @@
         "rating_raw": 4.7,
         "stl": 0.57
       },
-      "rating": 4.7
+      "rating": 4.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Cenk Akyol",
@@ -2370,7 +2745,10 @@
         "rating_raw": 7.4,
         "stl": 0.88
       },
-      "rating": 7.4
+      "rating": 7.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Emre Bayav",
@@ -2386,7 +2764,10 @@
         "rating_raw": 2.9,
         "stl": 0.2
       },
-      "rating": 2.9
+      "rating": 2.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.12"
     },
     {
       "name": "Horace Jenkins",
@@ -2402,7 +2783,10 @@
         "rating_raw": 5.6,
         "stl": 0.78
       },
-      "rating": 5.6
+      "rating": 5.6,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.85"
     }
   ],
   "2007-08": [
@@ -2428,7 +2812,10 @@
         "rating_raw": 13.5,
         "stl": 0.6
       },
-      "rating": 12.0
+      "rating": 12.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.02"
     },
     {
       "name": "Kenny Gregory",
@@ -2452,7 +2839,10 @@
         "rating_raw": 9.5,
         "stl": 0.56
       },
-      "rating": 9.5
+      "rating": 9.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.97"
     },
     {
       "name": "Scoonie Penn",
@@ -2476,7 +2866,10 @@
         "rating_raw": 9.5,
         "stl": 1.03
       },
-      "rating": 8.85
+      "rating": 8.85,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.78"
     },
     {
       "name": "Ermal Kuqo",
@@ -2500,7 +2893,10 @@
         "rating_raw": 11.2,
         "stl": 0.37
       },
-      "rating": 8.0
+      "rating": 8.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Loren Woods",
@@ -2524,7 +2920,10 @@
         "rating_raw": 12.1,
         "stl": 0.67
       },
-      "rating": 11.8
+      "rating": 11.8,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.16"
     },
     {
       "name": "Kerem Gonlum",
@@ -2548,7 +2947,10 @@
         "rating_raw": 15.0,
         "stl": 0.81
       },
-      "rating": 10.85
+      "rating": 10.85,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Ender Arslan",
@@ -2572,7 +2974,10 @@
         "rating_raw": 7.9,
         "stl": 0.83
       },
-      "rating": 5.15
+      "rating": 5.15,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Andrew Nicholas",
@@ -2588,7 +2993,10 @@
         "rating_raw": 12.8,
         "stl": 0.69
       },
-      "rating": 12.8
+      "rating": 12.8,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Barış Hersek",
@@ -2604,7 +3012,10 @@
         "rating_raw": 1.3,
         "stl": 0.0
       },
-      "rating": 1.3
+      "rating": 1.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Bora Paçun",
@@ -2620,7 +3031,10 @@
         "rating_raw": 1.0,
         "stl": 0.1
       },
-      "rating": 1.0
+      "rating": 1.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.10"
     },
     {
       "name": "Craig Bradshaw",
@@ -2636,7 +3050,10 @@
         "rating_raw": 5.9,
         "stl": 0.09
       },
-      "rating": 5.9
+      "rating": 5.9,
+      "country": "Yeni Zelanda",
+      "countryCode": "NZ",
+      "height": "2.08"
     },
     {
       "name": "Dewarick Spencer",
@@ -2652,7 +3069,10 @@
         "rating_raw": 7.2,
         "stl": 0.67
       },
-      "rating": 7.2
+      "rating": 7.2,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Mustafa Abi",
@@ -2668,7 +3088,10 @@
         "rating_raw": 5.8,
         "stl": 0.47
       },
-      "rating": 5.8
+      "rating": 5.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Rashad Wright",
@@ -2684,7 +3107,10 @@
         "rating_raw": 8.0,
         "stl": 1.44
       },
-      "rating": 8.0
+      "rating": 8.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.89"
     },
     {
       "name": "Serkan Erdoğan",
@@ -2700,7 +3126,10 @@
         "rating_raw": 7.9,
         "stl": 0.75
       },
-      "rating": 7.9
+      "rating": 7.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     }
   ],
   "2008-09": [
@@ -2726,7 +3155,10 @@
         "rating_raw": 12.2,
         "stl": 1.63
       },
-      "rating": 11.85
+      "rating": 11.85,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.95"
     },
     {
       "name": "Charles Cornelius Smith",
@@ -2743,7 +3175,10 @@
         "rating_raw": 9.8
       },
       "bsl": null,
-      "rating": 9.8
+      "rating": 9.8,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Milos Vujanic",
@@ -2767,7 +3202,10 @@
         "rating_raw": 8.8,
         "stl": 0.67
       },
-      "rating": 7.75
+      "rating": 7.75,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "1.90"
     },
     {
       "name": "Kerem Gonlum",
@@ -2791,7 +3229,10 @@
         "rating_raw": 12.6,
         "stl": 0.71
       },
-      "rating": 11.75
+      "rating": 11.75,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Mihalis Kakiouzis",
@@ -2815,7 +3256,10 @@
         "rating_raw": 9.0,
         "stl": 0.74
       },
-      "rating": 7.7
+      "rating": 7.7,
+      "country": "Yunanistan",
+      "countryCode": "GR",
+      "height": "2.07"
     },
     {
       "name": "Kaya Peker",
@@ -2839,7 +3283,10 @@
         "rating_raw": 11.7,
         "stl": 1.03
       },
-      "rating": 7.6
+      "rating": 7.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Preston Shumpert",
@@ -2863,7 +3310,10 @@
         "rating_raw": 10.4,
         "stl": 1.32
       },
-      "rating": 6.35
+      "rating": 6.35,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Bora Paçun",
@@ -2879,7 +3329,10 @@
         "rating_raw": 2.0,
         "stl": 0.64
       },
-      "rating": 2.0
+      "rating": 2.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.10"
     },
     {
       "name": "Cenk Akyol",
@@ -2895,7 +3348,10 @@
         "rating_raw": 5.9,
         "stl": 0.83
       },
-      "rating": 5.9
+      "rating": 5.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Charles Smith",
@@ -2911,7 +3367,10 @@
         "rating_raw": 12.7,
         "stl": 1.86
       },
-      "rating": 12.7
+      "rating": 12.7,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.95"
     },
     {
       "name": "Ender Arslan",
@@ -2927,7 +3386,10 @@
         "rating_raw": 8.1,
         "stl": 0.95
       },
-      "rating": 8.1
+      "rating": 8.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Engin Atsür",
@@ -2943,7 +3405,10 @@
         "rating_raw": 3.0,
         "stl": 0.67
       },
-      "rating": 3.0
+      "rating": 3.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Kerem Tunçeri",
@@ -2959,7 +3424,10 @@
         "rating_raw": 6.8,
         "stl": 0.74
       },
-      "rating": 6.8
+      "rating": 6.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Mario Kasun",
@@ -2975,7 +3443,10 @@
         "rating_raw": 11.8,
         "stl": 0.33
       },
-      "rating": 11.8
+      "rating": 11.8,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.13"
     },
     {
       "name": "Mustafa Abi",
@@ -2991,7 +3462,10 @@
         "rating_raw": -2.0,
         "stl": 0.0
       },
-      "rating": -2.0
+      "rating": -2.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Sinan Güler",
@@ -3007,7 +3481,10 @@
         "rating_raw": 5.3,
         "stl": 0.63
       },
-      "rating": 5.3
+      "rating": 5.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     }
   ],
   "2009-10": [
@@ -3026,7 +3503,10 @@
         "rating_raw": 9.7
       },
       "bsl": null,
-      "rating": 9.7
+      "rating": 9.7,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Igor Rakocevic",
@@ -3050,7 +3530,10 @@
         "rating_raw": 12.5,
         "stl": 0.78
       },
-      "rating": 9.05
+      "rating": 9.05,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "1.94"
     },
     {
       "name": "Bootsy Thornton",
@@ -3074,7 +3557,10 @@
         "rating_raw": 13.3,
         "stl": 1.18
       },
-      "rating": 10.25
+      "rating": 10.25,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.95"
     },
     {
       "name": "Kaya Peker",
@@ -3098,7 +3584,10 @@
         "rating_raw": 10.2,
         "stl": 0.68
       },
-      "rating": 9.2
+      "rating": 9.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Preston Shumpert",
@@ -3122,7 +3611,10 @@
         "rating_raw": 14.1,
         "stl": 1.05
       },
-      "rating": 10.6
+      "rating": 10.6,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Mario Kasun",
@@ -3146,7 +3638,10 @@
         "rating_raw": 10.3,
         "stl": 0.28
       },
-      "rating": 9.55
+      "rating": 9.55,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.13"
     },
     {
       "name": "Bostjan Nachbar",
@@ -3170,7 +3665,10 @@
         "rating_raw": 10.4,
         "stl": 0.64
       },
-      "rating": 7.7
+      "rating": 7.7,
+      "country": "Slovenya",
+      "countryCode": "SI",
+      "height": "2.07"
     },
     {
       "name": "Kerem Tunceri",
@@ -3194,7 +3692,10 @@
         "rating_raw": 7.8,
         "stl": 0.79
       },
-      "rating": 5.3
+      "rating": 5.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Ali Işık",
@@ -3210,7 +3711,10 @@
         "rating_raw": 0.8,
         "stl": 0.0
       },
-      "rating": 0.8
+      "rating": 0.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Charles Smith",
@@ -3226,7 +3730,10 @@
         "rating_raw": 14.1,
         "stl": 2.08
       },
-      "rating": 14.1
+      "rating": 14.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.95"
     },
     {
       "name": "Dusan Cantekin",
@@ -3242,7 +3749,10 @@
         "rating_raw": 2.8,
         "stl": 0.26
       },
-      "rating": 2.8
+      "rating": 2.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.18"
     },
     {
       "name": "Ender Arslan",
@@ -3258,7 +3768,10 @@
         "rating_raw": 7.9,
         "stl": 0.74
       },
-      "rating": 7.9
+      "rating": 7.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Ermal Kuqo",
@@ -3274,7 +3787,10 @@
         "rating_raw": 6.6,
         "stl": 0.38
       },
-      "rating": 6.6
+      "rating": 6.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Sinan Güler",
@@ -3290,7 +3806,10 @@
         "rating_raw": 6.9,
         "stl": 1.23
       },
-      "rating": 6.9
+      "rating": 6.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     }
   ],
   "2010-11": [
@@ -3316,7 +3835,10 @@
         "rating_raw": 11.0,
         "stl": 0.69
       },
-      "rating": 11.0
+      "rating": 11.0,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "1.94"
     },
     {
       "name": "Kerem Gonlum",
@@ -3340,7 +3862,10 @@
         "rating_raw": 16.8,
         "stl": 0.9
       },
-      "rating": 13.65
+      "rating": 13.65,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Kerem Tunceri",
@@ -3364,7 +3889,10 @@
         "rating_raw": 8.4,
         "stl": 0.58
       },
-      "rating": 8.2
+      "rating": 8.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Bootsy Thornton",
@@ -3388,7 +3916,10 @@
         "rating_raw": 11.3,
         "stl": 1.21
       },
-      "rating": 10.15
+      "rating": 10.15,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.95"
     },
     {
       "name": "Bostjan Nachbar",
@@ -3412,7 +3943,10 @@
         "rating_raw": 10.6,
         "stl": 0.58
       },
-      "rating": 7.15
+      "rating": 7.15,
+      "country": "Slovenya",
+      "countryCode": "SI",
+      "height": "2.07"
     },
     {
       "name": "Lawrence Roberts",
@@ -3436,7 +3970,10 @@
         "rating_raw": 10.6,
         "stl": 0.87
       },
-      "rating": 8.25
+      "rating": 8.25,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "Nikola Vujcic",
@@ -3460,7 +3997,10 @@
         "rating_raw": 10.3,
         "stl": 0.68
       },
-      "rating": 7.6
+      "rating": 7.6,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.11"
     },
     {
       "name": "Andrew Wisniewski",
@@ -3477,7 +4017,10 @@
         "rating_raw": 2.0
       },
       "bsl": null,
-      "rating": 2.0
+      "rating": 2.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.91"
     },
     {
       "name": "Sinan Guler",
@@ -3501,7 +4044,10 @@
         "rating_raw": 8.0,
         "stl": 1.34
       },
-      "rating": 5.25
+      "rating": 5.25,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Ali Işık",
@@ -3517,7 +4063,10 @@
         "rating_raw": 2.4,
         "stl": 0.2
       },
-      "rating": 2.4
+      "rating": 2.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Burak Yacan Yüksel",
@@ -3533,7 +4082,10 @@
         "rating_raw": 3.0,
         "stl": 0.0
       },
-      "rating": 3.0
+      "rating": 3.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Cenk Akyol",
@@ -3549,7 +4101,10 @@
         "rating_raw": 6.7,
         "stl": 0.42
       },
-      "rating": 6.7
+      "rating": 6.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Ender Arslan",
@@ -3565,7 +4120,10 @@
         "rating_raw": 5.4,
         "stl": 0.53
       },
-      "rating": 5.4
+      "rating": 5.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Erwin Dudley",
@@ -3581,7 +4139,10 @@
         "rating_raw": 8.5,
         "stl": 0.45
       },
-      "rating": 8.5
+      "rating": 8.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Flip Murray",
@@ -3597,7 +4158,10 @@
         "rating_raw": 5.4,
         "stl": 0.38
       },
-      "rating": 5.4
+      "rating": 5.4,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.91"
     }
   ],
   "2011-12": [
@@ -3623,7 +4187,10 @@
         "rating_raw": 11.1,
         "stl": 1.06
       },
-      "rating": 10.0
+      "rating": 10.0,
+      "country": "Slovenya",
+      "countryCode": "SI",
+      "height": "2.01"
     },
     {
       "name": "Stanko Barac",
@@ -3647,7 +4214,10 @@
         "rating_raw": 8.2,
         "stl": 0.55
       },
-      "rating": 7.45
+      "rating": 7.45,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.17"
     },
     {
       "name": "Dusko Savanovic",
@@ -3671,7 +4241,10 @@
         "rating_raw": 12.4,
         "stl": 0.93
       },
-      "rating": 10.85
+      "rating": 10.85,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "2.04"
     },
     {
       "name": "Esteban Batista",
@@ -3695,7 +4268,10 @@
         "rating_raw": 10.8,
         "stl": 0.66
       },
-      "rating": 7.55
+      "rating": 7.55,
+      "country": "Uruguay",
+      "countryCode": "UY",
+      "height": "2.08"
     },
     {
       "name": "Cenk Akyol",
@@ -3719,7 +4295,10 @@
         "rating_raw": 7.0,
         "stl": 0.72
       },
-      "rating": 4.6
+      "rating": 4.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Kerem Tunceri",
@@ -3743,7 +4322,10 @@
         "rating_raw": 10.9,
         "stl": 1.0
       },
-      "rating": 7.0
+      "rating": 7.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Sinan Guler",
@@ -3767,7 +4349,10 @@
         "rating_raw": 7.9,
         "stl": 1.02
       },
-      "rating": 5.35
+      "rating": 5.35,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Doğuş Balbay",
@@ -3783,7 +4368,10 @@
         "rating_raw": 4.7,
         "stl": 0.97
       },
-      "rating": 4.7
+      "rating": 4.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Ermal Kuqo",
@@ -3799,7 +4387,10 @@
         "rating_raw": 5.7,
         "stl": 0.42
       },
-      "rating": 5.7
+      "rating": 5.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Gökhan Şirin",
@@ -3815,7 +4406,10 @@
         "rating_raw": 3.5,
         "stl": 0.13
       },
-      "rating": 3.5
+      "rating": 3.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Kerem Gönlüm",
@@ -3831,7 +4425,10 @@
         "rating_raw": 9.0,
         "stl": 0.62
       },
-      "rating": 9.0
+      "rating": 9.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Oliver Lafayette",
@@ -3847,7 +4444,10 @@
         "rating_raw": 8.0,
         "stl": 0.96
       },
-      "rating": 8.0
+      "rating": 8.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": null
     },
     {
       "name": "Tarence Kinsey",
@@ -3863,7 +4463,10 @@
         "rating_raw": 9.1,
         "stl": 1.0
       },
-      "rating": 9.1
+      "rating": 9.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.00"
     }
   ],
   "2012-13": [
@@ -3889,7 +4492,10 @@
         "rating_raw": 14.0,
         "stl": 0.95
       },
-      "rating": 12.55
+      "rating": 12.55,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.88"
     },
     {
       "name": "Dusko Savanovic",
@@ -3913,7 +4519,10 @@
         "rating_raw": 12.7,
         "stl": 1.06
       },
-      "rating": 10.1
+      "rating": 10.1,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "2.04"
     },
     {
       "name": "Semih Erden",
@@ -3937,7 +4546,10 @@
         "rating_raw": 10.7,
         "stl": 0.54
       },
-      "rating": 9.05
+      "rating": 9.05,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.13"
     },
     {
       "name": "Sasha Vujacic",
@@ -3961,7 +4573,10 @@
         "rating_raw": 13.2,
         "stl": 1.56
       },
-      "rating": 9.5
+      "rating": 9.5,
+      "country": "Slovenya",
+      "countryCode": "SI",
+      "height": "2.01"
     },
     {
       "name": "Jamon Lucas",
@@ -3978,7 +4593,10 @@
         "rating_raw": 9.5
       },
       "bsl": null,
-      "rating": 9.5
+      "rating": 9.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.88"
     },
     {
       "name": "Kerem Gonlum",
@@ -4002,7 +4620,10 @@
         "rating_raw": 13.2,
         "stl": 0.59
       },
-      "rating": 10.35
+      "rating": 10.35,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Josh Shipp",
@@ -4026,7 +4647,10 @@
         "rating_raw": 11.3,
         "stl": 0.75
       },
-      "rating": 7.5
+      "rating": 7.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.96"
     },
     {
       "name": "Stanko Barac",
@@ -4050,7 +4674,10 @@
         "rating_raw": 5.5,
         "stl": 0.26
       },
-      "rating": 4.65
+      "rating": 4.65,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.17"
     },
     {
       "name": "Kerem Tunceri",
@@ -4074,7 +4701,10 @@
         "rating_raw": 6.3,
         "stl": 0.71
       },
-      "rating": 4.65
+      "rating": 4.65,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Sinan Guler",
@@ -4098,7 +4728,10 @@
         "rating_raw": 6.9,
         "stl": 0.95
       },
-      "rating": 4.0
+      "rating": 4.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Birkan Batuk",
@@ -4114,7 +4747,10 @@
         "rating_raw": 5.7,
         "stl": 0.31
       },
-      "rating": 5.7
+      "rating": 5.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.96"
     },
     {
       "name": "Cedi Osman",
@@ -4131,7 +4767,10 @@
         "rating_raw": 7.0,
         "stl": 1.0
       },
-      "rating": 7.0
+      "rating": 7.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Doğuş Balbay",
@@ -4147,7 +4786,10 @@
         "rating_raw": 4.9,
         "stl": 1.1
       },
-      "rating": 4.9
+      "rating": 4.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Ermal Kuqo",
@@ -4163,7 +4805,10 @@
         "rating_raw": 5.2,
         "stl": 0.15
       },
-      "rating": 5.2
+      "rating": 5.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.07"
     },
     {
       "name": "Esteban Batista",
@@ -4179,7 +4824,10 @@
         "rating_raw": 3.7,
         "stl": 0.0
       },
-      "rating": 3.7
+      "rating": 3.7,
+      "country": "Uruguay",
+      "countryCode": "UY",
+      "height": "2.08"
     },
     {
       "name": "Gökhan Şirin",
@@ -4195,7 +4843,10 @@
         "rating_raw": 1.4,
         "stl": 0.08
       },
-      "rating": 1.4
+      "rating": 1.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Jamon Gordon",
@@ -4211,7 +4862,10 @@
         "rating_raw": 11.4,
         "stl": 1.36
       },
-      "rating": 11.4
+      "rating": 11.4,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.91"
     },
     {
       "name": "Ramazan Tekin",
@@ -4227,7 +4881,10 @@
         "rating_raw": -1.0,
         "stl": 0.0
       },
-      "rating": -1.0
+      "rating": -1.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.14"
     }
   ],
   "2013-14": [
@@ -4253,7 +4910,10 @@
         "rating_raw": 10.4,
         "stl": 0.79
       },
-      "rating": 9.1
+      "rating": 9.1,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "2.04"
     },
     {
       "name": "Zoran Planinic",
@@ -4278,7 +4938,10 @@
         "rating_raw": 10.3,
         "stl": 0.88
       },
-      "rating": 7.6
+      "rating": 7.6,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "1.99"
     },
     {
       "name": "Birkan Batuk",
@@ -4302,7 +4965,10 @@
         "rating_raw": 8.5,
         "stl": 0.71
       },
-      "rating": 4.95
+      "rating": 4.95,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.96"
     },
     {
       "name": "Dogus Balbay",
@@ -4326,7 +4992,10 @@
         "rating_raw": 8.5,
         "stl": 0.97
       },
-      "rating": 5.4
+      "rating": 5.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Burak Can Yıldızlı",
@@ -4342,7 +5011,10 @@
         "rating_raw": 2.0,
         "stl": 0.0
       },
-      "rating": 2.0
+      "rating": 2.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Cedi Osman",
@@ -4359,7 +5031,10 @@
         "rating_raw": 6.2,
         "stl": 0.96
       },
-      "rating": 6.2
+      "rating": 6.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "D.J. Stephens",
@@ -4375,7 +5050,10 @@
         "rating_raw": 7.9,
         "stl": 0.86
       },
-      "rating": 7.9
+      "rating": 7.9,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.96"
     },
     {
       "name": "Deniz Kılıçlı",
@@ -4391,7 +5069,10 @@
         "rating_raw": 4.1,
         "stl": 0.04
       },
-      "rating": 4.1
+      "rating": 4.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Emircan Koşut",
@@ -4407,7 +5088,10 @@
         "rating_raw": 1.7,
         "stl": 0.0
       },
-      "rating": 1.7
+      "rating": 1.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.15"
     },
     {
       "name": "Jamon Gordon",
@@ -4423,7 +5107,10 @@
         "rating_raw": 12.6,
         "stl": 1.69
       },
-      "rating": 12.6
+      "rating": 12.6,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.91"
     },
     {
       "name": "Kerem Gönlüm",
@@ -4439,7 +5126,10 @@
         "rating_raw": 12.6,
         "stl": 0.96
       },
-      "rating": 12.6
+      "rating": 12.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.08"
     },
     {
       "name": "Kostas Vasileiadis",
@@ -4455,7 +5145,10 @@
         "rating_raw": 8.4,
         "stl": 0.5
       },
-      "rating": 8.4
+      "rating": 8.4,
+      "country": "Yunanistan",
+      "countryCode": "GR",
+      "height": "2.00"
     },
     {
       "name": "Milko Bjelica",
@@ -4472,7 +5165,10 @@
         "rating_raw": 9.7,
         "stl": 0.74
       },
-      "rating": 9.7
+      "rating": 9.7,
+      "country": "Karadağ",
+      "countryCode": "ME",
+      "height": "2.07"
     },
     {
       "name": "Okben Ulubay",
@@ -4488,7 +5184,10 @@
         "rating_raw": 0.0,
         "stl": 0.25
       },
-      "rating": 0.0
+      "rating": 0.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.01"
     },
     {
       "name": "Scotty Hopson",
@@ -4504,7 +5203,10 @@
         "rating_raw": 5.1,
         "stl": 0.58
       },
-      "rating": 5.1
+      "rating": 5.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.00"
     },
     {
       "name": "Semih Erden",
@@ -4520,7 +5222,10 @@
         "rating_raw": 10.9,
         "stl": 0.48
       },
-      "rating": 10.9
+      "rating": 10.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.13"
     },
     {
       "name": "Stanko Barac",
@@ -4536,7 +5241,10 @@
         "rating_raw": 6.5,
         "stl": 0.0
       },
-      "rating": 6.5
+      "rating": 6.5,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.17"
     }
   ],
   "2014-15": [
@@ -4563,7 +5271,10 @@
         "rating_raw": 14.1,
         "stl": 0.82
       },
-      "rating": 12.25
+      "rating": 12.25,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.07"
     },
     {
       "name": "Stratos Perperoglou",
@@ -4587,7 +5298,10 @@
         "rating_raw": 10.5,
         "stl": 0.89
       },
-      "rating": 8.8
+      "rating": 8.8,
+      "country": "Yunanistan",
+      "countryCode": "GR",
+      "height": "2.03"
     },
     {
       "name": "Matt Janning",
@@ -4611,7 +5325,10 @@
         "rating_raw": 10.7,
         "stl": 0.73
       },
-      "rating": 7.1
+      "rating": 7.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Yann Ulrich Stephane Lasme",
@@ -4628,7 +5345,10 @@
         "rating_raw": 5.8
       },
       "bsl": null,
-      "rating": 5.8
+      "rating": 5.8,
+      "country": "Gabon",
+      "countryCode": "GA",
+      "height": "2.03"
     },
     {
       "name": "Cedi Osman",
@@ -4653,7 +5373,10 @@
         "rating_raw": 9.3,
         "stl": 1.0
       },
-      "rating": 7.25
+      "rating": 7.25,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Birkan Batuk",
@@ -4669,7 +5392,10 @@
         "rating_raw": 6.5,
         "stl": 0.74
       },
-      "rating": 6.5
+      "rating": 6.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.96"
     },
     {
       "name": "Cenk Akyol",
@@ -4685,7 +5411,10 @@
         "rating_raw": 2.1,
         "stl": 0.38
       },
-      "rating": 2.1
+      "rating": 2.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Deniz Kılıçlı",
@@ -4701,7 +5430,10 @@
         "rating_raw": 1.5,
         "stl": 0.0
       },
-      "rating": 1.5
+      "rating": 1.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Doğuş Balbay",
@@ -4717,7 +5449,10 @@
         "rating_raw": 5.1,
         "stl": 0.74
       },
-      "rating": 5.1
+      "rating": 5.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Dontaye Draper",
@@ -4733,7 +5468,10 @@
         "rating_raw": 7.9,
         "stl": 1.57
       },
-      "rating": 7.9
+      "rating": 7.9,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.81"
     },
     {
       "name": "Emircan Koşut",
@@ -4749,7 +5487,10 @@
         "rating_raw": 1.8,
         "stl": 0.06
       },
-      "rating": 1.8
+      "rating": 1.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.15"
     },
     {
       "name": "Furkan Korkmaz",
@@ -4765,7 +5506,10 @@
         "rating_raw": 4.9,
         "stl": 0.46
       },
-      "rating": 4.9
+      "rating": 4.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Milko Bjelica",
@@ -4782,7 +5526,10 @@
         "rating_raw": 11.4,
         "stl": 0.27
       },
-      "rating": 11.4
+      "rating": 11.4,
+      "country": "Karadağ",
+      "countryCode": "ME",
+      "height": "2.07"
     },
     {
       "name": "Nenad Krstic",
@@ -4798,7 +5545,10 @@
         "rating_raw": 12.6,
         "stl": 0.19
       },
-      "rating": 12.6
+      "rating": 12.6,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "2.12"
     },
     {
       "name": "Okben Ulubay",
@@ -4814,7 +5564,10 @@
         "rating_raw": 0.6,
         "stl": 0.29
       },
-      "rating": 0.6
+      "rating": 0.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.01"
     },
     {
       "name": "Stephane Lasme",
@@ -4830,7 +5583,10 @@
         "rating_raw": 14.2,
         "stl": 0.94
       },
-      "rating": 14.2
+      "rating": 14.2,
+      "country": "Gabon",
+      "countryCode": "GA",
+      "height": "2.03"
     },
     {
       "name": "Thomas Heurtel",
@@ -4846,7 +5602,10 @@
         "rating_raw": 9.7,
         "stl": 0.67
       },
-      "rating": 9.7
+      "rating": 9.7,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.89"
     }
   ],
   "2015-16": [
@@ -4872,7 +5631,10 @@
         "rating_raw": 13.9,
         "stl": 0.82
       },
-      "rating": 14.0
+      "rating": 14.0,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.89"
     },
     {
       "name": "Dario Saric",
@@ -4897,7 +5659,10 @@
         "rating_raw": 12.9,
         "stl": 0.78
       },
-      "rating": 12.25
+      "rating": 12.25,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.07"
     },
     {
       "name": "Jayson Granger",
@@ -4921,7 +5686,10 @@
         "rating_raw": 12.4,
         "stl": 1.05
       },
-      "rating": 9.95
+      "rating": 9.95,
+      "country": "Uruguay",
+      "countryCode": "UY",
+      "height": "1.88"
     },
     {
       "name": "Derrick Brown",
@@ -4945,7 +5713,10 @@
         "rating_raw": 11.8,
         "stl": 0.53
       },
-      "rating": 10.5
+      "rating": 10.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Cedi Osman",
@@ -4970,7 +5741,10 @@
         "rating_raw": 10.6,
         "stl": 1.03
       },
-      "rating": 8.55
+      "rating": 8.55,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Bryant Dunston",
@@ -4994,7 +5768,10 @@
         "rating_raw": 15.8,
         "stl": 1.16
       },
-      "rating": 12.3
+      "rating": 12.3,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Birkan Batuk",
@@ -5018,7 +5795,10 @@
         "rating_raw": 2.9,
         "stl": 0.71
       },
-      "rating": 2.1
+      "rating": 2.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.96"
     },
     {
       "name": "Ahmet Düverioğlu",
@@ -5034,7 +5814,10 @@
         "rating_raw": 3.4,
         "stl": 0.21
       },
-      "rating": 3.4
+      "rating": 3.4,
+      "country": "Ürdün",
+      "countryCode": "JO",
+      "height": "2.09"
     },
     {
       "name": "Alex Tyus",
@@ -5050,7 +5833,10 @@
         "rating_raw": 8.3,
         "stl": 0.63
       },
-      "rating": 8.3
+      "rating": 8.3,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Doğuş Balbay",
@@ -5066,7 +5852,10 @@
         "rating_raw": 4.8,
         "stl": 0.56
       },
-      "rating": 4.8
+      "rating": 4.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Emircan Koşut",
@@ -5082,7 +5871,10 @@
         "rating_raw": 1.6,
         "stl": 0.0
       },
-      "rating": 1.6
+      "rating": 1.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.15"
     },
     {
       "name": "Furkan Korkmaz",
@@ -5098,7 +5890,10 @@
         "rating_raw": 4.7,
         "stl": 0.27
       },
-      "rating": 4.7
+      "rating": 4.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Jon Diebler",
@@ -5114,7 +5909,10 @@
         "rating_raw": 6.5,
         "stl": 0.38
       },
-      "rating": 6.5
+      "rating": 6.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Oğulcan Baykan",
@@ -5130,7 +5928,10 @@
         "rating_raw": 2.2,
         "stl": 0.18
       },
-      "rating": 2.2
+      "rating": 2.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     }
   ],
   "2016-17": [
@@ -5156,7 +5957,10 @@
         "rating_raw": 13.6,
         "stl": 1.0
       },
-      "rating": 11.85
+      "rating": 11.85,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.89"
     },
     {
       "name": "Derrick Brown",
@@ -5180,7 +5984,10 @@
         "rating_raw": 13.5,
         "stl": 0.77
       },
-      "rating": 13.0
+      "rating": 13.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Bryant Dunston",
@@ -5204,7 +6011,10 @@
         "rating_raw": 16.0,
         "stl": 1.03
       },
-      "rating": 13.8
+      "rating": 13.8,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Jayson Granger",
@@ -5228,7 +6038,10 @@
         "rating_raw": 11.1,
         "stl": 1.3
       },
-      "rating": 9.5
+      "rating": 9.5,
+      "country": "Uruguay",
+      "countryCode": "UY",
+      "height": "1.88"
     },
     {
       "name": "Tyler Honeycutt",
@@ -5252,7 +6065,10 @@
         "rating_raw": 11.0,
         "stl": 0.82
       },
-      "rating": 11.1
+      "rating": 11.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Deshaun Thomas",
@@ -5276,7 +6092,10 @@
         "rating_raw": 8.9,
         "stl": 0.5
       },
-      "rating": 6.45
+      "rating": 6.45,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.01"
     },
     {
       "name": "Cedi Osman",
@@ -5301,7 +6120,10 @@
         "rating_raw": 13.5,
         "stl": 1.51
       },
-      "rating": 9.35
+      "rating": 9.35,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Alex Kirk",
@@ -5317,7 +6139,10 @@
         "rating_raw": 10.4,
         "stl": 0.5
       },
-      "rating": 10.4
+      "rating": 10.4,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.11"
     },
     {
       "name": "Berk Demir",
@@ -5333,7 +6158,10 @@
         "rating_raw": 1.7,
         "stl": 0.11
       },
-      "rating": 1.7
+      "rating": 1.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Brandon Paul",
@@ -5349,7 +6177,10 @@
         "rating_raw": 10.0,
         "stl": 1.33
       },
-      "rating": 10.0
+      "rating": 10.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Doğuş Balbay",
@@ -5365,7 +6196,10 @@
         "rating_raw": 4.9,
         "stl": 0.81
       },
-      "rating": 4.9
+      "rating": 4.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Maxim Mutaf",
@@ -5381,7 +6215,10 @@
         "rating_raw": 4.7,
         "stl": 0.39
       },
-      "rating": 4.7
+      "rating": 4.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Oğulcan Baykan",
@@ -5397,7 +6234,10 @@
         "rating_raw": 0.5,
         "stl": 0.13
       },
-      "rating": 0.5
+      "rating": 0.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.98"
     },
     {
       "name": "Samet Geyik",
@@ -5413,7 +6253,10 @@
         "rating_raw": 2.3,
         "stl": 0.14
       },
-      "rating": 2.3
+      "rating": 2.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.03"
     }
   ],
   "2017-18": [
@@ -5439,7 +6282,10 @@
         "rating_raw": 15.0,
         "stl": 1.24
       },
-      "rating": 11.95
+      "rating": 11.95,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.88"
     },
     {
       "name": "Bryant Dunston",
@@ -5463,7 +6309,10 @@
         "rating_raw": 17.3,
         "stl": 0.8
       },
-      "rating": 14.95
+      "rating": 14.95,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Vladimir Stimac",
@@ -5488,7 +6337,10 @@
         "rating_raw": 16.1,
         "stl": 0.43
       },
-      "rating": 13.6
+      "rating": 13.6,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "2.10"
     },
     {
       "name": "Krunoslav Simon",
@@ -5513,7 +6365,10 @@
         "rating_raw": 13.7,
         "stl": 0.68
       },
-      "rating": 10.7
+      "rating": 10.7,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "1.97"
     },
     {
       "name": "Brock Motum",
@@ -5538,7 +6393,10 @@
         "rating_raw": 12.8,
         "stl": 0.53
       },
-      "rating": 9.85
+      "rating": 9.85,
+      "country": "Avustralya",
+      "countryCode": "AU",
+      "height": "2.08"
     },
     {
       "name": "Josh Adams",
@@ -5555,7 +6413,10 @@
         "rating_raw": 4.9
       },
       "bsl": null,
-      "rating": 4.9
+      "rating": 4.9,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.88"
     },
     {
       "name": "Arda Erdoğan",
@@ -5571,7 +6432,10 @@
         "rating_raw": -0.1,
         "stl": 0.0
       },
-      "rating": -0.1
+      "rating": -0.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": null
     },
     {
       "name": "Berk Demir",
@@ -5587,7 +6451,10 @@
         "rating_raw": 1.8,
         "stl": 0.19
       },
-      "rating": 1.8
+      "rating": 1.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Birkan Batuk",
@@ -5603,7 +6470,10 @@
         "rating_raw": 4.7,
         "stl": 0.52
       },
-      "rating": 4.7
+      "rating": 4.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.96"
     },
     {
       "name": "Derrick Brown",
@@ -5619,7 +6489,10 @@
         "rating_raw": 8.1,
         "stl": 0.45
       },
-      "rating": 8.1
+      "rating": 8.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Doğuş Balbay",
@@ -5635,7 +6508,10 @@
         "rating_raw": 8.7,
         "stl": 1.21
       },
-      "rating": 8.7
+      "rating": 8.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Muhaymin Mustafa",
@@ -5651,7 +6527,10 @@
         "rating_raw": 0.5,
         "stl": 0.13
       },
-      "rating": 0.5
+      "rating": 0.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.96"
     },
     {
       "name": "Onuralp Bitim",
@@ -5667,7 +6546,10 @@
         "rating_raw": 1.8,
         "stl": 0.39
       },
-      "rating": 1.8
+      "rating": 1.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Sonny Weems",
@@ -5683,7 +6565,10 @@
         "rating_raw": 12.1,
         "stl": 0.67
       },
-      "rating": 12.1
+      "rating": 12.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Toney Douglas",
@@ -5700,7 +6585,10 @@
         "rating_raw": 9.1,
         "stl": 0.09
       },
-      "rating": 9.1
+      "rating": 9.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.88"
     },
     {
       "name": "Yiğitcan Saybir",
@@ -5716,7 +6604,10 @@
         "rating_raw": 5.8,
         "stl": 0.5
       },
-      "rating": 5.8
+      "rating": 5.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.03"
     },
     {
       "name": "Zoran Dragić",
@@ -5732,7 +6623,10 @@
         "rating_raw": 4.1,
         "stl": 1.13
       },
-      "rating": 4.1
+      "rating": 4.1,
+      "country": "Slovenya",
+      "countryCode": "SI",
+      "height": "1.96"
     }
   ],
   "2018-19": [
@@ -5759,7 +6653,10 @@
         "rating_raw": 16.0,
         "stl": 1.46
       },
-      "rating": 13.5
+      "rating": 13.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.82"
     },
     {
       "name": "Vasilije Micic",
@@ -5783,7 +6680,10 @@
         "rating_raw": 15.4,
         "stl": 0.87
       },
-      "rating": 12.9
+      "rating": 12.9,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "1.96"
     },
     {
       "name": "Adrien Moerman",
@@ -5808,7 +6708,10 @@
         "rating_raw": 18.3,
         "stl": 1.09
       },
-      "rating": 15.8
+      "rating": 15.8,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "2.02"
     },
     {
       "name": "Rodrigue Beaubois",
@@ -5833,7 +6736,10 @@
         "rating_raw": 13.7,
         "stl": 0.87
       },
-      "rating": 10.1
+      "rating": 10.1,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.90"
     },
     {
       "name": "Krunoslav Simon",
@@ -5858,7 +6764,10 @@
         "rating_raw": 13.3,
         "stl": 0.63
       },
-      "rating": 11.75
+      "rating": 11.75,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "1.97"
     },
     {
       "name": "Bryant Dunston",
@@ -5882,7 +6791,10 @@
         "rating_raw": 15.0,
         "stl": 0.82
       },
-      "rating": 12.75
+      "rating": 12.75,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "James Anderson",
@@ -5906,7 +6818,10 @@
         "rating_raw": 10.6,
         "stl": 0.54
       },
-      "rating": 7.15
+      "rating": 7.15,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Brock Motum",
@@ -5923,7 +6838,10 @@
         "rating_raw": 17.1,
         "stl": 0.6
       },
-      "rating": 17.1
+      "rating": 17.1,
+      "country": "Avustralya",
+      "countryCode": "AU",
+      "height": "2.08"
     },
     {
       "name": "Buğrahan Tuncer",
@@ -5939,7 +6857,10 @@
         "rating_raw": 7.5,
         "stl": 0.53
       },
-      "rating": 7.5
+      "rating": 7.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.93"
     },
     {
       "name": "Doğuş Balbay",
@@ -5955,7 +6876,10 @@
         "rating_raw": 7.1,
         "stl": 0.76
       },
-      "rating": 7.1
+      "rating": 7.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Metecan Birsen",
@@ -5971,7 +6895,10 @@
         "rating_raw": 5.4,
         "stl": 0.43
       },
-      "rating": 5.4
+      "rating": 5.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.05"
     },
     {
       "name": "Mustafa Kurtuldum",
@@ -5987,7 +6914,10 @@
         "rating_raw": 3.8,
         "stl": 0.5
       },
-      "rating": 3.8
+      "rating": 3.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Onuralp Bitim",
@@ -6003,7 +6933,10 @@
         "rating_raw": 3.8,
         "stl": 0.48
       },
-      "rating": 3.8
+      "rating": 3.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Ömercan İlyasoğlu",
@@ -6019,7 +6952,10 @@
         "rating_raw": 4.2,
         "stl": 0.3
       },
-      "rating": 4.2
+      "rating": 4.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Sertaç Şanlı",
@@ -6035,7 +6971,10 @@
         "rating_raw": 8.1,
         "stl": 0.28
       },
-      "rating": 8.1
+      "rating": 8.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.12"
     },
     {
       "name": "Tibor Pleiss",
@@ -6051,7 +6990,10 @@
         "rating_raw": 20.3,
         "stl": 0.17
       },
-      "rating": 20.3
+      "rating": 20.3,
+      "country": "Almanya",
+      "countryCode": "DE",
+      "height": "2.21"
     },
     {
       "name": "Yiğitcan Saybir",
@@ -6067,7 +7009,10 @@
         "rating_raw": 5.4,
         "stl": 0.58
       },
-      "rating": 5.4
+      "rating": 5.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.03"
     }
   ],
   "2019-20": [
@@ -6094,7 +7039,10 @@
         "rating_raw": 13.6,
         "stl": 1.4
       },
-      "rating": 17.1
+      "rating": 17.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.82"
     },
     {
       "name": "Vasilije Micic",
@@ -6118,7 +7066,10 @@
         "rating_raw": 12.0,
         "stl": 0.88
       },
-      "rating": 12.3
+      "rating": 12.3,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "1.96"
     },
     {
       "name": "Rodrigue Beaubois",
@@ -6143,7 +7094,10 @@
         "rating_raw": 13.6,
         "stl": 0.79
       },
-      "rating": 10.2
+      "rating": 10.2,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.90"
     },
     {
       "name": "Tibor Pleiss",
@@ -6167,7 +7121,10 @@
         "rating_raw": 14.9,
         "stl": 0.6
       },
-      "rating": 12.55
+      "rating": 12.55,
+      "country": "Almanya",
+      "countryCode": "DE",
+      "height": "2.21"
     },
     {
       "name": "Krunoslav Simon",
@@ -6192,7 +7149,10 @@
         "rating_raw": 13.1,
         "stl": 0.42
       },
-      "rating": 11.6
+      "rating": 11.6,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "1.97"
     },
     {
       "name": "Chris Singleton",
@@ -6216,7 +7176,10 @@
         "rating_raw": 12.5,
         "stl": 0.77
       },
-      "rating": 10.4
+      "rating": 10.4,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "Sertac Sanli",
@@ -6240,7 +7203,10 @@
         "rating_raw": 11.5,
         "stl": 0.52
       },
-      "rating": 8.4
+      "rating": 8.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.12"
     },
     {
       "name": "Adrien Moerman",
@@ -6265,7 +7231,10 @@
         "rating_raw": 12.0,
         "stl": 1.17
       },
-      "rating": 8.65
+      "rating": 8.65,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "2.02"
     },
     {
       "name": "Alec Peters",
@@ -6289,7 +7258,10 @@
         "rating_raw": 12.3,
         "stl": 0.5
       },
-      "rating": 8.1
+      "rating": 8.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "James Anderson",
@@ -6313,7 +7285,10 @@
         "rating_raw": 11.1,
         "stl": 0.92
       },
-      "rating": 7.75
+      "rating": 7.75,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Dogus Balbay",
@@ -6337,7 +7312,10 @@
         "rating_raw": 6.8,
         "stl": 1.09
       },
-      "rating": 4.35
+      "rating": 4.35,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Bryant Dunston",
@@ -6353,7 +7331,10 @@
         "rating_raw": 14.0,
         "stl": 1.57
       },
-      "rating": 14.0
+      "rating": 14.0,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Buğrahan Tuncer",
@@ -6369,7 +7350,10 @@
         "rating_raw": 10.7,
         "stl": 0.78
       },
-      "rating": 10.7
+      "rating": 10.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.93"
     },
     {
       "name": "Mustafa Kurtuldum",
@@ -6385,7 +7369,10 @@
         "rating_raw": 2.2,
         "stl": 0.08
       },
-      "rating": 2.2
+      "rating": 2.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Ömercan İlyasoğlu",
@@ -6401,7 +7388,10 @@
         "rating_raw": 3.1,
         "stl": 0.23
       },
-      "rating": 3.1
+      "rating": 3.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Tolga Geçim",
@@ -6417,7 +7407,10 @@
         "rating_raw": 7.0,
         "stl": 0.39
       },
-      "rating": 7.0
+      "rating": 7.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Yiğitcan Saybir",
@@ -6433,7 +7426,10 @@
         "rating_raw": 6.3,
         "stl": 0.68
       },
-      "rating": 6.3
+      "rating": 6.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.03"
     }
   ],
   "2020-21": [
@@ -6459,7 +7455,10 @@
         "rating_raw": 13.0,
         "stl": 0.7
       },
-      "rating": 13.1
+      "rating": 13.1,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "1.96"
     },
     {
       "name": "Shane Larkin",
@@ -6484,7 +7483,10 @@
         "rating_raw": 9.3,
         "stl": 0.59
       },
-      "rating": 11.3
+      "rating": 11.3,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.82"
     },
     {
       "name": "Rodrigue Beaubois",
@@ -6509,7 +7511,10 @@
         "rating_raw": 11.2,
         "stl": 0.32
       },
-      "rating": 9.7
+      "rating": 9.7,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.90"
     },
     {
       "name": "Krunoslav Simon",
@@ -6534,7 +7539,10 @@
         "rating_raw": 14.7,
         "stl": 0.58
       },
-      "rating": 12.65
+      "rating": 12.65,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "1.97"
     },
     {
       "name": "Bryant Dunston",
@@ -6558,7 +7566,10 @@
         "rating_raw": 12.7,
         "stl": 0.89
       },
-      "rating": 10.5
+      "rating": 10.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Sertac Sanli",
@@ -6582,7 +7593,10 @@
         "rating_raw": 10.6,
         "stl": 0.39
       },
-      "rating": 8.45
+      "rating": 8.45,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.12"
     },
     {
       "name": "Tibor Pleiss",
@@ -6606,7 +7620,10 @@
         "rating_raw": 19.5,
         "stl": 0.69
       },
-      "rating": 13.1
+      "rating": 13.1,
+      "country": "Almanya",
+      "countryCode": "DE",
+      "height": "2.21"
     },
     {
       "name": "Adrien Moerman",
@@ -6631,7 +7648,10 @@
         "rating_raw": 18.5,
         "stl": 1.07
       },
-      "rating": 12.85
+      "rating": 12.85,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "2.02"
     },
     {
       "name": "Chris Singleton",
@@ -6655,7 +7675,10 @@
         "rating_raw": 12.4,
         "stl": 1.11
       },
-      "rating": 9.3
+      "rating": 9.3,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "James Anderson",
@@ -6679,7 +7702,10 @@
         "rating_raw": 10.2,
         "stl": 0.9
       },
-      "rating": 7.5
+      "rating": 7.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Bugrahan Tuncer",
@@ -6703,7 +7729,10 @@
         "rating_raw": 10.3,
         "stl": 0.78
       },
-      "rating": 6.25
+      "rating": 6.25,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.93"
     },
     {
       "name": "Dogus Balbay",
@@ -6727,7 +7756,10 @@
         "rating_raw": 6.7,
         "stl": 1.06
       },
-      "rating": 3.9
+      "rating": 3.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Džanan Musa",
@@ -6743,7 +7775,10 @@
         "rating_raw": 12.5,
         "stl": 0.75
       },
-      "rating": 12.5
+      "rating": 12.5,
+      "country": "Bosna Hersek",
+      "countryCode": "BA",
+      "height": "2.06"
     },
     {
       "name": "Enes Bayraktar",
@@ -6759,7 +7794,10 @@
         "rating_raw": -0.5,
         "stl": 0.0
       },
-      "rating": -0.5
+      "rating": -0.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": null
     },
     {
       "name": "Erten Gazi",
@@ -6775,7 +7813,10 @@
         "rating_raw": 4.8,
         "stl": 0.5
       },
-      "rating": 4.8
+      "rating": 4.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Tarık Sezgün",
@@ -6791,7 +7832,10 @@
         "rating_raw": 1.3,
         "stl": 0.25
       },
-      "rating": 1.3
+      "rating": 1.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.99"
     },
     {
       "name": "Tolga Geçim",
@@ -6807,7 +7851,10 @@
         "rating_raw": 5.1,
         "stl": 0.24
       },
-      "rating": 5.1
+      "rating": 5.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.06"
     },
     {
       "name": "Yiğitcan Saybir",
@@ -6823,7 +7870,10 @@
         "rating_raw": 5.9,
         "stl": 0.45
       },
-      "rating": 5.9
+      "rating": 5.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.03"
     }
   ],
   "2021-22": [
@@ -6849,7 +7899,10 @@
         "rating_raw": 17.0,
         "stl": 0.64
       },
-      "rating": 15.25
+      "rating": 15.25,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "1.96"
     },
     {
       "name": "Shane Larkin",
@@ -6874,7 +7927,10 @@
         "rating_raw": 13.2,
         "stl": 0.81
       },
-      "rating": 13.85
+      "rating": 13.85,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.82"
     },
     {
       "name": "Tibor Pleiss",
@@ -6898,7 +7954,10 @@
         "rating_raw": 16.0,
         "stl": 0.52
       },
-      "rating": 13.0
+      "rating": 13.0,
+      "country": "Almanya",
+      "countryCode": "DE",
+      "height": "2.21"
     },
     {
       "name": "Rodrigue Beaubois",
@@ -6923,7 +7982,10 @@
         "rating_raw": 14.0,
         "stl": 0.83
       },
-      "rating": 10.5
+      "rating": 10.5,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.90"
     },
     {
       "name": "Adrien Moerman",
@@ -6948,7 +8010,10 @@
         "rating_raw": 12.0,
         "stl": 0.45
       },
-      "rating": 10.7
+      "rating": 10.7,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "2.02"
     },
     {
       "name": "Bryant Dunston",
@@ -6972,7 +8037,10 @@
         "rating_raw": 11.6,
         "stl": 0.88
       },
-      "rating": 9.75
+      "rating": 9.75,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Krunoslav Simon",
@@ -6997,7 +8065,10 @@
         "rating_raw": 13.5,
         "stl": 0.62
       },
-      "rating": 10.0
+      "rating": 10.0,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "1.97"
     },
     {
       "name": "Elijah Bryant",
@@ -7021,7 +8092,10 @@
         "rating_raw": 13.3,
         "stl": 1.0
       },
-      "rating": 8.8
+      "rating": 8.8,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.96"
     },
     {
       "name": "Filip Petrusev",
@@ -7045,7 +8119,10 @@
         "rating_raw": 19.2,
         "stl": 0.23
       },
-      "rating": 11.75
+      "rating": 11.75,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "2.11"
     },
     {
       "name": "Chris Singleton",
@@ -7069,7 +8146,10 @@
         "rating_raw": 9.8,
         "stl": 0.95
       },
-      "rating": 6.35
+      "rating": 6.35,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "James Anderson",
@@ -7093,7 +8173,10 @@
         "rating_raw": 12.3,
         "stl": 1.11
       },
-      "rating": 8.25
+      "rating": 8.25,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Bugrahan Tuncer",
@@ -7117,7 +8200,10 @@
         "rating_raw": 10.3,
         "stl": 0.61
       },
-      "rating": 5.55
+      "rating": 5.55,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.93"
     },
     {
       "name": "Erten Gazi",
@@ -7141,7 +8227,10 @@
         "rating_raw": 4.6,
         "stl": 0.39
       },
-      "rating": 2.05
+      "rating": 2.05,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Doğuş Balbay",
@@ -7157,7 +8246,10 @@
         "rating_raw": 4.8,
         "stl": 0.11
       },
-      "rating": 4.8
+      "rating": 4.8,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Egemen Güven",
@@ -7173,7 +8265,10 @@
         "rating_raw": 6.7,
         "stl": 0.22
       },
-      "rating": 6.7
+      "rating": 6.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.09"
     },
     {
       "name": "Ömercan İlyasoğlu",
@@ -7189,7 +8284,10 @@
         "rating_raw": 4.4,
         "stl": 0.31
       },
-      "rating": 4.4
+      "rating": 4.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Yiğitcan Saybir",
@@ -7205,7 +8303,10 @@
         "rating_raw": 6.0,
         "stl": 0.41
       },
-      "rating": 6.0
+      "rating": 6.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.03"
     }
   ],
   "2022-23": [
@@ -7232,7 +8333,10 @@
         "rating_raw": 16.5,
         "stl": 1.18
       },
-      "rating": 15.25
+      "rating": 15.25,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.01"
     },
     {
       "name": "Vasilije Micic",
@@ -7256,7 +8360,10 @@
         "rating_raw": 16.6,
         "stl": 0.94
       },
-      "rating": 14.9
+      "rating": 14.9,
+      "country": "Sırbistan",
+      "countryCode": "RS",
+      "height": "1.96"
     },
     {
       "name": "Shane Larkin",
@@ -7281,7 +8388,10 @@
         "rating_raw": 13.4,
         "stl": 1.21
       },
-      "rating": 12.15
+      "rating": 12.15,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.82"
     },
     {
       "name": "Rodrigue Beaubois",
@@ -7306,7 +8416,10 @@
         "rating_raw": 14.5,
         "stl": 0.79
       },
-      "rating": 12.3
+      "rating": 12.3,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.90"
     },
     {
       "name": "Elijah Bryant",
@@ -7330,7 +8443,10 @@
         "rating_raw": 16.5,
         "stl": 0.96
       },
-      "rating": 12.5
+      "rating": 12.5,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.96"
     },
     {
       "name": "Ante Zizic",
@@ -7354,7 +8470,10 @@
         "rating_raw": 17.7,
         "stl": 0.79
       },
-      "rating": 13.2
+      "rating": 13.2,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.12"
     },
     {
       "name": "Amath M'Baye",
@@ -7379,7 +8498,10 @@
         "rating_raw": 14.1,
         "stl": 0.56
       },
-      "rating": 10.05
+      "rating": 10.05,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "2.06"
     },
     {
       "name": "Tibor Pleiss",
@@ -7403,7 +8525,10 @@
         "rating_raw": 11.6,
         "stl": 0.56
       },
-      "rating": 8.85
+      "rating": 8.85,
+      "country": "Almanya",
+      "countryCode": "DE",
+      "height": "2.21"
     },
     {
       "name": "Bryant Dunston",
@@ -7427,7 +8552,10 @@
         "rating_raw": 13.0,
         "stl": 0.69
       },
-      "rating": 9.1
+      "rating": 9.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Isaiah Taylor",
@@ -7444,7 +8572,10 @@
         "rating_raw": 1.2
       },
       "bsl": null,
-      "rating": 1.2
+      "rating": 1.2,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": null
     },
     {
       "name": "Achille Polonara",
@@ -7462,7 +8593,10 @@
         "rating_raw": 3.6
       },
       "bsl": null,
-      "rating": 3.6
+      "rating": 3.6,
+      "country": "İtalya",
+      "countryCode": "IT",
+      "height": "2.03"
     },
     {
       "name": "Chris Singleton",
@@ -7486,7 +8620,10 @@
         "rating_raw": 0.0,
         "stl": 0.0
       },
-      "rating": 1.05
+      "rating": 1.05,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "Erten Gazi",
@@ -7510,7 +8647,10 @@
         "rating_raw": 2.1,
         "stl": 0.18
       },
-      "rating": 0.95
+      "rating": 0.95,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Buğrahan Tuncer",
@@ -7526,7 +8666,10 @@
         "rating_raw": 7.5,
         "stl": 0.42
       },
-      "rating": 7.5
+      "rating": 7.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.93"
     },
     {
       "name": "Doğuş Balbay",
@@ -7542,7 +8685,10 @@
         "rating_raw": 1.0,
         "stl": 0.14
       },
-      "rating": 1.0
+      "rating": 1.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.85"
     },
     {
       "name": "Egehan Arna",
@@ -7558,7 +8704,10 @@
         "rating_raw": 4.3,
         "stl": 0.34
       },
-      "rating": 4.3
+      "rating": 4.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.03"
     },
     {
       "name": "Furkan Haltalı",
@@ -7574,7 +8723,10 @@
         "rating_raw": 4.6,
         "stl": 0.51
       },
-      "rating": 4.6
+      "rating": 4.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.11"
     },
     {
       "name": "Karahan Tuan Efeoğlu",
@@ -7590,7 +8742,10 @@
         "rating_raw": 1.6,
         "stl": 0.0
       },
-      "rating": 1.6
+      "rating": 1.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.03"
     }
   ],
   "2023-24": [
@@ -7617,7 +8772,10 @@
         "rating_raw": 19.5,
         "stl": 0.93
       },
-      "rating": 17.75
+      "rating": 17.75,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.82"
     },
     {
       "name": "Will Clyburn",
@@ -7642,7 +8800,10 @@
         "rating_raw": 12.0,
         "stl": 1.0
       },
-      "rating": 11.45
+      "rating": 11.45,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.01"
     },
     {
       "name": "Darius Thompson",
@@ -7666,7 +8827,10 @@
         "rating_raw": 14.8,
         "stl": 1.12
       },
-      "rating": 11.3
+      "rating": 11.3,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Rodrigue Beaubois",
@@ -7691,7 +8855,10 @@
         "rating_raw": 14.8,
         "stl": 1.0
       },
-      "rating": 11.6
+      "rating": 11.6,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.90"
     },
     {
       "name": "Elijah Bryant",
@@ -7715,7 +8882,10 @@
         "rating_raw": 16.2,
         "stl": 1.33
       },
-      "rating": 12.75
+      "rating": 12.75,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.96"
     },
     {
       "name": "Mike Daum",
@@ -7739,7 +8909,10 @@
         "rating_raw": 9.7,
         "stl": 0.78
       },
-      "rating": 8.35
+      "rating": 8.35,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": null
     },
     {
       "name": "Tibor Pleiss",
@@ -7763,7 +8936,10 @@
         "rating_raw": 16.5,
         "stl": 0.5
       },
-      "rating": 12.0
+      "rating": 12.0,
+      "country": "Almanya",
+      "countryCode": "DE",
+      "height": "2.21"
     },
     {
       "name": "Derek Willis",
@@ -7787,7 +8963,10 @@
         "rating_raw": 14.1,
         "stl": 1.04
       },
-      "rating": 11.05
+      "rating": 11.05,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "Tyrique Jones",
@@ -7811,7 +8990,10 @@
         "rating_raw": 14.2,
         "stl": 0.44
       },
-      "rating": 11.05
+      "rating": 11.05,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "Daniel Oturu",
@@ -7835,7 +9017,10 @@
         "rating_raw": 17.2,
         "stl": 0.71
       },
-      "rating": 12.25
+      "rating": 12.25,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Ante Zizic",
@@ -7852,10 +9037,13 @@
         "rating_raw": 7.4
       },
       "bsl": null,
-      "rating": 7.4
+      "rating": 7.4,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "height": "2.12"
     },
     {
-      "name": "Erxhan Osmani",
+      "name": "Ercan Osmani",
       "positions": [
         "PF",
         "C"
@@ -7877,7 +9065,10 @@
         "rating_raw": 9.0,
         "stl": 0.66
       },
-      "rating": 6.45
+      "rating": 6.45,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.13"
     },
     {
       "name": "Justus Hollatz",
@@ -7901,7 +9092,10 @@
         "rating_raw": 9.4,
         "stl": 0.77
       },
-      "rating": 5.85
+      "rating": 5.85,
+      "country": "Almanya",
+      "countryCode": "DE",
+      "height": "1.91"
     },
     {
       "name": "Erkan Yilmaz",
@@ -7925,7 +9119,10 @@
         "rating_raw": 9.6,
         "stl": 1.0
       },
-      "rating": 5.7
+      "rating": 5.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Erten Gazi",
@@ -7949,7 +9146,10 @@
         "rating_raw": 7.6,
         "stl": 0.69
       },
-      "rating": 2.95
+      "rating": 2.95,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Burak Can Yıldızlı",
@@ -7965,7 +9165,10 @@
         "rating_raw": 2.6,
         "stl": 0.15
       },
-      "rating": 2.6
+      "rating": 2.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Doğuş Özdemiroğlu",
@@ -7981,7 +9184,10 @@
         "rating_raw": 6.1,
         "stl": 0.73
       },
-      "rating": 6.1
+      "rating": 6.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Mehmet Efe Demirel",
@@ -7997,7 +9203,10 @@
         "rating_raw": 0.0,
         "stl": 0.5
       },
-      "rating": 0.0
+      "rating": 0.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": null
     },
     {
       "name": "Melih Tunca",
@@ -8013,7 +9222,10 @@
         "rating_raw": 2.5,
         "stl": 0.13
       },
-      "rating": 2.5
+      "rating": 2.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": null
     },
     {
       "name": "Rıdvan Öncel",
@@ -8029,7 +9241,10 @@
         "rating_raw": 5.6,
         "stl": 0.7
       },
-      "rating": 5.6
+      "rating": 5.6,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Salih Altuntaş",
@@ -8045,7 +9260,10 @@
         "rating_raw": 2.1,
         "stl": 0.16
       },
-      "rating": 2.1
+      "rating": 2.1,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": null
     }
   ],
   "2024-25": [
@@ -8071,7 +9289,10 @@
         "rating_raw": 11.0,
         "stl": 1.07
       },
-      "rating": 11.1
+      "rating": 11.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.96"
     },
     {
       "name": "Shane Larkin",
@@ -8096,7 +9317,10 @@
         "rating_raw": 14.7,
         "stl": 1.35
       },
-      "rating": 13.3
+      "rating": 13.3,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.82"
     },
     {
       "name": "Darius Thompson",
@@ -8120,7 +9344,10 @@
         "rating_raw": 9.1,
         "stl": 0.94
       },
-      "rating": 9.75
+      "rating": 9.75,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Vincent Poirier",
@@ -8144,7 +9371,10 @@
         "rating_raw": 11.5,
         "stl": 0.92
       },
-      "rating": 11.55
+      "rating": 11.55,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "2.13"
     },
     {
       "name": "Rodrigue Beaubois",
@@ -8169,7 +9399,10 @@
         "rating_raw": 12.0,
         "stl": 0.69
       },
-      "rating": 9.6
+      "rating": 9.6,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.90"
     },
     {
       "name": "Daniel Oturu",
@@ -8193,7 +9426,10 @@
         "rating_raw": 16.9,
         "stl": 0.59
       },
-      "rating": 13.15
+      "rating": 13.15,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "P.J. Dozier",
@@ -8218,7 +9454,10 @@
         "rating_raw": 10.2,
         "stl": 0.89
       },
-      "rating": 8.75
+      "rating": 8.75,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Jordan Nwora",
@@ -8242,7 +9481,10 @@
         "rating_raw": 14.4,
         "stl": 0.9
       },
-      "rating": 10.2
+      "rating": 10.2,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Rolands Smits",
@@ -8267,10 +9509,13 @@
         "rating_raw": 9.8,
         "stl": 0.5
       },
-      "rating": 7.5
+      "rating": 7.5,
+      "country": "Letonya",
+      "countryCode": "LV",
+      "height": "2.08"
     },
     {
-      "name": "Erxhan Osmani",
+      "name": "Ercan Osmani",
       "positions": [
         "PF",
         "C"
@@ -8292,7 +9537,10 @@
         "rating_raw": 9.0,
         "stl": 0.42
       },
-      "rating": 7.45
+      "rating": 7.45,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.13"
     },
     {
       "name": "Derek Willis",
@@ -8316,7 +9564,10 @@
         "rating_raw": 10.3,
         "stl": 0.71
       },
-      "rating": 6.9
+      "rating": 6.9,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.06"
     },
     {
       "name": "Stanley Johnson",
@@ -8333,7 +9584,10 @@
         "rating_raw": 0.6
       },
       "bsl": null,
-      "rating": 0.6
+      "rating": 0.6,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.01"
     },
     {
       "name": "Dogus Ozdemiroglu",
@@ -8357,7 +9611,10 @@
         "rating_raw": 5.5,
         "stl": 0.82
       },
-      "rating": 2.7
+      "rating": 2.7,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Erkan Yilmaz",
@@ -8381,7 +9638,10 @@
         "rating_raw": 6.5,
         "stl": 0.64
       },
-      "rating": 4.75
+      "rating": 4.75,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Justus Hollatz",
@@ -8398,7 +9658,10 @@
         "rating_raw": 0.4
       },
       "bsl": null,
-      "rating": 0.4
+      "rating": 0.4,
+      "country": "Almanya",
+      "countryCode": "DE",
+      "height": "1.91"
     },
     {
       "name": "Burak Can Yıldızlı",
@@ -8414,7 +9677,10 @@
         "rating_raw": 2.9,
         "stl": 0.1
       },
-      "rating": 2.9
+      "rating": 2.9,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "Rıdvan Öncel",
@@ -8430,7 +9696,10 @@
         "rating_raw": 4.3,
         "stl": 0.45
       },
-      "rating": 4.3
+      "rating": 4.3,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91"
     },
     {
       "name": "Salih Altuntaş",
@@ -8446,7 +9715,10 @@
         "rating_raw": -1.0,
         "stl": 0.0
       },
-      "rating": -1.0
+      "rating": -1.0,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": null
     }
   ],
   "2025-26": [
@@ -8473,7 +9745,10 @@
         "rating_raw": 15.8,
         "stl": 1.54
       },
-      "rating": 14.1
+      "rating": 14.1,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.82"
     },
     {
       "name": "Jordan Loyd",
@@ -8497,7 +9772,10 @@
         "rating_raw": 12.2,
         "stl": 1.03
       },
-      "rating": 9.8
+      "rating": 9.8,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93"
     },
     {
       "name": "Saben Lee",
@@ -8521,10 +9799,13 @@
         "rating_raw": 12.5,
         "stl": 0.7
       },
-      "rating": 10.8
+      "rating": 10.8,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.88"
     },
     {
-      "name": "Erxhan Osmani",
+      "name": "Ercan Osmani",
       "positions": [
         "PF",
         "C"
@@ -8546,7 +9827,10 @@
         "rating_raw": 11.3,
         "stl": 0.68
       },
-      "rating": 10.05
+      "rating": 10.05,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.13"
     },
     {
       "name": "P.J. Dozier",
@@ -8571,7 +9855,10 @@
         "rating_raw": 10.9,
         "stl": 0.85
       },
-      "rating": 8.15
+      "rating": 8.15,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98"
     },
     {
       "name": "Isaia Cordinier",
@@ -8596,7 +9883,10 @@
         "rating_raw": 11.2,
         "stl": 0.46
       },
-      "rating": 8.8
+      "rating": 8.8,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.96"
     },
     {
       "name": "Vincent Poirier",
@@ -8620,7 +9910,10 @@
         "rating_raw": 16.2,
         "stl": 1.08
       },
-      "rating": 12.45
+      "rating": 12.45,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "2.13"
     },
     {
       "name": "Nick Weiler-Babb",
@@ -8645,7 +9938,10 @@
         "rating_raw": 9.4,
         "stl": 0.71
       },
-      "rating": 9.1
+      "rating": 9.1,
+      "country": "Almanya",
+      "countryCode": "DE",
+      "height": "1.96"
     },
     {
       "name": "Rolands Smits",
@@ -8670,7 +9966,10 @@
         "rating_raw": 5.9,
         "stl": 0.22
       },
-      "rating": 5.2
+      "rating": 5.2,
+      "country": "Letonya",
+      "countryCode": "LV",
+      "height": "2.08"
     },
     {
       "name": "Sehmus Hazer",
@@ -8694,7 +9993,10 @@
         "rating_raw": 10.1,
         "stl": 0.78
       },
-      "rating": 6.35
+      "rating": 6.35,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.90"
     },
     {
       "name": "Cole Swider",
@@ -8718,7 +10020,10 @@
         "rating_raw": 6.0,
         "stl": 0.24
       },
-      "rating": 4.85
+      "rating": 4.85,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "2.03"
     },
     {
       "name": "Brice Dessert",
@@ -8742,7 +10047,10 @@
         "rating_raw": 10.8,
         "stl": 0.27
       },
-      "rating": 7.95
+      "rating": 7.95,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "2.10"
     },
     {
       "name": "Rodrigue Beaubois",
@@ -8767,7 +10075,10 @@
         "rating_raw": 5.0,
         "stl": 0.63
       },
-      "rating": 4.75
+      "rating": 4.75,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.90"
     },
     {
       "name": "Kai Jones",
@@ -8792,7 +10103,10 @@
         "rating_raw": 9.5,
         "stl": 0.53
       },
-      "rating": 8.15
+      "rating": 8.15,
+      "country": "Bahamalar",
+      "countryCode": "BS",
+      "height": "2.11"
     },
     {
       "name": "Erkan Yilmaz",
@@ -8816,7 +10130,10 @@
         "rating_raw": 8.0,
         "stl": 0.91
       },
-      "rating": 4.55
+      "rating": 4.55,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92"
     },
     {
       "name": "Burak Can Yıldızlı",
@@ -8832,7 +10149,10 @@
         "rating_raw": 1.5,
         "stl": 0.0
       },
-      "rating": 1.5
+      "rating": 1.5,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04"
     },
     {
       "name": "David Mutaf",
@@ -8849,7 +10169,10 @@
         "rating_raw": 4.4,
         "stl": 0.56
       },
-      "rating": 4.4
+      "rating": 4.4,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97"
     },
     {
       "name": "Georgios Papagiannis",
@@ -8865,7 +10188,10 @@
         "rating_raw": 9.5,
         "stl": 0.0
       },
-      "rating": 9.5
+      "rating": 9.5,
+      "country": "Yunanistan",
+      "countryCode": "GR",
+      "height": "2.18"
     },
     {
       "name": "Rüzgar Fenemen",
@@ -8881,7 +10207,10 @@
         "rating_raw": -0.2,
         "stl": 0.0
       },
-      "rating": -0.2
+      "rating": -0.2,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": null
     }
   ]
 }
