@@ -11,7 +11,8 @@
         "reb": 3.6,
         "ast": 0.7,
         "gp": "9",
-        "rating_raw": 10.1
+        "rating_raw": 10.1,
+        "stl": 0.44
       },
       "rating": 10.1
     },
@@ -26,7 +27,8 @@
         "reb": 4.4,
         "ast": 1.9,
         "gp": "26",
-        "rating_raw": 14.2
+        "rating_raw": 14.2,
+        "stl": 1.42
       },
       "rating": 14.2
     },
@@ -41,7 +43,8 @@
         "reb": 1.4,
         "ast": 0.9,
         "gp": "10",
-        "rating_raw": 5.8
+        "rating_raw": 5.8,
+        "stl": 1.0
       },
       "rating": 5.8
     },
@@ -56,7 +59,8 @@
         "reb": 3.8,
         "ast": 1.2,
         "gp": "30",
-        "rating_raw": 9.6
+        "rating_raw": 9.6,
+        "stl": 1.2
       },
       "rating": 9.6
     },
@@ -71,7 +75,8 @@
         "reb": 4.4,
         "ast": 0.3,
         "gp": "36",
-        "rating_raw": 9.7
+        "rating_raw": 9.7,
+        "stl": 0.5
       },
       "rating": 9.7
     },
@@ -86,7 +91,8 @@
         "reb": 7.9,
         "ast": 1.2,
         "gp": "34",
-        "rating_raw": 16.1
+        "rating_raw": 16.1,
+        "stl": 1.06
       },
       "rating": 16.1
     },
@@ -101,7 +107,8 @@
         "reb": 1.1,
         "ast": 2.1,
         "gp": "36",
-        "rating_raw": 6.9
+        "rating_raw": 6.9,
+        "stl": 0.94
       },
       "rating": 6.9
     },
@@ -116,7 +123,8 @@
         "reb": 1.3,
         "ast": 1.1,
         "gp": "7",
-        "rating_raw": 5.1
+        "rating_raw": 5.1,
+        "stl": 1.0
       },
       "rating": 5.1
     },
@@ -131,7 +139,8 @@
         "reb": 2.0,
         "ast": 5.7,
         "gp": "32",
-        "rating_raw": 17.7
+        "rating_raw": 17.7,
+        "stl": 1.75
       },
       "rating": 17.7
     },
@@ -146,7 +155,8 @@
         "reb": 7.9,
         "ast": 0.8,
         "gp": "16",
-        "rating_raw": 16.0
+        "rating_raw": 16.0,
+        "stl": 1.19
       },
       "rating": 16.0
     },
@@ -161,7 +171,8 @@
         "reb": 1.9,
         "ast": 0.3,
         "gp": "32",
-        "rating_raw": 5.4
+        "rating_raw": 5.4,
+        "stl": 0.5
       },
       "rating": 5.4
     },
@@ -176,7 +187,8 @@
         "reb": 1.8,
         "ast": 1.4,
         "gp": "34",
-        "rating_raw": 8.4
+        "rating_raw": 8.4,
+        "stl": 1.32
       },
       "rating": 8.4
     },
@@ -191,7 +203,8 @@
         "reb": 1.6,
         "ast": 0.7,
         "gp": "33",
-        "rating_raw": 6.7
+        "rating_raw": 6.7,
+        "stl": 0.82
       },
       "rating": 6.7
     }
@@ -208,7 +221,8 @@
         "reb": 4.7,
         "ast": 1.6,
         "gp": "31",
-        "rating_raw": 12.9
+        "rating_raw": 12.9,
+        "stl": 1.52
       },
       "rating": 12.9
     },
@@ -223,7 +237,8 @@
         "reb": 7.5,
         "ast": 0.6,
         "gp": "35",
-        "rating_raw": 14.4
+        "rating_raw": 14.4,
+        "stl": 0.83
       },
       "rating": 14.4
     },
@@ -238,7 +253,8 @@
         "reb": 2.0,
         "ast": 0.5,
         "gp": "2",
-        "rating_raw": 2.0
+        "rating_raw": 2.0,
+        "stl": 0.0
       },
       "rating": 2.0
     },
@@ -253,7 +269,8 @@
         "reb": 0.9,
         "ast": 1.8,
         "gp": "30",
-        "rating_raw": 7.1
+        "rating_raw": 7.1,
+        "stl": 0.83
       },
       "rating": 7.1
     },
@@ -268,7 +285,8 @@
         "reb": 1.9,
         "ast": 0.1,
         "gp": "17",
-        "rating_raw": 1.7
+        "rating_raw": 1.7,
+        "stl": 0.0
       },
       "rating": 1.7
     },
@@ -283,7 +301,8 @@
         "reb": 0.9,
         "ast": 0.5,
         "gp": "11",
-        "rating_raw": 6.7
+        "rating_raw": 6.7,
+        "stl": 0.64
       },
       "rating": 6.7
     },
@@ -298,7 +317,8 @@
         "reb": 3.0,
         "ast": 5.8,
         "gp": "36",
-        "rating_raw": 18.2
+        "rating_raw": 18.2,
+        "stl": 1.33
       },
       "rating": 18.2
     },
@@ -313,7 +333,8 @@
         "reb": 5.2,
         "ast": 1.3,
         "gp": "36",
-        "rating_raw": 13.8
+        "rating_raw": 13.8,
+        "stl": 0.78
       },
       "rating": 13.8
     },
@@ -328,7 +349,8 @@
         "reb": 2.0,
         "ast": 1.9,
         "gp": "35",
-        "rating_raw": 8.3
+        "rating_raw": 8.3,
+        "stl": 1.26
       },
       "rating": 8.3
     },
@@ -343,7 +365,8 @@
         "reb": 1.6,
         "ast": 1.2,
         "gp": "30",
-        "rating_raw": 6.5
+        "rating_raw": 6.5,
+        "stl": 0.5
       },
       "rating": 6.5
     },
@@ -358,7 +381,8 @@
         "reb": 5.2,
         "ast": 1.7,
         "gp": "19",
-        "rating_raw": 12.3
+        "rating_raw": 12.3,
+        "stl": 0.79
       },
       "rating": 12.3
     }
@@ -375,7 +399,8 @@
         "reb": 1.1,
         "ast": 0.2,
         "gp": "26",
-        "rating_raw": 2.5
+        "rating_raw": 2.5,
+        "stl": 0.27
       },
       "rating": 2.5
     },
@@ -390,7 +415,8 @@
         "reb": 0.5,
         "ast": 0.8,
         "gp": "19",
-        "rating_raw": 2.1
+        "rating_raw": 2.1,
+        "stl": 0.42
       },
       "rating": 2.1
     },
@@ -405,7 +431,8 @@
         "reb": 2.3,
         "ast": 5.3,
         "gp": "34",
-        "rating_raw": 14.9
+        "rating_raw": 14.9,
+        "stl": 1.41
       },
       "rating": 14.9
     },
@@ -420,7 +447,8 @@
         "reb": 5.4,
         "ast": 2.4,
         "gp": "34",
-        "rating_raw": 14.7
+        "rating_raw": 14.7,
+        "stl": 1.38
       },
       "rating": 14.7
     },
@@ -435,7 +463,8 @@
         "reb": 9.5,
         "ast": 1.0,
         "gp": "32",
-        "rating_raw": 16.9
+        "rating_raw": 16.9,
+        "stl": 0.88
       },
       "rating": 16.9
     },
@@ -450,7 +479,8 @@
         "reb": 2.0,
         "ast": 1.9,
         "gp": "36",
-        "rating_raw": 12.1
+        "rating_raw": 12.1,
+        "stl": 0.92
       },
       "rating": 12.1
     },
@@ -465,7 +495,8 @@
         "reb": 0.0,
         "ast": 2.0,
         "gp": "1",
-        "rating_raw": 2.0
+        "rating_raw": 2.0,
+        "stl": 0.0
       },
       "rating": 2.0
     },
@@ -480,7 +511,8 @@
         "reb": 6.0,
         "ast": 1.9,
         "gp": "7",
-        "rating_raw": 10.7
+        "rating_raw": 10.7,
+        "stl": 0.86
       },
       "rating": 10.7
     },
@@ -495,7 +527,8 @@
         "reb": 1.3,
         "ast": 0.3,
         "gp": "16",
-        "rating_raw": 2.0
+        "rating_raw": 2.0,
+        "stl": 0.13
       },
       "rating": 2.0
     },
@@ -510,7 +543,8 @@
         "reb": 1.3,
         "ast": 0.6,
         "gp": "35",
-        "rating_raw": 4.1
+        "rating_raw": 4.1,
+        "stl": 0.66
       },
       "rating": 4.1
     },
@@ -525,7 +559,8 @@
         "reb": 5.7,
         "ast": 0.7,
         "gp": "35",
-        "rating_raw": 15.1
+        "rating_raw": 15.1,
+        "stl": 1.14
       },
       "rating": 15.1
     },
@@ -540,7 +575,8 @@
         "reb": 4.1,
         "ast": 0.3,
         "gp": "22",
-        "rating_raw": 8.9
+        "rating_raw": 8.9,
+        "stl": 0.73
       },
       "rating": 8.9
     },
@@ -555,7 +591,8 @@
         "reb": 7.0,
         "ast": 2.0,
         "gp": "1",
-        "rating_raw": 14.0
+        "rating_raw": 14.0,
+        "stl": 1.0
       },
       "rating": 14.0
     },
@@ -570,7 +607,8 @@
         "reb": 0.0,
         "ast": 0.0,
         "gp": "1",
-        "rating_raw": 5.0
+        "rating_raw": 5.0,
+        "stl": 0.0
       },
       "rating": 5.0
     }
@@ -587,7 +625,8 @@
         "reb": 1.7,
         "ast": 1.2,
         "gp": "31",
-        "rating_raw": 4.9
+        "rating_raw": 4.9,
+        "stl": 0.87
       },
       "rating": 4.9
     },
@@ -602,7 +641,8 @@
         "reb": 2.2,
         "ast": 4.8,
         "gp": "32",
-        "rating_raw": 16.9
+        "rating_raw": 16.9,
+        "stl": 1.44
       },
       "rating": 16.9
     },
@@ -617,7 +657,8 @@
         "reb": 0.4,
         "ast": 1.1,
         "gp": "8",
-        "rating_raw": 2.5
+        "rating_raw": 2.5,
+        "stl": 1.27
       },
       "rating": 2.5
     },
@@ -632,7 +673,8 @@
         "reb": 0.3,
         "ast": 0.7,
         "gp": "3",
-        "rating_raw": 1.7
+        "rating_raw": 1.7,
+        "stl": 1.0
       },
       "rating": 1.7
     },
@@ -647,7 +689,8 @@
         "reb": 1.5,
         "ast": 1.2,
         "gp": "20",
-        "rating_raw": 6.0
+        "rating_raw": 6.0,
+        "stl": 0.8
       },
       "rating": 6.0
     },
@@ -662,7 +705,8 @@
         "reb": 7.9,
         "ast": 1.1,
         "gp": "33",
-        "rating_raw": 15.4
+        "rating_raw": 15.4,
+        "stl": 0.73
       },
       "rating": 15.4
     },
@@ -677,7 +721,8 @@
         "reb": 3.9,
         "ast": 0.1,
         "gp": "23",
-        "rating_raw": 7.3
+        "rating_raw": 7.3,
+        "stl": 0.57
       },
       "rating": 7.3
     },
@@ -692,7 +737,8 @@
         "reb": 1.6,
         "ast": 2.9,
         "gp": "22",
-        "rating_raw": 8.7
+        "rating_raw": 8.7,
+        "stl": 1.41
       },
       "rating": 8.7
     },
@@ -708,7 +754,8 @@
         "reb": 5.8,
         "ast": 0.5,
         "gp": "34",
-        "rating_raw": 12.4
+        "rating_raw": 12.4,
+        "stl": 0.53
       },
       "rating": 12.4
     },
@@ -723,7 +770,8 @@
         "reb": 1.8,
         "ast": 1.2,
         "gp": "34",
-        "rating_raw": 9.4
+        "rating_raw": 9.4,
+        "stl": 1.18
       },
       "rating": 9.4
     },
@@ -738,7 +786,8 @@
         "reb": 5.8,
         "ast": 1.3,
         "gp": "33",
-        "rating_raw": 15.5
+        "rating_raw": 15.5,
+        "stl": 0.85
       },
       "rating": 15.5
     },
@@ -753,7 +802,8 @@
         "reb": 1.5,
         "ast": 2.0,
         "gp": "32",
-        "rating_raw": 8.4
+        "rating_raw": 8.4,
+        "stl": 0.97
       },
       "rating": 8.4
     }
@@ -778,7 +828,8 @@
         "reb": 3.2,
         "ast": 3.1,
         "gp": "31",
-        "rating_raw": 18.9
+        "rating_raw": 18.9,
+        "stl": 1.55
       },
       "rating": 17.1
     },
@@ -801,7 +852,8 @@
         "reb": 6.6,
         "ast": 0.6,
         "gp": "31",
-        "rating_raw": 13.7
+        "rating_raw": 13.7,
+        "stl": 0.94
       },
       "rating": 13.0
     },
@@ -825,7 +877,8 @@
         "reb": 8.1,
         "ast": 1.3,
         "gp": "31",
-        "rating_raw": 17.7
+        "rating_raw": 17.7,
+        "stl": 1.03
       },
       "rating": 15.95
     },
@@ -848,7 +901,8 @@
         "reb": 3.8,
         "ast": 2.1,
         "gp": "31",
-        "rating_raw": 11.1
+        "rating_raw": 11.1,
+        "stl": 1.06
       },
       "rating": 9.35
     },
@@ -871,7 +925,8 @@
         "reb": 1.3,
         "ast": 0.7,
         "gp": "26",
-        "rating_raw": 6.7
+        "rating_raw": 6.7,
+        "stl": 0.77
       },
       "rating": 5.5
     },
@@ -894,7 +949,8 @@
         "reb": 1.9,
         "ast": 4.3,
         "gp": "30",
-        "rating_raw": 9.9
+        "rating_raw": 9.9,
+        "stl": 1.4
       },
       "rating": 5.75
     },
@@ -909,7 +965,8 @@
         "reb": 1.9,
         "ast": 1.2,
         "gp": "31",
-        "rating_raw": 5.7
+        "rating_raw": 5.7,
+        "stl": 1.13
       },
       "rating": 5.7
     },
@@ -924,7 +981,8 @@
         "reb": 3.3,
         "ast": 0.7,
         "gp": "24",
-        "rating_raw": 7.0
+        "rating_raw": 7.0,
+        "stl": 0.42
       },
       "rating": 7.0
     },
@@ -939,7 +997,8 @@
         "reb": 0.8,
         "ast": 2.2,
         "gp": "25",
-        "rating_raw": 6.0
+        "rating_raw": 6.0,
+        "stl": 0.72
       },
       "rating": 6.0
     },
@@ -954,7 +1013,8 @@
         "reb": 0.0,
         "ast": 1.0,
         "gp": "1",
-        "rating_raw": -1.0
+        "rating_raw": -1.0,
+        "stl": 0.0
       },
       "rating": -1.0
     },
@@ -969,7 +1029,8 @@
         "reb": 4.4,
         "ast": 0.7,
         "gp": "23",
-        "rating_raw": 7.1
+        "rating_raw": 7.1,
+        "stl": 1.09
       },
       "rating": 7.1
     }
@@ -994,7 +1055,8 @@
         "reb": 3.1,
         "ast": 3.1,
         "gp": "29",
-        "rating_raw": 14.5
+        "rating_raw": 14.5,
+        "stl": 0.93
       },
       "rating": 14.65
     },
@@ -1017,7 +1079,8 @@
         "reb": 6.9,
         "ast": 1.0,
         "gp": "33",
-        "rating_raw": 17.9
+        "rating_raw": 17.9,
+        "stl": 0.88
       },
       "rating": 16.2
     },
@@ -1040,7 +1103,8 @@
         "reb": 3.6,
         "ast": 1.3,
         "gp": "35",
-        "rating_raw": 13.2
+        "rating_raw": 13.2,
+        "stl": 0.74
       },
       "rating": 11.0
     },
@@ -1063,7 +1127,8 @@
         "reb": 3.8,
         "ast": 2.1,
         "gp": "14",
-        "rating_raw": 9.4
+        "rating_raw": 9.4,
+        "stl": 0.93
       },
       "rating": 7.6
     },
@@ -1086,7 +1151,8 @@
         "reb": 2.5,
         "ast": 3.4,
         "gp": "31",
-        "rating_raw": 11.1
+        "rating_raw": 11.1,
+        "stl": 1.61
       },
       "rating": 8.85
     },
@@ -1109,7 +1175,8 @@
         "reb": 6.2,
         "ast": 0.9,
         "gp": "33",
-        "rating_raw": 12.2
+        "rating_raw": 12.2,
+        "stl": 0.79
       },
       "rating": 7.85
     },
@@ -1132,7 +1199,8 @@
         "reb": 3.0,
         "ast": 2.0,
         "gp": "33",
-        "rating_raw": 7.0
+        "rating_raw": 7.0,
+        "stl": 1.09
       },
       "rating": 5.55
     },
@@ -1147,7 +1215,8 @@
         "reb": 3.9,
         "ast": 1.0,
         "gp": "26",
-        "rating_raw": 7.9
+        "rating_raw": 7.9,
+        "stl": 0.85
       },
       "rating": 7.9
     },
@@ -1162,7 +1231,8 @@
         "reb": 1.4,
         "ast": 2.2,
         "gp": "35",
-        "rating_raw": 6.3
+        "rating_raw": 6.3,
+        "stl": 0.77
       },
       "rating": 6.3
     },
@@ -1177,7 +1247,8 @@
         "reb": 2.3,
         "ast": 0.1,
         "gp": "17",
-        "rating_raw": 2.7
+        "rating_raw": 2.7,
+        "stl": 0.24
       },
       "rating": 2.7
     },
@@ -1192,7 +1263,8 @@
         "reb": 5.7,
         "ast": 0.5,
         "gp": "10",
-        "rating_raw": 11.0
+        "rating_raw": 11.0,
+        "stl": 0.7
       },
       "rating": 11.0
     },
@@ -1207,7 +1279,8 @@
         "reb": 1.7,
         "ast": 1.5,
         "gp": "31",
-        "rating_raw": 8.2
+        "rating_raw": 8.2,
+        "stl": 0.87
       },
       "rating": 8.2
     },
@@ -1222,7 +1295,8 @@
         "reb": 0.8,
         "ast": 0.6,
         "gp": "10",
-        "rating_raw": 2.5
+        "rating_raw": 2.5,
+        "stl": 0.6
       },
       "rating": 2.5
     }
@@ -1247,7 +1321,8 @@
         "reb": 4.5,
         "ast": 1.0,
         "gp": "35",
-        "rating_raw": 17.1
+        "rating_raw": 17.1,
+        "stl": 1.09
       },
       "rating": 14.8
     },
@@ -1270,7 +1345,8 @@
         "reb": 2.7,
         "ast": 1.6,
         "gp": "35",
-        "rating_raw": 10.6
+        "rating_raw": 10.6,
+        "stl": 1.06
       },
       "rating": 10.2
     },
@@ -1293,7 +1369,8 @@
         "reb": 5.5,
         "ast": 1.1,
         "gp": "31",
-        "rating_raw": 13.7
+        "rating_raw": 13.7,
+        "stl": 1.45
       },
       "rating": 10.85
     },
@@ -1316,7 +1393,8 @@
         "reb": 4.6,
         "ast": 0.8,
         "gp": "35",
-        "rating_raw": 10.1
+        "rating_raw": 10.1,
+        "stl": 0.51
       },
       "rating": 7.8
     },
@@ -1339,7 +1417,8 @@
         "reb": 5.3,
         "ast": 1.1,
         "gp": "32",
-        "rating_raw": 11.9
+        "rating_raw": 11.9,
+        "stl": 0.75
       },
       "rating": 11.35
     },
@@ -1362,7 +1441,8 @@
         "reb": 1.8,
         "ast": 3.4,
         "gp": "35",
-        "rating_raw": 5.4
+        "rating_raw": 5.4,
+        "stl": 0.91
       },
       "rating": 5.2
     },
@@ -1385,7 +1465,8 @@
         "reb": 4.8,
         "ast": 1.4,
         "gp": "31",
-        "rating_raw": 12.4
+        "rating_raw": 12.4,
+        "stl": 1.29
       },
       "rating": 9.15
     },
@@ -1408,7 +1489,8 @@
         "reb": 2.1,
         "ast": 1.6,
         "gp": "35",
-        "rating_raw": 5.3
+        "rating_raw": 5.3,
+        "stl": 0.97
       },
       "rating": 3.55
     },
@@ -1423,7 +1505,8 @@
         "reb": 1.3,
         "ast": 2.0,
         "gp": "3",
-        "rating_raw": 5.7
+        "rating_raw": 5.7,
+        "stl": 2.0
       },
       "rating": 5.7
     },
@@ -1438,7 +1521,8 @@
         "reb": 1.8,
         "ast": 3.8,
         "gp": "27",
-        "rating_raw": 9.3
+        "rating_raw": 9.3,
+        "stl": 1.33
       },
       "rating": 9.3
     },
@@ -1453,7 +1537,8 @@
         "reb": 1.7,
         "ast": 0.9,
         "gp": "26",
-        "rating_raw": 5.1
+        "rating_raw": 5.1,
+        "stl": 0.96
       },
       "rating": 5.1
     },
@@ -1468,7 +1553,8 @@
         "reb": 1.1,
         "ast": 0.0,
         "gp": "15",
-        "rating_raw": 1.3
+        "rating_raw": 1.3,
+        "stl": 0.13
       },
       "rating": 1.3
     },
@@ -1483,7 +1569,8 @@
         "reb": 0.7,
         "ast": 0.2,
         "gp": "13",
-        "rating_raw": 1.3
+        "rating_raw": 1.3,
+        "stl": 0.08
       },
       "rating": 1.3
     }
@@ -1508,7 +1595,8 @@
         "reb": 2.8,
         "ast": 3.5,
         "gp": "33",
-        "rating_raw": 13.2
+        "rating_raw": 13.2,
+        "stl": 1.67
       },
       "rating": 11.25
     },
@@ -1531,7 +1619,8 @@
         "reb": 3.9,
         "ast": 1.3,
         "gp": "35",
-        "rating_raw": 13.1
+        "rating_raw": 13.1,
+        "stl": 1.34
       },
       "rating": 11.95
     },
@@ -1554,7 +1643,8 @@
         "reb": 3.5,
         "ast": 1.9,
         "gp": "33",
-        "rating_raw": 9.5
+        "rating_raw": 9.5,
+        "stl": 0.85
       },
       "rating": 8.95
     },
@@ -1577,7 +1667,8 @@
         "reb": 5.9,
         "ast": 1.2,
         "gp": "35",
-        "rating_raw": 13.5
+        "rating_raw": 13.5,
+        "stl": 0.46
       },
       "rating": 12.1
     },
@@ -1600,7 +1691,8 @@
         "reb": 4.7,
         "ast": 1.1,
         "gp": "35",
-        "rating_raw": 11.0
+        "rating_raw": 11.0,
+        "stl": 0.57
       },
       "rating": 8.05
     },
@@ -1623,7 +1715,8 @@
         "reb": 1.7,
         "ast": 2.4,
         "gp": "34",
-        "rating_raw": 6.5
+        "rating_raw": 6.5,
+        "stl": 0.82
       },
       "rating": 5.65
     },
@@ -1646,7 +1739,8 @@
         "reb": 6.8,
         "ast": 0.8,
         "gp": "32",
-        "rating_raw": 15.0
+        "rating_raw": 15.0,
+        "stl": 0.97
       },
       "rating": 9.9
     },
@@ -1669,7 +1763,8 @@
         "reb": 2.8,
         "ast": 1.8,
         "gp": "20",
-        "rating_raw": 6.6
+        "rating_raw": 6.6,
+        "stl": 0.95
       },
       "rating": 4.1
     },
@@ -1684,7 +1779,8 @@
         "reb": 0.8,
         "ast": 1.0,
         "gp": "8",
-        "rating_raw": 2.9
+        "rating_raw": 2.9,
+        "stl": 0.75
       },
       "rating": 2.9
     },
@@ -1699,7 +1795,8 @@
         "reb": 1.7,
         "ast": 1.1,
         "gp": "19",
-        "rating_raw": 5.9
+        "rating_raw": 5.9,
+        "stl": 0.79
       },
       "rating": 5.9
     },
@@ -1714,7 +1811,8 @@
         "reb": 2.5,
         "ast": 1.5,
         "gp": "31",
-        "rating_raw": 6.7
+        "rating_raw": 6.7,
+        "stl": 0.94
       },
       "rating": 6.7
     },
@@ -1729,7 +1827,8 @@
         "reb": 1.4,
         "ast": 0.8,
         "gp": "12",
-        "rating_raw": 2.0
+        "rating_raw": 2.0,
+        "stl": 0.08
       },
       "rating": 2.0
     }
@@ -1754,7 +1853,8 @@
         "reb": 3.3,
         "ast": 1.5,
         "gp": "27",
-        "rating_raw": 10.7
+        "rating_raw": 10.7,
+        "stl": 0.67
       },
       "rating": 9.9
     },
@@ -1777,7 +1877,8 @@
         "reb": 2.6,
         "ast": 1.2,
         "gp": "29",
-        "rating_raw": 8.2
+        "rating_raw": 8.2,
+        "stl": 0.79
       },
       "rating": 8.35
     },
@@ -1800,7 +1901,8 @@
         "reb": 4.9,
         "ast": 2.4,
         "gp": "37",
-        "rating_raw": 11.9
+        "rating_raw": 11.9,
+        "stl": 1.49
       },
       "rating": 11.3
     },
@@ -1823,7 +1925,8 @@
         "reb": 6.1,
         "ast": 0.9,
         "gp": "37",
-        "rating_raw": 13.1
+        "rating_raw": 13.1,
+        "stl": 1.19
       },
       "rating": 10.15
     },
@@ -1846,7 +1949,8 @@
         "reb": 1.6,
         "ast": 3.0,
         "gp": "37",
-        "rating_raw": 7.0
+        "rating_raw": 7.0,
+        "stl": 0.89
       },
       "rating": 4.5
     },
@@ -1869,7 +1973,8 @@
         "reb": 5.9,
         "ast": 0.8,
         "gp": "37",
-        "rating_raw": 10.9
+        "rating_raw": 10.9,
+        "stl": 0.7
       },
       "rating": 8.95
     },
@@ -1884,7 +1989,8 @@
         "reb": 1.5,
         "ast": 1.1,
         "gp": "28",
-        "rating_raw": 4.8
+        "rating_raw": 4.8,
+        "stl": 1.14
       },
       "rating": 4.8
     },
@@ -1899,7 +2005,8 @@
         "reb": 1.0,
         "ast": 2.3,
         "gp": "24",
-        "rating_raw": 5.2
+        "rating_raw": 5.2,
+        "stl": 0.79
       },
       "rating": 5.2
     },
@@ -1914,7 +2021,8 @@
         "reb": 2.2,
         "ast": 0.7,
         "gp": "29",
-        "rating_raw": 5.2
+        "rating_raw": 5.2,
+        "stl": 0.69
       },
       "rating": 5.2
     },
@@ -1929,7 +2037,8 @@
         "reb": 3.1,
         "ast": 1.8,
         "gp": "16",
-        "rating_raw": 11.1
+        "rating_raw": 11.1,
+        "stl": 2.0
       },
       "rating": 11.1
     },
@@ -1944,7 +2053,8 @@
         "reb": 3.8,
         "ast": 1.2,
         "gp": "16",
-        "rating_raw": 8.9
+        "rating_raw": 8.9,
+        "stl": 0.56
       },
       "rating": 8.9
     },
@@ -1959,7 +2069,8 @@
         "reb": 1.5,
         "ast": 2.9,
         "gp": "31",
-        "rating_raw": 7.4
+        "rating_raw": 7.4,
+        "stl": 0.9
       },
       "rating": 7.4
     },
@@ -1974,7 +2085,8 @@
         "reb": 1.1,
         "ast": 1.3,
         "gp": "28",
-        "rating_raw": 4.5
+        "rating_raw": 4.5,
+        "stl": 0.61
       },
       "rating": 4.5
     },
@@ -1989,7 +2101,8 @@
         "reb": 1.9,
         "ast": 0.1,
         "gp": "13",
-        "rating_raw": 2.9
+        "rating_raw": 2.9,
+        "stl": 0.23
       },
       "rating": 2.9
     }
@@ -2014,7 +2127,8 @@
         "reb": 6.3,
         "ast": 0.5,
         "gp": "28",
-        "rating_raw": 13.5
+        "rating_raw": 13.5,
+        "stl": 0.39
       },
       "rating": 13.75
     },
@@ -2032,8 +2146,15 @@
         "gp": "20",
         "rating_raw": 10.7
       },
-      "bsl": null,
-      "rating": 10.7
+      "bsl": {
+        "pts": 17.3,
+        "reb": 3.5,
+        "ast": 4.4,
+        "gp": "40",
+        "rating_raw": 16.7,
+        "stl": 1.18
+      },
+      "rating": 13.7
     },
     {
       "name": "Ermal Kuqo",
@@ -2054,7 +2175,8 @@
         "reb": 4.8,
         "ast": 1.7,
         "gp": "39",
-        "rating_raw": 11.1
+        "rating_raw": 11.1,
+        "stl": 0.51
       },
       "rating": 8.8
     },
@@ -2077,7 +2199,8 @@
         "reb": 3.1,
         "ast": 1.3,
         "gp": "36",
-        "rating_raw": 7.2
+        "rating_raw": 7.2,
+        "stl": 0.69
       },
       "rating": 6.1
     },
@@ -2100,7 +2223,8 @@
         "reb": 7.3,
         "ast": 1.3,
         "gp": "39",
-        "rating_raw": 14.9
+        "rating_raw": 14.9,
+        "stl": 1.26
       },
       "rating": 11.2
     },
@@ -2123,7 +2247,8 @@
         "reb": 2.0,
         "ast": 2.7,
         "gp": "37",
-        "rating_raw": 6.7
+        "rating_raw": 6.7,
+        "stl": 1.03
       },
       "rating": 4.6
     },
@@ -2146,7 +2271,8 @@
         "reb": 1.5,
         "ast": 1.0,
         "gp": "32",
-        "rating_raw": 3.4
+        "rating_raw": 3.4,
+        "stl": 0.66
       },
       "rating": 1.4
     },
@@ -2161,24 +2287,10 @@
         "reb": 2.0,
         "ast": 4.6,
         "gp": "5",
-        "rating_raw": 5.6
+        "rating_raw": 5.6,
+        "stl": 0.2
       },
       "rating": 5.6
-    },
-    {
-      "name": "Andrew Nicholas",
-      "positions": [
-        "SF"
-      ],
-      "euroleague": null,
-      "bsl": {
-        "pts": 17.3,
-        "reb": 3.5,
-        "ast": 4.4,
-        "gp": "40",
-        "rating_raw": 16.7
-      },
-      "rating": 16.7
     },
     {
       "name": "Antonio Granger",
@@ -2191,7 +2303,8 @@
         "reb": 2.8,
         "ast": 0.8,
         "gp": "18",
-        "rating_raw": 9.9
+        "rating_raw": 9.9,
+        "stl": 0.33
       },
       "rating": 9.9
     },
@@ -2206,7 +2319,8 @@
         "reb": 1.9,
         "ast": 0.3,
         "gp": "26",
-        "rating_raw": 3.1
+        "rating_raw": 3.1,
+        "stl": 0.31
       },
       "rating": 3.1
     },
@@ -2221,7 +2335,8 @@
         "reb": 1.5,
         "ast": 0.0,
         "gp": "15",
-        "rating_raw": 1.8
+        "rating_raw": 1.8,
+        "stl": 0.0
       },
       "rating": 1.8
     },
@@ -2236,7 +2351,8 @@
         "reb": 1.3,
         "ast": 1.7,
         "gp": "21",
-        "rating_raw": 4.7
+        "rating_raw": 4.7,
+        "stl": 0.57
       },
       "rating": 4.7
     },
@@ -2251,7 +2367,8 @@
         "reb": 2.7,
         "ast": 1.1,
         "gp": "34",
-        "rating_raw": 7.4
+        "rating_raw": 7.4,
+        "stl": 0.88
       },
       "rating": 7.4
     },
@@ -2266,7 +2383,8 @@
         "reb": 1.8,
         "ast": 0.8,
         "gp": "10",
-        "rating_raw": 2.9
+        "rating_raw": 2.9,
+        "stl": 0.2
       },
       "rating": 2.9
     },
@@ -2281,7 +2399,8 @@
         "reb": 2.5,
         "ast": 2.3,
         "gp": "18",
-        "rating_raw": 5.6
+        "rating_raw": 5.6,
+        "stl": 0.78
       },
       "rating": 5.6
     }
@@ -2306,7 +2425,8 @@
         "reb": 5.5,
         "ast": 1.7,
         "gp": "30",
-        "rating_raw": 13.5
+        "rating_raw": 13.5,
+        "stl": 0.6
       },
       "rating": 12.0
     },
@@ -2329,7 +2449,8 @@
         "reb": 3.8,
         "ast": 1.1,
         "gp": "34",
-        "rating_raw": 9.5
+        "rating_raw": 9.5,
+        "stl": 0.56
       },
       "rating": 9.5
     },
@@ -2352,7 +2473,8 @@
         "reb": 3.3,
         "ast": 4.1,
         "gp": "32",
-        "rating_raw": 9.5
+        "rating_raw": 9.5,
+        "stl": 1.03
       },
       "rating": 8.85
     },
@@ -2375,7 +2497,8 @@
         "reb": 4.4,
         "ast": 1.8,
         "gp": "35",
-        "rating_raw": 11.2
+        "rating_raw": 11.2,
+        "stl": 0.37
       },
       "rating": 8.0
     },
@@ -2398,7 +2521,8 @@
         "reb": 6.2,
         "ast": 1.1,
         "gp": "21",
-        "rating_raw": 12.1
+        "rating_raw": 12.1,
+        "stl": 0.67
       },
       "rating": 11.8
     },
@@ -2421,7 +2545,8 @@
         "reb": 7.6,
         "ast": 1.3,
         "gp": "36",
-        "rating_raw": 15.0
+        "rating_raw": 15.0,
+        "stl": 0.81
       },
       "rating": 10.85
     },
@@ -2444,14 +2569,15 @@
         "reb": 1.9,
         "ast": 3.4,
         "gp": "36",
-        "rating_raw": 7.9
+        "rating_raw": 7.9,
+        "stl": 0.83
       },
       "rating": 5.15
     },
     {
       "name": "Andrew Nicholas",
       "positions": [
-        "SF"
+        "SG"
       ],
       "euroleague": null,
       "bsl": {
@@ -2459,7 +2585,8 @@
         "reb": 3.0,
         "ast": 3.8,
         "gp": "16",
-        "rating_raw": 12.8
+        "rating_raw": 12.8,
+        "stl": 0.69
       },
       "rating": 12.8
     },
@@ -2474,7 +2601,8 @@
         "reb": 0.4,
         "ast": 0.1,
         "gp": "8",
-        "rating_raw": 1.3
+        "rating_raw": 1.3,
+        "stl": 0.0
       },
       "rating": 1.3
     },
@@ -2489,7 +2617,8 @@
         "reb": 1.3,
         "ast": 0.2,
         "gp": "10",
-        "rating_raw": 1.0
+        "rating_raw": 1.0,
+        "stl": 0.1
       },
       "rating": 1.0
     },
@@ -2504,7 +2633,8 @@
         "reb": 4.0,
         "ast": 0.6,
         "gp": "11",
-        "rating_raw": 5.9
+        "rating_raw": 5.9,
+        "stl": 0.09
       },
       "rating": 5.9
     },
@@ -2519,7 +2649,8 @@
         "reb": 2.0,
         "ast": 0.8,
         "gp": "12",
-        "rating_raw": 7.2
+        "rating_raw": 7.2,
+        "stl": 0.67
       },
       "rating": 7.2
     },
@@ -2534,7 +2665,8 @@
         "reb": 1.9,
         "ast": 0.7,
         "gp": "34",
-        "rating_raw": 5.8
+        "rating_raw": 5.8,
+        "stl": 0.47
       },
       "rating": 5.8
     },
@@ -2549,7 +2681,8 @@
         "reb": 2.2,
         "ast": 1.7,
         "gp": "9",
-        "rating_raw": 8.0
+        "rating_raw": 8.0,
+        "stl": 1.44
       },
       "rating": 8.0
     },
@@ -2564,7 +2697,8 @@
         "reb": 2.2,
         "ast": 2.1,
         "gp": "20",
-        "rating_raw": 7.9
+        "rating_raw": 7.9,
+        "stl": 0.75
       },
       "rating": 7.9
     }
@@ -2589,7 +2723,8 @@
         "reb": 3.6,
         "ast": 3.0,
         "gp": "40",
-        "rating_raw": 12.2
+        "rating_raw": 12.2,
+        "stl": 1.63
       },
       "rating": 11.85
     },
@@ -2629,7 +2764,8 @@
         "reb": 2.0,
         "ast": 2.5,
         "gp": "24",
-        "rating_raw": 8.8
+        "rating_raw": 8.8,
+        "stl": 0.67
       },
       "rating": 7.75
     },
@@ -2652,7 +2788,8 @@
         "reb": 6.7,
         "ast": 1.1,
         "gp": "38",
-        "rating_raw": 12.6
+        "rating_raw": 12.6,
+        "stl": 0.71
       },
       "rating": 11.75
     },
@@ -2670,8 +2807,15 @@
         "gp": "10",
         "rating_raw": 6.4
       },
-      "bsl": null,
-      "rating": 6.4
+      "bsl": {
+        "pts": 6.5,
+        "reb": 3.2,
+        "ast": 1.0,
+        "gp": "35",
+        "rating_raw": 9.0,
+        "stl": 0.74
+      },
+      "rating": 7.7
     },
     {
       "name": "Kaya Peker",
@@ -2692,7 +2836,8 @@
         "reb": 5.1,
         "ast": 1.2,
         "gp": "40",
-        "rating_raw": 11.7
+        "rating_raw": 11.7,
+        "stl": 1.03
       },
       "rating": 7.6
     },
@@ -2715,7 +2860,8 @@
         "reb": 2.2,
         "ast": 1.4,
         "gp": "37",
-        "rating_raw": 10.4
+        "rating_raw": 10.4,
+        "stl": 1.32
       },
       "rating": 6.35
     },
@@ -2730,7 +2876,8 @@
         "reb": 1.0,
         "ast": 0.0,
         "gp": "2",
-        "rating_raw": 2.0
+        "rating_raw": 2.0,
+        "stl": 0.64
       },
       "rating": 2.0
     },
@@ -2745,7 +2892,8 @@
         "reb": 1.7,
         "ast": 1.1,
         "gp": "35",
-        "rating_raw": 5.9
+        "rating_raw": 5.9,
+        "stl": 0.83
       },
       "rating": 5.9
     },
@@ -2760,7 +2908,8 @@
         "reb": 3.3,
         "ast": 1.6,
         "gp": "37",
-        "rating_raw": 12.7
+        "rating_raw": 12.7,
+        "stl": 1.86
       },
       "rating": 12.7
     },
@@ -2775,7 +2924,8 @@
         "reb": 1.4,
         "ast": 3.1,
         "gp": "39",
-        "rating_raw": 8.1
+        "rating_raw": 8.1,
+        "stl": 0.95
       },
       "rating": 8.1
     },
@@ -2790,7 +2940,8 @@
         "reb": 0.5,
         "ast": 1.5,
         "gp": "6",
-        "rating_raw": 3.0
+        "rating_raw": 3.0,
+        "stl": 0.67
       },
       "rating": 3.0
     },
@@ -2805,7 +2956,8 @@
         "reb": 1.2,
         "ast": 4.1,
         "gp": "23",
-        "rating_raw": 6.8
+        "rating_raw": 6.8,
+        "stl": 0.74
       },
       "rating": 6.8
     },
@@ -2820,24 +2972,10 @@
         "reb": 5.6,
         "ast": 0.7,
         "gp": "24",
-        "rating_raw": 11.8
+        "rating_raw": 11.8,
+        "stl": 0.33
       },
       "rating": 11.8
-    },
-    {
-      "name": "Michalis Kakiouzis",
-      "positions": [
-        "PF"
-      ],
-      "euroleague": null,
-      "bsl": {
-        "pts": 6.5,
-        "reb": 3.2,
-        "ast": 1.0,
-        "gp": "35",
-        "rating_raw": 9.0
-      },
-      "rating": 9.0
     },
     {
       "name": "Mustafa Abi",
@@ -2850,7 +2988,8 @@
         "reb": 0.0,
         "ast": 0.0,
         "gp": "1",
-        "rating_raw": -2.0
+        "rating_raw": -2.0,
+        "stl": 0.0
       },
       "rating": -2.0
     },
@@ -2865,7 +3004,8 @@
         "reb": 1.6,
         "ast": 1.3,
         "gp": "40",
-        "rating_raw": 5.3
+        "rating_raw": 5.3,
+        "stl": 0.63
       },
       "rating": 5.3
     }
@@ -2907,7 +3047,8 @@
         "reb": 1.9,
         "ast": 2.8,
         "gp": "32",
-        "rating_raw": 12.5
+        "rating_raw": 12.5,
+        "stl": 0.78
       },
       "rating": 9.05
     },
@@ -2930,7 +3071,8 @@
         "reb": 4.4,
         "ast": 2.9,
         "gp": "34",
-        "rating_raw": 13.3
+        "rating_raw": 13.3,
+        "stl": 1.18
       },
       "rating": 10.25
     },
@@ -2953,7 +3095,8 @@
         "reb": 5.1,
         "ast": 1.4,
         "gp": "37",
-        "rating_raw": 10.2
+        "rating_raw": 10.2,
+        "stl": 0.68
       },
       "rating": 9.2
     },
@@ -2976,7 +3119,8 @@
         "reb": 4.1,
         "ast": 1.8,
         "gp": "37",
-        "rating_raw": 14.1
+        "rating_raw": 14.1,
+        "stl": 1.05
       },
       "rating": 10.6
     },
@@ -2999,7 +3143,8 @@
         "reb": 4.5,
         "ast": 0.4,
         "gp": "32",
-        "rating_raw": 10.3
+        "rating_raw": 10.3,
+        "stl": 0.28
       },
       "rating": 9.55
     },
@@ -3022,7 +3167,8 @@
         "reb": 3.3,
         "ast": 1.0,
         "gp": "28",
-        "rating_raw": 10.4
+        "rating_raw": 10.4,
+        "stl": 0.64
       },
       "rating": 7.7
     },
@@ -3045,7 +3191,8 @@
         "reb": 1.5,
         "ast": 2.8,
         "gp": "33",
-        "rating_raw": 7.8
+        "rating_raw": 7.8,
+        "stl": 0.79
       },
       "rating": 5.3
     },
@@ -3060,7 +3207,8 @@
         "reb": 0.6,
         "ast": 0.0,
         "gp": "5",
-        "rating_raw": 0.8
+        "rating_raw": 0.8,
+        "stl": 0.0
       },
       "rating": 0.8
     },
@@ -3075,7 +3223,8 @@
         "reb": 3.1,
         "ast": 1.9,
         "gp": "36",
-        "rating_raw": 14.1
+        "rating_raw": 14.1,
+        "stl": 2.08
       },
       "rating": 14.1
     },
@@ -3090,7 +3239,8 @@
         "reb": 2.0,
         "ast": 0.2,
         "gp": "19",
-        "rating_raw": 2.8
+        "rating_raw": 2.8,
+        "stl": 0.26
       },
       "rating": 2.8
     },
@@ -3105,7 +3255,8 @@
         "reb": 1.6,
         "ast": 3.5,
         "gp": "39",
-        "rating_raw": 7.9
+        "rating_raw": 7.9,
+        "stl": 0.74
       },
       "rating": 7.9
     },
@@ -3120,7 +3271,8 @@
         "reb": 3.2,
         "ast": 0.7,
         "gp": "34",
-        "rating_raw": 6.6
+        "rating_raw": 6.6,
+        "stl": 0.38
       },
       "rating": 6.6
     },
@@ -3135,7 +3287,8 @@
         "reb": 2.6,
         "ast": 1.3,
         "gp": "39",
-        "rating_raw": 6.9
+        "rating_raw": 6.9,
+        "stl": 1.23
       },
       "rating": 6.9
     }
@@ -3160,7 +3313,8 @@
         "reb": 2.3,
         "ast": 1.9,
         "gp": "32",
-        "rating_raw": 11.0
+        "rating_raw": 11.0,
+        "stl": 0.69
       },
       "rating": 11.0
     },
@@ -3183,7 +3337,8 @@
         "reb": 7.0,
         "ast": 1.5,
         "gp": "31",
-        "rating_raw": 16.8
+        "rating_raw": 16.8,
+        "stl": 0.9
       },
       "rating": 13.65
     },
@@ -3206,7 +3361,8 @@
         "reb": 1.6,
         "ast": 4.3,
         "gp": "31",
-        "rating_raw": 8.4
+        "rating_raw": 8.4,
+        "stl": 0.58
       },
       "rating": 8.2
     },
@@ -3229,7 +3385,8 @@
         "reb": 4.4,
         "ast": 2.2,
         "gp": "34",
-        "rating_raw": 11.3
+        "rating_raw": 11.3,
+        "stl": 1.21
       },
       "rating": 10.15
     },
@@ -3252,7 +3409,8 @@
         "reb": 3.6,
         "ast": 1.1,
         "gp": "19",
-        "rating_raw": 10.6
+        "rating_raw": 10.6,
+        "stl": 0.58
       },
       "rating": 7.15
     },
@@ -3275,7 +3433,8 @@
         "reb": 5.2,
         "ast": 0.9,
         "gp": "31",
-        "rating_raw": 10.6
+        "rating_raw": 10.6,
+        "stl": 0.87
       },
       "rating": 8.25
     },
@@ -3298,7 +3457,8 @@
         "reb": 3.4,
         "ast": 2.0,
         "gp": "31",
-        "rating_raw": 10.3
+        "rating_raw": 10.3,
+        "stl": 0.68
       },
       "rating": 7.6
     },
@@ -3338,7 +3498,8 @@
         "reb": 2.3,
         "ast": 2.1,
         "gp": "35",
-        "rating_raw": 8.0
+        "rating_raw": 8.0,
+        "stl": 1.34
       },
       "rating": 5.25
     },
@@ -3353,7 +3514,8 @@
         "reb": 0.8,
         "ast": 0.2,
         "gp": "5",
-        "rating_raw": 2.4
+        "rating_raw": 2.4,
+        "stl": 0.2
       },
       "rating": 2.4
     },
@@ -3368,7 +3530,8 @@
         "reb": 0.5,
         "ast": 0.0,
         "gp": "2",
-        "rating_raw": 3.0
+        "rating_raw": 3.0,
+        "stl": 0.0
       },
       "rating": 3.0
     },
@@ -3383,7 +3546,8 @@
         "reb": 2.2,
         "ast": 0.7,
         "gp": "26",
-        "rating_raw": 6.7
+        "rating_raw": 6.7,
+        "stl": 0.42
       },
       "rating": 6.7
     },
@@ -3398,7 +3562,8 @@
         "reb": 0.8,
         "ast": 2.3,
         "gp": "32",
-        "rating_raw": 5.4
+        "rating_raw": 5.4,
+        "stl": 0.53
       },
       "rating": 5.4
     },
@@ -3413,7 +3578,8 @@
         "reb": 4.0,
         "ast": 0.5,
         "gp": "33",
-        "rating_raw": 8.5
+        "rating_raw": 8.5,
+        "stl": 0.45
       },
       "rating": 8.5
     },
@@ -3428,7 +3594,8 @@
         "reb": 1.4,
         "ast": 1.1,
         "gp": "8",
-        "rating_raw": 5.4
+        "rating_raw": 5.4,
+        "stl": 0.38
       },
       "rating": 5.4
     }
@@ -3453,7 +3620,8 @@
         "reb": 2.7,
         "ast": 1.9,
         "gp": "33",
-        "rating_raw": 11.1
+        "rating_raw": 11.1,
+        "stl": 1.06
       },
       "rating": 10.0
     },
@@ -3476,7 +3644,8 @@
         "reb": 3.2,
         "ast": 0.6,
         "gp": "33",
-        "rating_raw": 8.2
+        "rating_raw": 8.2,
+        "stl": 0.55
       },
       "rating": 7.45
     },
@@ -3499,7 +3668,8 @@
         "reb": 4.9,
         "ast": 1.3,
         "gp": "43",
-        "rating_raw": 12.4
+        "rating_raw": 12.4,
+        "stl": 0.93
       },
       "rating": 10.85
     },
@@ -3522,7 +3692,8 @@
         "reb": 5.1,
         "ast": 0.7,
         "gp": "41",
-        "rating_raw": 10.8
+        "rating_raw": 10.8,
+        "stl": 0.66
       },
       "rating": 7.55
     },
@@ -3545,7 +3716,8 @@
         "reb": 1.6,
         "ast": 1.1,
         "gp": "39",
-        "rating_raw": 7.0
+        "rating_raw": 7.0,
+        "stl": 0.72
       },
       "rating": 4.6
     },
@@ -3568,7 +3740,8 @@
         "reb": 1.9,
         "ast": 5.1,
         "gp": "41",
-        "rating_raw": 10.9
+        "rating_raw": 10.9,
+        "stl": 1.0
       },
       "rating": 7.0
     },
@@ -3591,7 +3764,8 @@
         "reb": 2.3,
         "ast": 2.0,
         "gp": "43",
-        "rating_raw": 7.9
+        "rating_raw": 7.9,
+        "stl": 1.02
       },
       "rating": 5.35
     },
@@ -3606,7 +3780,8 @@
         "reb": 1.9,
         "ast": 1.2,
         "gp": "38",
-        "rating_raw": 4.7
+        "rating_raw": 4.7,
+        "stl": 0.97
       },
       "rating": 4.7
     },
@@ -3621,7 +3796,8 @@
         "reb": 1.7,
         "ast": 0.7,
         "gp": "26",
-        "rating_raw": 5.7
+        "rating_raw": 5.7,
+        "stl": 0.42
       },
       "rating": 5.7
     },
@@ -3636,7 +3812,8 @@
         "reb": 1.0,
         "ast": 0.3,
         "gp": "16",
-        "rating_raw": 3.5
+        "rating_raw": 3.5,
+        "stl": 0.13
       },
       "rating": 3.5
     },
@@ -3651,7 +3828,8 @@
         "reb": 4.9,
         "ast": 0.7,
         "gp": "26",
-        "rating_raw": 9.0
+        "rating_raw": 9.0,
+        "stl": 0.62
       },
       "rating": 9.0
     },
@@ -3666,7 +3844,8 @@
         "reb": 2.5,
         "ast": 2.5,
         "gp": "24",
-        "rating_raw": 8.0
+        "rating_raw": 8.0,
+        "stl": 0.96
       },
       "rating": 8.0
     },
@@ -3681,7 +3860,8 @@
         "reb": 3.0,
         "ast": 1.5,
         "gp": "28",
-        "rating_raw": 9.1
+        "rating_raw": 9.1,
+        "stl": 1.0
       },
       "rating": 9.1
     }
@@ -3706,7 +3886,8 @@
         "reb": 3.1,
         "ast": 4.1,
         "gp": "22",
-        "rating_raw": 14.0
+        "rating_raw": 14.0,
+        "stl": 0.95
       },
       "rating": 12.55
     },
@@ -3729,7 +3910,8 @@
         "reb": 4.4,
         "ast": 1.7,
         "gp": "35",
-        "rating_raw": 12.7
+        "rating_raw": 12.7,
+        "stl": 1.06
       },
       "rating": 10.1
     },
@@ -3752,7 +3934,8 @@
         "reb": 4.7,
         "ast": 0.7,
         "gp": "37",
-        "rating_raw": 10.7
+        "rating_raw": 10.7,
+        "stl": 0.54
       },
       "rating": 9.05
     },
@@ -3775,7 +3958,8 @@
         "reb": 3.1,
         "ast": 1.4,
         "gp": "18",
-        "rating_raw": 13.2
+        "rating_raw": 13.2,
+        "stl": 1.56
       },
       "rating": 9.5
     },
@@ -3815,7 +3999,8 @@
         "reb": 5.9,
         "ast": 0.4,
         "gp": "37",
-        "rating_raw": 13.2
+        "rating_raw": 13.2,
+        "stl": 0.59
       },
       "rating": 10.35
     },
@@ -3838,7 +4023,8 @@
         "reb": 3.0,
         "ast": 1.8,
         "gp": "16",
-        "rating_raw": 11.3
+        "rating_raw": 11.3,
+        "stl": 0.75
       },
       "rating": 7.5
     },
@@ -3861,7 +4047,8 @@
         "reb": 2.9,
         "ast": 0.5,
         "gp": "19",
-        "rating_raw": 5.5
+        "rating_raw": 5.5,
+        "stl": 0.26
       },
       "rating": 4.65
     },
@@ -3884,7 +4071,8 @@
         "reb": 1.3,
         "ast": 2.8,
         "gp": "31",
-        "rating_raw": 6.3
+        "rating_raw": 6.3,
+        "stl": 0.71
       },
       "rating": 4.65
     },
@@ -3907,7 +4095,8 @@
         "reb": 2.0,
         "ast": 2.0,
         "gp": "37",
-        "rating_raw": 6.9
+        "rating_raw": 6.9,
+        "stl": 0.95
       },
       "rating": 4.0
     },
@@ -3922,7 +4111,8 @@
         "reb": 2.2,
         "ast": 0.6,
         "gp": "29",
-        "rating_raw": 5.7
+        "rating_raw": 5.7,
+        "stl": 0.31
       },
       "rating": 5.7
     },
@@ -3938,7 +4128,8 @@
         "reb": 0.7,
         "ast": 0.3,
         "gp": "3",
-        "rating_raw": 7.0
+        "rating_raw": 7.0,
+        "stl": 1.0
       },
       "rating": 7.0
     },
@@ -3953,7 +4144,8 @@
         "reb": 1.5,
         "ast": 1.7,
         "gp": "30",
-        "rating_raw": 4.9
+        "rating_raw": 4.9,
+        "stl": 1.1
       },
       "rating": 4.9
     },
@@ -3968,7 +4160,8 @@
         "reb": 2.6,
         "ast": 1.2,
         "gp": "33",
-        "rating_raw": 5.2
+        "rating_raw": 5.2,
+        "stl": 0.15
       },
       "rating": 5.2
     },
@@ -3983,7 +4176,8 @@
         "reb": 3.7,
         "ast": 0.3,
         "gp": "3",
-        "rating_raw": 3.7
+        "rating_raw": 3.7,
+        "stl": 0.0
       },
       "rating": 3.7
     },
@@ -3998,7 +4192,8 @@
         "reb": 0.9,
         "ast": 0.1,
         "gp": "12",
-        "rating_raw": 1.4
+        "rating_raw": 1.4,
+        "stl": 0.08
       },
       "rating": 1.4
     },
@@ -4013,7 +4208,8 @@
         "reb": 3.8,
         "ast": 3.9,
         "gp": "36",
-        "rating_raw": 11.4
+        "rating_raw": 11.4,
+        "stl": 1.36
       },
       "rating": 11.4
     },
@@ -4028,7 +4224,8 @@
         "reb": 0.0,
         "ast": 0.0,
         "gp": "1",
-        "rating_raw": -1.0
+        "rating_raw": -1.0,
+        "stl": 0.0
       },
       "rating": -1.0
     }
@@ -4053,7 +4250,8 @@
         "reb": 4.4,
         "ast": 1.9,
         "gp": "33",
-        "rating_raw": 10.4
+        "rating_raw": 10.4,
+        "stl": 0.79
       },
       "rating": 9.1
     },
@@ -4077,7 +4275,8 @@
         "reb": 2.5,
         "ast": 4.3,
         "gp": "32",
-        "rating_raw": 10.3
+        "rating_raw": 10.3,
+        "stl": 0.88
       },
       "rating": 7.6
     },
@@ -4100,7 +4299,8 @@
         "reb": 2.3,
         "ast": 0.8,
         "gp": "31",
-        "rating_raw": 8.5
+        "rating_raw": 8.5,
+        "stl": 0.71
       },
       "rating": 4.95
     },
@@ -4123,7 +4323,8 @@
         "reb": 2.9,
         "ast": 1.7,
         "gp": "29",
-        "rating_raw": 8.5
+        "rating_raw": 8.5,
+        "stl": 0.97
       },
       "rating": 5.4
     },
@@ -4138,7 +4339,8 @@
         "reb": 1.5,
         "ast": 0.0,
         "gp": "2",
-        "rating_raw": 2.0
+        "rating_raw": 2.0,
+        "stl": 0.0
       },
       "rating": 2.0
     },
@@ -4154,7 +4356,8 @@
         "reb": 2.6,
         "ast": 1.1,
         "gp": "28",
-        "rating_raw": 6.2
+        "rating_raw": 6.2,
+        "stl": 0.96
       },
       "rating": 6.2
     },
@@ -4169,7 +4372,8 @@
         "reb": 2.4,
         "ast": 0.4,
         "gp": "7",
-        "rating_raw": 7.9
+        "rating_raw": 7.9,
+        "stl": 0.86
       },
       "rating": 7.9
     },
@@ -4184,7 +4388,8 @@
         "reb": 2.0,
         "ast": 0.2,
         "gp": "25",
-        "rating_raw": 4.1
+        "rating_raw": 4.1,
+        "stl": 0.04
       },
       "rating": 4.1
     },
@@ -4199,7 +4404,8 @@
         "reb": 1.4,
         "ast": 0.0,
         "gp": "12",
-        "rating_raw": 1.7
+        "rating_raw": 1.7,
+        "stl": 0.0
       },
       "rating": 1.7
     },
@@ -4214,7 +4420,8 @@
         "reb": 3.4,
         "ast": 4.7,
         "gp": "32",
-        "rating_raw": 12.6
+        "rating_raw": 12.6,
+        "stl": 1.69
       },
       "rating": 12.6
     },
@@ -4229,7 +4436,8 @@
         "reb": 6.9,
         "ast": 0.8,
         "gp": "23",
-        "rating_raw": 12.6
+        "rating_raw": 12.6,
+        "stl": 0.96
       },
       "rating": 12.6
     },
@@ -4244,7 +4452,8 @@
         "reb": 2.2,
         "ast": 1.6,
         "gp": "22",
-        "rating_raw": 8.4
+        "rating_raw": 8.4,
+        "stl": 0.5
       },
       "rating": 8.4
     },
@@ -4260,7 +4469,8 @@
         "reb": 3.9,
         "ast": 1.2,
         "gp": "19",
-        "rating_raw": 9.7
+        "rating_raw": 9.7,
+        "stl": 0.74
       },
       "rating": 9.7
     },
@@ -4275,7 +4485,8 @@
         "reb": 0.5,
         "ast": 0.0,
         "gp": "4",
-        "rating_raw": 0.0
+        "rating_raw": 0.0,
+        "stl": 0.25
       },
       "rating": 0.0
     },
@@ -4290,7 +4501,8 @@
         "reb": 2.6,
         "ast": 0.8,
         "gp": "12",
-        "rating_raw": 5.1
+        "rating_raw": 5.1,
+        "stl": 0.58
       },
       "rating": 5.1
     },
@@ -4305,7 +4517,8 @@
         "reb": 5.4,
         "ast": 0.4,
         "gp": "21",
-        "rating_raw": 10.9
+        "rating_raw": 10.9,
+        "stl": 0.48
       },
       "rating": 10.9
     },
@@ -4320,7 +4533,8 @@
         "reb": 3.0,
         "ast": 1.0,
         "gp": "2",
-        "rating_raw": 6.5
+        "rating_raw": 6.5,
+        "stl": 0.0
       },
       "rating": 6.5
     }
@@ -4346,7 +4560,8 @@
         "reb": 6.7,
         "ast": 2.6,
         "gp": "38",
-        "rating_raw": 14.1
+        "rating_raw": 14.1,
+        "stl": 0.82
       },
       "rating": 12.25
     },
@@ -4369,7 +4584,8 @@
         "reb": 3.4,
         "ast": 1.5,
         "gp": "36",
-        "rating_raw": 10.5
+        "rating_raw": 10.5,
+        "stl": 0.89
       },
       "rating": 8.8
     },
@@ -4387,8 +4603,15 @@
         "gp": "27",
         "rating_raw": 3.5
       },
-      "bsl": null,
-      "rating": 3.5
+      "bsl": {
+        "pts": 10.9,
+        "reb": 2.8,
+        "ast": 2.6,
+        "gp": "37",
+        "rating_raw": 10.7,
+        "stl": 0.73
+      },
+      "rating": 7.1
     },
     {
       "name": "Yann Ulrich Stephane Lasme",
@@ -4427,7 +4650,8 @@
         "reb": 4.3,
         "ast": 1.1,
         "gp": "39",
-        "rating_raw": 9.3
+        "rating_raw": 9.3,
+        "stl": 1.0
       },
       "rating": 7.25
     },
@@ -4442,7 +4666,8 @@
         "reb": 2.1,
         "ast": 0.4,
         "gp": "23",
-        "rating_raw": 6.5
+        "rating_raw": 6.5,
+        "stl": 0.74
       },
       "rating": 6.5
     },
@@ -4457,7 +4682,8 @@
         "reb": 0.9,
         "ast": 0.3,
         "gp": "8",
-        "rating_raw": 2.1
+        "rating_raw": 2.1,
+        "stl": 0.38
       },
       "rating": 2.1
     },
@@ -4472,7 +4698,8 @@
         "reb": 1.1,
         "ast": 0.3,
         "gp": "27",
-        "rating_raw": 1.5
+        "rating_raw": 1.5,
+        "stl": 0.0
       },
       "rating": 1.5
     },
@@ -4487,7 +4714,8 @@
         "reb": 1.9,
         "ast": 2.2,
         "gp": "39",
-        "rating_raw": 5.1
+        "rating_raw": 5.1,
+        "stl": 0.74
       },
       "rating": 5.1
     },
@@ -4502,7 +4730,8 @@
         "reb": 2.5,
         "ast": 3.0,
         "gp": "21",
-        "rating_raw": 7.9
+        "rating_raw": 7.9,
+        "stl": 1.57
       },
       "rating": 7.9
     },
@@ -4517,7 +4746,8 @@
         "reb": 1.0,
         "ast": 0.2,
         "gp": "18",
-        "rating_raw": 1.8
+        "rating_raw": 1.8,
+        "stl": 0.06
       },
       "rating": 1.8
     },
@@ -4532,24 +4762,10 @@
         "reb": 1.3,
         "ast": 1.0,
         "gp": "26",
-        "rating_raw": 4.9
+        "rating_raw": 4.9,
+        "stl": 0.46
       },
       "rating": 4.9
-    },
-    {
-      "name": "Matthew Janning",
-      "positions": [
-        "SG"
-      ],
-      "euroleague": null,
-      "bsl": {
-        "pts": 10.9,
-        "reb": 2.8,
-        "ast": 2.6,
-        "gp": "37",
-        "rating_raw": 10.7
-      },
-      "rating": 10.7
     },
     {
       "name": "Milko Bjelica",
@@ -4563,7 +4779,8 @@
         "reb": 4.3,
         "ast": 1.1,
         "gp": "22",
-        "rating_raw": 11.4
+        "rating_raw": 11.4,
+        "stl": 0.27
       },
       "rating": 11.4
     },
@@ -4578,7 +4795,8 @@
         "reb": 5.2,
         "ast": 0.9,
         "gp": "27",
-        "rating_raw": 12.6
+        "rating_raw": 12.6,
+        "stl": 0.19
       },
       "rating": 12.6
     },
@@ -4593,7 +4811,8 @@
         "reb": 0.4,
         "ast": 0.2,
         "gp": "14",
-        "rating_raw": 0.6
+        "rating_raw": 0.6,
+        "stl": 0.29
       },
       "rating": 0.6
     },
@@ -4608,7 +4827,8 @@
         "reb": 5.3,
         "ast": 1.1,
         "gp": "36",
-        "rating_raw": 14.2
+        "rating_raw": 14.2,
+        "stl": 0.94
       },
       "rating": 14.2
     },
@@ -4623,7 +4843,8 @@
         "reb": 2.3,
         "ast": 5.3,
         "gp": "24",
-        "rating_raw": 9.7
+        "rating_raw": 9.7,
+        "stl": 0.67
       },
       "rating": 9.7
     }
@@ -4648,7 +4869,8 @@
         "reb": 2.9,
         "ast": 5.7,
         "gp": "39",
-        "rating_raw": 13.9
+        "rating_raw": 13.9,
+        "stl": 0.82
       },
       "rating": 14.0
     },
@@ -4672,7 +4894,8 @@
         "reb": 5.5,
         "ast": 1.3,
         "gp": "37",
-        "rating_raw": 12.9
+        "rating_raw": 12.9,
+        "stl": 0.78
       },
       "rating": 12.25
     },
@@ -4695,7 +4918,8 @@
         "reb": 3.5,
         "ast": 3.8,
         "gp": "38",
-        "rating_raw": 12.4
+        "rating_raw": 12.4,
+        "stl": 1.05
       },
       "rating": 9.95
     },
@@ -4718,7 +4942,8 @@
         "reb": 4.8,
         "ast": 1.8,
         "gp": "36",
-        "rating_raw": 11.8
+        "rating_raw": 11.8,
+        "stl": 0.53
       },
       "rating": 10.5
     },
@@ -4742,7 +4967,8 @@
         "reb": 3.6,
         "ast": 1.0,
         "gp": "38",
-        "rating_raw": 10.6
+        "rating_raw": 10.6,
+        "stl": 1.03
       },
       "rating": 8.55
     },
@@ -4765,7 +4991,8 @@
         "reb": 6.0,
         "ast": 1.3,
         "gp": "38",
-        "rating_raw": 15.8
+        "rating_raw": 15.8,
+        "stl": 1.16
       },
       "rating": 12.3
     },
@@ -4788,7 +5015,8 @@
         "reb": 1.6,
         "ast": 0.5,
         "gp": "34",
-        "rating_raw": 2.9
+        "rating_raw": 2.9,
+        "stl": 0.71
       },
       "rating": 2.1
     },
@@ -4803,7 +5031,8 @@
         "reb": 1.9,
         "ast": 0.3,
         "gp": "24",
-        "rating_raw": 3.4
+        "rating_raw": 3.4,
+        "stl": 0.21
       },
       "rating": 3.4
     },
@@ -4818,7 +5047,8 @@
         "reb": 3.3,
         "ast": 0.4,
         "gp": "30",
-        "rating_raw": 8.3
+        "rating_raw": 8.3,
+        "stl": 0.63
       },
       "rating": 8.3
     },
@@ -4833,7 +5063,8 @@
         "reb": 1.6,
         "ast": 1.6,
         "gp": "36",
-        "rating_raw": 4.8
+        "rating_raw": 4.8,
+        "stl": 0.56
       },
       "rating": 4.8
     },
@@ -4848,7 +5079,8 @@
         "reb": 1.0,
         "ast": 0.1,
         "gp": "7",
-        "rating_raw": 1.6
+        "rating_raw": 1.6,
+        "stl": 0.0
       },
       "rating": 1.6
     },
@@ -4863,7 +5095,8 @@
         "reb": 1.4,
         "ast": 0.7,
         "gp": "37",
-        "rating_raw": 4.7
+        "rating_raw": 4.7,
+        "stl": 0.27
       },
       "rating": 4.7
     },
@@ -4878,7 +5111,8 @@
         "reb": 1.8,
         "ast": 1.4,
         "gp": "26",
-        "rating_raw": 6.5
+        "rating_raw": 6.5,
+        "stl": 0.38
       },
       "rating": 6.5
     },
@@ -4893,7 +5127,8 @@
         "reb": 0.5,
         "ast": 0.4,
         "gp": "17",
-        "rating_raw": 2.2
+        "rating_raw": 2.2,
+        "stl": 0.18
       },
       "rating": 2.2
     }
@@ -4918,7 +5153,8 @@
         "reb": 2.2,
         "ast": 6.7,
         "gp": "33",
-        "rating_raw": 13.6
+        "rating_raw": 13.6,
+        "stl": 1.0
       },
       "rating": 11.85
     },
@@ -4941,7 +5177,8 @@
         "reb": 5.0,
         "ast": 1.8,
         "gp": "35",
-        "rating_raw": 13.5
+        "rating_raw": 13.5,
+        "stl": 0.77
       },
       "rating": 13.0
     },
@@ -4964,7 +5201,8 @@
         "reb": 6.4,
         "ast": 1.3,
         "gp": "35",
-        "rating_raw": 16.0
+        "rating_raw": 16.0,
+        "stl": 1.03
       },
       "rating": 13.8
     },
@@ -4987,7 +5225,8 @@
         "reb": 2.7,
         "ast": 4.9,
         "gp": "33",
-        "rating_raw": 11.1
+        "rating_raw": 11.1,
+        "stl": 1.3
       },
       "rating": 9.5
     },
@@ -5010,7 +5249,8 @@
         "reb": 6.0,
         "ast": 1.8,
         "gp": "28",
-        "rating_raw": 11.0
+        "rating_raw": 11.0,
+        "stl": 0.82
       },
       "rating": 11.1
     },
@@ -5033,7 +5273,8 @@
         "reb": 3.2,
         "ast": 0.9,
         "gp": "30",
-        "rating_raw": 8.9
+        "rating_raw": 8.9,
+        "stl": 0.5
       },
       "rating": 6.45
     },
@@ -5057,7 +5298,8 @@
         "reb": 4.1,
         "ast": 1.3,
         "gp": "35",
-        "rating_raw": 13.5
+        "rating_raw": 13.5,
+        "stl": 1.51
       },
       "rating": 9.35
     },
@@ -5072,7 +5314,8 @@
         "reb": 3.2,
         "ast": 0.7,
         "gp": "10",
-        "rating_raw": 10.4
+        "rating_raw": 10.4,
+        "stl": 0.5
       },
       "rating": 10.4
     },
@@ -5087,7 +5330,8 @@
         "reb": 1.2,
         "ast": 0.1,
         "gp": "9",
-        "rating_raw": 1.7
+        "rating_raw": 1.7,
+        "stl": 0.11
       },
       "rating": 1.7
     },
@@ -5102,7 +5346,8 @@
         "reb": 3.3,
         "ast": 0.8,
         "gp": "6",
-        "rating_raw": 10.0
+        "rating_raw": 10.0,
+        "stl": 1.33
       },
       "rating": 10.0
     },
@@ -5117,7 +5362,8 @@
         "reb": 2.5,
         "ast": 1.8,
         "gp": "37",
-        "rating_raw": 4.9
+        "rating_raw": 4.9,
+        "stl": 0.81
       },
       "rating": 4.9
     },
@@ -5132,7 +5378,8 @@
         "reb": 1.1,
         "ast": 0.6,
         "gp": "22",
-        "rating_raw": 4.7
+        "rating_raw": 4.7,
+        "stl": 0.39
       },
       "rating": 4.7
     },
@@ -5147,7 +5394,8 @@
         "reb": 0.5,
         "ast": 0.6,
         "gp": "8",
-        "rating_raw": 0.5
+        "rating_raw": 0.5,
+        "stl": 0.13
       },
       "rating": 0.5
     },
@@ -5162,7 +5410,8 @@
         "reb": 1.6,
         "ast": 0.1,
         "gp": "14",
-        "rating_raw": 2.3
+        "rating_raw": 2.3,
+        "stl": 0.14
       },
       "rating": 2.3
     }
@@ -5187,7 +5436,8 @@
         "reb": 2.7,
         "ast": 3.4,
         "gp": "34",
-        "rating_raw": 15.0
+        "rating_raw": 15.0,
+        "stl": 1.24
       },
       "rating": 11.95
     },
@@ -5210,7 +5460,8 @@
         "reb": 6.5,
         "ast": 1.6,
         "gp": "35",
-        "rating_raw": 17.3
+        "rating_raw": 17.3,
+        "stl": 0.8
       },
       "rating": 14.95
     },
@@ -5234,7 +5485,8 @@
         "reb": 8.2,
         "ast": 0.7,
         "gp": "21",
-        "rating_raw": 16.1
+        "rating_raw": 16.1,
+        "stl": 0.43
       },
       "rating": 13.6
     },
@@ -5258,7 +5510,8 @@
         "reb": 4.9,
         "ast": 4.3,
         "gp": "28",
-        "rating_raw": 13.7
+        "rating_raw": 13.7,
+        "stl": 0.68
       },
       "rating": 10.7
     },
@@ -5282,7 +5535,8 @@
         "reb": 3.8,
         "ast": 1.2,
         "gp": "32",
-        "rating_raw": 12.8
+        "rating_raw": 12.8,
+        "stl": 0.53
       },
       "rating": 9.85
     },
@@ -5314,7 +5568,8 @@
         "reb": 0.3,
         "ast": 0.3,
         "gp": "8",
-        "rating_raw": -0.1
+        "rating_raw": -0.1,
+        "stl": 0.0
       },
       "rating": -0.1
     },
@@ -5329,7 +5584,8 @@
         "reb": 0.8,
         "ast": 0.3,
         "gp": "16",
-        "rating_raw": 1.8
+        "rating_raw": 1.8,
+        "stl": 0.19
       },
       "rating": 1.8
     },
@@ -5344,7 +5600,8 @@
         "reb": 1.7,
         "ast": 0.6,
         "gp": "31",
-        "rating_raw": 4.7
+        "rating_raw": 4.7,
+        "stl": 0.52
       },
       "rating": 4.7
     },
@@ -5359,7 +5616,8 @@
         "reb": 3.0,
         "ast": 1.5,
         "gp": "20",
-        "rating_raw": 8.1
+        "rating_raw": 8.1,
+        "stl": 0.45
       },
       "rating": 8.1
     },
@@ -5374,7 +5632,8 @@
         "reb": 3.1,
         "ast": 3.5,
         "gp": "29",
-        "rating_raw": 8.7
+        "rating_raw": 8.7,
+        "stl": 1.21
       },
       "rating": 8.7
     },
@@ -5389,7 +5648,8 @@
         "reb": 0.5,
         "ast": 0.0,
         "gp": "16",
-        "rating_raw": 0.5
+        "rating_raw": 0.5,
+        "stl": 0.13
       },
       "rating": 0.5
     },
@@ -5404,7 +5664,8 @@
         "reb": 0.8,
         "ast": 0.6,
         "gp": "18",
-        "rating_raw": 1.8
+        "rating_raw": 1.8,
+        "stl": 0.39
       },
       "rating": 1.8
     },
@@ -5419,7 +5680,8 @@
         "reb": 3.4,
         "ast": 3.1,
         "gp": "15",
-        "rating_raw": 12.1
+        "rating_raw": 12.1,
+        "stl": 0.67
       },
       "rating": 12.1
     },
@@ -5435,7 +5697,8 @@
         "reb": 3.2,
         "ast": 2.3,
         "gp": "11",
-        "rating_raw": 9.1
+        "rating_raw": 9.1,
+        "stl": 0.09
       },
       "rating": 9.1
     },
@@ -5450,7 +5713,8 @@
         "reb": 2.0,
         "ast": 0.3,
         "gp": "4",
-        "rating_raw": 5.8
+        "rating_raw": 5.8,
+        "stl": 0.5
       },
       "rating": 5.8
     },
@@ -5465,7 +5729,8 @@
         "reb": 1.5,
         "ast": 2.3,
         "gp": "8",
-        "rating_raw": 4.1
+        "rating_raw": 4.1,
+        "stl": 1.13
       },
       "rating": 4.1
     }
@@ -5491,7 +5756,8 @@
         "reb": 2.8,
         "ast": 4.5,
         "gp": "24",
-        "rating_raw": 16.0
+        "rating_raw": 16.0,
+        "stl": 1.46
       },
       "rating": 13.5
     },
@@ -5514,7 +5780,8 @@
         "reb": 2.6,
         "ast": 6.4,
         "gp": "31",
-        "rating_raw": 15.4
+        "rating_raw": 15.4,
+        "stl": 0.87
       },
       "rating": 12.9
     },
@@ -5538,7 +5805,8 @@
         "reb": 8.0,
         "ast": 1.9,
         "gp": "23",
-        "rating_raw": 18.3
+        "rating_raw": 18.3,
+        "stl": 1.09
       },
       "rating": 15.8
     },
@@ -5562,7 +5830,8 @@
         "reb": 2.8,
         "ast": 2.4,
         "gp": "23",
-        "rating_raw": 13.7
+        "rating_raw": 13.7,
+        "stl": 0.87
       },
       "rating": 10.1
     },
@@ -5586,7 +5855,8 @@
         "reb": 4.2,
         "ast": 2.7,
         "gp": "24",
-        "rating_raw": 13.3
+        "rating_raw": 13.3,
+        "stl": 0.63
       },
       "rating": 11.75
     },
@@ -5609,7 +5879,8 @@
         "reb": 5.6,
         "ast": 1.6,
         "gp": "34",
-        "rating_raw": 15.0
+        "rating_raw": 15.0,
+        "stl": 0.82
       },
       "rating": 12.75
     },
@@ -5632,7 +5903,8 @@
         "reb": 3.6,
         "ast": 1.4,
         "gp": "13",
-        "rating_raw": 10.6
+        "rating_raw": 10.6,
+        "stl": 0.54
       },
       "rating": 7.15
     },
@@ -5648,7 +5920,8 @@
         "reb": 5.5,
         "ast": 1.1,
         "gp": "15",
-        "rating_raw": 17.1
+        "rating_raw": 17.1,
+        "stl": 0.6
       },
       "rating": 17.1
     },
@@ -5663,7 +5936,8 @@
         "reb": 2.5,
         "ast": 3.3,
         "gp": "34",
-        "rating_raw": 7.5
+        "rating_raw": 7.5,
+        "stl": 0.53
       },
       "rating": 7.5
     },
@@ -5678,7 +5952,8 @@
         "reb": 3.1,
         "ast": 2.8,
         "gp": "38",
-        "rating_raw": 7.1
+        "rating_raw": 7.1,
+        "stl": 0.76
       },
       "rating": 7.1
     },
@@ -5693,7 +5968,8 @@
         "reb": 2.7,
         "ast": 0.7,
         "gp": "35",
-        "rating_raw": 5.4
+        "rating_raw": 5.4,
+        "stl": 0.43
       },
       "rating": 5.4
     },
@@ -5708,7 +5984,8 @@
         "reb": 1.0,
         "ast": 1.0,
         "gp": "4",
-        "rating_raw": 3.8
+        "rating_raw": 3.8,
+        "stl": 0.5
       },
       "rating": 3.8
     },
@@ -5723,7 +6000,8 @@
         "reb": 1.6,
         "ast": 0.9,
         "gp": "21",
-        "rating_raw": 3.8
+        "rating_raw": 3.8,
+        "stl": 0.48
       },
       "rating": 3.8
     },
@@ -5738,7 +6016,8 @@
         "reb": 1.5,
         "ast": 1.8,
         "gp": "10",
-        "rating_raw": 4.2
+        "rating_raw": 4.2,
+        "stl": 0.3
       },
       "rating": 4.2
     },
@@ -5753,7 +6032,8 @@
         "reb": 3.1,
         "ast": 0.4,
         "gp": "39",
-        "rating_raw": 8.1
+        "rating_raw": 8.1,
+        "stl": 0.28
       },
       "rating": 8.1
     },
@@ -5768,7 +6048,8 @@
         "reb": 7.8,
         "ast": 2.0,
         "gp": "6",
-        "rating_raw": 20.3
+        "rating_raw": 20.3,
+        "stl": 0.17
       },
       "rating": 20.3
     },
@@ -5783,7 +6064,8 @@
         "reb": 2.2,
         "ast": 0.4,
         "gp": "19",
-        "rating_raw": 5.4
+        "rating_raw": 5.4,
+        "stl": 0.58
       },
       "rating": 5.4
     }
@@ -5809,7 +6091,8 @@
         "reb": 2.7,
         "ast": 4.0,
         "gp": "10",
-        "rating_raw": 13.6
+        "rating_raw": 13.6,
+        "stl": 1.4
       },
       "rating": 17.1
     },
@@ -5832,7 +6115,8 @@
         "reb": 1.9,
         "ast": 6.4,
         "gp": "16",
-        "rating_raw": 12.0
+        "rating_raw": 12.0,
+        "stl": 0.88
       },
       "rating": 12.3
     },
@@ -5856,7 +6140,8 @@
         "reb": 2.6,
         "ast": 2.4,
         "gp": "14",
-        "rating_raw": 13.6
+        "rating_raw": 13.6,
+        "stl": 0.79
       },
       "rating": 10.2
     },
@@ -5879,7 +6164,8 @@
         "reb": 6.6,
         "ast": 0.6,
         "gp": "15",
-        "rating_raw": 14.9
+        "rating_raw": 14.9,
+        "stl": 0.6
       },
       "rating": 12.55
     },
@@ -5903,7 +6189,8 @@
         "reb": 3.3,
         "ast": 2.9,
         "gp": "12",
-        "rating_raw": 13.1
+        "rating_raw": 13.1,
+        "stl": 0.42
       },
       "rating": 11.6
     },
@@ -5926,7 +6213,8 @@
         "reb": 4.9,
         "ast": 1.4,
         "gp": "13",
-        "rating_raw": 12.5
+        "rating_raw": 12.5,
+        "stl": 0.77
       },
       "rating": 10.4
     },
@@ -5949,7 +6237,8 @@
         "reb": 4.7,
         "ast": 0.6,
         "gp": "23",
-        "rating_raw": 11.5
+        "rating_raw": 11.5,
+        "stl": 0.52
       },
       "rating": 8.4
     },
@@ -5973,7 +6262,8 @@
         "reb": 6.0,
         "ast": 1.7,
         "gp": "6",
-        "rating_raw": 12.0
+        "rating_raw": 12.0,
+        "stl": 1.17
       },
       "rating": 8.65
     },
@@ -5996,7 +6286,8 @@
         "reb": 4.6,
         "ast": 1.6,
         "gp": "10",
-        "rating_raw": 12.3
+        "rating_raw": 12.3,
+        "stl": 0.5
       },
       "rating": 8.1
     },
@@ -6019,7 +6310,8 @@
         "reb": 3.6,
         "ast": 1.3,
         "gp": "12",
-        "rating_raw": 11.1
+        "rating_raw": 11.1,
+        "stl": 0.92
       },
       "rating": 7.75
     },
@@ -6042,7 +6334,8 @@
         "reb": 2.4,
         "ast": 2.5,
         "gp": "23",
-        "rating_raw": 6.8
+        "rating_raw": 6.8,
+        "stl": 1.09
       },
       "rating": 4.35
     },
@@ -6057,7 +6350,8 @@
         "reb": 5.6,
         "ast": 0.7,
         "gp": "7",
-        "rating_raw": 14.0
+        "rating_raw": 14.0,
+        "stl": 1.57
       },
       "rating": 14.0
     },
@@ -6072,7 +6366,8 @@
         "reb": 3.2,
         "ast": 2.8,
         "gp": "23",
-        "rating_raw": 10.7
+        "rating_raw": 10.7,
+        "stl": 0.78
       },
       "rating": 10.7
     },
@@ -6087,7 +6382,8 @@
         "reb": 0.9,
         "ast": 0.5,
         "gp": "13",
-        "rating_raw": 2.2
+        "rating_raw": 2.2,
+        "stl": 0.08
       },
       "rating": 2.2
     },
@@ -6102,7 +6398,8 @@
         "reb": 0.9,
         "ast": 1.3,
         "gp": "13",
-        "rating_raw": 3.1
+        "rating_raw": 3.1,
+        "stl": 0.23
       },
       "rating": 3.1
     },
@@ -6117,7 +6414,8 @@
         "reb": 2.6,
         "ast": 2.8,
         "gp": "23",
-        "rating_raw": 7.0
+        "rating_raw": 7.0,
+        "stl": 0.39
       },
       "rating": 7.0
     },
@@ -6132,7 +6430,8 @@
         "reb": 2.3,
         "ast": 0.9,
         "gp": "19",
-        "rating_raw": 6.3
+        "rating_raw": 6.3,
+        "stl": 0.68
       },
       "rating": 6.3
     }
@@ -6157,7 +6456,8 @@
         "reb": 1.8,
         "ast": 4.2,
         "gp": "30",
-        "rating_raw": 13.0
+        "rating_raw": 13.0,
+        "stl": 0.7
       },
       "rating": 13.1
     },
@@ -6181,7 +6481,8 @@
         "reb": 2.0,
         "ast": 3.3,
         "gp": "22",
-        "rating_raw": 9.3
+        "rating_raw": 9.3,
+        "stl": 0.59
       },
       "rating": 11.3
     },
@@ -6205,7 +6506,8 @@
         "reb": 2.1,
         "ast": 2.6,
         "gp": "22",
-        "rating_raw": 11.2
+        "rating_raw": 11.2,
+        "stl": 0.32
       },
       "rating": 9.7
     },
@@ -6229,7 +6531,8 @@
         "reb": 3.2,
         "ast": 4.7,
         "gp": "19",
-        "rating_raw": 14.7
+        "rating_raw": 14.7,
+        "stl": 0.58
       },
       "rating": 12.65
     },
@@ -6252,7 +6555,8 @@
         "reb": 4.9,
         "ast": 1.2,
         "gp": "27",
-        "rating_raw": 12.7
+        "rating_raw": 12.7,
+        "stl": 0.89
       },
       "rating": 10.5
     },
@@ -6275,7 +6579,8 @@
         "reb": 3.7,
         "ast": 0.8,
         "gp": "33",
-        "rating_raw": 10.6
+        "rating_raw": 10.6,
+        "stl": 0.39
       },
       "rating": 8.45
     },
@@ -6298,7 +6603,8 @@
         "reb": 6.4,
         "ast": 1.2,
         "gp": "13",
-        "rating_raw": 19.5
+        "rating_raw": 19.5,
+        "stl": 0.69
       },
       "rating": 13.1
     },
@@ -6322,7 +6628,8 @@
         "reb": 7.5,
         "ast": 1.4,
         "gp": "27",
-        "rating_raw": 18.5
+        "rating_raw": 18.5,
+        "stl": 1.07
       },
       "rating": 12.85
     },
@@ -6345,7 +6652,8 @@
         "reb": 4.3,
         "ast": 1.2,
         "gp": "19",
-        "rating_raw": 12.4
+        "rating_raw": 12.4,
+        "stl": 1.11
       },
       "rating": 9.3
     },
@@ -6368,7 +6676,8 @@
         "reb": 3.7,
         "ast": 1.9,
         "gp": "21",
-        "rating_raw": 10.2
+        "rating_raw": 10.2,
+        "stl": 0.9
       },
       "rating": 7.5
     },
@@ -6391,7 +6700,8 @@
         "reb": 2.1,
         "ast": 4.3,
         "gp": "37",
-        "rating_raw": 10.3
+        "rating_raw": 10.3,
+        "stl": 0.78
       },
       "rating": 6.25
     },
@@ -6414,7 +6724,8 @@
         "reb": 2.4,
         "ast": 2.3,
         "gp": "35",
-        "rating_raw": 6.7
+        "rating_raw": 6.7,
+        "stl": 1.06
       },
       "rating": 3.9
     },
@@ -6429,7 +6740,8 @@
         "reb": 3.5,
         "ast": 3.1,
         "gp": "8",
-        "rating_raw": 12.5
+        "rating_raw": 12.5,
+        "stl": 0.75
       },
       "rating": 12.5
     },
@@ -6444,7 +6756,8 @@
         "reb": 0.5,
         "ast": 0.0,
         "gp": "2",
-        "rating_raw": -0.5
+        "rating_raw": -0.5,
+        "stl": 0.0
       },
       "rating": -0.5
     },
@@ -6459,7 +6772,8 @@
         "reb": 1.4,
         "ast": 0.8,
         "gp": "28",
-        "rating_raw": 4.8
+        "rating_raw": 4.8,
+        "stl": 0.5
       },
       "rating": 4.8
     },
@@ -6474,7 +6788,8 @@
         "reb": 0.3,
         "ast": 0.3,
         "gp": "4",
-        "rating_raw": 1.3
+        "rating_raw": 1.3,
+        "stl": 0.25
       },
       "rating": 1.3
     },
@@ -6489,7 +6804,8 @@
         "reb": 1.6,
         "ast": 1.9,
         "gp": "29",
-        "rating_raw": 5.1
+        "rating_raw": 5.1,
+        "stl": 0.24
       },
       "rating": 5.1
     },
@@ -6504,7 +6820,8 @@
         "reb": 2.1,
         "ast": 0.6,
         "gp": "33",
-        "rating_raw": 5.9
+        "rating_raw": 5.9,
+        "stl": 0.45
       },
       "rating": 5.9
     }
@@ -6529,7 +6846,8 @@
         "reb": 2.6,
         "ast": 5.4,
         "gp": "25",
-        "rating_raw": 17.0
+        "rating_raw": 17.0,
+        "stl": 0.64
       },
       "rating": 15.25
     },
@@ -6553,7 +6871,8 @@
         "reb": 2.8,
         "ast": 5.0,
         "gp": "31",
-        "rating_raw": 13.2
+        "rating_raw": 13.2,
+        "stl": 0.81
       },
       "rating": 13.85
     },
@@ -6576,7 +6895,8 @@
         "reb": 5.5,
         "ast": 1.1,
         "gp": "25",
-        "rating_raw": 16.0
+        "rating_raw": 16.0,
+        "stl": 0.52
       },
       "rating": 13.0
     },
@@ -6600,7 +6920,8 @@
         "reb": 1.8,
         "ast": 2.2,
         "gp": "23",
-        "rating_raw": 14.0
+        "rating_raw": 14.0,
+        "stl": 0.83
       },
       "rating": 10.5
     },
@@ -6624,7 +6945,8 @@
         "reb": 7.1,
         "ast": 1.4,
         "gp": "20",
-        "rating_raw": 12.0
+        "rating_raw": 12.0,
+        "stl": 0.45
       },
       "rating": 10.7
     },
@@ -6647,7 +6969,8 @@
         "reb": 4.3,
         "ast": 1.3,
         "gp": "24",
-        "rating_raw": 11.6
+        "rating_raw": 11.6,
+        "stl": 0.88
       },
       "rating": 9.75
     },
@@ -6671,7 +6994,8 @@
         "reb": 4.5,
         "ast": 4.0,
         "gp": "13",
-        "rating_raw": 13.5
+        "rating_raw": 13.5,
+        "stl": 0.62
       },
       "rating": 10.0
     },
@@ -6694,7 +7018,8 @@
         "reb": 4.2,
         "ast": 2.2,
         "gp": "30",
-        "rating_raw": 13.3
+        "rating_raw": 13.3,
+        "stl": 1.0
       },
       "rating": 8.8
     },
@@ -6717,7 +7042,8 @@
         "reb": 6.2,
         "ast": 1.0,
         "gp": "13",
-        "rating_raw": 19.2
+        "rating_raw": 19.2,
+        "stl": 0.23
       },
       "rating": 11.75
     },
@@ -6740,7 +7066,8 @@
         "reb": 4.1,
         "ast": 1.2,
         "gp": "21",
-        "rating_raw": 9.8
+        "rating_raw": 9.8,
+        "stl": 0.95
       },
       "rating": 6.35
     },
@@ -6763,7 +7090,8 @@
         "reb": 4.0,
         "ast": 1.3,
         "gp": "9",
-        "rating_raw": 12.3
+        "rating_raw": 12.3,
+        "stl": 1.11
       },
       "rating": 8.25
     },
@@ -6786,7 +7114,8 @@
         "reb": 2.1,
         "ast": 4.0,
         "gp": "41",
-        "rating_raw": 10.3
+        "rating_raw": 10.3,
+        "stl": 0.61
       },
       "rating": 5.55
     },
@@ -6809,7 +7138,8 @@
         "reb": 1.8,
         "ast": 0.7,
         "gp": "38",
-        "rating_raw": 4.6
+        "rating_raw": 4.6,
+        "stl": 0.39
       },
       "rating": 2.05
     },
@@ -6824,7 +7154,8 @@
         "reb": 2.1,
         "ast": 1.2,
         "gp": "9",
-        "rating_raw": 4.8
+        "rating_raw": 4.8,
+        "stl": 0.11
       },
       "rating": 4.8
     },
@@ -6839,7 +7170,8 @@
         "reb": 2.9,
         "ast": 0.3,
         "gp": "22",
-        "rating_raw": 6.7
+        "rating_raw": 6.7,
+        "stl": 0.22
       },
       "rating": 6.7
     },
@@ -6854,7 +7186,8 @@
         "reb": 1.5,
         "ast": 2.2,
         "gp": "26",
-        "rating_raw": 4.4
+        "rating_raw": 4.4,
+        "stl": 0.31
       },
       "rating": 4.4
     },
@@ -6869,7 +7202,8 @@
         "reb": 2.5,
         "ast": 0.6,
         "gp": "39",
-        "rating_raw": 6.0
+        "rating_raw": 6.0,
+        "stl": 0.41
       },
       "rating": 6.0
     }
@@ -6895,7 +7229,8 @@
         "reb": 5.9,
         "ast": 2.5,
         "gp": "34",
-        "rating_raw": 16.5
+        "rating_raw": 16.5,
+        "stl": 1.18
       },
       "rating": 15.25
     },
@@ -6918,7 +7253,8 @@
         "reb": 1.9,
         "ast": 4.6,
         "gp": "31",
-        "rating_raw": 16.6
+        "rating_raw": 16.6,
+        "stl": 0.94
       },
       "rating": 14.9
     },
@@ -6942,7 +7278,8 @@
         "reb": 2.7,
         "ast": 4.5,
         "gp": "28",
-        "rating_raw": 13.4
+        "rating_raw": 13.4,
+        "stl": 1.21
       },
       "rating": 12.15
     },
@@ -6966,7 +7303,8 @@
         "reb": 1.6,
         "ast": 2.0,
         "gp": "24",
-        "rating_raw": 14.5
+        "rating_raw": 14.5,
+        "stl": 0.79
       },
       "rating": 12.3
     },
@@ -6989,7 +7327,8 @@
         "reb": 4.8,
         "ast": 3.4,
         "gp": "26",
-        "rating_raw": 16.5
+        "rating_raw": 16.5,
+        "stl": 0.96
       },
       "rating": 12.5
     },
@@ -7012,7 +7351,8 @@
         "reb": 7.1,
         "ast": 1.4,
         "gp": "19",
-        "rating_raw": 17.7
+        "rating_raw": 17.7,
+        "stl": 0.79
       },
       "rating": 13.2
     },
@@ -7036,7 +7376,8 @@
         "reb": 5.3,
         "ast": 1.2,
         "gp": "25",
-        "rating_raw": 14.1
+        "rating_raw": 14.1,
+        "stl": 0.56
       },
       "rating": 10.05
     },
@@ -7059,7 +7400,8 @@
         "reb": 6.3,
         "ast": 0.7,
         "gp": "16",
-        "rating_raw": 11.6
+        "rating_raw": 11.6,
+        "stl": 0.56
       },
       "rating": 8.85
     },
@@ -7082,7 +7424,8 @@
         "reb": 5.5,
         "ast": 0.7,
         "gp": "13",
-        "rating_raw": 13.0
+        "rating_raw": 13.0,
+        "stl": 0.69
       },
       "rating": 9.1
     },
@@ -7140,7 +7483,8 @@
         "reb": 2.0,
         "ast": 2.0,
         "gp": "1",
-        "rating_raw": 0.0
+        "rating_raw": 0.0,
+        "stl": 0.0
       },
       "rating": 1.05
     },
@@ -7163,7 +7507,8 @@
         "reb": 0.5,
         "ast": 0.4,
         "gp": "28",
-        "rating_raw": 2.1
+        "rating_raw": 2.1,
+        "stl": 0.18
       },
       "rating": 0.95
     },
@@ -7178,7 +7523,8 @@
         "reb": 2.0,
         "ast": 2.6,
         "gp": "31",
-        "rating_raw": 7.5
+        "rating_raw": 7.5,
+        "stl": 0.42
       },
       "rating": 7.5
     },
@@ -7193,7 +7539,8 @@
         "reb": 0.6,
         "ast": 0.6,
         "gp": "14",
-        "rating_raw": 1.0
+        "rating_raw": 1.0,
+        "stl": 0.14
       },
       "rating": 1.0
     },
@@ -7208,7 +7555,8 @@
         "reb": 2.2,
         "ast": 0.7,
         "gp": "32",
-        "rating_raw": 4.3
+        "rating_raw": 4.3,
+        "stl": 0.34
       },
       "rating": 4.3
     },
@@ -7223,7 +7571,8 @@
         "reb": 1.9,
         "ast": 0.5,
         "gp": "26",
-        "rating_raw": 4.6
+        "rating_raw": 4.6,
+        "stl": 0.51
       },
       "rating": 4.6
     },
@@ -7238,7 +7587,8 @@
         "reb": 0.6,
         "ast": 0.4,
         "gp": "14",
-        "rating_raw": 1.6
+        "rating_raw": 1.6,
+        "stl": 0.0
       },
       "rating": 1.6
     }
@@ -7264,7 +7614,8 @@
         "reb": 3.1,
         "ast": 6.7,
         "gp": "15",
-        "rating_raw": 19.5
+        "rating_raw": 19.5,
+        "stl": 0.93
       },
       "rating": 17.75
     },
@@ -7288,7 +7639,8 @@
         "reb": 5.1,
         "ast": 3.2,
         "gp": "19",
-        "rating_raw": 12.0
+        "rating_raw": 12.0,
+        "stl": 1.0
       },
       "rating": 11.45
     },
@@ -7311,7 +7663,8 @@
         "reb": 2.6,
         "ast": 4.5,
         "gp": "25",
-        "rating_raw": 14.8
+        "rating_raw": 14.8,
+        "stl": 1.12
       },
       "rating": 11.3
     },
@@ -7335,7 +7688,8 @@
         "reb": 2.7,
         "ast": 3.1,
         "gp": "27",
-        "rating_raw": 14.8
+        "rating_raw": 14.8,
+        "stl": 1.0
       },
       "rating": 11.6
     },
@@ -7358,7 +7712,8 @@
         "reb": 5.2,
         "ast": 4.4,
         "gp": "18",
-        "rating_raw": 16.2
+        "rating_raw": 16.2,
+        "stl": 1.33
       },
       "rating": 12.75
     },
@@ -7381,7 +7736,8 @@
         "reb": 4.7,
         "ast": 0.9,
         "gp": "9",
-        "rating_raw": 9.7
+        "rating_raw": 9.7,
+        "stl": 0.78
       },
       "rating": 8.35
     },
@@ -7404,7 +7760,8 @@
         "reb": 5.5,
         "ast": 0.0,
         "gp": "2",
-        "rating_raw": 16.5
+        "rating_raw": 16.5,
+        "stl": 0.5
       },
       "rating": 12.0
     },
@@ -7427,7 +7784,8 @@
         "reb": 4.7,
         "ast": 1.2,
         "gp": "25",
-        "rating_raw": 14.1
+        "rating_raw": 14.1,
+        "stl": 1.04
       },
       "rating": 11.05
     },
@@ -7450,7 +7808,8 @@
         "reb": 6.4,
         "ast": 1.7,
         "gp": "16",
-        "rating_raw": 14.2
+        "rating_raw": 14.2,
+        "stl": 0.44
       },
       "rating": 11.05
     },
@@ -7473,7 +7832,8 @@
         "reb": 5.8,
         "ast": 1.5,
         "gp": "21",
-        "rating_raw": 17.2
+        "rating_raw": 17.2,
+        "stl": 0.71
       },
       "rating": 12.25
     },
@@ -7509,8 +7869,15 @@
         "gp": "23",
         "rating_raw": 3.9
       },
-      "bsl": null,
-      "rating": 3.9
+      "bsl": {
+        "pts": 8.0,
+        "reb": 3.8,
+        "ast": 0.6,
+        "gp": "38",
+        "rating_raw": 9.0,
+        "stl": 0.66
+      },
+      "rating": 6.45
     },
     {
       "name": "Justus Hollatz",
@@ -7531,7 +7898,8 @@
         "reb": 2.5,
         "ast": 3.0,
         "gp": "13",
-        "rating_raw": 9.4
+        "rating_raw": 9.4,
+        "stl": 0.77
       },
       "rating": 5.85
     },
@@ -7554,7 +7922,8 @@
         "reb": 3.8,
         "ast": 2.5,
         "gp": "28",
-        "rating_raw": 9.6
+        "rating_raw": 9.6,
+        "stl": 1.0
       },
       "rating": 5.7
     },
@@ -7577,7 +7946,8 @@
         "reb": 1.6,
         "ast": 0.8,
         "gp": "16",
-        "rating_raw": 7.6
+        "rating_raw": 7.6,
+        "stl": 0.69
       },
       "rating": 2.95
     },
@@ -7592,7 +7962,8 @@
         "reb": 1.4,
         "ast": 0.2,
         "gp": "27",
-        "rating_raw": 2.6
+        "rating_raw": 2.6,
+        "stl": 0.15
       },
       "rating": 2.6
     },
@@ -7607,25 +7978,10 @@
         "reb": 2.1,
         "ast": 1.9,
         "gp": "15",
-        "rating_raw": 6.1
+        "rating_raw": 6.1,
+        "stl": 0.73
       },
       "rating": 6.1
-    },
-    {
-      "name": "Ercan Osmani",
-      "positions": [
-        "PF",
-        "C"
-      ],
-      "euroleague": null,
-      "bsl": {
-        "pts": 8.0,
-        "reb": 3.8,
-        "ast": 0.6,
-        "gp": "38",
-        "rating_raw": 9.0
-      },
-      "rating": 9.0
     },
     {
       "name": "Mehmet Efe Demirel",
@@ -7638,7 +7994,8 @@
         "reb": 1.5,
         "ast": 0.0,
         "gp": "2",
-        "rating_raw": 0.0
+        "rating_raw": 0.0,
+        "stl": 0.5
       },
       "rating": 0.0
     },
@@ -7653,7 +8010,8 @@
         "reb": 0.7,
         "ast": 1.2,
         "gp": "24",
-        "rating_raw": 2.5
+        "rating_raw": 2.5,
+        "stl": 0.13
       },
       "rating": 2.5
     },
@@ -7668,7 +8026,8 @@
         "reb": 1.9,
         "ast": 2.0,
         "gp": "26",
-        "rating_raw": 5.6
+        "rating_raw": 5.6,
+        "stl": 0.7
       },
       "rating": 5.6
     },
@@ -7683,7 +8042,8 @@
         "reb": 1.3,
         "ast": 0.1,
         "gp": "19",
-        "rating_raw": 2.1
+        "rating_raw": 2.1,
+        "stl": 0.16
       },
       "rating": 2.1
     }
@@ -7708,7 +8068,8 @@
         "reb": 2.2,
         "ast": 3.0,
         "gp": "29",
-        "rating_raw": 11.0
+        "rating_raw": 11.0,
+        "stl": 1.07
       },
       "rating": 11.1
     },
@@ -7732,7 +8093,8 @@
         "reb": 2.8,
         "ast": 5.3,
         "gp": "20",
-        "rating_raw": 14.7
+        "rating_raw": 14.7,
+        "stl": 1.35
       },
       "rating": 13.3
     },
@@ -7755,7 +8117,8 @@
         "reb": 1.8,
         "ast": 3.9,
         "gp": "31",
-        "rating_raw": 9.1
+        "rating_raw": 9.1,
+        "stl": 0.94
       },
       "rating": 9.75
     },
@@ -7778,7 +8141,8 @@
         "reb": 4.2,
         "ast": 1.0,
         "gp": "24",
-        "rating_raw": 11.5
+        "rating_raw": 11.5,
+        "stl": 0.92
       },
       "rating": 11.55
     },
@@ -7802,7 +8166,8 @@
         "reb": 2.0,
         "ast": 2.1,
         "gp": "13",
-        "rating_raw": 12.0
+        "rating_raw": 12.0,
+        "stl": 0.69
       },
       "rating": 9.6
     },
@@ -7825,7 +8190,8 @@
         "reb": 5.3,
         "ast": 1.5,
         "gp": "32",
-        "rating_raw": 16.9
+        "rating_raw": 16.9,
+        "stl": 0.59
       },
       "rating": 13.15
     },
@@ -7849,7 +8215,8 @@
         "reb": 3.2,
         "ast": 4.0,
         "gp": "18",
-        "rating_raw": 10.2
+        "rating_raw": 10.2,
+        "stl": 0.89
       },
       "rating": 8.75
     },
@@ -7872,7 +8239,8 @@
         "reb": 3.7,
         "ast": 1.5,
         "gp": "29",
-        "rating_raw": 14.4
+        "rating_raw": 14.4,
+        "stl": 0.9
       },
       "rating": 10.2
     },
@@ -7896,7 +8264,8 @@
         "reb": 3.3,
         "ast": 1.4,
         "gp": "18",
-        "rating_raw": 9.8
+        "rating_raw": 9.8,
+        "stl": 0.5
       },
       "rating": 7.5
     },
@@ -7915,8 +8284,15 @@
         "gp": "39",
         "rating_raw": 5.9
       },
-      "bsl": null,
-      "rating": 5.9
+      "bsl": {
+        "pts": 7.7,
+        "reb": 3.9,
+        "ast": 0.9,
+        "gp": "33",
+        "rating_raw": 9.0,
+        "stl": 0.42
+      },
+      "rating": 7.45
     },
     {
       "name": "Derek Willis",
@@ -7937,7 +8313,8 @@
         "reb": 4.2,
         "ast": 1.0,
         "gp": "35",
-        "rating_raw": 10.3
+        "rating_raw": 10.3,
+        "stl": 0.71
       },
       "rating": 6.9
     },
@@ -7977,7 +8354,8 @@
         "reb": 1.3,
         "ast": 2.2,
         "gp": "33",
-        "rating_raw": 5.5
+        "rating_raw": 5.5,
+        "stl": 0.82
       },
       "rating": 2.7
     },
@@ -8000,7 +8378,8 @@
         "reb": 3.0,
         "ast": 2.1,
         "gp": "36",
-        "rating_raw": 6.5
+        "rating_raw": 6.5,
+        "stl": 0.64
       },
       "rating": 4.75
     },
@@ -8032,25 +8411,10 @@
         "reb": 1.3,
         "ast": 0.4,
         "gp": "20",
-        "rating_raw": 2.9
+        "rating_raw": 2.9,
+        "stl": 0.1
       },
       "rating": 2.9
-    },
-    {
-      "name": "Ercan Osmani",
-      "positions": [
-        "PF",
-        "C"
-      ],
-      "euroleague": null,
-      "bsl": {
-        "pts": 7.7,
-        "reb": 3.9,
-        "ast": 0.9,
-        "gp": "33",
-        "rating_raw": 9.0
-      },
-      "rating": 9.0
     },
     {
       "name": "Rıdvan Öncel",
@@ -8063,7 +8427,8 @@
         "reb": 1.3,
         "ast": 1.5,
         "gp": "29",
-        "rating_raw": 4.3
+        "rating_raw": 4.3,
+        "stl": 0.45
       },
       "rating": 4.3
     },
@@ -8078,7 +8443,8 @@
         "reb": 0.0,
         "ast": 0.0,
         "gp": "1",
-        "rating_raw": -1.0
+        "rating_raw": -1.0,
+        "stl": 0.0
       },
       "rating": -1.0
     }
@@ -8104,7 +8470,8 @@
         "reb": 2.7,
         "ast": 5.5,
         "gp": "13",
-        "rating_raw": 15.8
+        "rating_raw": 15.8,
+        "stl": 1.54
       },
       "rating": 14.1
     },
@@ -8127,7 +8494,8 @@
         "reb": 2.9,
         "ast": 1.9,
         "gp": "31",
-        "rating_raw": 12.2
+        "rating_raw": 12.2,
+        "stl": 1.03
       },
       "rating": 9.8
     },
@@ -8150,7 +8518,8 @@
         "reb": 2.4,
         "ast": 4.4,
         "gp": "10",
-        "rating_raw": 12.5
+        "rating_raw": 12.5,
+        "stl": 0.7
       },
       "rating": 10.8
     },
@@ -8169,8 +8538,15 @@
         "gp": "36",
         "rating_raw": 8.8
       },
-      "bsl": null,
-      "rating": 8.8
+      "bsl": {
+        "pts": 9.9,
+        "reb": 4.7,
+        "ast": 1.8,
+        "gp": "34",
+        "rating_raw": 11.3,
+        "stl": 0.68
+      },
+      "rating": 10.05
     },
     {
       "name": "P.J. Dozier",
@@ -8192,7 +8568,8 @@
         "reb": 3.0,
         "ast": 2.7,
         "gp": "26",
-        "rating_raw": 10.9
+        "rating_raw": 10.9,
+        "stl": 0.85
       },
       "rating": 8.15
     },
@@ -8216,7 +8593,8 @@
         "reb": 3.5,
         "ast": 3.2,
         "gp": "13",
-        "rating_raw": 11.2
+        "rating_raw": 11.2,
+        "stl": 0.46
       },
       "rating": 8.8
     },
@@ -8239,7 +8617,8 @@
         "reb": 6.2,
         "ast": 1.6,
         "gp": "12",
-        "rating_raw": 16.2
+        "rating_raw": 16.2,
+        "stl": 1.08
       },
       "rating": 12.45
     },
@@ -8263,7 +8642,8 @@
         "reb": 3.5,
         "ast": 3.9,
         "gp": "28",
-        "rating_raw": 9.4
+        "rating_raw": 9.4,
+        "stl": 0.71
       },
       "rating": 9.1
     },
@@ -8287,7 +8667,8 @@
         "reb": 3.3,
         "ast": 0.6,
         "gp": "27",
-        "rating_raw": 5.9
+        "rating_raw": 5.9,
+        "stl": 0.22
       },
       "rating": 5.2
     },
@@ -8310,7 +8691,8 @@
         "reb": 2.0,
         "ast": 2.1,
         "gp": "36",
-        "rating_raw": 10.1
+        "rating_raw": 10.1,
+        "stl": 0.78
       },
       "rating": 6.35
     },
@@ -8333,7 +8715,8 @@
         "reb": 1.6,
         "ast": 0.5,
         "gp": "21",
-        "rating_raw": 6.0
+        "rating_raw": 6.0,
+        "stl": 0.24
       },
       "rating": 4.85
     },
@@ -8356,7 +8739,8 @@
         "reb": 3.2,
         "ast": 0.5,
         "gp": "26",
-        "rating_raw": 10.8
+        "rating_raw": 10.8,
+        "stl": 0.27
       },
       "rating": 7.95
     },
@@ -8380,7 +8764,8 @@
         "reb": 1.2,
         "ast": 1.0,
         "gp": "19",
-        "rating_raw": 5.0
+        "rating_raw": 5.0,
+        "stl": 0.63
       },
       "rating": 4.75
     },
@@ -8404,7 +8789,8 @@
         "reb": 3.8,
         "ast": 0.5,
         "gp": "30",
-        "rating_raw": 9.5
+        "rating_raw": 9.5,
+        "stl": 0.53
       },
       "rating": 8.15
     },
@@ -8427,7 +8813,8 @@
         "reb": 3.1,
         "ast": 1.9,
         "gp": "34",
-        "rating_raw": 8.0
+        "rating_raw": 8.0,
+        "stl": 0.91
       },
       "rating": 4.55
     },
@@ -8442,7 +8829,8 @@
         "reb": 0.5,
         "ast": 0.5,
         "gp": "6",
-        "rating_raw": 1.5
+        "rating_raw": 1.5,
+        "stl": 0.0
       },
       "rating": 1.5
     },
@@ -8458,25 +8846,10 @@
         "reb": 1.2,
         "ast": 0.8,
         "gp": "25",
-        "rating_raw": 4.4
+        "rating_raw": 4.4,
+        "stl": 0.56
       },
       "rating": 4.4
-    },
-    {
-      "name": "Ercan Osmani",
-      "positions": [
-        "PF",
-        "C"
-      ],
-      "euroleague": null,
-      "bsl": {
-        "pts": 9.9,
-        "reb": 4.7,
-        "ast": 1.8,
-        "gp": "34",
-        "rating_raw": 11.3
-      },
-      "rating": 11.3
     },
     {
       "name": "Georgios Papagiannis",
@@ -8489,7 +8862,8 @@
         "reb": 2.5,
         "ast": 3.0,
         "gp": "2",
-        "rating_raw": 9.5
+        "rating_raw": 9.5,
+        "stl": 0.0
       },
       "rating": 9.5
     },
@@ -8504,7 +8878,8 @@
         "reb": 0.0,
         "ast": 0.0,
         "gp": "5",
-        "rating_raw": -0.2
+        "rating_raw": -0.2,
+        "stl": 0.0
       },
       "rating": -0.2
     }

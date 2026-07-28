@@ -123,7 +123,7 @@ function updateBudgetGauge() {
   const circumference = 263.9;
   const ring = document.getElementById("budget-ring-fg");
   ring.style.strokeDashoffset = String(circumference * (1 - fraction));
-  const color = fraction > 0.5 ? "var(--green)" : fraction > 0.2 ? "var(--amber)" : "var(--red)";
+  const color = fraction > 0.5 ? "var(--green)" : fraction > 0.2 ? "var(--accent)" : "var(--red)";
   ring.style.stroke = color;
   document.getElementById("budget-remaining").textContent = remaining;
 }
@@ -454,7 +454,7 @@ function renderSortTabs() {
 // for that stat sorts to the bottom rather than being treated as a zero.
 function statValue(p, stat) {
   if (p.euroleague && p.euroleague[stat] != null) return p.euroleague[stat];
-  if (p.bsl && (stat === "pts" || stat === "reb" || stat === "ast") && p.bsl[stat] != null) return p.bsl[stat];
+  if (p.bsl && (stat === "pts" || stat === "reb" || stat === "ast" || stat === "stl") && p.bsl[stat] != null) return p.bsl[stat];
   return -1;
 }
 
@@ -493,8 +493,9 @@ function buildStatBlocksHtml(p) {
           <div><b>${b.pts.toFixed(1)}</b><span>PTS</span></div>
           <div><b>${b.reb.toFixed(1)}</b><span>REB</span></div>
           <div><b>${b.ast.toFixed(1)}</b><span>AST</span></div>
+          <div><b>${(b.stl != null ? b.stl : 0).toFixed(1)}</b><span>STL</span></div>
         </div>
-        <div class="no-data-note">BSL source has no blocks/steals data</div>
+        <div class="no-data-note">BSL source has no blocks data</div>
       </div>`;
   }
   return html;
