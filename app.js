@@ -2,7 +2,7 @@
 // 38-0 — Anadolu Efes Efsane Kadro Simülasyonu
 // ============================================================
 
-const APP_VERSION = "v11";
+const APP_VERSION = "v12";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -422,7 +422,7 @@ function doSpin() {
   const shuffleInterval = setInterval(() => {
     labelEl.textContent = pickRandom(seasons);
     shuffleCount++;
-  }, 110);
+  }, 160);
 
   setTimeout(() => {
     clearInterval(shuffleInterval);
@@ -435,7 +435,7 @@ function doSpin() {
     poolSearchQuery = "";
     poolSortStat = "pts";
 
-    document.getElementById("chip-season").textContent = season;
+    document.getElementById("chip-season").innerHTML = season + seasonNoteHtml(season);
     document.getElementById("spin-result").hidden = false;
     document.getElementById("pool-controls").hidden = false;
     updateRespinCounter();
@@ -445,7 +445,7 @@ function doSpin() {
     renderSortTabs();
     document.getElementById("player-search").value = "";
     renderPlayerPool(state.currentSpinPool);
-  }, 1500);
+  }, 2200);
 }
 
 function respin() {
@@ -531,10 +531,15 @@ function hashColor(name) {
   return AVATAR_COLORS[hash % AVATAR_COLORS.length];
 }
 
+// Three real Anadolu Efes kit looks: solid navy, solid white, blue/white stripes.
+const KITS = ["kit-navy", "kit-white", "kit-striped"];
+
 function avatarHtml(name) {
   const initials = initialsOf(name);
-  const color = hashColor(name);
-  return `<div class="player-avatar" style="background:${color}">${initials}</div>`;
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
+  const kit = KITS[hash % KITS.length];
+  return `<div class="player-avatar ${kit}">${initials}</div>`;
 }
 
 function buildStatBlocksHtml(p) {
@@ -609,6 +614,7 @@ function renderPlayerPool(pool) {
       <div class="player-meta">${state.currentSpinSeason}${isConstrainedPhase() ? ` · <span class="open-line">${openMatches.length ? "OPEN: " + openMatches.join(" / ") : "position filled"}</span>` : ""}</div>
       ${honorsHtml(honorsFor(p, state.currentSpinSeason))}
       ${blocksHtml}
+      <button class="info-btn" data-player="${p.name}" title="Career detail">i</button>
     `;
 
     if (pickable) {
@@ -659,6 +665,7 @@ function placePlayer(player, filledPosition) {
   });
   state.usedPlayerNames.add(player.name);
   state.lastPlacedName = player.name;
+  SFX.place();
   state.armedPlayer = null;
 
   state.currentSlot++;
@@ -755,7 +762,7 @@ function doCoachSpin() {
   animEl.hidden = false;
   const shuffleInterval = setInterval(() => {
     labelEl.textContent = pickRandom(seasons);
-  }, 110);
+  }, 160);
 
   setTimeout(() => {
     clearInterval(shuffleInterval);
@@ -770,7 +777,7 @@ function doCoachSpin() {
     updateCoachRespinCounter();
 
     renderCoachOptions();
-  }, 1500);
+  }, 2200);
 }
 
 function coachRespin() {
@@ -920,9 +927,12 @@ function animateScoreboard(results, onDone) {
       return;
     }
     const res = results[i];
+    const sc = simGameScore(0, res === "W");
     cells[i].textContent = res;
+    cells[i].title = `Game ${i + 1}: ${res} ${sc[0]}–${sc[1]}`;
     cells[i].classList.add(res === "W" ? "win" : "loss");
     cells[i].classList.add("flip-in");
+    if (res === "W") SFX.win(); else SFX.loss();
 
     if (res === "W") w++; else l++;
     if (res === streakType) streak++;
@@ -934,7 +944,7 @@ function animateScoreboard(results, onDone) {
       liveEl.innerHTML = `<span class="live-rec">${w}–${l}</span>${streakTxt}`;
     }
     i++;
-  }, 170);
+  }, 260);
 }
 
 function letterGrade(wins) {
@@ -1015,6 +1025,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("coach-respin-btn").addEventListener("click", coachRespin);
 
   document.getElementById("to-sim-btn").addEventListener("click", () => {
+    showScreen("screen-lineup");
+    renderLineupIntro();
+  });
+
+  document.getElementById("lineup-continue-btn").addEventListener("click", () => {
+    SFX.whistle();
     showScreen("screen-sim");
     renderSimRoster();
     document.getElementById("scoreboard-track").innerHTML = "";
@@ -1044,6 +1060,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.getElementById("result-actions").hidden = false;
       lastResult = { wins, losses, champion };
+
+      saveHistoryEntry({
+        wins, losses, champion,
+        mode: state.mode === "12" ? "12-Man" : "Starting 5",
+        budget: state.budgetType === "cap" ? "Salary Cap" : "Unlimited",
+        starters: state.roster.filter((p) => p.tier === "starter").map((p) => p.name),
+      });
+      if (losses === 0 || champion) SFX.crowd();
 
       const unlocked = evaluateAchievements(wins, champion);
       if (unlocked.length) showAchievementToasts(unlocked);
@@ -1193,23 +1217,42 @@ function buildNarrative(results) {
 }
 
 // ---------- Playoffs (real EuroLeague format: QF, SF, Final) ----------
-const PLAYOFF_OPPONENTS = [
-  { round: "Quarterfinal", name: "Olympiacos", strength: 9 },
-  { round: "Semifinal", name: "Real Madrid", strength: 12 },
-  { round: "Final", name: "Panathinaikos", strength: 13 },
+const PLAYOFF_ROUNDS = [
+  { round: "Quarterfinal", strength: 9, bestOf: 5 },
+  { round: "Semifinal", strength: 12, bestOf: 1 },
+  { round: "Final", strength: 13, bestOf: 1 },
 ];
+
+// Generates a plausible final score for a single game given win probability.
+function simGameScore(winProb, won) {
+  const base = 78 + Math.round(Math.random() * 12);
+  const gap = Math.max(1, Math.round(Math.abs(gaussian()) * 7) + 1);
+  return won ? [base + gap, base] : [base, base + gap];
+}
+
+function gaussian() {
+  const u = Math.random() || 1e-9, v = Math.random() || 1e-9;
+  return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+}
 
 function runPlayoffs(regularMargin) {
   const rounds = [];
   let alive = true;
-  for (const opp of PLAYOFF_OPPONENTS) {
+  for (const cfg of PLAYOFF_ROUNDS) {
     if (!alive) break;
-    // Opponent quality raises the bar relative to the league-average baseline.
-    const adjMargin = regularMargin - opp.strength;
-    const p = pythagoreanWinPct(adjMargin);
-    const won = Math.random() < p;
-    rounds.push({ round: opp.round, opponent: opp.name, won, p });
-    if (!won) alive = false;
+    const p = pythagoreanWinPct(regularMargin - cfg.strength);
+    const games = [];
+    let w = 0, l = 0;
+    const needed = Math.ceil(cfg.bestOf / 2);
+    while (w < needed && l < needed) {
+      const won = Math.random() < p;
+      const score = simGameScore(p, won);
+      games.push({ won, score });
+      if (won) w++; else l++;
+    }
+    const seriesWon = w >= needed;
+    rounds.push({ round: cfg.round, bestOf: cfg.bestOf, games, w, l, won: seriesWon });
+    if (!seriesWon) alive = false;
   }
   return { rounds, champion: alive };
 }
@@ -1226,11 +1269,16 @@ function renderPlayoffs(regularMargin) {
   rounds.forEach((r, idx) => {
     const el = document.createElement("div");
     el.className = "playoff-round " + (r.won ? "won" : "lost");
-    el.style.animationDelay = idx * 0.5 + "s";
+    el.style.animationDelay = idx * 0.7 + "s";
+    const seriesLabel = r.bestOf > 1 ? `Best of ${r.bestOf} · ${r.w}–${r.l}` : "Single game";
+    const gamesHtml = r.games
+      .map((g) => `<div class="pr-game ${g.won ? "w" : "l"}">${g.won ? "W" : "L"} ${g.score[0]}–${g.score[1]}</div>`)
+      .join("");
     el.innerHTML = `
       <div class="pr-name">${r.round}</div>
-      <div class="pr-opp">vs ${r.opponent}</div>
-      <div class="pr-res">${r.won ? "WON" : "LOST"}</div>`;
+      <div class="pr-series">${seriesLabel}</div>
+      <div class="pr-games">${gamesHtml}</div>
+      <div class="pr-res">${r.won ? "ADVANCED" : "ELIMINATED"}</div>`;
     roundsEl.appendChild(el);
   });
   verdictEl.textContent = champion
@@ -1448,4 +1496,256 @@ document.addEventListener("DOMContentLoaded", () => {
   if (shareClose) shareClose.addEventListener("click", () => {
     document.getElementById("share-modal").hidden = true;
   });
+});
+
+// ============================================================
+// v12 additions: sounds, theme, loading, history, re-sim,
+// player detail, season context, lineup intro, game scores
+// ============================================================
+
+// ---------- Sound (synthesized with WebAudio — no audio files needed) ----------
+let audioCtx = null;
+let soundOn = localStorage.getItem("efes380_sound") !== "off";
+
+function ensureAudio() {
+  if (!audioCtx) {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (AC) audioCtx = new AC();
+  }
+  return audioCtx;
+}
+
+function tone(freq, durationMs, type = "sine", gainVal = 0.06) {
+  if (!soundOn) return;
+  const ctx = ensureAudio();
+  if (!ctx) return;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = type;
+  osc.frequency.value = freq;
+  gain.gain.setValueAtTime(gainVal, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + durationMs / 1000);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start();
+  osc.stop(ctx.currentTime + durationMs / 1000);
+}
+
+function noiseBurst(durationMs, gainVal = 0.05) {
+  if (!soundOn) return;
+  const ctx = ensureAudio();
+  if (!ctx) return;
+  const frames = Math.floor((ctx.sampleRate * durationMs) / 1000);
+  const buffer = ctx.createBuffer(1, frames, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < frames; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / frames);
+  const src = ctx.createBufferSource();
+  const gain = ctx.createGain();
+  gain.gain.value = gainVal;
+  src.buffer = buffer;
+  src.connect(gain).connect(ctx.destination);
+  src.start();
+}
+
+const SFX = {
+  bounce: () => tone(180, 120, "sine", 0.07),
+  place: () => { tone(440, 90, "triangle", 0.05); setTimeout(() => tone(660, 110, "triangle", 0.04), 70); },
+  spin: () => tone(320, 70, "square", 0.025),
+  win: () => tone(720, 90, "sine", 0.04),
+  loss: () => tone(200, 110, "sawtooth", 0.035),
+  whistle: () => { tone(1800, 180, "square", 0.03); setTimeout(() => tone(2100, 160, "square", 0.025), 120); },
+  crowd: () => { noiseBurst(1400, 0.05); setTimeout(() => noiseBurst(1000, 0.035), 500); },
+};
+
+// ---------- Theme ----------
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("efes380_theme", theme);
+  const btn = document.getElementById("theme-toggle");
+  if (btn) btn.textContent = theme === "light" ? "☀️" : "🌙";
+}
+
+// ---------- Roster history ----------
+const HISTORY_KEY = "efes380_history_v1";
+
+function saveHistoryEntry(entry) {
+  try {
+    const list = JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+    list.unshift(entry);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, 5)));
+  } catch { /* storage unavailable */ }
+}
+
+function renderHistory() {
+  const block = document.getElementById("history-block");
+  const list = document.getElementById("history-list");
+  if (!block || !list) return;
+  let entries = [];
+  try { entries = JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; } catch { entries = []; }
+  if (!entries.length) { block.hidden = true; return; }
+  block.hidden = false;
+  list.innerHTML = "";
+  entries.forEach((e) => {
+    const el = document.createElement("div");
+    el.className = "history-card";
+    el.innerHTML = `
+      <div class="history-rec">${e.wins}–${e.losses}</div>
+      <div class="history-meta">
+        <div class="history-names">${e.starters.join(" · ")}</div>
+        <div class="history-sub">${e.mode} · ${e.budget}${e.champion ? " · 🏆 Champions" : ""}</div>
+      </div>`;
+    list.appendChild(el);
+  });
+}
+
+// ---------- Season context (only verifiable club history) ----------
+const SEASON_NOTES = {
+  "1995-96": "Korać Cup winners",
+  "1999-00": "First Turkish team in a EuroLeague Final Four",
+  "2000-01": "SuproLeague Final Four",
+  "2018-19": "EuroLeague runners-up",
+  "2019-20": "Season cancelled (COVID-19) while leading",
+  "2020-21": "EuroLeague Champions",
+  "2021-22": "EuroLeague Champions",
+};
+
+function seasonNoteHtml(season) {
+  const note = SEASON_NOTES[season];
+  return note ? `<span class="season-note">${note}</span>` : "";
+}
+
+// ---------- Player detail modal ----------
+function openPlayerModal(name) {
+  const body = document.getElementById("player-modal-body");
+  const modal = document.getElementById("player-modal");
+  if (!body || !modal) return;
+
+  const rows = [];
+  for (const [season, list] of Object.entries(state.playersBySeason)) {
+    const p = list.find((x) => x.name === name);
+    if (p) rows.push({ season, p });
+  }
+  rows.sort((a, b) => a.season.localeCompare(b.season));
+
+  const positions = rows.length ? rows[rows.length - 1].p.positions.join(" / ") : "";
+  const tableRows = rows
+    .map(({ season, p }) => {
+      const e = p.euroleague, b = p.bsl;
+      return `<tr>
+        <td>${season}</td>
+        <td>${e ? e.pts.toFixed(1) : "–"}</td>
+        <td>${e ? e.reb.toFixed(1) : "–"}</td>
+        <td>${e ? e.ast.toFixed(1) : "–"}</td>
+        <td>${b ? b.pts.toFixed(1) : "–"}</td>
+        <td>${b ? b.reb.toFixed(1) : "–"}</td>
+        <td>${b ? b.ast.toFixed(1) : "–"}</td>
+      </tr>`;
+    })
+    .join("");
+
+  body.innerHTML = `
+    <div class="pm-head">
+      <div class="pm-name">${name}</div>
+      <div class="pm-pos">${positions} · ${rows.length} season${rows.length === 1 ? "" : "s"} with Efes</div>
+    </div>
+    <table class="pm-table">
+      <thead>
+        <tr><th rowspan="2">Season</th><th colspan="3">EuroLeague</th><th colspan="3">BSL</th></tr>
+        <tr><th>PTS</th><th>REB</th><th>AST</th><th>PTS</th><th>REB</th><th>AST</th></tr>
+      </thead>
+      <tbody>${tableRows}</tbody>
+    </table>`;
+  modal.hidden = false;
+}
+
+// ---------- Lineup intro ----------
+function renderLineupIntro(onDone) {
+  const stage = document.getElementById("lineup-stage");
+  const banner = document.getElementById("lineup-coach-banner");
+  if (!stage) { onDone(); return; }
+  stage.innerHTML = "";
+
+  const starters = POSITION_ORDER.map((pos) =>
+    state.roster.find((p) => p.tier === "starter" && p.filledPosition === pos)
+  ).filter(Boolean);
+
+  starters.forEach((p, i) => {
+    const el = document.createElement("div");
+    el.className = "lineup-player";
+    el.style.animationDelay = i * 0.55 + "s";
+    el.innerHTML = `
+      <div class="lineup-pos">${p.filledPosition}</div>
+      ${avatarHtml(p.name)}
+      <div class="lineup-name">${p.name}</div>
+      <div class="lineup-season">${p.season}</div>`;
+    stage.appendChild(el);
+    setTimeout(() => SFX.bounce(), i * 550 + 100);
+  });
+
+  if (banner) {
+    banner.textContent = state.coach ? `Head Coach: ${state.coach.name}` : "";
+    banner.hidden = !state.coach;
+  }
+}
+
+// ---------- v12 event wiring ----------
+document.addEventListener("DOMContentLoaded", () => {
+  applyTheme(localStorage.getItem("efes380_theme") || "dark");
+  const themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) themeBtn.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+    applyTheme(next);
+  });
+
+  const soundBtn = document.getElementById("sound-toggle");
+  if (soundBtn) {
+    soundBtn.textContent = soundOn ? "🔊" : "🔇";
+    soundBtn.addEventListener("click", () => {
+      soundOn = !soundOn;
+      localStorage.setItem("efes380_sound", soundOn ? "on" : "off");
+      soundBtn.textContent = soundOn ? "🔊" : "🔇";
+      if (soundOn) SFX.bounce();
+    });
+  }
+
+  renderHistory();
+
+  // Player detail: the info button opens the modal without selecting the player.
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".info-btn");
+    if (btn) {
+      e.stopPropagation();
+      openPlayerModal(btn.dataset.player);
+    }
+  }, true);
+
+  const pmClose = document.getElementById("player-modal-close");
+  if (pmClose) pmClose.addEventListener("click", () => {
+    document.getElementById("player-modal").hidden = true;
+  });
+
+  // Re-simulate the same roster
+  const resimBtn = document.getElementById("resim-btn");
+  if (resimBtn) resimBtn.addEventListener("click", () => {
+    document.getElementById("final-record").hidden = true;
+    document.getElementById("season-narrative").hidden = true;
+    document.getElementById("playoff-block").hidden = true;
+    document.getElementById("result-actions").hidden = true;
+    document.getElementById("scoreboard-track").innerHTML = "";
+    document.getElementById("sim-btn").hidden = false;
+    document.getElementById("sim-btn").click();
+  });
+
+  // Spin sound
+  ["spin-btn", "respin-btn", "coach-spin-btn", "coach-respin-btn"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("click", () => SFX.spin());
+  });
+
+  // Hide the loading overlay once data is ready (or on failure, so it never sticks).
+  const overlay = document.getElementById("loading-overlay");
+  const hideOverlay = () => { if (overlay) overlay.classList.add("done"); };
+  const check = setInterval(() => {
+    if (state.dataReady) { clearInterval(check); hideOverlay(); }
+  }, 100);
+  setTimeout(() => { clearInterval(check); hideOverlay(); }, 8000);
 });
