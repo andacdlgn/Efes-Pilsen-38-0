@@ -1,0 +1,8512 @@
+{
+  "1997-98": [
+    {
+      "name": "Alpay Öztaş",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.0,
+        "reb": 3.6,
+        "ast": 0.7,
+        "gp": "9",
+        "rating_raw": 10.1
+      },
+      "rating": 10.1
+    },
+    {
+      "name": "Brian Howard",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.0,
+        "reb": 4.4,
+        "ast": 1.9,
+        "gp": "26",
+        "rating_raw": 14.2
+      },
+      "rating": 14.2
+    },
+    {
+      "name": "Erdal Bibo",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.7,
+        "reb": 1.4,
+        "ast": 0.9,
+        "gp": "10",
+        "rating_raw": 5.8
+      },
+      "rating": 5.8
+    },
+    {
+      "name": "Hidayet Türkoğlu",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.9,
+        "reb": 3.8,
+        "ast": 1.2,
+        "gp": "30",
+        "rating_raw": 9.6
+      },
+      "rating": 9.6
+    },
+    {
+      "name": "Hüseyin Beşok",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.6,
+        "reb": 4.4,
+        "ast": 0.3,
+        "gp": "36",
+        "rating_raw": 9.7
+      },
+      "rating": 9.7
+    },
+    {
+      "name": "Mirsad Türkcan",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.1,
+        "reb": 7.9,
+        "ast": 1.2,
+        "gp": "34",
+        "rating_raw": 16.1
+      },
+      "rating": 16.1
+    },
+    {
+      "name": "Murat Evliyaoğlu",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.1,
+        "reb": 1.1,
+        "ast": 2.1,
+        "gp": "36",
+        "rating_raw": 6.9
+      },
+      "rating": 6.9
+    },
+    {
+      "name": "Ömer Onan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.0,
+        "reb": 1.3,
+        "ast": 1.1,
+        "gp": "7",
+        "rating_raw": 5.1
+      },
+      "rating": 5.1
+    },
+    {
+      "name": "Petar Naumoski",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 15.8,
+        "reb": 2.0,
+        "ast": 5.7,
+        "gp": "32",
+        "rating_raw": 17.7
+      },
+      "rating": 17.7
+    },
+    {
+      "name": "Rod Sellers",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 11.3,
+        "reb": 7.9,
+        "ast": 0.8,
+        "gp": "16",
+        "rating_raw": 16.0
+      },
+      "rating": 16.0
+    },
+    {
+      "name": "Tamer Oyguç",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.0,
+        "reb": 1.9,
+        "ast": 0.3,
+        "gp": "32",
+        "rating_raw": 5.4
+      },
+      "rating": 5.4
+    },
+    {
+      "name": "Ufuk Sarıca",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.6,
+        "reb": 1.8,
+        "ast": 1.4,
+        "gp": "34",
+        "rating_raw": 8.4
+      },
+      "rating": 8.4
+    },
+    {
+      "name": "Volkan Aydın",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.3,
+        "reb": 1.6,
+        "ast": 0.7,
+        "gp": "33",
+        "rating_raw": 6.7
+      },
+      "rating": 6.7
+    }
+  ],
+  "1998-99": [
+    {
+      "name": "Hidayet Türkoğlu",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 10.0,
+        "reb": 4.7,
+        "ast": 1.6,
+        "gp": "31",
+        "rating_raw": 12.9
+      },
+      "rating": 12.9
+    },
+    {
+      "name": "Hüseyin Beşok",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 10.3,
+        "reb": 7.5,
+        "ast": 0.6,
+        "gp": "35",
+        "rating_raw": 14.4
+      },
+      "rating": 14.4
+    },
+    {
+      "name": "Mehmet Mumcuoğulları",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.0,
+        "reb": 2.0,
+        "ast": 0.5,
+        "gp": "2",
+        "rating_raw": 2.0
+      },
+      "rating": 2.0
+    },
+    {
+      "name": "Murat Evliyaoğlu",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.3,
+        "reb": 0.9,
+        "ast": 1.8,
+        "gp": "30",
+        "rating_raw": 7.1
+      },
+      "rating": 7.1
+    },
+    {
+      "name": "Nedim Dal",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.2,
+        "reb": 1.9,
+        "ast": 0.1,
+        "gp": "17",
+        "rating_raw": 1.7
+      },
+      "rating": 1.7
+    },
+    {
+      "name": "Ömer Onan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.2,
+        "reb": 0.9,
+        "ast": 0.5,
+        "gp": "11",
+        "rating_raw": 6.7
+      },
+      "rating": 6.7
+    },
+    {
+      "name": "Petar Naumoski",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 15.6,
+        "reb": 3.0,
+        "ast": 5.8,
+        "gp": "36",
+        "rating_raw": 18.2
+      },
+      "rating": 18.2
+    },
+    {
+      "name": "Predrag Drobnjak",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 11.5,
+        "reb": 5.2,
+        "ast": 1.3,
+        "gp": "36",
+        "rating_raw": 13.8
+      },
+      "rating": 13.8
+    },
+    {
+      "name": "Ufuk Sarıca",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 11.1,
+        "reb": 2.0,
+        "ast": 1.9,
+        "gp": "35",
+        "rating_raw": 8.3
+      },
+      "rating": 8.3
+    },
+    {
+      "name": "Volkan Aydın",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.2,
+        "reb": 1.6,
+        "ast": 1.2,
+        "gp": "30",
+        "rating_raw": 6.5
+      },
+      "rating": 6.5
+    },
+    {
+      "name": "Zoran Savic",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 10.1,
+        "reb": 5.2,
+        "ast": 1.7,
+        "gp": "19",
+        "rating_raw": 12.3
+      },
+      "rating": 12.3
+    }
+  ],
+  "1999-00": [
+    {
+      "name": "Arda Vekiloğlu",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.7,
+        "reb": 1.1,
+        "ast": 0.2,
+        "gp": "26",
+        "rating_raw": 2.5
+      },
+      "rating": 2.5
+    },
+    {
+      "name": "Bora Sancar",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.5,
+        "reb": 0.5,
+        "ast": 0.8,
+        "gp": "19",
+        "rating_raw": 2.1
+      },
+      "rating": 2.1
+    },
+    {
+      "name": "Damir Mulaomerović",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 14.9,
+        "reb": 2.3,
+        "ast": 5.3,
+        "gp": "34",
+        "rating_raw": 14.9
+      },
+      "rating": 14.9
+    },
+    {
+      "name": "Hidayet Türkoğlu",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.5,
+        "reb": 5.4,
+        "ast": 2.4,
+        "gp": "34",
+        "rating_raw": 14.7
+      },
+      "rating": 14.7
+    },
+    {
+      "name": "Hüseyin Beşok",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.1,
+        "reb": 9.5,
+        "ast": 1.0,
+        "gp": "32",
+        "rating_raw": 16.9
+      },
+      "rating": 16.9
+    },
+    {
+      "name": "İbrahim Kutluay",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 15.8,
+        "reb": 2.0,
+        "ast": 1.9,
+        "gp": "36",
+        "rating_raw": 12.1
+      },
+      "rating": 12.1
+    },
+    {
+      "name": "Kareem Reid",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.0,
+        "reb": 0.0,
+        "ast": 2.0,
+        "gp": "1",
+        "rating_raw": 2.0
+      },
+      "rating": 2.0
+    },
+    {
+      "name": "Marc Jackson",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.1,
+        "reb": 6.0,
+        "ast": 1.9,
+        "gp": "7",
+        "rating_raw": 10.7
+      },
+      "rating": 10.7
+    },
+    {
+      "name": "Nedim Dal",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.2,
+        "reb": 1.3,
+        "ast": 0.3,
+        "gp": "16",
+        "rating_raw": 2.0
+      },
+      "rating": 2.0
+    },
+    {
+      "name": "Ömer Onan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.2,
+        "reb": 1.3,
+        "ast": 0.6,
+        "gp": "35",
+        "rating_raw": 4.1
+      },
+      "rating": 4.1
+    },
+    {
+      "name": "Predrag Drobnjak",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 11.5,
+        "reb": 5.7,
+        "ast": 0.7,
+        "gp": "35",
+        "rating_raw": 15.1
+      },
+      "rating": 15.1
+    },
+    {
+      "name": "Rickie Winslow",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.5,
+        "reb": 4.1,
+        "ast": 0.3,
+        "gp": "22",
+        "rating_raw": 8.9
+      },
+      "rating": 8.9
+    },
+    {
+      "name": "Stephen Howard",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.0,
+        "reb": 7.0,
+        "ast": 2.0,
+        "gp": "1",
+        "rating_raw": 14.0
+      },
+      "rating": 14.0
+    },
+    {
+      "name": "Tufan Ersöz",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.0,
+        "reb": 0.0,
+        "ast": 0.0,
+        "gp": "1",
+        "rating_raw": 5.0
+      },
+      "rating": 5.0
+    }
+  ],
+  "2000-01": [
+    {
+      "name": "Alper Yılmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.5,
+        "reb": 1.7,
+        "ast": 1.2,
+        "gp": "31",
+        "rating_raw": 4.9
+      },
+      "rating": 4.9
+    },
+    {
+      "name": "Damir Mulaomerović",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 18.0,
+        "reb": 2.2,
+        "ast": 4.8,
+        "gp": "32",
+        "rating_raw": 16.9
+      },
+      "rating": 16.9
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.8,
+        "reb": 0.4,
+        "ast": 1.1,
+        "gp": "8",
+        "rating_raw": 2.5
+      },
+      "rating": 2.5
+    },
+    {
+      "name": "Engin Atsür",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.3,
+        "reb": 0.3,
+        "ast": 0.7,
+        "gp": "3",
+        "rating_raw": 1.7
+      },
+      "rating": 1.7
+    },
+    {
+      "name": "Erdal Bibo",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.8,
+        "reb": 1.5,
+        "ast": 1.2,
+        "gp": "20",
+        "rating_raw": 6.0
+      },
+      "rating": 6.0
+    },
+    {
+      "name": "Hüseyin Beşok",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 11.1,
+        "reb": 7.9,
+        "ast": 1.1,
+        "gp": "33",
+        "rating_raw": 15.4
+      },
+      "rating": 15.4
+    },
+    {
+      "name": "Kaya Peker",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.5,
+        "reb": 3.9,
+        "ast": 0.1,
+        "gp": "23",
+        "rating_raw": 7.3
+      },
+      "rating": 7.3
+    },
+    {
+      "name": "Kerem Tunçeri",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.1,
+        "reb": 1.6,
+        "ast": 2.9,
+        "gp": "22",
+        "rating_raw": 8.7
+      },
+      "rating": 8.7
+    },
+    {
+      "name": "Mehmet Okur",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.8,
+        "reb": 5.8,
+        "ast": 0.5,
+        "gp": "34",
+        "rating_raw": 12.4
+      },
+      "rating": 12.4
+    },
+    {
+      "name": "Ömer Onan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 10.1,
+        "reb": 1.8,
+        "ast": 1.2,
+        "gp": "34",
+        "rating_raw": 9.4
+      },
+      "rating": 9.4
+    },
+    {
+      "name": "Predrag Drobnjak",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 13.3,
+        "reb": 5.8,
+        "ast": 1.3,
+        "gp": "33",
+        "rating_raw": 15.5
+      },
+      "rating": 15.5
+    },
+    {
+      "name": "Vlado Šćepanović",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.2,
+        "reb": 1.5,
+        "ast": 2.0,
+        "gp": "32",
+        "rating_raw": 8.4
+      },
+      "rating": 8.4
+    }
+  ],
+  "2001-02": [
+    {
+      "name": "Marcus Brown",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 17.7,
+        "reb": 3.0,
+        "ast": 4.0,
+        "stl": 1.5,
+        "blk": 0.1,
+        "gp": "11",
+        "rating_raw": 15.3
+      },
+      "bsl": {
+        "pts": 17.5,
+        "reb": 3.2,
+        "ast": 3.1,
+        "gp": "31",
+        "rating_raw": 18.9
+      },
+      "rating": 17.1
+    },
+    {
+      "name": "Kaspars Kambala",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 17.4,
+        "reb": 5.5,
+        "ast": 0.5,
+        "stl": 0.8,
+        "blk": 0.4,
+        "gp": "12",
+        "rating_raw": 12.3
+      },
+      "bsl": {
+        "pts": 13.1,
+        "reb": 6.6,
+        "ast": 0.6,
+        "gp": "31",
+        "rating_raw": 13.7
+      },
+      "rating": 13.0
+    },
+    {
+      "name": "Mehmet Okur",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": {
+        "pts": 14.6,
+        "reb": 7.2,
+        "ast": 1.2,
+        "stl": 0.7,
+        "blk": 0.8,
+        "gp": "12",
+        "rating_raw": 14.2
+      },
+      "bsl": {
+        "pts": 13.1,
+        "reb": 8.1,
+        "ast": 1.3,
+        "gp": "31",
+        "rating_raw": 17.7
+      },
+      "rating": 15.95
+    },
+    {
+      "name": "Saulius Stombergas",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 11.5,
+        "reb": 2.8,
+        "ast": 0.9,
+        "stl": 1.6,
+        "blk": 0.1,
+        "gp": "12",
+        "rating_raw": 7.6
+      },
+      "bsl": {
+        "pts": 9.3,
+        "reb": 3.8,
+        "ast": 2.1,
+        "gp": "31",
+        "rating_raw": 11.1
+      },
+      "rating": 9.35
+    },
+    {
+      "name": "Omer Onan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 10.3,
+        "reb": 1.2,
+        "ast": 0.6,
+        "stl": 1.1,
+        "blk": 0.1,
+        "gp": "12",
+        "rating_raw": 4.3
+      },
+      "bsl": {
+        "pts": 8.2,
+        "reb": 1.3,
+        "ast": 0.7,
+        "gp": "26",
+        "rating_raw": 6.7
+      },
+      "rating": 5.5
+    },
+    {
+      "name": "Kerem Tunceri",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 4.3,
+        "reb": 1.4,
+        "ast": 2.7,
+        "stl": 1.1,
+        "blk": 0.2,
+        "gp": "12",
+        "rating_raw": 1.6
+      },
+      "bsl": {
+        "pts": 8.4,
+        "reb": 1.9,
+        "ast": 4.3,
+        "gp": "30",
+        "rating_raw": 9.9
+      },
+      "rating": 5.75
+    },
+    {
+      "name": "Alper Yılmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.2,
+        "reb": 1.9,
+        "ast": 1.2,
+        "gp": "31",
+        "rating_raw": 5.7
+      },
+      "rating": 5.7
+    },
+    {
+      "name": "Arda Vekiloğlu",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.1,
+        "reb": 3.3,
+        "ast": 0.7,
+        "gp": "24",
+        "rating_raw": 7.0
+      },
+      "rating": 7.0
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.1,
+        "reb": 0.8,
+        "ast": 2.2,
+        "gp": "25",
+        "rating_raw": 6.0
+      },
+      "rating": 6.0
+    },
+    {
+      "name": "Enver Ekmen",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.0,
+        "reb": 0.0,
+        "ast": 1.0,
+        "gp": "1",
+        "rating_raw": -1.0
+      },
+      "rating": -1.0
+    },
+    {
+      "name": "Kaya Peker",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.5,
+        "reb": 4.4,
+        "ast": 0.7,
+        "gp": "23",
+        "rating_raw": 7.1
+      },
+      "rating": 7.1
+    }
+  ],
+  "2002-03": [
+    {
+      "name": "Marcus Brown",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 19.6,
+        "reb": 2.6,
+        "ast": 2.6,
+        "stl": 1.3,
+        "blk": 0.1,
+        "gp": "19",
+        "rating_raw": 14.8
+      },
+      "bsl": {
+        "pts": 14.1,
+        "reb": 3.1,
+        "ast": 3.1,
+        "gp": "29",
+        "rating_raw": 14.5
+      },
+      "rating": 14.65
+    },
+    {
+      "name": "Kaspars Kambala",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 17.1,
+        "reb": 7.9,
+        "ast": 0.5,
+        "stl": 1.1,
+        "blk": 0.3,
+        "gp": "20",
+        "rating_raw": 14.5
+      },
+      "bsl": {
+        "pts": 16.1,
+        "reb": 6.9,
+        "ast": 1.0,
+        "gp": "33",
+        "rating_raw": 17.9
+      },
+      "rating": 16.2
+    },
+    {
+      "name": "Antonio Granger",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 11.5,
+        "reb": 3.9,
+        "ast": 1.3,
+        "stl": 0.9,
+        "blk": 0.2,
+        "gp": "20",
+        "rating_raw": 8.8
+      },
+      "bsl": {
+        "pts": 13.0,
+        "reb": 3.6,
+        "ast": 1.3,
+        "gp": "35",
+        "rating_raw": 13.2
+      },
+      "rating": 11.0
+    },
+    {
+      "name": "Jurica Golemac",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 7.3,
+        "reb": 3.3,
+        "ast": 2.0,
+        "stl": 0.9,
+        "blk": 0.4,
+        "gp": "16",
+        "rating_raw": 5.8
+      },
+      "bsl": {
+        "pts": 7.4,
+        "reb": 3.8,
+        "ast": 2.1,
+        "gp": "14",
+        "rating_raw": 9.4
+      },
+      "rating": 7.6
+    },
+    {
+      "name": "Kerem Tunceri",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 6.4,
+        "reb": 2.4,
+        "ast": 3.3,
+        "stl": 1.9,
+        "blk": 0.2,
+        "gp": "18",
+        "rating_raw": 6.6
+      },
+      "bsl": {
+        "pts": 8.1,
+        "reb": 2.5,
+        "ast": 3.4,
+        "gp": "31",
+        "rating_raw": 11.1
+      },
+      "rating": 8.85
+    },
+    {
+      "name": "Kaya Peker",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 4.5,
+        "reb": 4.0,
+        "ast": 0.7,
+        "stl": 1.0,
+        "blk": 0.5,
+        "gp": "20",
+        "rating_raw": 3.5
+      },
+      "bsl": {
+        "pts": 8.7,
+        "reb": 6.2,
+        "ast": 0.9,
+        "gp": "33",
+        "rating_raw": 12.2
+      },
+      "rating": 7.85
+    },
+    {
+      "name": "Alper Yilmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 3.7,
+        "reb": 2.4,
+        "ast": 1.7,
+        "stl": 1.7,
+        "blk": 0.3,
+        "gp": "19",
+        "rating_raw": 4.1
+      },
+      "bsl": {
+        "pts": 4.4,
+        "reb": 3.0,
+        "ast": 2.0,
+        "gp": "33",
+        "rating_raw": 7.0
+      },
+      "rating": 5.55
+    },
+    {
+      "name": "Asım Pars",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.3,
+        "reb": 3.9,
+        "ast": 1.0,
+        "gp": "26",
+        "rating_raw": 7.9
+      },
+      "rating": 7.9
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.7,
+        "reb": 1.4,
+        "ast": 2.2,
+        "gp": "35",
+        "rating_raw": 6.3
+      },
+      "rating": 6.3
+    },
+    {
+      "name": "Enver Ekmen",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.5,
+        "reb": 2.3,
+        "ast": 0.1,
+        "gp": "17",
+        "rating_raw": 2.7
+      },
+      "rating": 2.7
+    },
+    {
+      "name": "Ira Clark",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.6,
+        "reb": 5.7,
+        "ast": 0.5,
+        "gp": "10",
+        "rating_raw": 11.0
+      },
+      "rating": 11.0
+    },
+    {
+      "name": "Ömer Onan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.7,
+        "reb": 1.7,
+        "ast": 1.5,
+        "gp": "31",
+        "rating_raw": 8.2
+      },
+      "rating": 8.2
+    },
+    {
+      "name": "Valentin Pastal",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.3,
+        "reb": 0.8,
+        "ast": 0.6,
+        "gp": "10",
+        "rating_raw": 2.5
+      },
+      "rating": 2.5
+    }
+  ],
+  "2003-04": [
+    {
+      "name": "Antonio Granger",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 15.7,
+        "reb": 4.1,
+        "ast": 1.6,
+        "stl": 1.2,
+        "blk": 0.4,
+        "gp": "20",
+        "rating_raw": 12.5
+      },
+      "bsl": {
+        "pts": 16.5,
+        "reb": 4.5,
+        "ast": 1.0,
+        "gp": "35",
+        "rating_raw": 17.1
+      },
+      "rating": 14.8
+    },
+    {
+      "name": "Trajan Langdon",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 14.3,
+        "reb": 3.0,
+        "ast": 1.6,
+        "stl": 1.5,
+        "blk": 0.2,
+        "gp": "20",
+        "rating_raw": 9.8
+      },
+      "bsl": {
+        "pts": 11.5,
+        "reb": 2.7,
+        "ast": 1.6,
+        "gp": "35",
+        "rating_raw": 10.6
+      },
+      "rating": 10.2
+    },
+    {
+      "name": "Kaya Peker",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 9.4,
+        "reb": 5.9,
+        "ast": 0.3,
+        "stl": 0.9,
+        "blk": 0.4,
+        "gp": "18",
+        "rating_raw": 8.0
+      },
+      "bsl": {
+        "pts": 12.3,
+        "reb": 5.5,
+        "ast": 1.1,
+        "gp": "31",
+        "rating_raw": 13.7
+      },
+      "rating": 10.85
+    },
+    {
+      "name": "Ermal Kuqo",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 8.9,
+        "reb": 4.3,
+        "ast": 0.6,
+        "stl": 0.7,
+        "blk": 0.1,
+        "gp": "20",
+        "rating_raw": 5.5
+      },
+      "bsl": {
+        "pts": 8.6,
+        "reb": 4.6,
+        "ast": 0.8,
+        "gp": "35",
+        "rating_raw": 10.1
+      },
+      "rating": 7.8
+    },
+    {
+      "name": "Goran Nikolic",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 8.1,
+        "reb": 6.2,
+        "ast": 1.1,
+        "stl": 0.7,
+        "blk": 0.6,
+        "gp": "19",
+        "rating_raw": 10.8
+      },
+      "bsl": {
+        "pts": 7.7,
+        "reb": 5.3,
+        "ast": 1.1,
+        "gp": "32",
+        "rating_raw": 11.9
+      },
+      "rating": 11.35
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 7.9,
+        "reb": 1.3,
+        "ast": 3.8,
+        "stl": 1.5,
+        "blk": 0.0,
+        "gp": "20",
+        "rating_raw": 5.0
+      },
+      "bsl": {
+        "pts": 5.5,
+        "reb": 1.8,
+        "ast": 3.4,
+        "gp": "35",
+        "rating_raw": 5.4
+      },
+      "rating": 5.2
+    },
+    {
+      "name": "Nikola Prkacin",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 7.8,
+        "reb": 4.2,
+        "ast": 1.5,
+        "stl": 1.0,
+        "blk": 0.4,
+        "gp": "16",
+        "rating_raw": 5.9
+      },
+      "bsl": {
+        "pts": 9.5,
+        "reb": 4.8,
+        "ast": 1.4,
+        "gp": "31",
+        "rating_raw": 12.4
+      },
+      "rating": 9.15
+    },
+    {
+      "name": "Alper Yilmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 1.7,
+        "reb": 1.8,
+        "ast": 1.5,
+        "stl": 1.1,
+        "blk": 0.1,
+        "gp": "20",
+        "rating_raw": 1.8
+      },
+      "bsl": {
+        "pts": 3.3,
+        "reb": 2.1,
+        "ast": 1.6,
+        "gp": "35",
+        "rating_raw": 5.3
+      },
+      "rating": 3.55
+    },
+    {
+      "name": "Cenk Akyol",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.0,
+        "reb": 1.3,
+        "ast": 2.0,
+        "gp": "3",
+        "rating_raw": 5.7
+      },
+      "rating": 5.7
+    },
+    {
+      "name": "Kerem Tunçeri",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.4,
+        "reb": 1.8,
+        "ast": 3.8,
+        "gp": "27",
+        "rating_raw": 9.3
+      },
+      "rating": 9.3
+    },
+    {
+      "name": "Ömer Onan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.7,
+        "reb": 1.7,
+        "ast": 0.9,
+        "gp": "26",
+        "rating_raw": 5.1
+      },
+      "rating": 5.1
+    },
+    {
+      "name": "Selim Saygın",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.9,
+        "reb": 1.1,
+        "ast": 0.0,
+        "gp": "15",
+        "rating_raw": 1.3
+      },
+      "rating": 1.3
+    },
+    {
+      "name": "Valentin Pastal",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.5,
+        "reb": 0.7,
+        "ast": 0.2,
+        "gp": "13",
+        "rating_raw": 1.3
+      },
+      "rating": 1.3
+    }
+  ],
+  "2004-05": [
+    {
+      "name": "Will Solomon",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 14.5,
+        "reb": 2.4,
+        "ast": 2.6,
+        "stl": 2.0,
+        "blk": 0.3,
+        "gp": "23",
+        "rating_raw": 9.3
+      },
+      "bsl": {
+        "pts": 13.7,
+        "reb": 2.8,
+        "ast": 3.5,
+        "gp": "33",
+        "rating_raw": 13.2
+      },
+      "rating": 11.25
+    },
+    {
+      "name": "Henry Domercant",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 14.1,
+        "reb": 4.1,
+        "ast": 1.4,
+        "stl": 1.6,
+        "blk": 0.1,
+        "gp": "23",
+        "rating_raw": 10.8
+      },
+      "bsl": {
+        "pts": 13.7,
+        "reb": 3.9,
+        "ast": 1.3,
+        "gp": "35",
+        "rating_raw": 13.1
+      },
+      "rating": 11.95
+    },
+    {
+      "name": "Nikola Prkacin",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 9.9,
+        "reb": 4.6,
+        "ast": 1.8,
+        "stl": 1.1,
+        "blk": 0.2,
+        "gp": "22",
+        "rating_raw": 8.4
+      },
+      "bsl": {
+        "pts": 8.3,
+        "reb": 3.5,
+        "ast": 1.9,
+        "gp": "33",
+        "rating_raw": 9.5
+      },
+      "rating": 8.95
+    },
+    {
+      "name": "Goran Nikolic",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 9.4,
+        "reb": 5.1,
+        "ast": 0.8,
+        "stl": 0.7,
+        "blk": 0.7,
+        "gp": "23",
+        "rating_raw": 10.7
+      },
+      "bsl": {
+        "pts": 9.7,
+        "reb": 5.9,
+        "ast": 1.2,
+        "gp": "35",
+        "rating_raw": 13.5
+      },
+      "rating": 12.1
+    },
+    {
+      "name": "Ermal Kuqo",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 8.9,
+        "reb": 3.4,
+        "ast": 0.8,
+        "stl": 0.5,
+        "blk": 0.1,
+        "gp": "23",
+        "rating_raw": 5.1
+      },
+      "bsl": {
+        "pts": 10.7,
+        "reb": 4.7,
+        "ast": 1.1,
+        "gp": "35",
+        "rating_raw": 11.0
+      },
+      "rating": 8.05
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 6.9,
+        "reb": 1.7,
+        "ast": 2.0,
+        "stl": 1.3,
+        "blk": 0.0,
+        "gp": "23",
+        "rating_raw": 4.8
+      },
+      "bsl": {
+        "pts": 6.7,
+        "reb": 1.7,
+        "ast": 2.4,
+        "gp": "34",
+        "rating_raw": 6.5
+      },
+      "rating": 5.65
+    },
+    {
+      "name": "Kaya Peker",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 6.6,
+        "reb": 3.7,
+        "ast": 0.6,
+        "stl": 0.9,
+        "blk": 0.3,
+        "gp": "23",
+        "rating_raw": 4.8
+      },
+      "bsl": {
+        "pts": 12.0,
+        "reb": 6.8,
+        "ast": 0.8,
+        "gp": "32",
+        "rating_raw": 15.0
+      },
+      "rating": 9.9
+    },
+    {
+      "name": "Alper Yilmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 1.8,
+        "reb": 1.6,
+        "ast": 1.1,
+        "stl": 0.9,
+        "blk": 0.1,
+        "gp": "17",
+        "rating_raw": 1.6
+      },
+      "bsl": {
+        "pts": 3.6,
+        "reb": 2.8,
+        "ast": 1.8,
+        "gp": "20",
+        "rating_raw": 6.6
+      },
+      "rating": 4.1
+    },
+    {
+      "name": "Barış Ermiş",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.5,
+        "reb": 0.8,
+        "ast": 1.0,
+        "gp": "8",
+        "rating_raw": 2.9
+      },
+      "rating": 2.9
+    },
+    {
+      "name": "Cenk Akyol",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.0,
+        "reb": 1.7,
+        "ast": 1.1,
+        "gp": "19",
+        "rating_raw": 5.9
+      },
+      "rating": 5.9
+    },
+    {
+      "name": "Mustafa Abi",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.9,
+        "reb": 2.5,
+        "ast": 1.5,
+        "gp": "31",
+        "rating_raw": 6.7
+      },
+      "rating": 6.7
+    },
+    {
+      "name": "Valentin Pastal",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.3,
+        "reb": 1.4,
+        "ast": 0.8,
+        "gp": "12",
+        "rating_raw": 2.0
+      },
+      "rating": 2.0
+    }
+  ],
+  "2005-06": [
+    {
+      "name": "Antonio Granger",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 13.6,
+        "reb": 3.8,
+        "ast": 0.5,
+        "stl": 0.7,
+        "blk": 0.2,
+        "gp": "22",
+        "rating_raw": 9.1
+      },
+      "bsl": {
+        "pts": 11.1,
+        "reb": 3.3,
+        "ast": 1.5,
+        "gp": "27",
+        "rating_raw": 10.7
+      },
+      "rating": 9.9
+    },
+    {
+      "name": "Henry Domercant",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 12.4,
+        "reb": 3.2,
+        "ast": 1.6,
+        "stl": 1.7,
+        "blk": 0.1,
+        "gp": "22",
+        "rating_raw": 8.5
+      },
+      "bsl": {
+        "pts": 9.2,
+        "reb": 2.6,
+        "ast": 1.2,
+        "gp": "29",
+        "rating_raw": 8.2
+      },
+      "rating": 8.35
+    },
+    {
+      "name": "Nikola Prkacin",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 12.1,
+        "reb": 5.2,
+        "ast": 1.9,
+        "stl": 1.6,
+        "blk": 0.1,
+        "gp": "22",
+        "rating_raw": 10.7
+      },
+      "bsl": {
+        "pts": 9.2,
+        "reb": 4.9,
+        "ast": 2.4,
+        "gp": "37",
+        "rating_raw": 11.9
+      },
+      "rating": 11.3
+    },
+    {
+      "name": "Kaya Peker",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 10.1,
+        "reb": 5.0,
+        "ast": 0.7,
+        "stl": 1.3,
+        "blk": 0.7,
+        "gp": "22",
+        "rating_raw": 7.2
+      },
+      "bsl": {
+        "pts": 11.3,
+        "reb": 6.1,
+        "ast": 0.9,
+        "gp": "37",
+        "rating_raw": 13.1
+      },
+      "rating": 10.15
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 5.7,
+        "reb": 1.3,
+        "ast": 2.0,
+        "stl": 0.8,
+        "blk": 0.0,
+        "gp": "22",
+        "rating_raw": 2.0
+      },
+      "bsl": {
+        "pts": 7.2,
+        "reb": 1.6,
+        "ast": 3.0,
+        "gp": "37",
+        "rating_raw": 7.0
+      },
+      "rating": 4.5
+    },
+    {
+      "name": "Kerem Gonlum",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 4.5,
+        "reb": 6.4,
+        "ast": 0.2,
+        "stl": 1.0,
+        "blk": 0.2,
+        "gp": "22",
+        "rating_raw": 7.0
+      },
+      "bsl": {
+        "pts": 6.9,
+        "reb": 5.9,
+        "ast": 0.8,
+        "gp": "37",
+        "rating_raw": 10.9
+      },
+      "rating": 8.95
+    },
+    {
+      "name": "Alper Yılmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.4,
+        "reb": 1.5,
+        "ast": 1.1,
+        "gp": "28",
+        "rating_raw": 4.8
+      },
+      "rating": 4.8
+    },
+    {
+      "name": "Barış Ermiş",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.7,
+        "reb": 1.0,
+        "ast": 2.3,
+        "gp": "24",
+        "rating_raw": 5.2
+      },
+      "rating": 5.2
+    },
+    {
+      "name": "Cenk Akyol",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.1,
+        "reb": 2.2,
+        "ast": 0.7,
+        "gp": "29",
+        "rating_raw": 5.2
+      },
+      "rating": 5.2
+    },
+    {
+      "name": "Charles Smith",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.2,
+        "reb": 3.1,
+        "ast": 1.8,
+        "gp": "16",
+        "rating_raw": 11.1
+      },
+      "rating": 11.1
+    },
+    {
+      "name": "Ermal Kuqo",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 10.3,
+        "reb": 3.8,
+        "ast": 1.2,
+        "gp": "16",
+        "rating_raw": 8.9
+      },
+      "rating": 8.9
+    },
+    {
+      "name": "Marko Popovic",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.5,
+        "reb": 1.5,
+        "ast": 2.9,
+        "gp": "31",
+        "rating_raw": 7.4
+      },
+      "rating": 7.4
+    },
+    {
+      "name": "Mustafa Abi",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.7,
+        "reb": 1.1,
+        "ast": 1.3,
+        "gp": "28",
+        "rating_raw": 4.5
+      },
+      "rating": 4.5
+    },
+    {
+      "name": "Mutlu Demir",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.5,
+        "reb": 1.9,
+        "ast": 0.1,
+        "gp": "13",
+        "rating_raw": 2.9
+      },
+      "rating": 2.9
+    }
+  ],
+  "2006-07": [
+    {
+      "name": "Marcus Haislip",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 14.1,
+        "reb": 6.7,
+        "ast": 0.4,
+        "stl": 0.7,
+        "blk": 1.8,
+        "gp": "20",
+        "rating_raw": 14.0
+      },
+      "bsl": {
+        "pts": 11.4,
+        "reb": 6.3,
+        "ast": 0.5,
+        "gp": "28",
+        "rating_raw": 13.5
+      },
+      "rating": 13.75
+    },
+    {
+      "name": "Drew Nicholas",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 14.0,
+        "reb": 2.6,
+        "ast": 3.8,
+        "stl": 0.8,
+        "blk": 0.2,
+        "gp": "20",
+        "rating_raw": 10.7
+      },
+      "bsl": null,
+      "rating": 10.7
+    },
+    {
+      "name": "Ermal Kuqo",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 9.1,
+        "reb": 3.5,
+        "ast": 1.1,
+        "stl": 0.8,
+        "blk": 0.1,
+        "gp": "20",
+        "rating_raw": 6.5
+      },
+      "bsl": {
+        "pts": 10.4,
+        "reb": 4.8,
+        "ast": 1.7,
+        "gp": "39",
+        "rating_raw": 11.1
+      },
+      "rating": 8.8
+    },
+    {
+      "name": "Nikola Prkacin",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 6.6,
+        "reb": 3.9,
+        "ast": 1.3,
+        "stl": 1.0,
+        "blk": 0.1,
+        "gp": "20",
+        "rating_raw": 5.0
+      },
+      "bsl": {
+        "pts": 5.8,
+        "reb": 3.1,
+        "ast": 1.3,
+        "gp": "36",
+        "rating_raw": 7.2
+      },
+      "rating": 6.1
+    },
+    {
+      "name": "Kerem Gonlum",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 5.4,
+        "reb": 4.3,
+        "ast": 0.4,
+        "stl": 0.7,
+        "blk": 0.3,
+        "gp": "20",
+        "rating_raw": 7.5
+      },
+      "bsl": {
+        "pts": 9.9,
+        "reb": 7.3,
+        "ast": 1.3,
+        "gp": "39",
+        "rating_raw": 14.9
+      },
+      "rating": 11.2
+    },
+    {
+      "name": "Cuneyt Erden",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 4.8,
+        "reb": 1.5,
+        "ast": 1.2,
+        "stl": 0.8,
+        "blk": 0.0,
+        "gp": "18",
+        "rating_raw": 2.5
+      },
+      "bsl": {
+        "pts": 5.3,
+        "reb": 2.0,
+        "ast": 2.7,
+        "gp": "37",
+        "rating_raw": 6.7
+      },
+      "rating": 4.6
+    },
+    {
+      "name": "Mustafa Abi",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 1.6,
+        "reb": 1.6,
+        "ast": 0.5,
+        "stl": 0.5,
+        "blk": 0.1,
+        "gp": "18",
+        "rating_raw": -0.6
+      },
+      "bsl": {
+        "pts": 3.6,
+        "reb": 1.5,
+        "ast": 1.0,
+        "gp": "32",
+        "rating_raw": 3.4
+      },
+      "rating": 1.4
+    },
+    {
+      "name": "Aleksandar Rasic",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.8,
+        "reb": 2.0,
+        "ast": 4.6,
+        "gp": "5",
+        "rating_raw": 5.6
+      },
+      "rating": 5.6
+    },
+    {
+      "name": "Andrew Nicholas",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 17.3,
+        "reb": 3.5,
+        "ast": 4.4,
+        "gp": "40",
+        "rating_raw": 16.7
+      },
+      "rating": 16.7
+    },
+    {
+      "name": "Antonio Granger",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 11.1,
+        "reb": 2.8,
+        "ast": 0.8,
+        "gp": "18",
+        "rating_raw": 9.9
+      },
+      "rating": 9.9
+    },
+    {
+      "name": "Barış Hersek",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.4,
+        "reb": 1.9,
+        "ast": 0.3,
+        "gp": "26",
+        "rating_raw": 3.1
+      },
+      "rating": 3.1
+    },
+    {
+      "name": "Bora Paçun",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.2,
+        "reb": 1.5,
+        "ast": 0.0,
+        "gp": "15",
+        "rating_raw": 1.8
+      },
+      "rating": 1.8
+    },
+    {
+      "name": "Can Akın",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.3,
+        "reb": 1.3,
+        "ast": 1.7,
+        "gp": "21",
+        "rating_raw": 4.7
+      },
+      "rating": 4.7
+    },
+    {
+      "name": "Cenk Akyol",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.3,
+        "reb": 2.7,
+        "ast": 1.1,
+        "gp": "34",
+        "rating_raw": 7.4
+      },
+      "rating": 7.4
+    },
+    {
+      "name": "Emre Bayav",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.0,
+        "reb": 1.8,
+        "ast": 0.8,
+        "gp": "10",
+        "rating_raw": 2.9
+      },
+      "rating": 2.9
+    },
+    {
+      "name": "Horace Jenkins",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.2,
+        "reb": 2.5,
+        "ast": 2.3,
+        "gp": "18",
+        "rating_raw": 5.6
+      },
+      "rating": 5.6
+    }
+  ],
+  "2007-08": [
+    {
+      "name": "Andre Hutson",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 11.9,
+        "reb": 5.8,
+        "ast": 1.5,
+        "stl": 0.6,
+        "blk": 0.5,
+        "gp": "19",
+        "rating_raw": 10.5
+      },
+      "bsl": {
+        "pts": 11.8,
+        "reb": 5.5,
+        "ast": 1.7,
+        "gp": "30",
+        "rating_raw": 13.5
+      },
+      "rating": 12.0
+    },
+    {
+      "name": "Kenny Gregory",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 11.1,
+        "reb": 3.8,
+        "ast": 1.2,
+        "stl": 0.6,
+        "blk": 0.2,
+        "gp": "20",
+        "rating_raw": 9.5
+      },
+      "bsl": {
+        "pts": 9.3,
+        "reb": 3.8,
+        "ast": 1.1,
+        "gp": "34",
+        "rating_raw": 9.5
+      },
+      "rating": 9.5
+    },
+    {
+      "name": "Scoonie Penn",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 10.9,
+        "reb": 2.8,
+        "ast": 2.9,
+        "stl": 1.5,
+        "blk": 0.0,
+        "gp": "20",
+        "rating_raw": 8.2
+      },
+      "bsl": {
+        "pts": 6.5,
+        "reb": 3.3,
+        "ast": 4.1,
+        "gp": "32",
+        "rating_raw": 9.5
+      },
+      "rating": 8.85
+    },
+    {
+      "name": "Ermal Kuqo",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 8.8,
+        "reb": 3.3,
+        "ast": 1.2,
+        "stl": 0.6,
+        "blk": 0.1,
+        "gp": "20",
+        "rating_raw": 4.8
+      },
+      "bsl": {
+        "pts": 11.6,
+        "reb": 4.4,
+        "ast": 1.8,
+        "gp": "35",
+        "rating_raw": 11.2
+      },
+      "rating": 8.0
+    },
+    {
+      "name": "Loren Woods",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 8.0,
+        "reb": 6.5,
+        "ast": 0.9,
+        "stl": 0.8,
+        "blk": 1.4,
+        "gp": "16",
+        "rating_raw": 11.5
+      },
+      "bsl": {
+        "pts": 6.8,
+        "reb": 6.2,
+        "ast": 1.1,
+        "gp": "21",
+        "rating_raw": 12.1
+      },
+      "rating": 11.8
+    },
+    {
+      "name": "Kerem Gonlum",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 6.4,
+        "reb": 5.0,
+        "ast": 1.0,
+        "stl": 0.6,
+        "blk": 0.2,
+        "gp": "20",
+        "rating_raw": 6.7
+      },
+      "bsl": {
+        "pts": 10.5,
+        "reb": 7.6,
+        "ast": 1.3,
+        "gp": "36",
+        "rating_raw": 15.0
+      },
+      "rating": 10.85
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 4.9,
+        "reb": 1.4,
+        "ast": 1.4,
+        "stl": 0.6,
+        "blk": 0.0,
+        "gp": "20",
+        "rating_raw": 2.4
+      },
+      "bsl": {
+        "pts": 8.6,
+        "reb": 1.9,
+        "ast": 3.4,
+        "gp": "36",
+        "rating_raw": 7.9
+      },
+      "rating": 5.15
+    },
+    {
+      "name": "Andrew Nicholas",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.7,
+        "reb": 3.0,
+        "ast": 3.8,
+        "gp": "16",
+        "rating_raw": 12.8
+      },
+      "rating": 12.8
+    },
+    {
+      "name": "Barış Hersek",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.8,
+        "reb": 0.4,
+        "ast": 0.1,
+        "gp": "8",
+        "rating_raw": 1.3
+      },
+      "rating": 1.3
+    },
+    {
+      "name": "Bora Paçun",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.3,
+        "reb": 1.3,
+        "ast": 0.2,
+        "gp": "10",
+        "rating_raw": 1.0
+      },
+      "rating": 1.0
+    },
+    {
+      "name": "Craig Bradshaw",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.1,
+        "reb": 4.0,
+        "ast": 0.6,
+        "gp": "11",
+        "rating_raw": 5.9
+      },
+      "rating": 5.9
+    },
+    {
+      "name": "Dewarick Spencer",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.8,
+        "reb": 2.0,
+        "ast": 0.8,
+        "gp": "12",
+        "rating_raw": 7.2
+      },
+      "rating": 7.2
+    },
+    {
+      "name": "Mustafa Abi",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.9,
+        "reb": 1.9,
+        "ast": 0.7,
+        "gp": "34",
+        "rating_raw": 5.8
+      },
+      "rating": 5.8
+    },
+    {
+      "name": "Rashad Wright",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.3,
+        "reb": 2.2,
+        "ast": 1.7,
+        "gp": "9",
+        "rating_raw": 8.0
+      },
+      "rating": 8.0
+    },
+    {
+      "name": "Serkan Erdoğan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.7,
+        "reb": 2.2,
+        "ast": 2.1,
+        "gp": "20",
+        "rating_raw": 7.9
+      },
+      "rating": 7.9
+    }
+  ],
+  "2008-09": [
+    {
+      "name": "Bootsy Thornton",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 12.8,
+        "reb": 4.0,
+        "ast": 3.1,
+        "stl": 1.1,
+        "blk": 0.0,
+        "gp": "10",
+        "rating_raw": 11.5
+      },
+      "bsl": {
+        "pts": 9.8,
+        "reb": 3.6,
+        "ast": 3.0,
+        "gp": "40",
+        "rating_raw": 12.2
+      },
+      "rating": 11.85
+    },
+    {
+      "name": "Charles Cornelius Smith",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 12.0,
+        "reb": 3.2,
+        "ast": 1.6,
+        "stl": 2.2,
+        "blk": 0.8,
+        "gp": "10",
+        "rating_raw": 9.8
+      },
+      "bsl": null,
+      "rating": 9.8
+    },
+    {
+      "name": "Milos Vujanic",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 10.9,
+        "reb": 1.8,
+        "ast": 1.7,
+        "stl": 1.0,
+        "blk": 0.1,
+        "gp": "10",
+        "rating_raw": 6.7
+      },
+      "bsl": {
+        "pts": 8.3,
+        "reb": 2.0,
+        "ast": 2.5,
+        "gp": "24",
+        "rating_raw": 8.8
+      },
+      "rating": 7.75
+    },
+    {
+      "name": "Kerem Gonlum",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 9.5,
+        "reb": 6.5,
+        "ast": 0.7,
+        "stl": 1.1,
+        "blk": 0.8,
+        "gp": "10",
+        "rating_raw": 10.9
+      },
+      "bsl": {
+        "pts": 8.6,
+        "reb": 6.7,
+        "ast": 1.1,
+        "gp": "38",
+        "rating_raw": 12.6
+      },
+      "rating": 11.75
+    },
+    {
+      "name": "Mihalis Kakiouzis",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 6.4,
+        "reb": 3.0,
+        "ast": 0.7,
+        "stl": 0.7,
+        "blk": 0.0,
+        "gp": "10",
+        "rating_raw": 6.4
+      },
+      "bsl": null,
+      "rating": 6.4
+    },
+    {
+      "name": "Kaya Peker",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 5.5,
+        "reb": 3.1,
+        "ast": 0.6,
+        "stl": 1.1,
+        "blk": 0.7,
+        "gp": "10",
+        "rating_raw": 3.5
+      },
+      "bsl": {
+        "pts": 10.8,
+        "reb": 5.1,
+        "ast": 1.2,
+        "gp": "40",
+        "rating_raw": 11.7
+      },
+      "rating": 7.6
+    },
+    {
+      "name": "Preston Shumpert",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 5.3,
+        "reb": 1.5,
+        "ast": 0.6,
+        "stl": 0.3,
+        "blk": 0.0,
+        "gp": "8",
+        "rating_raw": 2.3
+      },
+      "bsl": {
+        "pts": 10.5,
+        "reb": 2.2,
+        "ast": 1.4,
+        "gp": "37",
+        "rating_raw": 10.4
+      },
+      "rating": 6.35
+    },
+    {
+      "name": "Bora Paçun",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.0,
+        "reb": 1.0,
+        "ast": 0.0,
+        "gp": "2",
+        "rating_raw": 2.0
+      },
+      "rating": 2.0
+    },
+    {
+      "name": "Cenk Akyol",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.4,
+        "reb": 1.7,
+        "ast": 1.1,
+        "gp": "35",
+        "rating_raw": 5.9
+      },
+      "rating": 5.9
+    },
+    {
+      "name": "Charles Smith",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 13.2,
+        "reb": 3.3,
+        "ast": 1.6,
+        "gp": "37",
+        "rating_raw": 12.7
+      },
+      "rating": 12.7
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.3,
+        "reb": 1.4,
+        "ast": 3.1,
+        "gp": "39",
+        "rating_raw": 8.1
+      },
+      "rating": 8.1
+    },
+    {
+      "name": "Engin Atsür",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.5,
+        "reb": 0.5,
+        "ast": 1.5,
+        "gp": "6",
+        "rating_raw": 3.0
+      },
+      "rating": 3.0
+    },
+    {
+      "name": "Kerem Tunçeri",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.5,
+        "reb": 1.2,
+        "ast": 4.1,
+        "gp": "23",
+        "rating_raw": 6.8
+      },
+      "rating": 6.8
+    },
+    {
+      "name": "Mario Kasun",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.0,
+        "reb": 5.6,
+        "ast": 0.7,
+        "gp": "24",
+        "rating_raw": 11.8
+      },
+      "rating": 11.8
+    },
+    {
+      "name": "Michalis Kakiouzis",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.5,
+        "reb": 3.2,
+        "ast": 1.0,
+        "gp": "35",
+        "rating_raw": 9.0
+      },
+      "rating": 9.0
+    },
+    {
+      "name": "Mustafa Abi",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.0,
+        "reb": 0.0,
+        "ast": 0.0,
+        "gp": "1",
+        "rating_raw": -2.0
+      },
+      "rating": -2.0
+    },
+    {
+      "name": "Sinan Güler",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.5,
+        "reb": 1.6,
+        "ast": 1.3,
+        "gp": "40",
+        "rating_raw": 5.3
+      },
+      "rating": 5.3
+    }
+  ],
+  "2009-10": [
+    {
+      "name": "Charles Cornelius Smith",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 12.6,
+        "reb": 2.6,
+        "ast": 2.0,
+        "stl": 1.9,
+        "blk": 0.4,
+        "gp": "16",
+        "rating_raw": 9.7
+      },
+      "bsl": null,
+      "rating": 9.7
+    },
+    {
+      "name": "Igor Rakocevic",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 10.0,
+        "reb": 1.7,
+        "ast": 2.3,
+        "stl": 0.4,
+        "blk": 0.0,
+        "gp": "16",
+        "rating_raw": 5.6
+      },
+      "bsl": {
+        "pts": 14.3,
+        "reb": 1.9,
+        "ast": 2.8,
+        "gp": "32",
+        "rating_raw": 12.5
+      },
+      "rating": 9.05
+    },
+    {
+      "name": "Bootsy Thornton",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 8.9,
+        "reb": 3.8,
+        "ast": 2.8,
+        "stl": 1.1,
+        "blk": 0.1,
+        "gp": "16",
+        "rating_raw": 7.2
+      },
+      "bsl": {
+        "pts": 9.9,
+        "reb": 4.4,
+        "ast": 2.9,
+        "gp": "34",
+        "rating_raw": 13.3
+      },
+      "rating": 10.25
+    },
+    {
+      "name": "Kaya Peker",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 8.3,
+        "reb": 5.3,
+        "ast": 1.5,
+        "stl": 1.3,
+        "blk": 0.3,
+        "gp": "16",
+        "rating_raw": 8.2
+      },
+      "bsl": {
+        "pts": 9.6,
+        "reb": 5.1,
+        "ast": 1.4,
+        "gp": "37",
+        "rating_raw": 10.2
+      },
+      "rating": 9.2
+    },
+    {
+      "name": "Preston Shumpert",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 8.1,
+        "reb": 2.3,
+        "ast": 0.7,
+        "stl": 0.7,
+        "blk": 0.1,
+        "gp": "14",
+        "rating_raw": 7.1
+      },
+      "bsl": {
+        "pts": 11.8,
+        "reb": 4.1,
+        "ast": 1.8,
+        "gp": "37",
+        "rating_raw": 14.1
+      },
+      "rating": 10.6
+    },
+    {
+      "name": "Mario Kasun",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 8.0,
+        "reb": 5.8,
+        "ast": 0.5,
+        "stl": 0.4,
+        "blk": 0.5,
+        "gp": "16",
+        "rating_raw": 8.8
+      },
+      "bsl": {
+        "pts": 8.2,
+        "reb": 4.5,
+        "ast": 0.4,
+        "gp": "32",
+        "rating_raw": 10.3
+      },
+      "rating": 9.55
+    },
+    {
+      "name": "Bostjan Nachbar",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 6.7,
+        "reb": 1.9,
+        "ast": 0.7,
+        "stl": 0.3,
+        "blk": 0.5,
+        "gp": "15",
+        "rating_raw": 5.0
+      },
+      "bsl": {
+        "pts": 9.1,
+        "reb": 3.3,
+        "ast": 1.0,
+        "gp": "28",
+        "rating_raw": 10.4
+      },
+      "rating": 7.7
+    },
+    {
+      "name": "Kerem Tunceri",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 4.2,
+        "reb": 0.8,
+        "ast": 2.8,
+        "stl": 0.7,
+        "blk": 0.1,
+        "gp": "15",
+        "rating_raw": 2.8
+      },
+      "bsl": {
+        "pts": 6.7,
+        "reb": 1.5,
+        "ast": 2.8,
+        "gp": "33",
+        "rating_raw": 7.8
+      },
+      "rating": 5.3
+    },
+    {
+      "name": "Ali Işık",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.2,
+        "reb": 0.6,
+        "ast": 0.0,
+        "gp": "5",
+        "rating_raw": 0.8
+      },
+      "rating": 0.8
+    },
+    {
+      "name": "Charles Smith",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.9,
+        "reb": 3.1,
+        "ast": 1.9,
+        "gp": "36",
+        "rating_raw": 14.1
+      },
+      "rating": 14.1
+    },
+    {
+      "name": "Dusan Cantekin",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.0,
+        "reb": 2.0,
+        "ast": 0.2,
+        "gp": "19",
+        "rating_raw": 2.8
+      },
+      "rating": 2.8
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.3,
+        "reb": 1.6,
+        "ast": 3.5,
+        "gp": "39",
+        "rating_raw": 7.9
+      },
+      "rating": 7.9
+    },
+    {
+      "name": "Ermal Kuqo",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.9,
+        "reb": 3.2,
+        "ast": 0.7,
+        "gp": "34",
+        "rating_raw": 6.6
+      },
+      "rating": 6.6
+    },
+    {
+      "name": "Sinan Güler",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.8,
+        "reb": 2.6,
+        "ast": 1.3,
+        "gp": "39",
+        "rating_raw": 6.9
+      },
+      "rating": 6.9
+    }
+  ],
+  "2010-11": [
+    {
+      "name": "Igor Rakocevic",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 17.2,
+        "reb": 2.3,
+        "ast": 1.7,
+        "stl": 0.7,
+        "blk": 0.0,
+        "gp": "14",
+        "rating_raw": 11.0
+      },
+      "bsl": {
+        "pts": 12.7,
+        "reb": 2.3,
+        "ast": 1.9,
+        "gp": "32",
+        "rating_raw": 11.0
+      },
+      "rating": 11.0
+    },
+    {
+      "name": "Kerem Gonlum",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 9.4,
+        "reb": 5.7,
+        "ast": 1.0,
+        "stl": 0.5,
+        "blk": 0.2,
+        "gp": "15",
+        "rating_raw": 10.5
+      },
+      "bsl": {
+        "pts": 12.3,
+        "reb": 7.0,
+        "ast": 1.5,
+        "gp": "31",
+        "rating_raw": 16.8
+      },
+      "rating": 13.65
+    },
+    {
+      "name": "Kerem Tunceri",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 9.1,
+        "reb": 1.8,
+        "ast": 3.5,
+        "stl": 1.0,
+        "blk": 0.1,
+        "gp": "16",
+        "rating_raw": 8.0
+      },
+      "bsl": {
+        "pts": 7.9,
+        "reb": 1.6,
+        "ast": 4.3,
+        "gp": "31",
+        "rating_raw": 8.4
+      },
+      "rating": 8.2
+    },
+    {
+      "name": "Bootsy Thornton",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 8.6,
+        "reb": 5.6,
+        "ast": 1.1,
+        "stl": 1.0,
+        "blk": 0.1,
+        "gp": "16",
+        "rating_raw": 9.0
+      },
+      "bsl": {
+        "pts": 8.0,
+        "reb": 4.4,
+        "ast": 2.2,
+        "gp": "34",
+        "rating_raw": 11.3
+      },
+      "rating": 10.15
+    },
+    {
+      "name": "Bostjan Nachbar",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 8.3,
+        "reb": 2.8,
+        "ast": 0.3,
+        "stl": 0.4,
+        "blk": 0.3,
+        "gp": "15",
+        "rating_raw": 3.7
+      },
+      "bsl": {
+        "pts": 10.3,
+        "reb": 3.6,
+        "ast": 1.1,
+        "gp": "19",
+        "rating_raw": 10.6
+      },
+      "rating": 7.15
+    },
+    {
+      "name": "Lawrence Roberts",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 6.5,
+        "reb": 5.1,
+        "ast": 0.8,
+        "stl": 0.9,
+        "blk": 0.6,
+        "gp": "16",
+        "rating_raw": 5.9
+      },
+      "bsl": {
+        "pts": 8.1,
+        "reb": 5.2,
+        "ast": 0.9,
+        "gp": "31",
+        "rating_raw": 10.6
+      },
+      "rating": 8.25
+    },
+    {
+      "name": "Nikola Vujcic",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 6.5,
+        "reb": 3.1,
+        "ast": 2.1,
+        "stl": 0.6,
+        "blk": 0.2,
+        "gp": "15",
+        "rating_raw": 4.9
+      },
+      "bsl": {
+        "pts": 7.8,
+        "reb": 3.4,
+        "ast": 2.0,
+        "gp": "31",
+        "rating_raw": 10.3
+      },
+      "rating": 7.6
+    },
+    {
+      "name": "Andrew Wisniewski",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 4.5,
+        "reb": 1.2,
+        "ast": 1.9,
+        "stl": 0.5,
+        "blk": 0.1,
+        "gp": "15",
+        "rating_raw": 2.0
+      },
+      "bsl": null,
+      "rating": 2.0
+    },
+    {
+      "name": "Sinan Guler",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 3.9,
+        "reb": 1.9,
+        "ast": 0.9,
+        "stl": 1.0,
+        "blk": 0.2,
+        "gp": "15",
+        "rating_raw": 2.5
+      },
+      "bsl": {
+        "pts": 6.4,
+        "reb": 2.3,
+        "ast": 2.1,
+        "gp": "35",
+        "rating_raw": 8.0
+      },
+      "rating": 5.25
+    },
+    {
+      "name": "Ali Işık",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.2,
+        "reb": 0.8,
+        "ast": 0.2,
+        "gp": "5",
+        "rating_raw": 2.4
+      },
+      "rating": 2.4
+    },
+    {
+      "name": "Burak Yacan Yüksel",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.5,
+        "reb": 0.5,
+        "ast": 0.0,
+        "gp": "2",
+        "rating_raw": 3.0
+      },
+      "rating": 3.0
+    },
+    {
+      "name": "Cenk Akyol",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.2,
+        "reb": 2.2,
+        "ast": 0.7,
+        "gp": "26",
+        "rating_raw": 6.7
+      },
+      "rating": 6.7
+    },
+    {
+      "name": "Ender Arslan",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.0,
+        "reb": 0.8,
+        "ast": 2.3,
+        "gp": "32",
+        "rating_raw": 5.4
+      },
+      "rating": 5.4
+    },
+    {
+      "name": "Erwin Dudley",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.1,
+        "reb": 4.0,
+        "ast": 0.5,
+        "gp": "33",
+        "rating_raw": 8.5
+      },
+      "rating": 8.5
+    },
+    {
+      "name": "Flip Murray",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.4,
+        "reb": 1.4,
+        "ast": 1.1,
+        "gp": "8",
+        "rating_raw": 5.4
+      },
+      "rating": 5.4
+    }
+  ],
+  "2011-12": [
+    {
+      "name": "Sasha Vujacic",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 13.9,
+        "reb": 3.3,
+        "ast": 1.7,
+        "stl": 1.1,
+        "blk": 0.2,
+        "gp": "16",
+        "rating_raw": 8.9
+      },
+      "bsl": {
+        "pts": 12.0,
+        "reb": 2.7,
+        "ast": 1.9,
+        "gp": "33",
+        "rating_raw": 11.1
+      },
+      "rating": 10.0
+    },
+    {
+      "name": "Stanko Barac",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 10.7,
+        "reb": 3.9,
+        "ast": 0.3,
+        "stl": 0.5,
+        "blk": 0.9,
+        "gp": "15",
+        "rating_raw": 6.7
+      },
+      "bsl": {
+        "pts": 6.8,
+        "reb": 3.2,
+        "ast": 0.6,
+        "gp": "33",
+        "rating_raw": 8.2
+      },
+      "rating": 7.45
+    },
+    {
+      "name": "Dusko Savanovic",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 10.0,
+        "reb": 5.6,
+        "ast": 1.1,
+        "stl": 0.8,
+        "blk": 0.4,
+        "gp": "16",
+        "rating_raw": 9.3
+      },
+      "bsl": {
+        "pts": 11.3,
+        "reb": 4.9,
+        "ast": 1.3,
+        "gp": "43",
+        "rating_raw": 12.4
+      },
+      "rating": 10.85
+    },
+    {
+      "name": "Esteban Batista",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 5.1,
+        "reb": 4.3,
+        "ast": 0.6,
+        "stl": 0.6,
+        "blk": 0.2,
+        "gp": "16",
+        "rating_raw": 4.3
+      },
+      "bsl": {
+        "pts": 7.6,
+        "reb": 5.1,
+        "ast": 0.7,
+        "gp": "41",
+        "rating_raw": 10.8
+      },
+      "rating": 7.55
+    },
+    {
+      "name": "Cenk Akyol",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 4.7,
+        "reb": 2.0,
+        "ast": 0.5,
+        "stl": 0.6,
+        "blk": 0.1,
+        "gp": "16",
+        "rating_raw": 2.2
+      },
+      "bsl": {
+        "pts": 6.8,
+        "reb": 1.6,
+        "ast": 1.1,
+        "gp": "39",
+        "rating_raw": 7.0
+      },
+      "rating": 4.6
+    },
+    {
+      "name": "Kerem Tunceri",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 4.3,
+        "reb": 1.1,
+        "ast": 4.5,
+        "stl": 1.1,
+        "blk": 0.1,
+        "gp": "15",
+        "rating_raw": 3.1
+      },
+      "bsl": {
+        "pts": 10.2,
+        "reb": 1.9,
+        "ast": 5.1,
+        "gp": "41",
+        "rating_raw": 10.9
+      },
+      "rating": 7.0
+    },
+    {
+      "name": "Sinan Guler",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 4.1,
+        "reb": 2.0,
+        "ast": 1.4,
+        "stl": 0.6,
+        "blk": 0.1,
+        "gp": "16",
+        "rating_raw": 2.8
+      },
+      "bsl": {
+        "pts": 6.5,
+        "reb": 2.3,
+        "ast": 2.0,
+        "gp": "43",
+        "rating_raw": 7.9
+      },
+      "rating": 5.35
+    },
+    {
+      "name": "Doğuş Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.1,
+        "reb": 1.9,
+        "ast": 1.2,
+        "gp": "38",
+        "rating_raw": 4.7
+      },
+      "rating": 4.7
+    },
+    {
+      "name": "Ermal Kuqo",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.7,
+        "reb": 1.7,
+        "ast": 0.7,
+        "gp": "26",
+        "rating_raw": 5.7
+      },
+      "rating": 5.7
+    },
+    {
+      "name": "Gökhan Şirin",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.5,
+        "reb": 1.0,
+        "ast": 0.3,
+        "gp": "16",
+        "rating_raw": 3.5
+      },
+      "rating": 3.5
+    },
+    {
+      "name": "Kerem Gönlüm",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.3,
+        "reb": 4.9,
+        "ast": 0.7,
+        "gp": "26",
+        "rating_raw": 9.0
+      },
+      "rating": 9.0
+    },
+    {
+      "name": "Oliver Lafayette",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.5,
+        "reb": 2.5,
+        "ast": 2.5,
+        "gp": "24",
+        "rating_raw": 8.0
+      },
+      "rating": 8.0
+    },
+    {
+      "name": "Tarence Kinsey",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.1,
+        "reb": 3.0,
+        "ast": 1.5,
+        "gp": "28",
+        "rating_raw": 9.1
+      },
+      "rating": 9.1
+    }
+  ],
+  "2012-13": [
+    {
+      "name": "Jordan Farmar",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 13.8,
+        "reb": 3.6,
+        "ast": 3.9,
+        "stl": 0.8,
+        "blk": 0.1,
+        "gp": "29",
+        "rating_raw": 11.1
+      },
+      "bsl": {
+        "pts": 13.7,
+        "reb": 3.1,
+        "ast": 4.1,
+        "gp": "22",
+        "rating_raw": 14.0
+      },
+      "rating": 12.55
+    },
+    {
+      "name": "Dusko Savanovic",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 9.4,
+        "reb": 3.7,
+        "ast": 1.0,
+        "stl": 1.0,
+        "blk": 0.1,
+        "gp": "29",
+        "rating_raw": 7.5
+      },
+      "bsl": {
+        "pts": 11.1,
+        "reb": 4.4,
+        "ast": 1.7,
+        "gp": "35",
+        "rating_raw": 12.7
+      },
+      "rating": 10.1
+    },
+    {
+      "name": "Semih Erden",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 9.2,
+        "reb": 5.6,
+        "ast": 0.4,
+        "stl": 0.6,
+        "blk": 0.8,
+        "gp": "29",
+        "rating_raw": 7.4
+      },
+      "bsl": {
+        "pts": 9.5,
+        "reb": 4.7,
+        "ast": 0.7,
+        "gp": "37",
+        "rating_raw": 10.7
+      },
+      "rating": 9.05
+    },
+    {
+      "name": "Sasha Vujacic",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 9.1,
+        "reb": 3.0,
+        "ast": 1.0,
+        "stl": 0.8,
+        "blk": 0.1,
+        "gp": "24",
+        "rating_raw": 5.8
+      },
+      "bsl": {
+        "pts": 12.7,
+        "reb": 3.1,
+        "ast": 1.4,
+        "gp": "18",
+        "rating_raw": 13.2
+      },
+      "rating": 9.5
+    },
+    {
+      "name": "Jamon Lucas",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 9.0,
+        "reb": 3.9,
+        "ast": 4.0,
+        "stl": 1.8,
+        "blk": 0.2,
+        "gp": "29",
+        "rating_raw": 9.5
+      },
+      "bsl": null,
+      "rating": 9.5
+    },
+    {
+      "name": "Kerem Gonlum",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 6.4,
+        "reb": 4.9,
+        "ast": 0.6,
+        "stl": 0.5,
+        "blk": 0.1,
+        "gp": "29",
+        "rating_raw": 7.5
+      },
+      "bsl": {
+        "pts": 10.4,
+        "reb": 5.9,
+        "ast": 0.4,
+        "gp": "37",
+        "rating_raw": 13.2
+      },
+      "rating": 10.35
+    },
+    {
+      "name": "Josh Shipp",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 5.7,
+        "reb": 2.4,
+        "ast": 1.0,
+        "stl": 0.7,
+        "blk": 0.0,
+        "gp": "26",
+        "rating_raw": 3.7
+      },
+      "bsl": {
+        "pts": 10.3,
+        "reb": 3.0,
+        "ast": 1.8,
+        "gp": "16",
+        "rating_raw": 11.3
+      },
+      "rating": 7.5
+    },
+    {
+      "name": "Stanko Barac",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 5.0,
+        "reb": 3.8,
+        "ast": 0.4,
+        "stl": 0.1,
+        "blk": 0.6,
+        "gp": "25",
+        "rating_raw": 3.8
+      },
+      "bsl": {
+        "pts": 4.9,
+        "reb": 2.9,
+        "ast": 0.5,
+        "gp": "19",
+        "rating_raw": 5.5
+      },
+      "rating": 4.65
+    },
+    {
+      "name": "Kerem Tunceri",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 3.9,
+        "reb": 1.0,
+        "ast": 2.1,
+        "stl": 0.4,
+        "blk": 0.1,
+        "gp": "25",
+        "rating_raw": 3.0
+      },
+      "bsl": {
+        "pts": 6.0,
+        "reb": 1.3,
+        "ast": 2.8,
+        "gp": "31",
+        "rating_raw": 6.3
+      },
+      "rating": 4.65
+    },
+    {
+      "name": "Sinan Guler",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 3.0,
+        "reb": 0.9,
+        "ast": 0.7,
+        "stl": 0.5,
+        "blk": 0.0,
+        "gp": "22",
+        "rating_raw": 1.1
+      },
+      "bsl": {
+        "pts": 5.4,
+        "reb": 2.0,
+        "ast": 2.0,
+        "gp": "37",
+        "rating_raw": 6.9
+      },
+      "rating": 4.0
+    },
+    {
+      "name": "Birkan Batuk",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.6,
+        "reb": 2.2,
+        "ast": 0.6,
+        "gp": "29",
+        "rating_raw": 5.7
+      },
+      "rating": 5.7
+    },
+    {
+      "name": "Cedi Osman",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.3,
+        "reb": 0.7,
+        "ast": 0.3,
+        "gp": "3",
+        "rating_raw": 7.0
+      },
+      "rating": 7.0
+    },
+    {
+      "name": "Doğuş Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.3,
+        "reb": 1.5,
+        "ast": 1.7,
+        "gp": "30",
+        "rating_raw": 4.9
+      },
+      "rating": 4.9
+    },
+    {
+      "name": "Ermal Kuqo",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.9,
+        "reb": 2.6,
+        "ast": 1.2,
+        "gp": "33",
+        "rating_raw": 5.2
+      },
+      "rating": 5.2
+    },
+    {
+      "name": "Esteban Batista",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.3,
+        "reb": 3.7,
+        "ast": 0.3,
+        "gp": "3",
+        "rating_raw": 3.7
+      },
+      "rating": 3.7
+    },
+    {
+      "name": "Gökhan Şirin",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.0,
+        "reb": 0.9,
+        "ast": 0.1,
+        "gp": "12",
+        "rating_raw": 1.4
+      },
+      "rating": 1.4
+    },
+    {
+      "name": "Jamon Gordon",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.5,
+        "reb": 3.8,
+        "ast": 3.9,
+        "gp": "36",
+        "rating_raw": 11.4
+      },
+      "rating": 11.4
+    },
+    {
+      "name": "Ramazan Tekin",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.0,
+        "reb": 0.0,
+        "ast": 0.0,
+        "gp": "1",
+        "rating_raw": -1.0
+      },
+      "rating": -1.0
+    }
+  ],
+  "2013-14": [
+    {
+      "name": "Dusko Savanovic",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 10.5,
+        "reb": 3.7,
+        "ast": 2.2,
+        "stl": 0.7,
+        "blk": 0.3,
+        "gp": "23",
+        "rating_raw": 7.8
+      },
+      "bsl": {
+        "pts": 10.0,
+        "reb": 4.4,
+        "ast": 1.9,
+        "gp": "33",
+        "rating_raw": 10.4
+      },
+      "rating": 9.1
+    },
+    {
+      "name": "Zoran Planinic",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 8.4,
+        "reb": 2.4,
+        "ast": 3.7,
+        "stl": 0.9,
+        "blk": 0.0,
+        "gp": "23",
+        "rating_raw": 4.9
+      },
+      "bsl": {
+        "pts": 9.3,
+        "reb": 2.5,
+        "ast": 4.3,
+        "gp": "32",
+        "rating_raw": 10.3
+      },
+      "rating": 7.6
+    },
+    {
+      "name": "Birkan Batuk",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 4.6,
+        "reb": 2.1,
+        "ast": 0.4,
+        "stl": 0.6,
+        "blk": 0.0,
+        "gp": "19",
+        "rating_raw": 1.4
+      },
+      "bsl": {
+        "pts": 8.6,
+        "reb": 2.3,
+        "ast": 0.8,
+        "gp": "31",
+        "rating_raw": 8.5
+      },
+      "rating": 4.95
+    },
+    {
+      "name": "Dogus Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 2.9,
+        "reb": 1.8,
+        "ast": 0.8,
+        "stl": 1.2,
+        "blk": 0.1,
+        "gp": "18",
+        "rating_raw": 2.3
+      },
+      "bsl": {
+        "pts": 6.1,
+        "reb": 2.9,
+        "ast": 1.7,
+        "gp": "29",
+        "rating_raw": 8.5
+      },
+      "rating": 5.4
+    },
+    {
+      "name": "Burak Can Yıldızlı",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.0,
+        "reb": 1.5,
+        "ast": 0.0,
+        "gp": "2",
+        "rating_raw": 2.0
+      },
+      "rating": 2.0
+    },
+    {
+      "name": "Cedi Osman",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.3,
+        "reb": 2.6,
+        "ast": 1.1,
+        "gp": "28",
+        "rating_raw": 6.2
+      },
+      "rating": 6.2
+    },
+    {
+      "name": "D.J. Stephens",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.0,
+        "reb": 2.4,
+        "ast": 0.4,
+        "gp": "7",
+        "rating_raw": 7.9
+      },
+      "rating": 7.9
+    },
+    {
+      "name": "Deniz Kılıçlı",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.2,
+        "reb": 2.0,
+        "ast": 0.2,
+        "gp": "25",
+        "rating_raw": 4.1
+      },
+      "rating": 4.1
+    },
+    {
+      "name": "Emircan Koşut",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.2,
+        "reb": 1.4,
+        "ast": 0.0,
+        "gp": "12",
+        "rating_raw": 1.7
+      },
+      "rating": 1.7
+    },
+    {
+      "name": "Jamon Gordon",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.9,
+        "reb": 3.4,
+        "ast": 4.7,
+        "gp": "32",
+        "rating_raw": 12.6
+      },
+      "rating": 12.6
+    },
+    {
+      "name": "Kerem Gönlüm",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.5,
+        "reb": 6.9,
+        "ast": 0.8,
+        "gp": "23",
+        "rating_raw": 12.6
+      },
+      "rating": 12.6
+    },
+    {
+      "name": "Kostas Vasileiadis",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.6,
+        "reb": 2.2,
+        "ast": 1.6,
+        "gp": "22",
+        "rating_raw": 8.4
+      },
+      "rating": 8.4
+    },
+    {
+      "name": "Milko Bjelica",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.2,
+        "reb": 3.9,
+        "ast": 1.2,
+        "gp": "19",
+        "rating_raw": 9.7
+      },
+      "rating": 9.7
+    },
+    {
+      "name": "Okben Ulubay",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.0,
+        "reb": 0.5,
+        "ast": 0.0,
+        "gp": "4",
+        "rating_raw": 0.0
+      },
+      "rating": 0.0
+    },
+    {
+      "name": "Scotty Hopson",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.2,
+        "reb": 2.6,
+        "ast": 0.8,
+        "gp": "12",
+        "rating_raw": 5.1
+      },
+      "rating": 5.1
+    },
+    {
+      "name": "Semih Erden",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.9,
+        "reb": 5.4,
+        "ast": 0.4,
+        "gp": "21",
+        "rating_raw": 10.9
+      },
+      "rating": 10.9
+    },
+    {
+      "name": "Stanko Barac",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.5,
+        "reb": 3.0,
+        "ast": 1.0,
+        "gp": "2",
+        "rating_raw": 6.5
+      },
+      "rating": 6.5
+    }
+  ],
+  "2014-15": [
+    {
+      "name": "Dario Saric",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 9.9,
+        "reb": 6.4,
+        "ast": 2.3,
+        "stl": 0.7,
+        "blk": 0.4,
+        "gp": "27",
+        "rating_raw": 10.4
+      },
+      "bsl": {
+        "pts": 10.9,
+        "reb": 6.7,
+        "ast": 2.6,
+        "gp": "38",
+        "rating_raw": 14.1
+      },
+      "rating": 12.25
+    },
+    {
+      "name": "Stratos Perperoglou",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 9.8,
+        "reb": 3.7,
+        "ast": 1.3,
+        "stl": 0.9,
+        "blk": 0.2,
+        "gp": "27",
+        "rating_raw": 7.1
+      },
+      "bsl": {
+        "pts": 10.6,
+        "reb": 3.4,
+        "ast": 1.5,
+        "gp": "36",
+        "rating_raw": 10.5
+      },
+      "rating": 8.8
+    },
+    {
+      "name": "Matt Janning",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 6.9,
+        "reb": 1.9,
+        "ast": 1.6,
+        "stl": 0.7,
+        "blk": 0.0,
+        "gp": "27",
+        "rating_raw": 3.5
+      },
+      "bsl": null,
+      "rating": 3.5
+    },
+    {
+      "name": "Yann Ulrich Stephane Lasme",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 6.8,
+        "reb": 3.8,
+        "ast": 1.0,
+        "stl": 0.6,
+        "blk": 0.8,
+        "gp": "28",
+        "rating_raw": 5.8
+      },
+      "bsl": null,
+      "rating": 5.8
+    },
+    {
+      "name": "Cedi Osman",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 6.7,
+        "reb": 3.7,
+        "ast": 1.1,
+        "stl": 0.7,
+        "blk": 0.3,
+        "gp": "27",
+        "rating_raw": 5.2
+      },
+      "bsl": {
+        "pts": 8.3,
+        "reb": 4.3,
+        "ast": 1.1,
+        "gp": "39",
+        "rating_raw": 9.3
+      },
+      "rating": 7.25
+    },
+    {
+      "name": "Birkan Batuk",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.3,
+        "reb": 2.1,
+        "ast": 0.4,
+        "gp": "23",
+        "rating_raw": 6.5
+      },
+      "rating": 6.5
+    },
+    {
+      "name": "Cenk Akyol",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.6,
+        "reb": 0.9,
+        "ast": 0.3,
+        "gp": "8",
+        "rating_raw": 2.1
+      },
+      "rating": 2.1
+    },
+    {
+      "name": "Deniz Kılıçlı",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.5,
+        "reb": 1.1,
+        "ast": 0.3,
+        "gp": "27",
+        "rating_raw": 1.5
+      },
+      "rating": 1.5
+    },
+    {
+      "name": "Doğuş Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.4,
+        "reb": 1.9,
+        "ast": 2.2,
+        "gp": "39",
+        "rating_raw": 5.1
+      },
+      "rating": 5.1
+    },
+    {
+      "name": "Dontaye Draper",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.8,
+        "reb": 2.5,
+        "ast": 3.0,
+        "gp": "21",
+        "rating_raw": 7.9
+      },
+      "rating": 7.9
+    },
+    {
+      "name": "Emircan Koşut",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.3,
+        "reb": 1.0,
+        "ast": 0.2,
+        "gp": "18",
+        "rating_raw": 1.8
+      },
+      "rating": 1.8
+    },
+    {
+      "name": "Furkan Korkmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.7,
+        "reb": 1.3,
+        "ast": 1.0,
+        "gp": "26",
+        "rating_raw": 4.9
+      },
+      "rating": 4.9
+    },
+    {
+      "name": "Matthew Janning",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 10.9,
+        "reb": 2.8,
+        "ast": 2.6,
+        "gp": "37",
+        "rating_raw": 10.7
+      },
+      "rating": 10.7
+    },
+    {
+      "name": "Milko Bjelica",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 11.4,
+        "reb": 4.3,
+        "ast": 1.1,
+        "gp": "22",
+        "rating_raw": 11.4
+      },
+      "rating": 11.4
+    },
+    {
+      "name": "Nenad Krstic",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.4,
+        "reb": 5.2,
+        "ast": 0.9,
+        "gp": "27",
+        "rating_raw": 12.6
+      },
+      "rating": 12.6
+    },
+    {
+      "name": "Okben Ulubay",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.6,
+        "reb": 0.4,
+        "ast": 0.2,
+        "gp": "14",
+        "rating_raw": 0.6
+      },
+      "rating": 0.6
+    },
+    {
+      "name": "Stephane Lasme",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.6,
+        "reb": 5.3,
+        "ast": 1.1,
+        "gp": "36",
+        "rating_raw": 14.2
+      },
+      "rating": 14.2
+    },
+    {
+      "name": "Thomas Heurtel",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.7,
+        "reb": 2.3,
+        "ast": 5.3,
+        "gp": "24",
+        "rating_raw": 9.7
+      },
+      "rating": 9.7
+    }
+  ],
+  "2015-16": [
+    {
+      "name": "Thomas Heurtel",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 12.7,
+        "reb": 2.9,
+        "ast": 7.9,
+        "stl": 0.8,
+        "blk": 0.0,
+        "gp": "24",
+        "rating_raw": 14.1
+      },
+      "bsl": {
+        "pts": 12.4,
+        "reb": 2.9,
+        "ast": 5.7,
+        "gp": "39",
+        "rating_raw": 13.9
+      },
+      "rating": 14.0
+    },
+    {
+      "name": "Dario Saric",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 11.7,
+        "reb": 5.8,
+        "ast": 1.5,
+        "stl": 0.5,
+        "blk": 0.5,
+        "gp": "24",
+        "rating_raw": 11.6
+      },
+      "bsl": {
+        "pts": 11.3,
+        "reb": 5.5,
+        "ast": 1.3,
+        "gp": "37",
+        "rating_raw": 12.9
+      },
+      "rating": 12.25
+    },
+    {
+      "name": "Jayson Granger",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 10.2,
+        "reb": 3.1,
+        "ast": 3.9,
+        "stl": 0.7,
+        "blk": 0.0,
+        "gp": "23",
+        "rating_raw": 7.5
+      },
+      "bsl": {
+        "pts": 12.2,
+        "reb": 3.5,
+        "ast": 3.8,
+        "gp": "38",
+        "rating_raw": 12.4
+      },
+      "rating": 9.95
+    },
+    {
+      "name": "Derrick Brown",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 9.8,
+        "reb": 5.3,
+        "ast": 1.4,
+        "stl": 0.5,
+        "blk": 0.5,
+        "gp": "24",
+        "rating_raw": 9.2
+      },
+      "bsl": {
+        "pts": 10.8,
+        "reb": 4.8,
+        "ast": 1.8,
+        "gp": "36",
+        "rating_raw": 11.8
+      },
+      "rating": 10.5
+    },
+    {
+      "name": "Cedi Osman",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 7.9,
+        "reb": 3.1,
+        "ast": 0.7,
+        "stl": 0.9,
+        "blk": 0.1,
+        "gp": "23",
+        "rating_raw": 6.5
+      },
+      "bsl": {
+        "pts": 9.8,
+        "reb": 3.6,
+        "ast": 1.0,
+        "gp": "38",
+        "rating_raw": 10.6
+      },
+      "rating": 8.55
+    },
+    {
+      "name": "Bryant Dunston",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 7.9,
+        "reb": 5.0,
+        "ast": 1.2,
+        "stl": 0.5,
+        "blk": 1.1,
+        "gp": "24",
+        "rating_raw": 8.8
+      },
+      "bsl": {
+        "pts": 10.2,
+        "reb": 6.0,
+        "ast": 1.3,
+        "gp": "38",
+        "rating_raw": 15.8
+      },
+      "rating": 12.3
+    },
+    {
+      "name": "Birkan Batuk",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 4.5,
+        "reb": 1.3,
+        "ast": 0.5,
+        "stl": 0.6,
+        "blk": 0.1,
+        "gp": "20",
+        "rating_raw": 1.3
+      },
+      "bsl": {
+        "pts": 3.2,
+        "reb": 1.6,
+        "ast": 0.5,
+        "gp": "34",
+        "rating_raw": 2.9
+      },
+      "rating": 2.1
+    },
+    {
+      "name": "Ahmet Düverioğlu",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.3,
+        "reb": 1.9,
+        "ast": 0.3,
+        "gp": "24",
+        "rating_raw": 3.4
+      },
+      "rating": 3.4
+    },
+    {
+      "name": "Alex Tyus",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.7,
+        "reb": 3.3,
+        "ast": 0.4,
+        "gp": "30",
+        "rating_raw": 8.3
+      },
+      "rating": 8.3
+    },
+    {
+      "name": "Doğuş Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.3,
+        "reb": 1.6,
+        "ast": 1.6,
+        "gp": "36",
+        "rating_raw": 4.8
+      },
+      "rating": 4.8
+    },
+    {
+      "name": "Emircan Koşut",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.9,
+        "reb": 1.0,
+        "ast": 0.1,
+        "gp": "7",
+        "rating_raw": 1.6
+      },
+      "rating": 1.6
+    },
+    {
+      "name": "Furkan Korkmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.1,
+        "reb": 1.4,
+        "ast": 0.7,
+        "gp": "37",
+        "rating_raw": 4.7
+      },
+      "rating": 4.7
+    },
+    {
+      "name": "Jon Diebler",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.9,
+        "reb": 1.8,
+        "ast": 1.4,
+        "gp": "26",
+        "rating_raw": 6.5
+      },
+      "rating": 6.5
+    },
+    {
+      "name": "Oğulcan Baykan",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.7,
+        "reb": 0.5,
+        "ast": 0.4,
+        "gp": "17",
+        "rating_raw": 2.2
+      },
+      "rating": 2.2
+    }
+  ],
+  "2016-17": [
+    {
+      "name": "Thomas Heurtel",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 12.7,
+        "reb": 1.7,
+        "ast": 5.6,
+        "stl": 0.8,
+        "blk": 0.0,
+        "gp": "35",
+        "rating_raw": 10.1
+      },
+      "bsl": {
+        "pts": 12.2,
+        "reb": 2.2,
+        "ast": 6.7,
+        "gp": "33",
+        "rating_raw": 13.6
+      },
+      "rating": 11.85
+    },
+    {
+      "name": "Derrick Brown",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 12.3,
+        "reb": 5.5,
+        "ast": 2.2,
+        "stl": 1.0,
+        "blk": 0.5,
+        "gp": "35",
+        "rating_raw": 12.5
+      },
+      "bsl": {
+        "pts": 11.7,
+        "reb": 5.0,
+        "ast": 1.8,
+        "gp": "35",
+        "rating_raw": 13.5
+      },
+      "rating": 13.0
+    },
+    {
+      "name": "Bryant Dunston",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 10.7,
+        "reb": 6.2,
+        "ast": 1.1,
+        "stl": 0.6,
+        "blk": 1.1,
+        "gp": "35",
+        "rating_raw": 11.6
+      },
+      "bsl": {
+        "pts": 10.1,
+        "reb": 6.4,
+        "ast": 1.3,
+        "gp": "35",
+        "rating_raw": 16.0
+      },
+      "rating": 13.8
+    },
+    {
+      "name": "Jayson Granger",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 9.7,
+        "reb": 2.7,
+        "ast": 3.9,
+        "stl": 0.9,
+        "blk": 0.1,
+        "gp": "35",
+        "rating_raw": 7.9
+      },
+      "bsl": {
+        "pts": 9.4,
+        "reb": 2.7,
+        "ast": 4.9,
+        "gp": "33",
+        "rating_raw": 11.1
+      },
+      "rating": 9.5
+    },
+    {
+      "name": "Tyler Honeycutt",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 9.2,
+        "reb": 7.3,
+        "ast": 2.0,
+        "stl": 1.1,
+        "blk": 0.9,
+        "gp": "35",
+        "rating_raw": 11.2
+      },
+      "bsl": {
+        "pts": 7.6,
+        "reb": 6.0,
+        "ast": 1.8,
+        "gp": "28",
+        "rating_raw": 11.0
+      },
+      "rating": 11.1
+    },
+    {
+      "name": "Deshaun Thomas",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 7.3,
+        "reb": 1.7,
+        "ast": 0.3,
+        "stl": 0.2,
+        "blk": 0.1,
+        "gp": "35",
+        "rating_raw": 4.0
+      },
+      "bsl": {
+        "pts": 10.5,
+        "reb": 3.2,
+        "ast": 0.9,
+        "gp": "30",
+        "rating_raw": 8.9
+      },
+      "rating": 6.45
+    },
+    {
+      "name": "Cedi Osman",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 7.1,
+        "reb": 2.8,
+        "ast": 0.7,
+        "stl": 0.6,
+        "blk": 0.1,
+        "gp": "35",
+        "rating_raw": 5.2
+      },
+      "bsl": {
+        "pts": 13.2,
+        "reb": 4.1,
+        "ast": 1.3,
+        "gp": "35",
+        "rating_raw": 13.5
+      },
+      "rating": 9.35
+    },
+    {
+      "name": "Alex Kirk",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.0,
+        "reb": 3.2,
+        "ast": 0.7,
+        "gp": "10",
+        "rating_raw": 10.4
+      },
+      "rating": 10.4
+    },
+    {
+      "name": "Berk Demir",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.8,
+        "reb": 1.2,
+        "ast": 0.1,
+        "gp": "9",
+        "rating_raw": 1.7
+      },
+      "rating": 1.7
+    },
+    {
+      "name": "Brandon Paul",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.7,
+        "reb": 3.3,
+        "ast": 0.8,
+        "gp": "6",
+        "rating_raw": 10.0
+      },
+      "rating": 10.0
+    },
+    {
+      "name": "Doğuş Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.8,
+        "reb": 2.5,
+        "ast": 1.8,
+        "gp": "37",
+        "rating_raw": 4.9
+      },
+      "rating": 4.9
+    },
+    {
+      "name": "Maxim Mutaf",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.9,
+        "reb": 1.1,
+        "ast": 0.6,
+        "gp": "22",
+        "rating_raw": 4.7
+      },
+      "rating": 4.7
+    },
+    {
+      "name": "Oğulcan Baykan",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.8,
+        "reb": 0.5,
+        "ast": 0.6,
+        "gp": "8",
+        "rating_raw": 0.5
+      },
+      "rating": 0.5
+    },
+    {
+      "name": "Samet Geyik",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.1,
+        "reb": 1.6,
+        "ast": 0.1,
+        "gp": "14",
+        "rating_raw": 2.3
+      },
+      "rating": 2.3
+    }
+  ],
+  "2017-18": [
+    {
+      "name": "Errick McCollum",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 14.6,
+        "reb": 2.4,
+        "ast": 2.3,
+        "stl": 0.8,
+        "blk": 0.4,
+        "gp": "29",
+        "rating_raw": 8.9
+      },
+      "bsl": {
+        "pts": 17.2,
+        "reb": 2.7,
+        "ast": 3.4,
+        "gp": "34",
+        "rating_raw": 15.0
+      },
+      "rating": 11.95
+    },
+    {
+      "name": "Bryant Dunston",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 10.2,
+        "reb": 5.4,
+        "ast": 1.3,
+        "stl": 0.7,
+        "blk": 1.7,
+        "gp": "30",
+        "rating_raw": 12.6
+      },
+      "bsl": {
+        "pts": 10.7,
+        "reb": 6.5,
+        "ast": 1.6,
+        "gp": "35",
+        "rating_raw": 17.3
+      },
+      "rating": 14.95
+    },
+    {
+      "name": "Vladimir Stimac",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": {
+        "pts": 9.4,
+        "reb": 5.8,
+        "ast": 1.0,
+        "stl": 0.6,
+        "blk": 0.3,
+        "gp": "30",
+        "rating_raw": 11.1
+      },
+      "bsl": {
+        "pts": 11.6,
+        "reb": 8.2,
+        "ast": 0.7,
+        "gp": "21",
+        "rating_raw": 16.1
+      },
+      "rating": 13.6
+    },
+    {
+      "name": "Krunoslav Simon",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 9.2,
+        "reb": 3.9,
+        "ast": 3.4,
+        "stl": 0.9,
+        "blk": 0.2,
+        "gp": "26",
+        "rating_raw": 7.7
+      },
+      "bsl": {
+        "pts": 11.3,
+        "reb": 4.9,
+        "ast": 4.3,
+        "gp": "28",
+        "rating_raw": 13.7
+      },
+      "rating": 10.7
+    },
+    {
+      "name": "Brock Motum",
+      "positions": [
+        "PF",
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 8.7,
+        "reb": 3.0,
+        "ast": 0.7,
+        "stl": 0.3,
+        "blk": 0.0,
+        "gp": "29",
+        "rating_raw": 6.9
+      },
+      "bsl": {
+        "pts": 13.0,
+        "reb": 3.8,
+        "ast": 1.2,
+        "gp": "32",
+        "rating_raw": 12.8
+      },
+      "rating": 9.85
+    },
+    {
+      "name": "Josh Adams",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 7.0,
+        "reb": 1.6,
+        "ast": 2.0,
+        "stl": 0.4,
+        "blk": 0.1,
+        "gp": "16",
+        "rating_raw": 4.9
+      },
+      "bsl": null,
+      "rating": 4.9
+    },
+    {
+      "name": "Arda Erdoğan",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.8,
+        "reb": 0.3,
+        "ast": 0.3,
+        "gp": "8",
+        "rating_raw": -0.1
+      },
+      "rating": -0.1
+    },
+    {
+      "name": "Berk Demir",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.9,
+        "reb": 0.8,
+        "ast": 0.3,
+        "gp": "16",
+        "rating_raw": 1.8
+      },
+      "rating": 1.8
+    },
+    {
+      "name": "Birkan Batuk",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.6,
+        "reb": 1.7,
+        "ast": 0.6,
+        "gp": "31",
+        "rating_raw": 4.7
+      },
+      "rating": 4.7
+    },
+    {
+      "name": "Derrick Brown",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.5,
+        "reb": 3.0,
+        "ast": 1.5,
+        "gp": "20",
+        "rating_raw": 8.1
+      },
+      "rating": 8.1
+    },
+    {
+      "name": "Doğuş Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.9,
+        "reb": 3.1,
+        "ast": 3.5,
+        "gp": "29",
+        "rating_raw": 8.7
+      },
+      "rating": 8.7
+    },
+    {
+      "name": "Muhaymin Mustafa",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.4,
+        "reb": 0.5,
+        "ast": 0.0,
+        "gp": "16",
+        "rating_raw": 0.5
+      },
+      "rating": 0.5
+    },
+    {
+      "name": "Onuralp Bitim",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.7,
+        "reb": 0.8,
+        "ast": 0.6,
+        "gp": "18",
+        "rating_raw": 1.8
+      },
+      "rating": 1.8
+    },
+    {
+      "name": "Sonny Weems",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 12.9,
+        "reb": 3.4,
+        "ast": 3.1,
+        "gp": "15",
+        "rating_raw": 12.1
+      },
+      "rating": 12.1
+    },
+    {
+      "name": "Toney Douglas",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 10.1,
+        "reb": 3.2,
+        "ast": 2.3,
+        "gp": "11",
+        "rating_raw": 9.1
+      },
+      "rating": 9.1
+    },
+    {
+      "name": "Yiğitcan Saybir",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.3,
+        "reb": 2.0,
+        "ast": 0.3,
+        "gp": "4",
+        "rating_raw": 5.8
+      },
+      "rating": 5.8
+    },
+    {
+      "name": "Zoran Dragić",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.9,
+        "reb": 1.5,
+        "ast": 2.3,
+        "gp": "8",
+        "rating_raw": 4.1
+      },
+      "rating": 4.1
+    }
+  ],
+  "2018-19": [
+    {
+      "name": "Shane Larkin",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 12.5,
+        "reb": 2.2,
+        "ast": 3.1,
+        "stl": 0.9,
+        "blk": 0.1,
+        "gp": "35",
+        "rating_raw": 11.0
+      },
+      "bsl": {
+        "pts": 15.1,
+        "reb": 2.8,
+        "ast": 4.5,
+        "gp": "24",
+        "rating_raw": 16.0
+      },
+      "rating": 13.5
+    },
+    {
+      "name": "Vasilije Micic",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 12.4,
+        "reb": 2.2,
+        "ast": 5.5,
+        "stl": 1.0,
+        "blk": 0.1,
+        "gp": "37",
+        "rating_raw": 10.4
+      },
+      "bsl": {
+        "pts": 13.6,
+        "reb": 2.6,
+        "ast": 6.4,
+        "gp": "31",
+        "rating_raw": 15.4
+      },
+      "rating": 12.9
+    },
+    {
+      "name": "Adrien Moerman",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 12.0,
+        "reb": 6.1,
+        "ast": 1.5,
+        "stl": 1.1,
+        "blk": 0.3,
+        "gp": "37",
+        "rating_raw": 13.3
+      },
+      "bsl": {
+        "pts": 14.2,
+        "reb": 8.0,
+        "ast": 1.9,
+        "gp": "23",
+        "rating_raw": 18.3
+      },
+      "rating": 15.8
+    },
+    {
+      "name": "Rodrigue Beaubois",
+      "positions": [
+        "SG",
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 9.5,
+        "reb": 1.3,
+        "ast": 2.3,
+        "stl": 0.3,
+        "blk": 0.3,
+        "gp": "35",
+        "rating_raw": 6.5
+      },
+      "bsl": {
+        "pts": 13.5,
+        "reb": 2.8,
+        "ast": 2.4,
+        "gp": "23",
+        "rating_raw": 13.7
+      },
+      "rating": 10.1
+    },
+    {
+      "name": "Krunoslav Simon",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 9.4,
+        "reb": 3.8,
+        "ast": 2.8,
+        "stl": 0.9,
+        "blk": 0.2,
+        "gp": "37",
+        "rating_raw": 10.2
+      },
+      "bsl": {
+        "pts": 11.5,
+        "reb": 4.2,
+        "ast": 2.7,
+        "gp": "24",
+        "rating_raw": 13.3
+      },
+      "rating": 11.75
+    },
+    {
+      "name": "Bryant Dunston",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 8.9,
+        "reb": 4.9,
+        "ast": 1.3,
+        "stl": 0.8,
+        "blk": 1.2,
+        "gp": "36",
+        "rating_raw": 10.5
+      },
+      "bsl": {
+        "pts": 10.1,
+        "reb": 5.6,
+        "ast": 1.6,
+        "gp": "34",
+        "rating_raw": 15.0
+      },
+      "rating": 12.75
+    },
+    {
+      "name": "James Anderson",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 4.8,
+        "reb": 2.0,
+        "ast": 0.7,
+        "stl": 0.2,
+        "blk": 0.1,
+        "gp": "37",
+        "rating_raw": 3.7
+      },
+      "bsl": {
+        "pts": 9.6,
+        "reb": 3.6,
+        "ast": 1.4,
+        "gp": "13",
+        "rating_raw": 10.6
+      },
+      "rating": 7.15
+    },
+    {
+      "name": "Brock Motum",
+      "positions": [
+        "PF",
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 17.6,
+        "reb": 5.5,
+        "ast": 1.1,
+        "gp": "15",
+        "rating_raw": 17.1
+      },
+      "rating": 17.1
+    },
+    {
+      "name": "Buğrahan Tuncer",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.1,
+        "reb": 2.5,
+        "ast": 3.3,
+        "gp": "34",
+        "rating_raw": 7.5
+      },
+      "rating": 7.5
+    },
+    {
+      "name": "Doğuş Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.0,
+        "reb": 3.1,
+        "ast": 2.8,
+        "gp": "38",
+        "rating_raw": 7.1
+      },
+      "rating": 7.1
+    },
+    {
+      "name": "Metecan Birsen",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.3,
+        "reb": 2.7,
+        "ast": 0.7,
+        "gp": "35",
+        "rating_raw": 5.4
+      },
+      "rating": 5.4
+    },
+    {
+      "name": "Mustafa Kurtuldum",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.8,
+        "reb": 1.0,
+        "ast": 1.0,
+        "gp": "4",
+        "rating_raw": 3.8
+      },
+      "rating": 3.8
+    },
+    {
+      "name": "Onuralp Bitim",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.1,
+        "reb": 1.6,
+        "ast": 0.9,
+        "gp": "21",
+        "rating_raw": 3.8
+      },
+      "rating": 3.8
+    },
+    {
+      "name": "Ömercan İlyasoğlu",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.9,
+        "reb": 1.5,
+        "ast": 1.8,
+        "gp": "10",
+        "rating_raw": 4.2
+      },
+      "rating": 4.2
+    },
+    {
+      "name": "Sertaç Şanlı",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.3,
+        "reb": 3.1,
+        "ast": 0.4,
+        "gp": "39",
+        "rating_raw": 8.1
+      },
+      "rating": 8.1
+    },
+    {
+      "name": "Tibor Pleiss",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 15.3,
+        "reb": 7.8,
+        "ast": 2.0,
+        "gp": "6",
+        "rating_raw": 20.3
+      },
+      "rating": 20.3
+    },
+    {
+      "name": "Yiğitcan Saybir",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.5,
+        "reb": 2.2,
+        "ast": 0.4,
+        "gp": "19",
+        "rating_raw": 5.4
+      },
+      "rating": 5.4
+    }
+  ],
+  "2019-20": [
+    {
+      "name": "Shane Larkin",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 22.2,
+        "reb": 3.1,
+        "ast": 4.1,
+        "stl": 1.3,
+        "blk": 0.0,
+        "gp": "25",
+        "rating_raw": 20.6
+      },
+      "bsl": {
+        "pts": 12.9,
+        "reb": 2.7,
+        "ast": 4.0,
+        "gp": "10",
+        "rating_raw": 13.6
+      },
+      "rating": 17.1
+    },
+    {
+      "name": "Vasilije Micic",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 14.5,
+        "reb": 2.5,
+        "ast": 5.8,
+        "stl": 1.3,
+        "blk": 0.0,
+        "gp": "24",
+        "rating_raw": 12.6
+      },
+      "bsl": {
+        "pts": 12.3,
+        "reb": 1.9,
+        "ast": 6.4,
+        "gp": "16",
+        "rating_raw": 12.0
+      },
+      "rating": 12.3
+    },
+    {
+      "name": "Rodrigue Beaubois",
+      "positions": [
+        "SG",
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 9.5,
+        "reb": 1.6,
+        "ast": 1.7,
+        "stl": 0.9,
+        "blk": 0.3,
+        "gp": "26",
+        "rating_raw": 6.8
+      },
+      "bsl": {
+        "pts": 13.7,
+        "reb": 2.6,
+        "ast": 2.4,
+        "gp": "14",
+        "rating_raw": 13.6
+      },
+      "rating": 10.2
+    },
+    {
+      "name": "Tibor Pleiss",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 9.5,
+        "reb": 4.3,
+        "ast": 0.4,
+        "stl": 0.5,
+        "blk": 0.5,
+        "gp": "28",
+        "rating_raw": 10.2
+      },
+      "bsl": {
+        "pts": 11.4,
+        "reb": 6.6,
+        "ast": 0.6,
+        "gp": "15",
+        "rating_raw": 14.9
+      },
+      "rating": 12.55
+    },
+    {
+      "name": "Krunoslav Simon",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 8.9,
+        "reb": 3.9,
+        "ast": 2.9,
+        "stl": 0.6,
+        "blk": 0.2,
+        "gp": "27",
+        "rating_raw": 10.1
+      },
+      "bsl": {
+        "pts": 11.5,
+        "reb": 3.3,
+        "ast": 2.9,
+        "gp": "12",
+        "rating_raw": 13.1
+      },
+      "rating": 11.6
+    },
+    {
+      "name": "Chris Singleton",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 7.8,
+        "reb": 4.4,
+        "ast": 1.0,
+        "stl": 1.3,
+        "blk": 0.4,
+        "gp": "28",
+        "rating_raw": 8.3
+      },
+      "bsl": {
+        "pts": 10.9,
+        "reb": 4.9,
+        "ast": 1.4,
+        "gp": "13",
+        "rating_raw": 12.5
+      },
+      "rating": 10.4
+    },
+    {
+      "name": "Sertac Sanli",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 7.0,
+        "reb": 2.2,
+        "ast": 0.3,
+        "stl": 0.2,
+        "blk": 0.4,
+        "gp": "21",
+        "rating_raw": 5.3
+      },
+      "bsl": {
+        "pts": 7.8,
+        "reb": 4.7,
+        "ast": 0.6,
+        "gp": "23",
+        "rating_raw": 11.5
+      },
+      "rating": 8.4
+    },
+    {
+      "name": "Adrien Moerman",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 5.2,
+        "reb": 3.1,
+        "ast": 0.4,
+        "stl": 0.5,
+        "blk": 0.0,
+        "gp": "12",
+        "rating_raw": 5.3
+      },
+      "bsl": {
+        "pts": 9.0,
+        "reb": 6.0,
+        "ast": 1.7,
+        "gp": "6",
+        "rating_raw": 12.0
+      },
+      "rating": 8.65
+    },
+    {
+      "name": "Alec Peters",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 4.2,
+        "reb": 2.1,
+        "ast": 0.5,
+        "stl": 0.3,
+        "blk": 0.1,
+        "gp": "27",
+        "rating_raw": 3.9
+      },
+      "bsl": {
+        "pts": 11.3,
+        "reb": 4.6,
+        "ast": 1.6,
+        "gp": "10",
+        "rating_raw": 12.3
+      },
+      "rating": 8.1
+    },
+    {
+      "name": "James Anderson",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 3.5,
+        "reb": 3.2,
+        "ast": 0.3,
+        "stl": 0.3,
+        "blk": 0.1,
+        "gp": "28",
+        "rating_raw": 4.4
+      },
+      "bsl": {
+        "pts": 9.7,
+        "reb": 3.6,
+        "ast": 1.3,
+        "gp": "12",
+        "rating_raw": 11.1
+      },
+      "rating": 7.75
+    },
+    {
+      "name": "Dogus Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 1.2,
+        "reb": 1.0,
+        "ast": 0.9,
+        "stl": 0.5,
+        "blk": 0.0,
+        "gp": "25",
+        "rating_raw": 1.9
+      },
+      "bsl": {
+        "pts": 3.6,
+        "reb": 2.4,
+        "ast": 2.5,
+        "gp": "23",
+        "rating_raw": 6.8
+      },
+      "rating": 4.35
+    },
+    {
+      "name": "Bryant Dunston",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.3,
+        "reb": 5.6,
+        "ast": 0.7,
+        "gp": "7",
+        "rating_raw": 14.0
+      },
+      "rating": 14.0
+    },
+    {
+      "name": "Buğrahan Tuncer",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.9,
+        "reb": 3.2,
+        "ast": 2.8,
+        "gp": "23",
+        "rating_raw": 10.7
+      },
+      "rating": 10.7
+    },
+    {
+      "name": "Mustafa Kurtuldum",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.6,
+        "reb": 0.9,
+        "ast": 0.5,
+        "gp": "13",
+        "rating_raw": 2.2
+      },
+      "rating": 2.2
+    },
+    {
+      "name": "Ömercan İlyasoğlu",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.9,
+        "reb": 0.9,
+        "ast": 1.3,
+        "gp": "13",
+        "rating_raw": 3.1
+      },
+      "rating": 3.1
+    },
+    {
+      "name": "Tolga Geçim",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.4,
+        "reb": 2.6,
+        "ast": 2.8,
+        "gp": "23",
+        "rating_raw": 7.0
+      },
+      "rating": 7.0
+    },
+    {
+      "name": "Yiğitcan Saybir",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.0,
+        "reb": 2.3,
+        "ast": 0.9,
+        "gp": "19",
+        "rating_raw": 6.3
+      },
+      "rating": 6.3
+    }
+  ],
+  "2020-21": [
+    {
+      "name": "Vasilije Micic",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 16.7,
+        "reb": 2.6,
+        "ast": 4.9,
+        "stl": 1.2,
+        "blk": 0.0,
+        "gp": "40",
+        "rating_raw": 13.2
+      },
+      "bsl": {
+        "pts": 14.1,
+        "reb": 1.8,
+        "ast": 4.2,
+        "gp": "30",
+        "rating_raw": 13.0
+      },
+      "rating": 13.1
+    },
+    {
+      "name": "Shane Larkin",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 15.1,
+        "reb": 2.3,
+        "ast": 4.1,
+        "stl": 1.2,
+        "blk": 0.1,
+        "gp": "35",
+        "rating_raw": 13.3
+      },
+      "bsl": {
+        "pts": 8.6,
+        "reb": 2.0,
+        "ast": 3.3,
+        "gp": "22",
+        "rating_raw": 9.3
+      },
+      "rating": 11.3
+    },
+    {
+      "name": "Rodrigue Beaubois",
+      "positions": [
+        "SG",
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 10.6,
+        "reb": 1.8,
+        "ast": 1.8,
+        "stl": 0.5,
+        "blk": 0.3,
+        "gp": "38",
+        "rating_raw": 8.2
+      },
+      "bsl": {
+        "pts": 11.5,
+        "reb": 2.1,
+        "ast": 2.6,
+        "gp": "22",
+        "rating_raw": 11.2
+      },
+      "rating": 9.7
+    },
+    {
+      "name": "Krunoslav Simon",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 10.3,
+        "reb": 3.1,
+        "ast": 3.3,
+        "stl": 0.5,
+        "blk": 0.3,
+        "gp": "35",
+        "rating_raw": 10.6
+      },
+      "bsl": {
+        "pts": 11.8,
+        "reb": 3.2,
+        "ast": 4.7,
+        "gp": "19",
+        "rating_raw": 14.7
+      },
+      "rating": 12.65
+    },
+    {
+      "name": "Bryant Dunston",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 7.9,
+        "reb": 3.9,
+        "ast": 1.0,
+        "stl": 0.9,
+        "blk": 0.9,
+        "gp": "36",
+        "rating_raw": 8.3
+      },
+      "bsl": {
+        "pts": 8.9,
+        "reb": 4.9,
+        "ast": 1.2,
+        "gp": "27",
+        "rating_raw": 12.7
+      },
+      "rating": 10.5
+    },
+    {
+      "name": "Sertac Sanli",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 7.8,
+        "reb": 2.2,
+        "ast": 0.6,
+        "stl": 0.4,
+        "blk": 0.5,
+        "gp": "34",
+        "rating_raw": 6.3
+      },
+      "bsl": {
+        "pts": 8.6,
+        "reb": 3.7,
+        "ast": 0.8,
+        "gp": "33",
+        "rating_raw": 10.6
+      },
+      "rating": 8.45
+    },
+    {
+      "name": "Tibor Pleiss",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 6.8,
+        "reb": 2.7,
+        "ast": 0.5,
+        "stl": 0.2,
+        "blk": 0.3,
+        "gp": "24",
+        "rating_raw": 6.7
+      },
+      "bsl": {
+        "pts": 15.2,
+        "reb": 6.4,
+        "ast": 1.2,
+        "gp": "13",
+        "rating_raw": 19.5
+      },
+      "rating": 13.1
+    },
+    {
+      "name": "Adrien Moerman",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 6.4,
+        "reb": 4.6,
+        "ast": 1.1,
+        "stl": 0.6,
+        "blk": 0.1,
+        "gp": "41",
+        "rating_raw": 7.2
+      },
+      "bsl": {
+        "pts": 13.7,
+        "reb": 7.5,
+        "ast": 1.4,
+        "gp": "27",
+        "rating_raw": 18.5
+      },
+      "rating": 12.85
+    },
+    {
+      "name": "Chris Singleton",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 6.1,
+        "reb": 3.8,
+        "ast": 0.6,
+        "stl": 0.7,
+        "blk": 0.5,
+        "gp": "41",
+        "rating_raw": 6.2
+      },
+      "bsl": {
+        "pts": 9.4,
+        "reb": 4.3,
+        "ast": 1.2,
+        "gp": "19",
+        "rating_raw": 12.4
+      },
+      "rating": 9.3
+    },
+    {
+      "name": "James Anderson",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 4.2,
+        "reb": 2.7,
+        "ast": 0.8,
+        "stl": 0.4,
+        "blk": 0.1,
+        "gp": "41",
+        "rating_raw": 4.8
+      },
+      "bsl": {
+        "pts": 7.2,
+        "reb": 3.7,
+        "ast": 1.9,
+        "gp": "21",
+        "rating_raw": 10.2
+      },
+      "rating": 7.5
+    },
+    {
+      "name": "Bugrahan Tuncer",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 2.3,
+        "reb": 1.2,
+        "ast": 1.1,
+        "stl": 0.3,
+        "blk": 0.0,
+        "gp": "16",
+        "rating_raw": 2.2
+      },
+      "bsl": {
+        "pts": 9.6,
+        "reb": 2.1,
+        "ast": 4.3,
+        "gp": "37",
+        "rating_raw": 10.3
+      },
+      "rating": 6.25
+    },
+    {
+      "name": "Dogus Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 1.4,
+        "reb": 0.6,
+        "ast": 0.6,
+        "stl": 0.4,
+        "blk": 0.1,
+        "gp": "29",
+        "rating_raw": 1.1
+      },
+      "bsl": {
+        "pts": 2.9,
+        "reb": 2.4,
+        "ast": 2.3,
+        "gp": "35",
+        "rating_raw": 6.7
+      },
+      "rating": 3.9
+    },
+    {
+      "name": "Džanan Musa",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 11.4,
+        "reb": 3.5,
+        "ast": 3.1,
+        "gp": "8",
+        "rating_raw": 12.5
+      },
+      "rating": 12.5
+    },
+    {
+      "name": "Enes Bayraktar",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.0,
+        "reb": 0.5,
+        "ast": 0.0,
+        "gp": "2",
+        "rating_raw": -0.5
+      },
+      "rating": -0.5
+    },
+    {
+      "name": "Erten Gazi",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.1,
+        "reb": 1.4,
+        "ast": 0.8,
+        "gp": "28",
+        "rating_raw": 4.8
+      },
+      "rating": 4.8
+    },
+    {
+      "name": "Tarık Sezgün",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.0,
+        "reb": 0.3,
+        "ast": 0.3,
+        "gp": "4",
+        "rating_raw": 1.3
+      },
+      "rating": 1.3
+    },
+    {
+      "name": "Tolga Geçim",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.9,
+        "reb": 1.6,
+        "ast": 1.9,
+        "gp": "29",
+        "rating_raw": 5.1
+      },
+      "rating": 5.1
+    },
+    {
+      "name": "Yiğitcan Saybir",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.6,
+        "reb": 2.1,
+        "ast": 0.6,
+        "gp": "33",
+        "rating_raw": 5.9
+      },
+      "rating": 5.9
+    }
+  ],
+  "2021-22": [
+    {
+      "name": "Vasilije Micic",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 18.2,
+        "reb": 2.7,
+        "ast": 4.6,
+        "stl": 1.1,
+        "blk": 0.0,
+        "gp": "34",
+        "rating_raw": 13.5
+      },
+      "bsl": {
+        "pts": 17.4,
+        "reb": 2.6,
+        "ast": 5.4,
+        "gp": "25",
+        "rating_raw": 17.0
+      },
+      "rating": 15.25
+    },
+    {
+      "name": "Shane Larkin",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 14.7,
+        "reb": 3.0,
+        "ast": 5.3,
+        "stl": 1.3,
+        "blk": 0.0,
+        "gp": "39",
+        "rating_raw": 14.5
+      },
+      "bsl": {
+        "pts": 11.8,
+        "reb": 2.8,
+        "ast": 5.0,
+        "gp": "31",
+        "rating_raw": 13.2
+      },
+      "rating": 13.85
+    },
+    {
+      "name": "Tibor Pleiss",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 9.6,
+        "reb": 4.3,
+        "ast": 0.6,
+        "stl": 0.4,
+        "blk": 0.5,
+        "gp": "40",
+        "rating_raw": 10.0
+      },
+      "bsl": {
+        "pts": 12.8,
+        "reb": 5.5,
+        "ast": 1.1,
+        "gp": "25",
+        "rating_raw": 16.0
+      },
+      "rating": 13.0
+    },
+    {
+      "name": "Rodrigue Beaubois",
+      "positions": [
+        "SG",
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 9.2,
+        "reb": 2.0,
+        "ast": 1.9,
+        "stl": 0.5,
+        "blk": 0.3,
+        "gp": "35",
+        "rating_raw": 7.0
+      },
+      "bsl": {
+        "pts": 14.1,
+        "reb": 1.8,
+        "ast": 2.2,
+        "gp": "23",
+        "rating_raw": 14.0
+      },
+      "rating": 10.5
+    },
+    {
+      "name": "Adrien Moerman",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 8.4,
+        "reb": 5.3,
+        "ast": 0.6,
+        "stl": 0.4,
+        "blk": 0.5,
+        "gp": "40",
+        "rating_raw": 9.4
+      },
+      "bsl": {
+        "pts": 9.0,
+        "reb": 7.1,
+        "ast": 1.4,
+        "gp": "20",
+        "rating_raw": 12.0
+      },
+      "rating": 10.7
+    },
+    {
+      "name": "Bryant Dunston",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 7.1,
+        "reb": 3.2,
+        "ast": 0.9,
+        "stl": 0.8,
+        "blk": 1.0,
+        "gp": "37",
+        "rating_raw": 7.9
+      },
+      "bsl": {
+        "pts": 8.0,
+        "reb": 4.3,
+        "ast": 1.3,
+        "gp": "24",
+        "rating_raw": 11.6
+      },
+      "rating": 9.75
+    },
+    {
+      "name": "Krunoslav Simon",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 6.9,
+        "reb": 2.8,
+        "ast": 2.6,
+        "stl": 0.5,
+        "blk": 0.1,
+        "gp": "27",
+        "rating_raw": 6.5
+      },
+      "bsl": {
+        "pts": 9.5,
+        "reb": 4.5,
+        "ast": 4.0,
+        "gp": "13",
+        "rating_raw": 13.5
+      },
+      "rating": 10.0
+    },
+    {
+      "name": "Elijah Bryant",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 5.3,
+        "reb": 2.9,
+        "ast": 1.2,
+        "stl": 0.6,
+        "blk": 0.1,
+        "gp": "36",
+        "rating_raw": 4.3
+      },
+      "bsl": {
+        "pts": 11.0,
+        "reb": 4.2,
+        "ast": 2.2,
+        "gp": "30",
+        "rating_raw": 13.3
+      },
+      "rating": 8.8
+    },
+    {
+      "name": "Filip Petrusev",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 5.2,
+        "reb": 1.6,
+        "ast": 0.3,
+        "stl": 0.1,
+        "blk": 0.2,
+        "gp": "22",
+        "rating_raw": 4.3
+      },
+      "bsl": {
+        "pts": 15.2,
+        "reb": 6.2,
+        "ast": 1.0,
+        "gp": "13",
+        "rating_raw": 19.2
+      },
+      "rating": 11.75
+    },
+    {
+      "name": "Chris Singleton",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 3.9,
+        "reb": 2.8,
+        "ast": 0.4,
+        "stl": 0.8,
+        "blk": 0.2,
+        "gp": "36",
+        "rating_raw": 2.9
+      },
+      "bsl": {
+        "pts": 7.8,
+        "reb": 4.1,
+        "ast": 1.2,
+        "gp": "21",
+        "rating_raw": 9.8
+      },
+      "rating": 6.35
+    },
+    {
+      "name": "James Anderson",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 3.1,
+        "reb": 2.8,
+        "ast": 0.5,
+        "stl": 0.5,
+        "blk": 0.1,
+        "gp": "28",
+        "rating_raw": 4.2
+      },
+      "bsl": {
+        "pts": 8.9,
+        "reb": 4.0,
+        "ast": 1.3,
+        "gp": "9",
+        "rating_raw": 12.3
+      },
+      "rating": 8.25
+    },
+    {
+      "name": "Bugrahan Tuncer",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 1.3,
+        "reb": 0.6,
+        "ast": 0.5,
+        "stl": 0.4,
+        "blk": 0.0,
+        "gp": "10",
+        "rating_raw": 0.8
+      },
+      "bsl": {
+        "pts": 8.7,
+        "reb": 2.1,
+        "ast": 4.0,
+        "gp": "41",
+        "rating_raw": 10.3
+      },
+      "rating": 5.55
+    },
+    {
+      "name": "Erten Gazi",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 0.5,
+        "reb": 0.4,
+        "ast": 0.4,
+        "stl": 0.1,
+        "blk": 0.0,
+        "gp": "14",
+        "rating_raw": -0.5
+      },
+      "bsl": {
+        "pts": 5.1,
+        "reb": 1.8,
+        "ast": 0.7,
+        "gp": "38",
+        "rating_raw": 4.6
+      },
+      "rating": 2.05
+    },
+    {
+      "name": "Doğuş Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.0,
+        "reb": 2.1,
+        "ast": 1.2,
+        "gp": "9",
+        "rating_raw": 4.8
+      },
+      "rating": 4.8
+    },
+    {
+      "name": "Egemen Güven",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.2,
+        "reb": 2.9,
+        "ast": 0.3,
+        "gp": "22",
+        "rating_raw": 6.7
+      },
+      "rating": 6.7
+    },
+    {
+      "name": "Ömercan İlyasoğlu",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.8,
+        "reb": 1.5,
+        "ast": 2.2,
+        "gp": "26",
+        "rating_raw": 4.4
+      },
+      "rating": 4.4
+    },
+    {
+      "name": "Yiğitcan Saybir",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.6,
+        "reb": 2.5,
+        "ast": 0.6,
+        "gp": "39",
+        "rating_raw": 6.0
+      },
+      "rating": 6.0
+    }
+  ],
+  "2022-23": [
+    {
+      "name": "Will Clyburn",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 16.7,
+        "reb": 5.7,
+        "ast": 2.1,
+        "stl": 1.0,
+        "blk": 0.2,
+        "gp": "34",
+        "rating_raw": 14.0
+      },
+      "bsl": {
+        "pts": 14.5,
+        "reb": 5.9,
+        "ast": 2.5,
+        "gp": "34",
+        "rating_raw": 16.5
+      },
+      "rating": 15.25
+    },
+    {
+      "name": "Vasilije Micic",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 16.0,
+        "reb": 3.2,
+        "ast": 5.4,
+        "stl": 0.9,
+        "blk": 0.1,
+        "gp": "31",
+        "rating_raw": 13.2
+      },
+      "bsl": {
+        "pts": 16.3,
+        "reb": 1.9,
+        "ast": 4.6,
+        "gp": "31",
+        "rating_raw": 16.6
+      },
+      "rating": 14.9
+    },
+    {
+      "name": "Shane Larkin",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 11.9,
+        "reb": 2.5,
+        "ast": 4.8,
+        "stl": 1.1,
+        "blk": 0.0,
+        "gp": "17",
+        "rating_raw": 10.9
+      },
+      "bsl": {
+        "pts": 11.3,
+        "reb": 2.7,
+        "ast": 4.5,
+        "gp": "28",
+        "rating_raw": 13.4
+      },
+      "rating": 12.15
+    },
+    {
+      "name": "Rodrigue Beaubois",
+      "positions": [
+        "SG",
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 10.8,
+        "reb": 2.1,
+        "ast": 2.0,
+        "stl": 1.1,
+        "blk": 0.8,
+        "gp": "30",
+        "rating_raw": 10.1
+      },
+      "bsl": {
+        "pts": 14.6,
+        "reb": 1.6,
+        "ast": 2.0,
+        "gp": "24",
+        "rating_raw": 14.5
+      },
+      "rating": 12.3
+    },
+    {
+      "name": "Elijah Bryant",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 8.5,
+        "reb": 4.1,
+        "ast": 1.5,
+        "stl": 0.7,
+        "blk": 0.4,
+        "gp": "34",
+        "rating_raw": 8.5
+      },
+      "bsl": {
+        "pts": 14.0,
+        "reb": 4.8,
+        "ast": 3.4,
+        "gp": "26",
+        "rating_raw": 16.5
+      },
+      "rating": 12.5
+    },
+    {
+      "name": "Ante Zizic",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 7.7,
+        "reb": 3.7,
+        "ast": 0.7,
+        "stl": 0.4,
+        "blk": 0.3,
+        "gp": "31",
+        "rating_raw": 8.7
+      },
+      "bsl": {
+        "pts": 12.2,
+        "reb": 7.1,
+        "ast": 1.4,
+        "gp": "19",
+        "rating_raw": 17.7
+      },
+      "rating": 13.2
+    },
+    {
+      "name": "Amath M'Baye",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 7.0,
+        "reb": 2.7,
+        "ast": 0.5,
+        "stl": 0.3,
+        "blk": 0.3,
+        "gp": "33",
+        "rating_raw": 6.0
+      },
+      "bsl": {
+        "pts": 12.1,
+        "reb": 5.3,
+        "ast": 1.2,
+        "gp": "25",
+        "rating_raw": 14.1
+      },
+      "rating": 10.05
+    },
+    {
+      "name": "Tibor Pleiss",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 6.7,
+        "reb": 2.9,
+        "ast": 0.5,
+        "stl": 0.2,
+        "blk": 0.3,
+        "gp": "33",
+        "rating_raw": 6.1
+      },
+      "bsl": {
+        "pts": 9.3,
+        "reb": 6.3,
+        "ast": 0.7,
+        "gp": "16",
+        "rating_raw": 11.6
+      },
+      "rating": 8.85
+    },
+    {
+      "name": "Bryant Dunston",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 4.3,
+        "reb": 2.9,
+        "ast": 0.6,
+        "stl": 0.8,
+        "blk": 0.4,
+        "gp": "29",
+        "rating_raw": 5.2
+      },
+      "bsl": {
+        "pts": 9.1,
+        "reb": 5.5,
+        "ast": 0.7,
+        "gp": "13",
+        "rating_raw": 13.0
+      },
+      "rating": 9.1
+    },
+    {
+      "name": "Isaiah Taylor",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 2.9,
+        "reb": 0.5,
+        "ast": 0.5,
+        "stl": 0.5,
+        "blk": 0.0,
+        "gp": "10",
+        "rating_raw": 1.2
+      },
+      "bsl": null,
+      "rating": 1.2
+    },
+    {
+      "name": "Achille Polonara",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 2.8,
+        "reb": 2.2,
+        "ast": 0.3,
+        "stl": 0.1,
+        "blk": 0.5,
+        "gp": "15",
+        "rating_raw": 3.6
+      },
+      "bsl": null,
+      "rating": 3.6
+    },
+    {
+      "name": "Chris Singleton",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 2.7,
+        "reb": 1.8,
+        "ast": 0.7,
+        "stl": 0.5,
+        "blk": 0.1,
+        "gp": "13",
+        "rating_raw": 2.1
+      },
+      "bsl": {
+        "pts": 2.0,
+        "reb": 2.0,
+        "ast": 2.0,
+        "gp": "1",
+        "rating_raw": 0.0
+      },
+      "rating": 1.05
+    },
+    {
+      "name": "Erten Gazi",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 0.7,
+        "reb": 0.7,
+        "ast": 0.1,
+        "stl": 0.3,
+        "blk": 0.0,
+        "gp": "11",
+        "rating_raw": -0.2
+      },
+      "bsl": {
+        "pts": 2.5,
+        "reb": 0.5,
+        "ast": 0.4,
+        "gp": "28",
+        "rating_raw": 2.1
+      },
+      "rating": 0.95
+    },
+    {
+      "name": "Buğrahan Tuncer",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.6,
+        "reb": 2.0,
+        "ast": 2.6,
+        "gp": "31",
+        "rating_raw": 7.5
+      },
+      "rating": 7.5
+    },
+    {
+      "name": "Doğuş Balbay",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.4,
+        "reb": 0.6,
+        "ast": 0.6,
+        "gp": "14",
+        "rating_raw": 1.0
+      },
+      "rating": 1.0
+    },
+    {
+      "name": "Egehan Arna",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.2,
+        "reb": 2.2,
+        "ast": 0.7,
+        "gp": "32",
+        "rating_raw": 4.3
+      },
+      "rating": 4.3
+    },
+    {
+      "name": "Furkan Haltalı",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.4,
+        "reb": 1.9,
+        "ast": 0.5,
+        "gp": "26",
+        "rating_raw": 4.6
+      },
+      "rating": 4.6
+    },
+    {
+      "name": "Karahan Tuan Efeoğlu",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.4,
+        "reb": 0.6,
+        "ast": 0.4,
+        "gp": "14",
+        "rating_raw": 1.6
+      },
+      "rating": 1.6
+    }
+  ],
+  "2023-24": [
+    {
+      "name": "Shane Larkin",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 16.8,
+        "reb": 2.8,
+        "ast": 5.1,
+        "stl": 1.1,
+        "blk": 0.1,
+        "gp": "35",
+        "rating_raw": 16.0
+      },
+      "bsl": {
+        "pts": 16.8,
+        "reb": 3.1,
+        "ast": 6.7,
+        "gp": "15",
+        "rating_raw": 19.5
+      },
+      "rating": 17.75
+    },
+    {
+      "name": "Will Clyburn",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 13.3,
+        "reb": 4.6,
+        "ast": 2.0,
+        "stl": 1.0,
+        "blk": 0.2,
+        "gp": "25",
+        "rating_raw": 10.9
+      },
+      "bsl": {
+        "pts": 10.8,
+        "reb": 5.1,
+        "ast": 3.2,
+        "gp": "19",
+        "rating_raw": 12.0
+      },
+      "rating": 11.45
+    },
+    {
+      "name": "Darius Thompson",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 10.9,
+        "reb": 2.0,
+        "ast": 2.8,
+        "stl": 1.0,
+        "blk": 0.5,
+        "gp": "35",
+        "rating_raw": 7.8
+      },
+      "bsl": {
+        "pts": 12.7,
+        "reb": 2.6,
+        "ast": 4.5,
+        "gp": "25",
+        "rating_raw": 14.8
+      },
+      "rating": 11.3
+    },
+    {
+      "name": "Rodrigue Beaubois",
+      "positions": [
+        "SG",
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 10.1,
+        "reb": 2.2,
+        "ast": 2.3,
+        "stl": 0.7,
+        "blk": 0.4,
+        "gp": "31",
+        "rating_raw": 8.4
+      },
+      "bsl": {
+        "pts": 14.4,
+        "reb": 2.7,
+        "ast": 3.1,
+        "gp": "27",
+        "rating_raw": 14.8
+      },
+      "rating": 11.6
+    },
+    {
+      "name": "Elijah Bryant",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 9.7,
+        "reb": 3.9,
+        "ast": 2.7,
+        "stl": 0.7,
+        "blk": 0.3,
+        "gp": "24",
+        "rating_raw": 9.3
+      },
+      "bsl": {
+        "pts": 13.4,
+        "reb": 5.2,
+        "ast": 4.4,
+        "gp": "18",
+        "rating_raw": 16.2
+      },
+      "rating": 12.75
+    },
+    {
+      "name": "Mike Daum",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 9.4,
+        "reb": 2.2,
+        "ast": 0.3,
+        "stl": 0.5,
+        "blk": 0.2,
+        "gp": "11",
+        "rating_raw": 7.0
+      },
+      "bsl": {
+        "pts": 8.0,
+        "reb": 4.7,
+        "ast": 0.9,
+        "gp": "9",
+        "rating_raw": 9.7
+      },
+      "rating": 8.35
+    },
+    {
+      "name": "Tibor Pleiss",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 7.8,
+        "reb": 3.6,
+        "ast": 0.7,
+        "stl": 0.3,
+        "blk": 0.6,
+        "gp": "23",
+        "rating_raw": 7.5
+      },
+      "bsl": {
+        "pts": 14.5,
+        "reb": 5.5,
+        "ast": 0.0,
+        "gp": "2",
+        "rating_raw": 16.5
+      },
+      "rating": 12.0
+    },
+    {
+      "name": "Derek Willis",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 7.3,
+        "reb": 3.7,
+        "ast": 0.8,
+        "stl": 0.6,
+        "blk": 0.3,
+        "gp": "26",
+        "rating_raw": 8.0
+      },
+      "bsl": {
+        "pts": 10.4,
+        "reb": 4.7,
+        "ast": 1.2,
+        "gp": "25",
+        "rating_raw": 14.1
+      },
+      "rating": 11.05
+    },
+    {
+      "name": "Tyrique Jones",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 7.2,
+        "reb": 4.3,
+        "ast": 1.0,
+        "stl": 0.8,
+        "blk": 0.4,
+        "gp": "34",
+        "rating_raw": 7.9
+      },
+      "bsl": {
+        "pts": 10.5,
+        "reb": 6.4,
+        "ast": 1.7,
+        "gp": "16",
+        "rating_raw": 14.2
+      },
+      "rating": 11.05
+    },
+    {
+      "name": "Daniel Oturu",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 7.2,
+        "reb": 3.9,
+        "ast": 0.5,
+        "stl": 0.3,
+        "blk": 0.9,
+        "gp": "22",
+        "rating_raw": 7.3
+      },
+      "bsl": {
+        "pts": 15.0,
+        "reb": 5.8,
+        "ast": 1.5,
+        "gp": "21",
+        "rating_raw": 17.2
+      },
+      "rating": 12.25
+    },
+    {
+      "name": "Ante Zizic",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 6.5,
+        "reb": 2.8,
+        "ast": 0.7,
+        "stl": 0.5,
+        "blk": 0.2,
+        "gp": "13",
+        "rating_raw": 7.4
+      },
+      "bsl": null,
+      "rating": 7.4
+    },
+    {
+      "name": "Erxhan Osmani",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": {
+        "pts": 4.4,
+        "reb": 2.6,
+        "ast": 0.6,
+        "stl": 0.6,
+        "blk": 0.1,
+        "gp": "23",
+        "rating_raw": 3.9
+      },
+      "bsl": null,
+      "rating": 3.9
+    },
+    {
+      "name": "Justus Hollatz",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 2.3,
+        "reb": 1.2,
+        "ast": 1.3,
+        "stl": 0.4,
+        "blk": 0.0,
+        "gp": "24",
+        "rating_raw": 2.3
+      },
+      "bsl": {
+        "pts": 7.1,
+        "reb": 2.5,
+        "ast": 3.0,
+        "gp": "13",
+        "rating_raw": 9.4
+      },
+      "rating": 5.85
+    },
+    {
+      "name": "Erkan Yilmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 1.5,
+        "reb": 1.9,
+        "ast": 1.2,
+        "stl": 0.7,
+        "blk": 0.3,
+        "gp": "13",
+        "rating_raw": 1.8
+      },
+      "bsl": {
+        "pts": 5.8,
+        "reb": 3.8,
+        "ast": 2.5,
+        "gp": "28",
+        "rating_raw": 9.6
+      },
+      "rating": 5.7
+    },
+    {
+      "name": "Erten Gazi",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 0.9,
+        "reb": 0.5,
+        "ast": 0.4,
+        "stl": 0.1,
+        "blk": 0.0,
+        "gp": "10",
+        "rating_raw": -1.7
+      },
+      "bsl": {
+        "pts": 8.3,
+        "reb": 1.6,
+        "ast": 0.8,
+        "gp": "16",
+        "rating_raw": 7.6
+      },
+      "rating": 2.95
+    },
+    {
+      "name": "Burak Can Yıldızlı",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.0,
+        "reb": 1.4,
+        "ast": 0.2,
+        "gp": "27",
+        "rating_raw": 2.6
+      },
+      "rating": 2.6
+    },
+    {
+      "name": "Doğuş Özdemiroğlu",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 6.8,
+        "reb": 2.1,
+        "ast": 1.9,
+        "gp": "15",
+        "rating_raw": 6.1
+      },
+      "rating": 6.1
+    },
+    {
+      "name": "Ercan Osmani",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 8.0,
+        "reb": 3.8,
+        "ast": 0.6,
+        "gp": "38",
+        "rating_raw": 9.0
+      },
+      "rating": 9.0
+    },
+    {
+      "name": "Mehmet Efe Demirel",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.5,
+        "reb": 1.5,
+        "ast": 0.0,
+        "gp": "2",
+        "rating_raw": 0.0
+      },
+      "rating": 0.0
+    },
+    {
+      "name": "Melih Tunca",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 3.4,
+        "reb": 0.7,
+        "ast": 1.2,
+        "gp": "24",
+        "rating_raw": 2.5
+      },
+      "rating": 2.5
+    },
+    {
+      "name": "Rıdvan Öncel",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.7,
+        "reb": 1.9,
+        "ast": 2.0,
+        "gp": "26",
+        "rating_raw": 5.6
+      },
+      "rating": 5.6
+    },
+    {
+      "name": "Salih Altuntaş",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.4,
+        "reb": 1.3,
+        "ast": 0.1,
+        "gp": "19",
+        "rating_raw": 2.1
+      },
+      "rating": 2.1
+    }
+  ],
+  "2024-25": [
+    {
+      "name": "Elijah Bryant",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 13.8,
+        "reb": 4.2,
+        "ast": 3.1,
+        "stl": 1.2,
+        "blk": 0.2,
+        "gp": "38",
+        "rating_raw": 11.2
+      },
+      "bsl": {
+        "pts": 10.6,
+        "reb": 2.2,
+        "ast": 3.0,
+        "gp": "29",
+        "rating_raw": 11.0
+      },
+      "rating": 11.1
+    },
+    {
+      "name": "Shane Larkin",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 11.7,
+        "reb": 2.6,
+        "ast": 4.5,
+        "stl": 1.2,
+        "blk": 0.0,
+        "gp": "28",
+        "rating_raw": 11.9
+      },
+      "bsl": {
+        "pts": 12.5,
+        "reb": 2.8,
+        "ast": 5.3,
+        "gp": "20",
+        "rating_raw": 14.7
+      },
+      "rating": 13.3
+    },
+    {
+      "name": "Darius Thompson",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 9.5,
+        "reb": 2.0,
+        "ast": 4.5,
+        "stl": 0.9,
+        "blk": 0.4,
+        "gp": "39",
+        "rating_raw": 10.4
+      },
+      "bsl": {
+        "pts": 6.0,
+        "reb": 1.8,
+        "ast": 3.9,
+        "gp": "31",
+        "rating_raw": 9.1
+      },
+      "rating": 9.75
+    },
+    {
+      "name": "Vincent Poirier",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 9.5,
+        "reb": 5.0,
+        "ast": 1.2,
+        "stl": 0.6,
+        "blk": 1.3,
+        "gp": "39",
+        "rating_raw": 11.6
+      },
+      "bsl": {
+        "pts": 7.7,
+        "reb": 4.2,
+        "ast": 1.0,
+        "gp": "24",
+        "rating_raw": 11.5
+      },
+      "rating": 11.55
+    },
+    {
+      "name": "Rodrigue Beaubois",
+      "positions": [
+        "SG",
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 8.9,
+        "reb": 1.4,
+        "ast": 1.6,
+        "stl": 0.7,
+        "blk": 0.3,
+        "gp": "33",
+        "rating_raw": 7.2
+      },
+      "bsl": {
+        "pts": 11.2,
+        "reb": 2.0,
+        "ast": 2.1,
+        "gp": "13",
+        "rating_raw": 12.0
+      },
+      "rating": 9.6
+    },
+    {
+      "name": "Daniel Oturu",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 8.8,
+        "reb": 4.2,
+        "ast": 0.5,
+        "stl": 0.5,
+        "blk": 1.0,
+        "gp": "38",
+        "rating_raw": 9.4
+      },
+      "bsl": {
+        "pts": 14.4,
+        "reb": 5.3,
+        "ast": 1.5,
+        "gp": "32",
+        "rating_raw": 16.9
+      },
+      "rating": 13.15
+    },
+    {
+      "name": "P.J. Dozier",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 8.3,
+        "reb": 2.2,
+        "ast": 2.9,
+        "stl": 0.7,
+        "blk": 0.3,
+        "gp": "18",
+        "rating_raw": 7.3
+      },
+      "bsl": {
+        "pts": 8.0,
+        "reb": 3.2,
+        "ast": 4.0,
+        "gp": "18",
+        "rating_raw": 10.2
+      },
+      "rating": 8.75
+    },
+    {
+      "name": "Jordan Nwora",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 7.6,
+        "reb": 3.3,
+        "ast": 0.8,
+        "stl": 0.5,
+        "blk": 0.2,
+        "gp": "37",
+        "rating_raw": 6.0
+      },
+      "bsl": {
+        "pts": 14.9,
+        "reb": 3.7,
+        "ast": 1.5,
+        "gp": "29",
+        "rating_raw": 14.4
+      },
+      "rating": 10.2
+    },
+    {
+      "name": "Rolands Smits",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": {
+        "pts": 6.8,
+        "reb": 2.5,
+        "ast": 0.9,
+        "stl": 0.3,
+        "blk": 0.1,
+        "gp": "39",
+        "rating_raw": 5.2
+      },
+      "bsl": {
+        "pts": 8.6,
+        "reb": 3.3,
+        "ast": 1.4,
+        "gp": "18",
+        "rating_raw": 9.8
+      },
+      "rating": 7.5
+    },
+    {
+      "name": "Erxhan Osmani",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": {
+        "pts": 6.5,
+        "reb": 2.9,
+        "ast": 1.0,
+        "stl": 0.5,
+        "blk": 0.2,
+        "gp": "39",
+        "rating_raw": 5.9
+      },
+      "bsl": null,
+      "rating": 5.9
+    },
+    {
+      "name": "Derek Willis",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 3.1,
+        "reb": 2.4,
+        "ast": 0.4,
+        "stl": 0.4,
+        "blk": 0.3,
+        "gp": "27",
+        "rating_raw": 3.5
+      },
+      "bsl": {
+        "pts": 7.3,
+        "reb": 4.2,
+        "ast": 1.0,
+        "gp": "35",
+        "rating_raw": 10.3
+      },
+      "rating": 6.9
+    },
+    {
+      "name": "Stanley Johnson",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 1.9,
+        "reb": 1.1,
+        "ast": 0.3,
+        "stl": 0.4,
+        "blk": 0.1,
+        "gp": "17",
+        "rating_raw": 0.6
+      },
+      "bsl": null,
+      "rating": 0.6
+    },
+    {
+      "name": "Dogus Ozdemiroglu",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 1.9,
+        "reb": 0.5,
+        "ast": 0.5,
+        "stl": 0.4,
+        "blk": 0.0,
+        "gp": "10",
+        "rating_raw": -0.1
+      },
+      "bsl": {
+        "pts": 5.3,
+        "reb": 1.3,
+        "ast": 2.2,
+        "gp": "33",
+        "rating_raw": 5.5
+      },
+      "rating": 2.7
+    },
+    {
+      "name": "Erkan Yilmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 1.8,
+        "reb": 1.1,
+        "ast": 0.8,
+        "stl": 0.7,
+        "blk": 0.1,
+        "gp": "12",
+        "rating_raw": 3.0
+      },
+      "bsl": {
+        "pts": 3.4,
+        "reb": 3.0,
+        "ast": 2.1,
+        "gp": "36",
+        "rating_raw": 6.5
+      },
+      "rating": 4.75
+    },
+    {
+      "name": "Justus Hollatz",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 0.7,
+        "reb": 0.7,
+        "ast": 1.0,
+        "stl": 0.0,
+        "blk": 0.0,
+        "gp": "11",
+        "rating_raw": 0.4
+      },
+      "bsl": null,
+      "rating": 0.4
+    },
+    {
+      "name": "Burak Can Yıldızlı",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 2.2,
+        "reb": 1.3,
+        "ast": 0.4,
+        "gp": "20",
+        "rating_raw": 2.9
+      },
+      "rating": 2.9
+    },
+    {
+      "name": "Ercan Osmani",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.7,
+        "reb": 3.9,
+        "ast": 0.9,
+        "gp": "33",
+        "rating_raw": 9.0
+      },
+      "rating": 9.0
+    },
+    {
+      "name": "Rıdvan Öncel",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 4.0,
+        "reb": 1.3,
+        "ast": 1.5,
+        "gp": "29",
+        "rating_raw": 4.3
+      },
+      "rating": 4.3
+    },
+    {
+      "name": "Salih Altuntaş",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.0,
+        "reb": 0.0,
+        "ast": 0.0,
+        "gp": "1",
+        "rating_raw": -1.0
+      },
+      "rating": -1.0
+    }
+  ],
+  "2025-26": [
+    {
+      "name": "Shane Larkin",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 15.3,
+        "reb": 2.3,
+        "ast": 4.2,
+        "stl": 0.3,
+        "blk": 0.0,
+        "gp": "12",
+        "rating_raw": 12.4
+      },
+      "bsl": {
+        "pts": 13.9,
+        "reb": 2.7,
+        "ast": 5.5,
+        "gp": "13",
+        "rating_raw": 15.8
+      },
+      "rating": 14.1
+    },
+    {
+      "name": "Jordan Loyd",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 11.4,
+        "reb": 2.5,
+        "ast": 1.9,
+        "stl": 0.6,
+        "blk": 0.1,
+        "gp": "34",
+        "rating_raw": 7.4
+      },
+      "bsl": {
+        "pts": 12.9,
+        "reb": 2.9,
+        "ast": 1.9,
+        "gp": "31",
+        "rating_raw": 12.2
+      },
+      "rating": 9.8
+    },
+    {
+      "name": "Saben Lee",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 11.3,
+        "reb": 1.7,
+        "ast": 3.1,
+        "stl": 0.9,
+        "blk": 0.0,
+        "gp": "16",
+        "rating_raw": 9.1
+      },
+      "bsl": {
+        "pts": 11.6,
+        "reb": 2.4,
+        "ast": 4.4,
+        "gp": "10",
+        "rating_raw": 12.5
+      },
+      "rating": 10.8
+    },
+    {
+      "name": "Erxhan Osmani",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": {
+        "pts": 10.9,
+        "reb": 4.6,
+        "ast": 1.3,
+        "stl": 0.5,
+        "blk": 0.2,
+        "gp": "36",
+        "rating_raw": 8.8
+      },
+      "bsl": null,
+      "rating": 8.8
+    },
+    {
+      "name": "P.J. Dozier",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 9.7,
+        "reb": 2.4,
+        "ast": 2.5,
+        "stl": 1.0,
+        "blk": 0.2,
+        "gp": "26",
+        "rating_raw": 5.4
+      },
+      "bsl": {
+        "pts": 10.1,
+        "reb": 3.0,
+        "ast": 2.7,
+        "gp": "26",
+        "rating_raw": 10.9
+      },
+      "rating": 8.15
+    },
+    {
+      "name": "Isaia Cordinier",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 9.4,
+        "reb": 2.8,
+        "ast": 1.9,
+        "stl": 0.8,
+        "blk": 0.2,
+        "gp": "30",
+        "rating_raw": 6.4
+      },
+      "bsl": {
+        "pts": 10.8,
+        "reb": 3.5,
+        "ast": 3.2,
+        "gp": "13",
+        "rating_raw": 11.2
+      },
+      "rating": 8.8
+    },
+    {
+      "name": "Vincent Poirier",
+      "positions": [
+        "C"
+      ],
+      "euroleague": {
+        "pts": 8.0,
+        "reb": 4.6,
+        "ast": 1.2,
+        "stl": 0.5,
+        "blk": 0.6,
+        "gp": "14",
+        "rating_raw": 8.7
+      },
+      "bsl": {
+        "pts": 10.6,
+        "reb": 6.2,
+        "ast": 1.6,
+        "gp": "12",
+        "rating_raw": 16.2
+      },
+      "rating": 12.45
+    },
+    {
+      "name": "Nick Weiler-Babb",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 7.7,
+        "reb": 3.4,
+        "ast": 4.8,
+        "stl": 1.2,
+        "blk": 0.1,
+        "gp": "37",
+        "rating_raw": 8.8
+      },
+      "bsl": {
+        "pts": 4.9,
+        "reb": 3.5,
+        "ast": 3.9,
+        "gp": "28",
+        "rating_raw": 9.4
+      },
+      "rating": 9.1
+    },
+    {
+      "name": "Rolands Smits",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": {
+        "pts": 6.7,
+        "reb": 3.1,
+        "ast": 0.7,
+        "stl": 0.3,
+        "blk": 0.1,
+        "gp": "35",
+        "rating_raw": 4.5
+      },
+      "bsl": {
+        "pts": 4.7,
+        "reb": 3.3,
+        "ast": 0.6,
+        "gp": "27",
+        "rating_raw": 5.9
+      },
+      "rating": 5.2
+    },
+    {
+      "name": "Sehmus Hazer",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 5.6,
+        "reb": 0.9,
+        "ast": 1.1,
+        "stl": 0.4,
+        "blk": 0.0,
+        "gp": "33",
+        "rating_raw": 2.6
+      },
+      "bsl": {
+        "pts": 10.8,
+        "reb": 2.0,
+        "ast": 2.1,
+        "gp": "36",
+        "rating_raw": 10.1
+      },
+      "rating": 6.35
+    },
+    {
+      "name": "Cole Swider",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": {
+        "pts": 5.3,
+        "reb": 1.1,
+        "ast": 0.3,
+        "stl": 0.2,
+        "blk": 0.0,
+        "gp": "30",
+        "rating_raw": 3.7
+      },
+      "bsl": {
+        "pts": 7.6,
+        "reb": 1.6,
+        "ast": 0.5,
+        "gp": "21",
+        "rating_raw": 6.0
+      },
+      "rating": 4.85
+    },
+    {
+      "name": "Brice Dessert",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": {
+        "pts": 5.3,
+        "reb": 2.5,
+        "ast": 0.4,
+        "stl": 0.4,
+        "blk": 0.5,
+        "gp": "17",
+        "rating_raw": 5.1
+      },
+      "bsl": {
+        "pts": 8.5,
+        "reb": 3.2,
+        "ast": 0.5,
+        "gp": "26",
+        "rating_raw": 10.8
+      },
+      "rating": 7.95
+    },
+    {
+      "name": "Rodrigue Beaubois",
+      "positions": [
+        "SG",
+        "PG"
+      ],
+      "euroleague": {
+        "pts": 5.1,
+        "reb": 1.2,
+        "ast": 1.1,
+        "stl": 0.6,
+        "blk": 0.2,
+        "gp": "21",
+        "rating_raw": 4.5
+      },
+      "bsl": {
+        "pts": 5.0,
+        "reb": 1.2,
+        "ast": 1.0,
+        "gp": "19",
+        "rating_raw": 5.0
+      },
+      "rating": 4.75
+    },
+    {
+      "name": "Kai Jones",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": {
+        "pts": 3.6,
+        "reb": 3.5,
+        "ast": 0.5,
+        "stl": 0.5,
+        "blk": 1.3,
+        "gp": "36",
+        "rating_raw": 6.8
+      },
+      "bsl": {
+        "pts": 4.5,
+        "reb": 3.8,
+        "ast": 0.5,
+        "gp": "30",
+        "rating_raw": 9.5
+      },
+      "rating": 8.15
+    },
+    {
+      "name": "Erkan Yilmaz",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 1.2,
+        "reb": 1.6,
+        "ast": 0.5,
+        "stl": 0.6,
+        "blk": 0.2,
+        "gp": "23",
+        "rating_raw": 1.1
+      },
+      "bsl": {
+        "pts": 4.5,
+        "reb": 3.1,
+        "ast": 1.9,
+        "gp": "34",
+        "rating_raw": 8.0
+      },
+      "rating": 4.55
+    },
+    {
+      "name": "Burak Can Yıldızlı",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 1.2,
+        "reb": 0.5,
+        "ast": 0.5,
+        "gp": "6",
+        "rating_raw": 1.5
+      },
+      "rating": 1.5
+    },
+    {
+      "name": "David Mutaf",
+      "positions": [
+        "SG",
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 5.6,
+        "reb": 1.2,
+        "ast": 0.8,
+        "gp": "25",
+        "rating_raw": 4.4
+      },
+      "rating": 4.4
+    },
+    {
+      "name": "Ercan Osmani",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 9.9,
+        "reb": 4.7,
+        "ast": 1.8,
+        "gp": "34",
+        "rating_raw": 11.3
+      },
+      "rating": 11.3
+    },
+    {
+      "name": "Georgios Papagiannis",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 7.5,
+        "reb": 2.5,
+        "ast": 3.0,
+        "gp": "2",
+        "rating_raw": 9.5
+      },
+      "rating": 9.5
+    },
+    {
+      "name": "Rüzgar Fenemen",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": {
+        "pts": 0.0,
+        "reb": 0.0,
+        "ast": 0.0,
+        "gp": "5",
+        "rating_raw": -0.2
+      },
+      "rating": -0.2
+    }
+  ]
+}

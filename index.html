@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>38-0 — Anadolu Efes Legendary Lineup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanlines"></div>
+
+<nav class="topbar">
+  <button class="topbar-title" id="topbar-home-btn">38<span class="dash">–</span>0</button>
+  <button class="topbar-restart-btn" id="topbar-restart-btn">⟲ Restart</button>
+</nav>
+
+<main id="app">
+
+  <!-- CATEGORY SELECT (landing) -->
+  <section id="screen-category" class="screen active">
+    <header class="hero-inline">
+      <p class="eyebrow">ANADOLU EFES · LEGENDARY LINEUP</p>
+      <h1 class="scoreboard-title">38<span class="dash">–</span>0</h1>
+      <p class="hero-sub">Build a roster from the club's entire history since 1995. Combine EuroLeague and BSL legends, pick your coach, and see if you can go a full 38-game season without a loss.</p>
+    </header>
+
+    <h2 class="section-title">Choose how you build</h2>
+    <div class="mode-grid">
+      <button class="mode-card" data-budget="unlimited">
+        <span class="mode-name">Unlimited Budget</span>
+        <span class="mode-desc">Draft anyone, no cost. Pure basketball fantasy.</span>
+      </button>
+      <button class="mode-card" data-budget="cap">
+        <span class="mode-name">With Salary Cap</span>
+        <span class="mode-desc">100-credit budget. Every legend has a price — spend wisely.</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- MODE SELECT -->
+  <section id="screen-mode" class="screen">
+    <h2 class="section-title">Choose a mode</h2>
+    <div class="mode-grid">
+      <button class="mode-card" data-mode="5">
+        <span class="mode-num">05</span>
+        <span class="mode-name">Starting 5</span>
+        <span class="mode-desc">Starting five only. 1 re-spin allowed.</span>
+      </button>
+      <button class="mode-card" data-mode="12">
+        <span class="mode-num">12</span>
+        <span class="mode-name">12-Man Roster</span>
+        <span class="mode-desc">Build depth. 3 re-spins allowed.</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- DRAFT -->
+  <section id="screen-draft" class="screen">
+    <div class="draft-layout">
+
+      <div class="draft-left">
+        <div class="draft-header">
+          <div class="draft-progress" id="draft-progress"></div>
+          <div class="respin-counter" id="respin-counter"></div>
+        </div>
+        <div class="draft-slot-label" id="draft-slot-label"></div>
+
+        <div class="budget-panel" id="budget-panel" hidden>
+          <div class="budget-ring-wrap">
+            <svg class="budget-ring" width="88" height="88" viewBox="0 0 100 100">
+              <circle class="budget-ring-bg" cx="50" cy="50" r="42"></circle>
+              <circle class="budget-ring-fg" id="budget-ring-fg" cx="50" cy="50" r="42"></circle>
+            </svg>
+            <div class="budget-ring-label">
+              <span id="budget-remaining">100</span>
+              <span class="budget-ring-sub">left</span>
+            </div>
+          </div>
+          <div class="budget-panel-text">
+            <span class="budget-panel-title">Salary Cap</span>
+            <span class="budget-panel-sub">Credits remaining out of 100</span>
+          </div>
+        </div>
+
+        <div class="spin-panel" id="spin-panel">
+          <button id="spin-btn" class="btn-primary">🎰 SPIN</button>
+        </div>
+
+        <div class="spin-result" id="spin-result" hidden>
+          <div class="spin-result-chip season-chip" id="chip-season"></div>
+          <button id="respin-btn" class="btn-secondary btn-small">🔁 RE-SPIN</button>
+        </div>
+
+        <div class="pool-controls" id="pool-controls" hidden>
+          <div class="pos-filter-tabs" id="pos-filter-tabs"></div>
+          <input type="text" id="player-search" class="player-search" placeholder="Search player...">
+          <div class="sort-tabs" id="sort-tabs"></div>
+        </div>
+
+        <div class="player-pool" id="player-pool"></div>
+      </div>
+
+      <div class="draft-right">
+        <div class="court-wrap" id="court-wrap" hidden>
+          <svg class="court-svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet">
+            <rect x="4" y="4" width="392" height="492" fill="none" stroke="var(--amber-dim)" stroke-width="2"/>
+            <rect x="140" y="4" width="120" height="170" fill="none" stroke="var(--amber-dim)" stroke-width="2"/>
+            <circle cx="200" cy="174" r="60" fill="none" stroke="var(--amber-dim)" stroke-width="2"/>
+            <circle cx="200" cy="174" r="60" fill="none" stroke="var(--amber-dim)" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
+            <path d="M 30 4 L 30 230 A 170 170 0 0 0 370 230 L 370 4" fill="none" stroke="var(--amber-dim)" stroke-width="2"/>
+            <circle cx="200" cy="14" r="9" fill="none" stroke="var(--amber-dim)" stroke-width="2"/>
+            <line x1="4" y1="450" x2="396" y2="450" stroke="var(--amber-dim)" stroke-width="2"/>
+            <circle cx="200" cy="450" r="55" fill="none" stroke="var(--amber-dim)" stroke-width="1.5" opacity="0.6"/>
+          </svg>
+          <div class="court-slot" data-pos="C" style="top:14%; left:38%;"></div>
+          <div class="court-slot" data-pos="PF" style="top:20%; left:68%;"></div>
+          <div class="court-slot" data-pos="SF" style="top:58%; left:14%;"></div>
+          <div class="court-slot" data-pos="SG" style="top:58%; left:78%;"></div>
+          <div class="court-slot" data-pos="PG" style="top:74%; left:46%;"></div>
+        </div>
+
+        <div class="bench-wrap" id="bench-wrap" hidden>
+          <p class="bench-title">Bench</p>
+          <div class="bench-row" id="bench-backup-row">
+            <div class="bench-slot" data-tier="backup" data-pos="PG"></div>
+            <div class="bench-slot" data-tier="backup" data-pos="SG"></div>
+            <div class="bench-slot" data-tier="backup" data-pos="SF"></div>
+            <div class="bench-slot" data-tier="backup" data-pos="PF"></div>
+            <div class="bench-slot" data-tier="backup" data-pos="C"></div>
+          </div>
+          <p class="bench-title">Extra Bench (Any Position)</p>
+          <div class="bench-row" id="bench-free-row">
+            <div class="bench-slot bench-slot-free" data-tier="free" data-index="0"></div>
+            <div class="bench-slot bench-slot-free" data-tier="free" data-index="1"></div>
+          </div>
+        </div>
+
+        <p class="court-hint" id="court-hint">Drag a player onto an open spot, or tap a player then tap a lit spot.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ROSTER REVIEW -->
+  <section id="screen-roster" class="screen">
+    <h2 class="section-title">Your Roster</h2>
+    <div class="roster-grid" id="roster-grid"></div>
+    <button class="btn-primary" id="to-coach-btn">Pick Your Coach →</button>
+  </section>
+
+  <!-- COACH SELECT -->
+  <section id="screen-coach" class="screen">
+    <h2 class="section-title">Pick your head coach</h2>
+    <p class="section-sub">Spin the wheel, then take the coach from that season.</p>
+
+    <div class="draft-header">
+      <div class="respin-counter" id="coach-respin-counter"></div>
+    </div>
+
+    <div class="spin-panel" id="coach-spin-panel">
+      <button id="coach-spin-btn" class="btn-primary">🎰 SPIN</button>
+    </div>
+
+    <div class="spin-result" id="coach-spin-result" hidden>
+      <div class="spin-result-chip season-chip" id="chip-coach-season"></div>
+      <button id="coach-respin-btn" class="btn-secondary btn-small">🔁 RE-SPIN</button>
+    </div>
+
+    <div class="coach-grid" id="coach-grid"></div>
+    <button class="btn-primary" id="to-sim-btn" style="margin-top:28px;" disabled>Go to Simulation →</button>
+  </section>
+
+  <!-- SIMULATION -->
+  <section id="screen-sim" class="screen">
+    <h2 class="section-title">Your Roster Is Ready</h2>
+    <p class="coach-banner" id="sim-coach-banner" hidden></p>
+    <div class="roster-grid" id="sim-roster-grid"></div>
+    <button class="btn-primary" id="sim-btn">Simulate The Season</button>
+    <div class="scoreboard-track" id="scoreboard-track"></div>
+    <div class="final-record" id="final-record" hidden></div>
+    <button class="btn-secondary" id="restart-btn" hidden>Build Another Roster</button>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Data sources: RealGM (EuroLeague, 2001–2026), TBLStat.net (BSL, 1995–2026). An independent fan project — not affiliated with Anadolu Efes or EuroLeague.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

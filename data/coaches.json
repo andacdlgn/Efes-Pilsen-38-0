@@ -1,0 +1,154 @@
+[
+  {
+    "name": "Aydın Örs",
+    "seasons": [
+      "1997-98",
+      "1998-99",
+      "1999-00"
+    ],
+    "rating": 0.03,
+    "style": "balanced",
+    "stability": 0.02
+  },
+  {
+    "name": "Ergin Ataman",
+    "seasons": [
+      "1999-00",
+      "2008-09",
+      "2009-10",
+      "2017-18",
+      "2018-19",
+      "2019-20",
+      "2020-21",
+      "2021-22",
+      "2022-23"
+    ],
+    "rating": 0.08,
+    "style": "defense",
+    "stability": 0.05
+  },
+  {
+    "name": "Oktay Mahmuti",
+    "seasons": [
+      "2000-01",
+      "2001-02",
+      "2002-03",
+      "2003-04",
+      "2004-05",
+      "2005-06",
+      "2006-07",
+      "2012-13"
+    ],
+    "rating": 0.03,
+    "style": "balanced",
+    "stability": 0.02
+  },
+  {
+    "name": "Ekrem Memnun",
+    "seasons": [
+      "2007-08"
+    ],
+    "rating": 0.01,
+    "style": "balanced",
+    "stability": 0.01
+  },
+  {
+    "name": "Ufuk Sarıca",
+    "seasons": [
+      "2010-11"
+    ],
+    "rating": 0.01,
+    "style": "balanced",
+    "stability": 0.01
+  },
+  {
+    "name": "Ilias Zouros",
+    "seasons": [
+      "2011-12"
+    ],
+    "rating": 0.02,
+    "style": "offense",
+    "stability": 0.01
+  },
+  {
+    "name": "Vangelis Angelou",
+    "seasons": [
+      "2013-14"
+    ],
+    "rating": 0.02,
+    "style": "offense",
+    "stability": 0.01
+  },
+  {
+    "name": "Dušan Ivković",
+    "seasons": [
+      "2014-15"
+    ],
+    "rating": 0.04,
+    "style": "defense",
+    "stability": 0.04
+  },
+  {
+    "name": "Ahmet Çakı",
+    "seasons": [
+      "2015-16"
+    ],
+    "rating": 0.02,
+    "style": "balanced",
+    "stability": 0.02
+  },
+  {
+    "name": "Velimir Perasović",
+    "seasons": [
+      "2016-17"
+    ],
+    "rating": 0.03,
+    "style": "offense",
+    "stability": 0.02
+  },
+  {
+    "name": "Erdem Can",
+    "seasons": [
+      "2023-24"
+    ],
+    "rating": 0.02,
+    "style": "balanced",
+    "stability": 0.01
+  },
+  {
+    "name": "Tomislav Mijatović",
+    "seasons": [
+      "2023-24"
+    ],
+    "rating": 0.02,
+    "style": "balanced",
+    "stability": 0.02
+  },
+  {
+    "name": "Luca Banchi",
+    "seasons": [
+      "2024-25"
+    ],
+    "rating": 0.03,
+    "style": "offense",
+    "stability": 0.02
+  },
+  {
+    "name": "Igor Kokoškov",
+    "seasons": [
+      "2025-26"
+    ],
+    "rating": 0.03,
+    "style": "offense",
+    "stability": 0.02
+  },
+  {
+    "name": "Pablo Laso",
+    "seasons": [
+      "2025-26"
+    ],
+    "rating": 0.04,
+    "style": "balanced",
+    "stability": 0.03
+  }
+]
