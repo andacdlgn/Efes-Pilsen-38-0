@@ -60,6 +60,15 @@ body {
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
 }
+.topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red) 0 33%, #F4EFE3 33% 66%, var(--accent) 66% 100%);
+}
 .topbar-title {
   background: none;
   border: none;
@@ -226,6 +235,30 @@ main#app {
 }
 
 .spin-panel { text-align: center; margin: 32px 0; }
+
+.spin-anim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0;
+}
+.spin-ball {
+  width: 46px;
+  height: 46px;
+  color: var(--accent);
+  animation: spin-ball-rotate 0.5s linear infinite;
+}
+@keyframes spin-ball-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin-anim-label {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
 
 .btn-primary {
   background: linear-gradient(135deg, #22B8E6, var(--accent) 60%, #0087AD);
@@ -662,6 +695,23 @@ main#app {
 }
 
 .player-name { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+.card-top-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.player-head-row { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.player-head-row .player-name { margin-bottom: 0; }
+.player-avatar {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+}
 .player-meta { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
 .player-stats {
   display: flex;
@@ -792,6 +842,29 @@ main#app {
   margin-right: auto;
 }
 
+/* ---------- 38-0 celebration confetti ---------- */
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 8px;
+  height: 14px;
+  opacity: 0.9;
+  animation-name: confetti-fall;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+@keyframes confetti-fall {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--drift), 105vh) rotate(600deg); opacity: 0.4; }
+}
+
 .site-footer {
   position: relative;
   z-index: 1;
@@ -800,4 +873,35 @@ main#app {
   color: var(--muted);
   font-size: 12px;
   border-top: 1px solid var(--line);
+}
+
+/* ---------- Mobile polish ---------- */
+@media (max-width: 480px) {
+  .topbar { padding: 10px 14px; }
+  .topbar-title { font-size: 20px; gap: 6px; }
+  .topbar-ball { width: 18px; height: 18px; }
+  .topbar-restart-btn { padding: 6px 10px; font-size: 12px; }
+
+  main#app { padding: 28px 14px 56px; }
+
+  .hero-inline { padding: 24px 0 28px; }
+  .hero-ball-watermark { width: 340px; height: 340px; }
+  .hero-sub { font-size: 14px; }
+
+  .section-title { font-size: 28px; }
+
+  .court-slot { width: 62px; height: 62px; }
+  .court-slot::before { font-size: 13px; }
+  .court-slot-name { font-size: 9px; }
+
+  .bench-slot { width: 68px; height: 56px; }
+  .bench-slot::before { font-size: 10px; }
+
+  .pos-tab, .player-search { padding: 8px 12px; font-size: 13px; }
+  .pos-tab { min-height: 34px; }
+
+  .player-pool, .coach-grid { grid-template-columns: 1fr; }
+  .roster-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+
+  .final-record .big-record { font-size: 15vw; }
 }

@@ -100,6 +100,14 @@
           <button id="spin-btn" class="btn-primary">🎰 SPIN</button>
         </div>
 
+        <div class="spin-anim" id="spin-anim" hidden>
+          <svg class="spin-ball" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M2 12h20M12 2v20M4.5 4.5c3 3 3 12.5 0 15M19.5 4.5c-3 3-3 12.5 0 15" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          <span class="spin-anim-label" id="spin-anim-label">2019-20</span>
+        </div>
+
         <div class="spin-result" id="spin-result" hidden>
           <div class="spin-result-chip season-chip" id="chip-season"></div>
           <button id="respin-btn" class="btn-secondary btn-small">🔁 RE-SPIN</button>
@@ -200,6 +208,14 @@
 
     <div class="spin-panel" id="coach-spin-panel">
       <button id="coach-spin-btn" class="btn-primary">🎰 SPIN</button>
+    </div>
+
+    <div class="spin-anim" id="coach-spin-anim" hidden>
+      <svg class="spin-ball" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M2 12h20M12 2v20M4.5 4.5c3 3 3 12.5 0 15M19.5 4.5c-3 3-3 12.5 0 15" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <span class="spin-anim-label" id="coach-spin-anim-label">2021-22</span>
     </div>
 
     <div class="spin-result" id="coach-spin-result" hidden>

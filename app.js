@@ -39,13 +39,20 @@ const state = {
 // research-grounded PIR-like index) via a single power-law — every player has
 // ONE true price regardless of mode. What changes between modes is the total
 // budget, which scales with roster size (12 players to fill needs more total
-// credits than 5), not the per-player price itself. This keeps pricing
-// consistent: a given player always costs the same "true value."
+// credits than 5), not the per-player price itself.
+//
+// Note on tuning: a player who always grabs the single best affordable option
+// will always spend right up to the edge of what's safe (that's inherent to
+// any real salary-cap system, fantasy sports included — it's not a bug). What
+// this curve controls is how far the budget stretches for that strategy: a
+// flatter exponent makes elite players cost proportionally less, so even a
+// value-maximizing draft leaves the roster meaningfully stronger, and the
+// reserve floor is generous enough that forced late picks are never scrubs.
 // ============================================================
-const PRICE_EXPONENT = 1.25;
-const PRICE_SCALE = 1.45;
-const BUDGET_TOTAL = { 5: 100, 12: 235 };
-const RESERVE_PER_SLOT = { 5: 8.5, 12: 4.5 };
+const PRICE_EXPONENT = 1.15;
+const PRICE_SCALE = 1.3;
+const BUDGET_TOTAL = { 5: 120, 12: 280 };
+const RESERVE_PER_SLOT = { 5: 9, 12: 5 };
 
 function getPlayerPrice(player) {
   const r = Math.max(player.rating || 0, 1);
@@ -210,6 +217,7 @@ function renderDraftStep() {
   updateCourtHint();
 
   document.getElementById("spin-result").hidden = true;
+  document.getElementById("spin-anim").hidden = true;
   document.getElementById("pool-controls").hidden = true;
   document.getElementById("player-pool").innerHTML = "";
   document.getElementById("spin-panel").style.display = "block";
@@ -392,24 +400,43 @@ function renderDraftStep_labelOnly() {
 function doSpin() {
   const seasons = eligibleSeasons();
   const season = pickRandom(seasons);
-  state.currentSpinSeason = season;
-  state.currentSpinPool = poolForSeason(season);
-  state.armedPlayer = null;
-  poolFilterPosition = "All";
-  poolSearchQuery = "";
-  poolSortStat = "pts";
 
-  document.getElementById("chip-season").textContent = season;
-  document.getElementById("spin-result").hidden = false;
   document.getElementById("spin-panel").style.display = "none";
-  document.getElementById("pool-controls").hidden = false;
-  updateRespinCounter();
-  updateCourtHint();
+  document.getElementById("spin-result").hidden = true;
+  document.getElementById("pool-controls").hidden = true;
+  document.getElementById("player-pool").innerHTML = "";
 
-  renderFilterTabs();
-  renderSortTabs();
-  document.getElementById("player-search").value = "";
-  renderPlayerPool(state.currentSpinPool);
+  const animEl = document.getElementById("spin-anim");
+  const labelEl = document.getElementById("spin-anim-label");
+  animEl.hidden = false;
+  let shuffleCount = 0;
+  const shuffleInterval = setInterval(() => {
+    labelEl.textContent = pickRandom(seasons);
+    shuffleCount++;
+  }, 70);
+
+  setTimeout(() => {
+    clearInterval(shuffleInterval);
+    animEl.hidden = true;
+
+    state.currentSpinSeason = season;
+    state.currentSpinPool = poolForSeason(season);
+    state.armedPlayer = null;
+    poolFilterPosition = "All";
+    poolSearchQuery = "";
+    poolSortStat = "pts";
+
+    document.getElementById("chip-season").textContent = season;
+    document.getElementById("spin-result").hidden = false;
+    document.getElementById("pool-controls").hidden = false;
+    updateRespinCounter();
+    updateCourtHint();
+
+    renderFilterTabs();
+    renderSortTabs();
+    document.getElementById("player-search").value = "";
+    renderPlayerPool(state.currentSpinPool);
+  }, 650);
 }
 
 function respin() {
@@ -477,6 +504,30 @@ function filteredPool(pool) {
 }
 
 
+// A small "jersey" style monogram badge — since we don't have real photos or
+// jersey numbers for every historical player, a deterministic colored initials
+// badge gives each card a visual anchor without inventing fake data.
+const AVATAR_COLORS = ["#00A4D2", "#D73430", "#3F9463", "#8A6A2E", "#5B7FBF", "#B85C3C"];
+
+function initialsOf(name) {
+  const parts = name.replace(/['.]/g, "").trim().split(/\s+/);
+  const first = parts[0]?.[0] || "";
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : "";
+  return (first + last).toUpperCase();
+}
+
+function hashColor(name) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
+  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+}
+
+function avatarHtml(name) {
+  const initials = initialsOf(name);
+  const color = hashColor(name);
+  return `<div class="player-avatar" style="background:${color}">${initials}</div>`;
+}
+
 function buildStatBlocksHtml(p) {
   let html = "";
   if (p.euroleague) {
@@ -539,8 +590,13 @@ function renderPlayerPool(pool) {
         : "";
 
     card.innerHTML = `
-      <div class="position-badge">${p.positions.join(" / ")}</div>${priceTagHtml}
-      <div class="player-name">${p.name}</div>
+      <div class="card-top-row">
+        <div class="position-badge">${p.positions.join(" / ")}</div>${priceTagHtml}
+      </div>
+      <div class="player-head-row">
+        ${avatarHtml(p.name)}
+        <div class="player-name">${p.name}</div>
+      </div>
       <div class="player-meta">${state.currentSpinSeason}${isConstrainedPhase() ? ` · <span class="open-line">${openMatches.length ? "OPEN: " + openMatches.join(" / ") : "position filled"}</span>` : ""}</div>
       ${blocksHtml}
     `;
@@ -626,7 +682,10 @@ function renderRosterCards(containerId, coachBannerId) {
     card.className = "roster-card";
     card.innerHTML = `
       <div class="roster-slot-tag">${tag}</div>
-      <div class="player-name">${p.name}</div>
+      <div class="player-head-row">
+        ${avatarHtml(p.name)}
+        <div class="player-name">${p.name}</div>
+      </div>
       <div class="player-meta">${p.season}</div>
       ${buildStatBlocksHtml(p)}
     `;
@@ -660,6 +719,7 @@ function coachEligibleSeasons() {
 
 function renderCoachStep() {
   document.getElementById("coach-spin-result").hidden = true;
+  document.getElementById("coach-spin-anim").hidden = true;
   document.getElementById("coach-grid").innerHTML = "";
   document.getElementById("coach-spin-panel").style.display = "block";
   updateCoachRespinCounter();
@@ -674,16 +734,31 @@ function updateCoachRespinCounter() {
 function doCoachSpin() {
   const seasons = coachEligibleSeasons();
   const season = pickRandom(seasons);
-  state.currentCoachSeason = season;
-  const names = state.coachBySeason[season];
-  state.currentCoachOptions = state.coaches.filter((c) => names.includes(c.name));
 
-  document.getElementById("chip-coach-season").textContent = season;
-  document.getElementById("coach-spin-result").hidden = false;
   document.getElementById("coach-spin-panel").style.display = "none";
-  updateCoachRespinCounter();
+  document.getElementById("coach-spin-result").hidden = true;
 
-  renderCoachOptions();
+  const animEl = document.getElementById("coach-spin-anim");
+  const labelEl = document.getElementById("coach-spin-anim-label");
+  animEl.hidden = false;
+  const shuffleInterval = setInterval(() => {
+    labelEl.textContent = pickRandom(seasons);
+  }, 70);
+
+  setTimeout(() => {
+    clearInterval(shuffleInterval);
+    animEl.hidden = true;
+
+    state.currentCoachSeason = season;
+    const names = state.coachBySeason[season];
+    state.currentCoachOptions = state.coaches.filter((c) => names.includes(c.name));
+
+    document.getElementById("chip-coach-season").textContent = season;
+    document.getElementById("coach-spin-result").hidden = false;
+    updateCoachRespinCounter();
+
+    renderCoachOptions();
+  }, 650);
 }
 
 function coachRespin() {
@@ -840,6 +915,26 @@ function verdictText(wins, losses) {
   return "The roster wasn't coherent enough — depth and coach fit dragged the team down.";
 }
 
+function triggerConfetti() {
+  const colors = ["#00A4D2", "#D73430", "#F4EFE3", "#3F9463"];
+  const container = document.createElement("div");
+  container.className = "confetti-layer";
+  document.body.appendChild(container);
+
+  for (let i = 0; i < 60; i++) {
+    const piece = document.createElement("div");
+    piece.className = "confetti-piece";
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDuration = 2.2 + Math.random() * 1.6 + "s";
+    piece.style.animationDelay = Math.random() * 0.4 + "s";
+    piece.style.setProperty("--drift", (Math.random() * 160 - 80) + "px");
+    container.appendChild(piece);
+  }
+
+  setTimeout(() => container.remove(), 4200);
+}
+
 // ============================================================
 // Wire up events
 // ============================================================
@@ -898,6 +993,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="verdict">${verdictText(wins, losses)}</div>
       `;
       document.getElementById("restart-btn").hidden = false;
+      if (losses === 0) triggerConfetti();
     });
   });
 
