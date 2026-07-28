@@ -6,11 +6,12 @@
 <title>38-0 — Anadolu Efes Legendary Lineup</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="arena-bg"></div>
 <div class="scanlines"></div>
 
 <nav class="topbar">
@@ -49,6 +50,17 @@
         <span class="mode-desc">A fixed budget. Every legend has a price — spend wisely.</span>
       </button>
     </div>
+
+    <h2 class="section-title" style="margin-top:36px;">Special challenges</h2>
+    <div class="mode-grid challenge-grid" id="challenge-grid"></div>
+
+    <div class="achievements-block">
+      <h2 class="section-title">Achievements</h2>
+      <p class="section-sub">Saved on this device — no account needed.</p>
+      <div class="achv-grid" id="achv-grid"></div>
+    </div>
+
+    <div class="version-badge" id="version-badge"></div>
   </section>
 
   <!-- MODE SELECT -->
@@ -236,7 +248,28 @@
     <div class="live-record" id="live-record" hidden></div>
     <div class="scoreboard-track" id="scoreboard-track"></div>
     <div class="final-record" id="final-record" hidden></div>
-    <button class="btn-secondary" id="restart-btn" hidden>Build Another Roster</button>
+    <div class="season-narrative" id="season-narrative" hidden></div>
+
+    <div class="playoff-block" id="playoff-block" hidden>
+      <h3 class="section-title" style="font-size:26px;">Playoffs</h3>
+      <div class="playoff-rounds" id="playoff-rounds"></div>
+      <div class="playoff-verdict" id="playoff-verdict"></div>
+    </div>
+
+    <div class="result-actions" id="result-actions" hidden>
+      <button class="btn-primary" id="share-btn">📸 Share Result Card</button>
+      <button class="btn-secondary" id="restart-btn">Build Another Roster</button>
+    </div>
+
+    <div class="share-modal" id="share-modal" hidden>
+      <div class="share-modal-inner">
+        <canvas id="share-canvas" width="1080" height="1350"></canvas>
+        <div class="share-modal-actions">
+          <a class="btn-primary" id="share-download" download="efes-38-0.png">Download</a>
+          <button class="btn-secondary" id="share-close">Close</button>
+        </div>
+      </div>
+    </div>
   </section>
 
 </main>

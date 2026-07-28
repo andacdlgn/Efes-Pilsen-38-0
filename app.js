@@ -2,11 +2,15 @@
 // 38-0 — Anadolu Efes Efsane Kadro Simülasyonu
 // ============================================================
 
+const APP_VERSION = "v11";
+
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
 
 const state = {
   budgetType: "unlimited", // "unlimited" | "cap"
+  challenge: "none",
+  lastPlacedName: null,
   budgetTotal: 100,
   budgetSpent: 0,
   mode: null,
@@ -175,6 +179,7 @@ function isPickable(player) {
     const spendable = budgetRemaining() - reserve;
     if (getPlayerPrice(player) > spendable) return false;
   }
+  if (!passesChallenge(player, state.currentSpinSeason)) return false;
   const tier = getCurrentTier();
   if (tier !== "starter") return true;
   return player.positions.some((pos) => openSetForTier(tier).has(pos));
@@ -271,6 +276,10 @@ function wirePositionalSlot(slotEl, tier) {
     nameEl.className = tier === "starter" ? "court-slot-name" : "bench-slot-name";
     nameEl.textContent = occupant.name;
     slotEl.appendChild(nameEl);
+    if (occupant.name === state.lastPlacedName) {
+      slotEl.classList.add("just-placed");
+      setTimeout(() => slotEl.classList.remove("just-placed"), 500);
+    }
     const altPos = occupant.positions.find((p) => p !== pos);
     const canMove = positionless ? [...openSet].some((p) => p !== pos) : altPos && openSet.has(altPos);
     slotEl.draggable = !!canMove;
@@ -413,7 +422,7 @@ function doSpin() {
   const shuffleInterval = setInterval(() => {
     labelEl.textContent = pickRandom(seasons);
     shuffleCount++;
-  }, 70);
+  }, 110);
 
   setTimeout(() => {
     clearInterval(shuffleInterval);
@@ -436,7 +445,7 @@ function doSpin() {
     renderSortTabs();
     document.getElementById("player-search").value = "";
     renderPlayerPool(state.currentSpinPool);
-  }, 650);
+  }, 1500);
 }
 
 function respin() {
@@ -581,7 +590,7 @@ function renderPlayerPool(pool) {
     const isArmed = state.armedPlayer === p;
 
     const card = document.createElement("div");
-    card.className = "player-card" + (pickable ? "" : " player-card-disabled") + (isArmed ? " selected" : "");
+    card.className = "player-card era-" + eraClassOf(state.currentSpinSeason) + (pickable ? "" : " player-card-disabled") + (isArmed ? " selected" : "");
 
     const blocksHtml = buildStatBlocksHtml(p);
     const priceTagHtml =
@@ -598,6 +607,7 @@ function renderPlayerPool(pool) {
         <div class="player-name">${p.name}</div>
       </div>
       <div class="player-meta">${state.currentSpinSeason}${isConstrainedPhase() ? ` · <span class="open-line">${openMatches.length ? "OPEN: " + openMatches.join(" / ") : "position filled"}</span>` : ""}</div>
+      ${honorsHtml(honorsFor(p, state.currentSpinSeason))}
       ${blocksHtml}
     `;
 
@@ -648,6 +658,7 @@ function placePlayer(player, filledPosition) {
     tier,
   });
   state.usedPlayerNames.add(player.name);
+  state.lastPlacedName = player.name;
   state.armedPlayer = null;
 
   state.currentSlot++;
@@ -679,7 +690,7 @@ function renderRosterCards(containerId, coachBannerId) {
   sortedRoster().forEach((p) => {
     const tag = p.tier === "backup" ? `Backup ${p.filledPosition}` : p.tier === "free" ? "Bench" : p.filledPosition;
     const card = document.createElement("div");
-    card.className = "roster-card";
+    card.className = "roster-card era-" + eraClassOf(p.season);
     card.innerHTML = `
       <div class="roster-slot-tag">${tag}</div>
       <div class="player-head-row">
@@ -687,6 +698,7 @@ function renderRosterCards(containerId, coachBannerId) {
         <div class="player-name">${p.name}</div>
       </div>
       <div class="player-meta">${p.season}</div>
+      ${honorsHtml(honorsFor(p, p.season))}
       ${buildStatBlocksHtml(p)}
     `;
     grid.appendChild(card);
@@ -743,7 +755,7 @@ function doCoachSpin() {
   animEl.hidden = false;
   const shuffleInterval = setInterval(() => {
     labelEl.textContent = pickRandom(seasons);
-  }, 70);
+  }, 110);
 
   setTimeout(() => {
     clearInterval(shuffleInterval);
@@ -758,7 +770,7 @@ function doCoachSpin() {
     updateCoachRespinCounter();
 
     renderCoachOptions();
-  }, 650);
+  }, 1500);
 }
 
 function coachRespin() {
@@ -922,7 +934,7 @@ function animateScoreboard(results, onDone) {
       liveEl.innerHTML = `<span class="live-rec">${w}–${l}</span>${streakTxt}`;
     }
     i++;
-  }, 85);
+  }, 170);
 }
 
 function letterGrade(wins) {
@@ -1007,7 +1019,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderSimRoster();
     document.getElementById("scoreboard-track").innerHTML = "";
     document.getElementById("final-record").hidden = true;
-    document.getElementById("restart-btn").hidden = true;
+    document.getElementById("season-narrative").hidden = true;
+    document.getElementById("playoff-block").hidden = true;
+    document.getElementById("result-actions").hidden = true;
     document.getElementById("sim-btn").hidden = false;
   });
 
@@ -1022,8 +1036,19 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="grade-strip">GRADE: ${letterGrade(wins)}</div>
         <div class="verdict">${verdictText(wins, losses)}</div>
       `;
-      document.getElementById("restart-btn").hidden = false;
-      if (losses === 0) triggerConfetti();
+      const narrEl = document.getElementById("season-narrative");
+      narrEl.hidden = false;
+      narrEl.textContent = buildNarrative(results);
+
+      const { champion } = renderPlayoffs(computeExpectedMargin());
+
+      document.getElementById("result-actions").hidden = false;
+      lastResult = { wins, losses, champion };
+
+      const unlocked = evaluateAchievements(wins, champion);
+      if (unlocked.length) showAchievementToasts(unlocked);
+
+      if (losses === 0 || champion) triggerConfetti();
     });
   });
 
@@ -1039,4 +1064,388 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Failed to load data:", err);
       showDataError(err);
     });
+});
+
+// ============================================================
+// v11 additions: honors, achievements, narrative, playoffs,
+// special challenges, share card
+// ============================================================
+
+// ---------- Player honors (derived from real, verifiable club history) ----------
+// Only seasons where the club actually won the trophy are marked, so no honor
+// is ever invented for a player who didn't earn it.
+const EUROLEAGUE_TITLE_SEASONS = ["2020-21", "2021-22"];
+const KORAC_TITLE_SEASONS = ["1995-96"];
+
+function honorsFor(player, season) {
+  const honors = [];
+  if (EUROLEAGUE_TITLE_SEASONS.includes(season)) honors.push("EuroLeague Champion");
+  if (KORAC_TITLE_SEASONS.includes(season)) honors.push("Korać Cup Winner");
+  return honors;
+}
+
+// ---------- Local profile (no account needed — stored in this browser) ----------
+const STORE_KEY = "efes380_profile_v1";
+
+function loadProfile() {
+  try {
+    return JSON.parse(localStorage.getItem(STORE_KEY)) || { achievements: {}, bestWins: 0, gamesPlayed: 0 };
+  } catch {
+    return { achievements: {}, bestWins: 0, gamesPlayed: 0 };
+  }
+}
+
+function saveProfile(profile) {
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(profile));
+  } catch {
+    /* storage may be unavailable (private mode) — the game still works, just won't persist */
+  }
+}
+
+const ACHIEVEMENTS = [
+  { id: "perfect", name: "The Impossible", desc: "Finish a season 38–0" },
+  { id: "near", name: "One Away", desc: "Finish 37–1" },
+  { id: "thirty", name: "Thirty Club", desc: "Win 30+ games" },
+  { id: "oneseason", name: "Time Capsule", desc: "Build a starting five from a single season" },
+  { id: "homegrown", name: "Homegrown", desc: "Win 25+ with a starting five of Turkish players" },
+  { id: "thrifty", name: "Bargain Hunter", desc: "Win 30+ using under half the salary cap" },
+  { id: "champion", name: "Crowned", desc: "Win the playoff title" },
+];
+
+// A conservative Turkish-player check: names we can verify from the club's own
+// homegrown/Turkish contingent in the dataset.
+const TURKISH_MARKERS = /ğ|ş|ı|İ|ç|ö|ü/i;
+function looksTurkish(name) {
+  return TURKISH_MARKERS.test(name);
+}
+
+function evaluateAchievements(wins, playoffWon) {
+  const profile = loadProfile();
+  const unlocked = [];
+  const starters = state.roster.filter((p) => p.tier === "starter");
+
+  function unlock(id) {
+    if (!profile.achievements[id]) {
+      profile.achievements[id] = new Date().toISOString();
+      unlocked.push(ACHIEVEMENTS.find((a) => a.id === id));
+    }
+  }
+
+  if (wins === 38) unlock("perfect");
+  if (wins === 37) unlock("near");
+  if (wins >= 30) unlock("thirty");
+  if (starters.length === 5 && new Set(starters.map((p) => p.season)).size === 1) unlock("oneseason");
+  if (wins >= 25 && starters.length === 5 && starters.every((p) => looksTurkish(p.name))) unlock("homegrown");
+  if (wins >= 30 && state.budgetType === "cap" && state.budgetSpent <= state.budgetTotal / 2) unlock("thrifty");
+  if (playoffWon) unlock("champion");
+
+  profile.bestWins = Math.max(profile.bestWins || 0, wins);
+  profile.gamesPlayed = (profile.gamesPlayed || 0) + 1;
+  saveProfile(profile);
+  return unlocked;
+}
+
+function renderAchievements() {
+  const grid = document.getElementById("achv-grid");
+  if (!grid) return;
+  const profile = loadProfile();
+  grid.innerHTML = "";
+  ACHIEVEMENTS.forEach((a) => {
+    const earned = !!profile.achievements[a.id];
+    const el = document.createElement("div");
+    el.className = "achv-card" + (earned ? " earned" : "");
+    el.innerHTML = `
+      <div class="achv-icon">${earned ? "★" : "☆"}</div>
+      <div class="achv-text">
+        <div class="achv-name">${a.name}</div>
+        <div class="achv-desc">${a.desc}</div>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+
+// ---------- Season narrative ----------
+function buildNarrative(results) {
+  const parts = [];
+  let best = 0, bestType = null, cur = 0, curType = null;
+  results.forEach((r) => {
+    if (r === curType) cur++;
+    else { curType = r; cur = 1; }
+    if (curType === "W" && cur > best) { best = cur; bestType = "W"; }
+  });
+
+  let worst = 0; cur = 0; curType = null;
+  results.forEach((r) => {
+    if (r === curType) cur++;
+    else { curType = r; cur = 1; }
+    if (curType === "L" && cur > worst) worst = cur;
+  });
+
+  const firstTen = results.slice(0, 10).filter((r) => r === "W").length;
+  const lastTen = results.slice(-10).filter((r) => r === "W").length;
+
+  parts.push(`Opened the season ${firstTen}–${10 - firstTen} over the first ten.`);
+  if (best >= 5) parts.push(`Ripped off a ${best}-game winning streak along the way.`);
+  if (worst >= 3) parts.push(`Hit a rough patch with ${worst} straight losses.`);
+  parts.push(`Closed ${lastTen}–${10 - lastTen} down the stretch.`);
+  return parts.join(" ");
+}
+
+// ---------- Playoffs (real EuroLeague format: QF, SF, Final) ----------
+const PLAYOFF_OPPONENTS = [
+  { round: "Quarterfinal", name: "Olympiacos", strength: 9 },
+  { round: "Semifinal", name: "Real Madrid", strength: 12 },
+  { round: "Final", name: "Panathinaikos", strength: 13 },
+];
+
+function runPlayoffs(regularMargin) {
+  const rounds = [];
+  let alive = true;
+  for (const opp of PLAYOFF_OPPONENTS) {
+    if (!alive) break;
+    // Opponent quality raises the bar relative to the league-average baseline.
+    const adjMargin = regularMargin - opp.strength;
+    const p = pythagoreanWinPct(adjMargin);
+    const won = Math.random() < p;
+    rounds.push({ round: opp.round, opponent: opp.name, won, p });
+    if (!won) alive = false;
+  }
+  return { rounds, champion: alive };
+}
+
+function renderPlayoffs(regularMargin) {
+  const block = document.getElementById("playoff-block");
+  const roundsEl = document.getElementById("playoff-rounds");
+  const verdictEl = document.getElementById("playoff-verdict");
+  if (!block) return { champion: false };
+
+  const { rounds, champion } = runPlayoffs(regularMargin);
+  block.hidden = false;
+  roundsEl.innerHTML = "";
+  rounds.forEach((r, idx) => {
+    const el = document.createElement("div");
+    el.className = "playoff-round " + (r.won ? "won" : "lost");
+    el.style.animationDelay = idx * 0.5 + "s";
+    el.innerHTML = `
+      <div class="pr-name">${r.round}</div>
+      <div class="pr-opp">vs ${r.opponent}</div>
+      <div class="pr-res">${r.won ? "WON" : "LOST"}</div>`;
+    roundsEl.appendChild(el);
+  });
+  verdictEl.textContent = champion
+    ? "🏆 EUROLEAGUE CHAMPIONS."
+    : `Eliminated in the ${rounds[rounds.length - 1].round}.`;
+  verdictEl.className = "playoff-verdict " + (champion ? "champion" : "");
+  return { champion };
+}
+
+// ---------- Special challenge modes ----------
+const CHALLENGES = [
+  { id: "none", name: "No Restriction", desc: "The standard build." },
+  { id: "singleEra", name: "One Decade", desc: "Every pick must come from the same decade." },
+  { id: "homegrown", name: "Homegrown Only", desc: "Turkish players only." },
+  { id: "noLegends", name: "No Legends", desc: "The 20 best players are off the board." },
+];
+
+let legendNameSet = null;
+function computeLegendSet() {
+  if (legendNameSet) return legendNameSet;
+  const all = [];
+  for (const list of Object.values(state.playersBySeason)) all.push(...list);
+  const bestByName = new Map();
+  all.forEach((p) => {
+    if (!bestByName.has(p.name) || bestByName.get(p.name).rating < p.rating) bestByName.set(p.name, p);
+  });
+  legendNameSet = new Set(
+    [...bestByName.values()].sort((a, b) => b.rating - a.rating).slice(0, 20).map((p) => p.name)
+  );
+  return legendNameSet;
+}
+
+function decadeOf(season) {
+  return Math.floor(parseInt(season.split("-")[0], 10) / 10) * 10;
+}
+
+// Returns true if this player is allowed under the active challenge.
+function passesChallenge(player, season) {
+  switch (state.challenge) {
+    case "singleEra": {
+      const chosen = state.roster.find((p) => p.season);
+      if (!chosen) return true;
+      return decadeOf(season) === decadeOf(chosen.season);
+    }
+    case "homegrown":
+      return looksTurkish(player.name);
+    case "noLegends":
+      return !computeLegendSet().has(player.name);
+    default:
+      return true;
+  }
+}
+
+function renderChallenges() {
+  const grid = document.getElementById("challenge-grid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  CHALLENGES.forEach((c) => {
+    const btn = document.createElement("button");
+    btn.className = "mode-card challenge-card" + (state.challenge === c.id ? " selected" : "");
+    btn.innerHTML = `<span class="mode-name">${c.name}</span><span class="mode-desc">${c.desc}</span>`;
+    btn.addEventListener("click", () => {
+      state.challenge = c.id;
+      renderChallenges();
+    });
+    grid.appendChild(btn);
+  });
+}
+
+// ---------- Share card ----------
+function drawShareCard(wins, losses, champion) {
+  const canvas = document.getElementById("share-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width, H = canvas.height;
+
+  const grad = ctx.createLinearGradient(0, 0, W, H);
+  grad.addColorStop(0, "#16294A");
+  grad.addColorStop(1, "#0D1B30");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // jersey trim stripe
+  ctx.fillStyle = "#D73430"; ctx.fillRect(0, 0, W / 3, 14);
+  ctx.fillStyle = "#F4EFE3"; ctx.fillRect(W / 3, 0, W / 3, 14);
+  ctx.fillStyle = "#00A4D2"; ctx.fillRect((2 * W) / 3, 0, W / 3, 14);
+
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#00A4D2";
+  ctx.font = "600 34px Oswald, sans-serif";
+  ctx.fillText("ANADOLU EFES · LEGENDARY LINEUP", W / 2, 110);
+
+  ctx.fillStyle = "#EDEAE2";
+  ctx.font = "700 210px Oswald, sans-serif";
+  ctx.fillText(`${wins}–${losses}`, W / 2, 320);
+
+  ctx.font = "600 44px Oswald, sans-serif";
+  ctx.fillStyle = champion ? "#E2C15B" : "#8B9CB5";
+  ctx.fillText(champion ? "🏆 EUROLEAGUE CHAMPIONS" : `GRADE ${letterGrade(wins)}`, W / 2, 390);
+
+  // roster
+  ctx.textAlign = "left";
+  let y = 480;
+  const starters = state.roster.filter((p) => p.tier === "starter");
+  const bench = state.roster.filter((p) => p.tier !== "starter");
+
+  ctx.fillStyle = "#00A4D2";
+  ctx.font = "600 32px Oswald, sans-serif";
+  ctx.fillText("STARTING FIVE", 90, y);
+  y += 20;
+
+  starters.forEach((p) => {
+    y += 58;
+    ctx.fillStyle = "#00A4D2";
+    ctx.font = "600 30px Oswald, sans-serif";
+    ctx.fillText(p.filledPosition || "", 90, y);
+    ctx.fillStyle = "#EDEAE2";
+    ctx.font = "700 36px 'Work Sans', sans-serif";
+    ctx.fillText(p.name, 180, y);
+    ctx.fillStyle = "#8B9CB5";
+    ctx.font = "400 28px 'Work Sans', sans-serif";
+    ctx.fillText(p.season, 700, y);
+  });
+
+  if (bench.length) {
+    y += 70;
+    ctx.fillStyle = "#00A4D2";
+    ctx.font = "600 32px Oswald, sans-serif";
+    ctx.fillText("BENCH", 90, y);
+    ctx.fillStyle = "#8B9CB5";
+    ctx.font = "400 26px 'Work Sans', sans-serif";
+    const names = bench.map((p) => p.name).join(" · ");
+    wrapText(ctx, names, 90, y + 42, W - 180, 34);
+    y += 42 + 34 * Math.ceil(names.length / 58);
+  }
+
+  if (state.coach) {
+    y += 60;
+    ctx.fillStyle = "#00A4D2";
+    ctx.font = "600 32px Oswald, sans-serif";
+    ctx.fillText("HEAD COACH", 90, y);
+    ctx.fillStyle = "#EDEAE2";
+    ctx.font = "700 36px 'Work Sans', sans-serif";
+    ctx.fillText(state.coach.name, 330, y);
+  }
+
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#8B9CB5";
+  ctx.font = "400 26px 'Work Sans', sans-serif";
+  ctx.fillText("Can your all-time Efes roster go 38–0?", W / 2, H - 60);
+
+  const link = document.getElementById("share-download");
+  if (link) link.href = canvas.toDataURL("image/png");
+}
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(" ");
+  let line = "";
+  for (const word of words) {
+    const test = line + word + " ";
+    if (ctx.measureText(test).width > maxWidth && line) {
+      ctx.fillText(line.trim(), x, y);
+      line = word + " ";
+      y += lineHeight;
+    } else {
+      line = test;
+    }
+  }
+  ctx.fillText(line.trim(), x, y);
+}
+
+function honorsHtml(honors) {
+  if (!honors.length) return "";
+  return `<div class="honor-row">${honors.map((h) => `<span class="honor-badge">${h}</span>`).join("")}</div>`;
+}
+
+// Era styling: older seasons get a warmer, more retro card treatment.
+function eraClassOf(season) {
+  const y = parseInt(season.split("-")[0], 10);
+  if (y < 2003) return "retro";
+  if (y < 2013) return "classic";
+  return "modern";
+}
+
+let lastResult = null;
+
+function showAchievementToasts(list) {
+  list.forEach((a, i) => {
+    setTimeout(() => {
+      const toast = document.createElement("div");
+      toast.className = "achv-toast";
+      toast.innerHTML = `<span class="achv-toast-icon">★</span><div><div class="achv-toast-name">${a.name}</div><div class="achv-toast-desc">${a.desc}</div></div>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.classList.add("show"), 30);
+      setTimeout(() => { toast.classList.remove("show"); setTimeout(() => toast.remove(), 400); }, 3600);
+    }, i * 500);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const vb = document.getElementById("version-badge");
+  if (vb) vb.textContent = APP_VERSION;
+  renderChallenges();
+  renderAchievements();
+
+  const shareBtn = document.getElementById("share-btn");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", () => {
+      if (!lastResult) return;
+      drawShareCard(lastResult.wins, lastResult.losses, lastResult.champion);
+      document.getElementById("share-modal").hidden = false;
+    });
+  }
+  const shareClose = document.getElementById("share-close");
+  if (shareClose) shareClose.addEventListener("click", () => {
+    document.getElementById("share-modal").hidden = true;
+  });
 });

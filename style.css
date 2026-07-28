@@ -940,3 +940,243 @@ main#app {
 
   .final-record .big-record { font-size: 15vw; }
 }
+
+/* ============================================================
+   v11 additions
+   ============================================================ */
+
+/* ---------- Arena ambience background ---------- */
+.arena-bg {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 0%, rgba(0,164,210,0.10), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 85% 10%, rgba(215,52,48,0.07), transparent 70%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0,164,210,0.05), transparent 70%);
+}
+
+/* ---------- Version badge ---------- */
+.version-badge {
+  position: fixed;
+  left: 14px;
+  bottom: 12px;
+  z-index: 20;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  opacity: 0.65;
+  background: rgba(13,27,48,0.7);
+  border: 1px solid var(--line);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+/* ---------- Athletic display type for scores ---------- */
+.scoreboard-title,
+.final-record .big-record,
+.live-rec,
+.draft-progress {
+  font-family: 'Oswald', var(--font-display);
+  font-weight: 700;
+}
+
+/* ---------- Special challenge cards ---------- */
+.challenge-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.challenge-card { padding: 18px; }
+.challenge-card.selected {
+  border-color: var(--accent);
+  background: linear-gradient(160deg, var(--navy-3), var(--navy-3) 75%);
+  box-shadow: 0 0 0 2px rgba(0,164,210,0.3);
+}
+
+/* ---------- Achievements ---------- */
+.achievements-block { margin-top: 44px; }
+.achv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+}
+.achv-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 14px;
+  opacity: 0.55;
+}
+.achv-card.earned {
+  opacity: 1;
+  border-color: var(--accent);
+  background: linear-gradient(160deg, var(--navy-3), var(--navy-2) 75%);
+}
+.achv-icon { font-size: 22px; color: var(--muted); }
+.achv-card.earned .achv-icon { color: #E2C15B; }
+.achv-name { font-weight: 700; font-size: 14px; }
+.achv-desc { color: var(--muted); font-size: 12px; }
+
+.achv-toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(160deg, var(--navy-3), var(--navy-2));
+  border: 1px solid #E2C15B;
+  border-radius: 8px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+.achv-toast.show { transform: translateY(0); opacity: 1; }
+.achv-toast-icon { font-size: 24px; color: #E2C15B; }
+.achv-toast-name { font-weight: 700; font-size: 14px; }
+.achv-toast-desc { color: var(--muted); font-size: 12px; }
+
+/* ---------- Honors on cards ---------- */
+.honor-row { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 2px; }
+.honor-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #E2C15B;
+  border: 1px solid rgba(226,193,91,0.5);
+  background: rgba(226,193,91,0.10);
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+/* ---------- Era-themed card treatments ---------- */
+.player-card.era-retro, .roster-card.era-retro {
+  background: linear-gradient(160deg, #2A2A3E, #1D1D2C 75%);
+  border-color: rgba(200,170,120,0.22);
+}
+.player-card.era-retro .player-name, .roster-card.era-retro .player-name { letter-spacing: 0.02em; }
+.player-card.era-classic, .roster-card.era-classic {
+  background: linear-gradient(160deg, #1B2E45, #16253A 75%);
+}
+.player-card.era-modern, .roster-card.era-modern {
+  background: linear-gradient(160deg, var(--navy-3), var(--navy-2) 75%);
+}
+
+/* ---------- Jersey silhouette avatar ---------- */
+.player-avatar {
+  position: relative;
+  border-radius: 6px 6px 8px 8px;
+  clip-path: polygon(22% 0, 38% 8%, 62% 8%, 78% 0, 100% 16%, 88% 34%, 88% 100%, 12% 100%, 12% 34%, 0 16%);
+  width: 32px;
+  height: 34px;
+}
+
+/* ---------- Season narrative ---------- */
+.season-narrative {
+  max-width: 560px;
+  margin: 0 auto 28px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ---------- Playoffs ---------- */
+.playoff-block { margin: 8px 0 28px; }
+.playoff-rounds {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.playoff-round {
+  min-width: 150px;
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: center;
+  border: 1px solid var(--line);
+  background: var(--navy-2);
+  opacity: 0;
+  animation: pr-in 0.4s ease forwards;
+}
+@keyframes pr-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.playoff-round.won { border-color: var(--green); }
+.playoff-round.lost { border-color: var(--red); }
+.pr-name { font-family: 'Oswald', var(--font-display); font-size: 15px; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
+.pr-opp { font-weight: 700; font-size: 15px; margin: 4px 0; }
+.pr-res { font-family: 'Oswald', var(--font-display); font-size: 20px; letter-spacing: 0.06em; }
+.playoff-round.won .pr-res { color: var(--green); }
+.playoff-round.lost .pr-res { color: var(--red); }
+.playoff-verdict { text-align: center; color: var(--muted); font-size: 15px; }
+.playoff-verdict.champion {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.05em;
+  color: #E2C15B;
+  text-shadow: 0 0 18px rgba(226,193,91,0.4);
+}
+
+/* ---------- Result actions + share modal ---------- */
+.result-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.result-actions .btn-secondary { margin-top: 0; }
+
+.share-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(6, 14, 26, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto;
+}
+.share-modal-inner { text-align: center; max-width: 460px; width: 100%; }
+#share-canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+.share-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+.share-modal-actions .btn-secondary { margin-top: 0; }
+#share-download { text-decoration: none; display: inline-block; }
+
+/* ---------- Placement micro-animation ---------- */
+.court-slot.just-placed, .bench-slot.just-placed {
+  animation: place-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes place-pop {
+  0% { transform: translate(-50%, -50%) scale(0.6); }
+  60% { transform: translate(-50%, -50%) scale(1.15); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+.bench-slot.just-placed { animation-name: place-pop-flat; }
+@keyframes place-pop-flat {
+  0% { transform: scale(0.6); }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- Smoother screen transitions ---------- */
+.screen.active { animation: screen-in 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+@keyframes screen-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
