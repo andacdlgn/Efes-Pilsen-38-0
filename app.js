@@ -36,19 +36,20 @@ const state = {
 // Salary cap pricing
 //
 // Cost is derived from the same hidden `rating` used by the sim engine (a real,
-// research-grounded PIR-like index) via a power-law, not a random number. The
-// scale differs by mode because a 100-credit budget has to stretch across only
-// 5 players in Starting-5 mode but across 12 in the full-roster mode:
-// calibrated so "1 elite player + a full complementary supporting cast" costs
-// roughly the full 100 credits in each mode.
+// research-grounded PIR-like index) via a single power-law — every player has
+// ONE true price regardless of mode. What changes between modes is the total
+// budget, which scales with roster size (12 players to fill needs more total
+// credits than 5), not the per-player price itself. This keeps pricing
+// consistent: a given player always costs the same "true value."
 // ============================================================
 const PRICE_EXPONENT = 1.25;
-const PRICE_SCALE = { 5: 1.5, 12: 0.73 };
+const PRICE_SCALE = 1.45;
+const BUDGET_TOTAL = { 5: 100, 12: 235 };
+const RESERVE_PER_SLOT = { 5: 8.5, 12: 4.5 };
 
 function getPlayerPrice(player) {
-  const scale = PRICE_SCALE[state.mode === "12" ? 12 : 5];
   const r = Math.max(player.rating || 0, 1);
-  return Math.max(1, Math.round(scale * Math.pow(r, PRICE_EXPONENT)));
+  return Math.max(1, Math.round(PRICE_SCALE * Math.pow(r, PRICE_EXPONENT)));
 }
 
 function budgetRemaining() {
@@ -101,6 +102,7 @@ function startDraft(mode) {
   }
   state.mode = mode;
   state.totalSlots = mode === "5" ? 5 : 12;
+  state.budgetTotal = BUDGET_TOTAL[mode === "12" ? 12 : 5];
   state.currentSlot = 0;
   state.openPositions = new Set(POSITION_ORDER);
   state.openBackupPositions = new Set(POSITION_ORDER);
@@ -111,6 +113,7 @@ function startDraft(mode) {
   state.respinsAllowed = mode === "5" ? 1 : 3;
   state.budgetSpent = 0;
   document.getElementById("budget-panel").hidden = state.budgetType !== "cap";
+  document.getElementById("budget-panel-sub").textContent = `Credits remaining out of ${state.budgetTotal}`;
   updateBudgetGauge();
   showScreen("screen-draft");
   renderDraftStep();
@@ -151,15 +154,13 @@ function openSetForTier(tier) {
   return null;
 }
 
-// A player can currently be picked if at least one of their listed positions
-// is still open in the current tier (starters/backups) AND (in cap mode) their
-// price fits the remaining budget once 1 credit is reserved for every slot
-// still to be filled after this pick (so the cap can never dead-end the draft).
-// Reserve enough per remaining slot to always afford at least the cheapest
-// realistic player for any position (Center's price floor is the highest of
-// the five), so a tight cap can never leave a required slot unfillable.
-const RESERVE_PER_SLOT = { 5: 7, 12: 4 };
-
+// A player can currently be picked if (in cap mode) their price fits the
+// remaining budget once enough credits are reserved for every slot still to
+// be filled after this pick (so the cap can never dead-end the draft), and —
+// only during the starter tier — at least one of their listed positions is
+// still open. Backup and free-bench slots accept anyone: the 5 backup slots
+// are labeled by position for bench organization, but any player can fill
+// any of them, matching real fantasy-roster flexibility.
 function isPickable(player) {
   if (state.budgetType === "cap") {
     const remainingSlotsAfter = state.totalSlots - state.currentSlot - 1;
@@ -168,7 +169,7 @@ function isPickable(player) {
     if (getPlayerPrice(player) > spendable) return false;
   }
   const tier = getCurrentTier();
-  if (tier === "free") return true;
+  if (tier !== "starter") return true;
   return player.positions.some((pos) => openSetForTier(tier).has(pos));
 }
 
@@ -230,7 +231,10 @@ function updateCourtHint() {
   }
   hint.hidden = false;
   if (state.armedPlayer) {
-    const openMatches = state.armedPlayer.positions.filter((pos) => openSetForTier(tier).has(pos));
+    const openMatches =
+      tier === "starter"
+        ? state.armedPlayer.positions.filter((pos) => openSetForTier(tier).has(pos))
+        : [...openSetForTier(tier)];
     hint.textContent = `Place ${state.armedPlayer.name} at ${openMatches.join(" / ")} — tap the lit spot.`;
     hint.classList.add("active");
   } else {
@@ -249,6 +253,7 @@ let draggedPayload = null; // { mode: "new", player } | { mode: "move", player, 
 function wirePositionalSlot(slotEl, tier) {
   const pos = slotEl.dataset.pos;
   const openSet = openSetForTier(tier);
+  const positionless = tier !== "starter"; // backups/free: any player can fill any open slot
   const occupant = state.roster.find((p) => p.tier === tier && p.filledPosition === pos);
   slotEl.classList.toggle("filled", !!occupant);
   slotEl.classList.remove("target-glow");
@@ -259,7 +264,7 @@ function wirePositionalSlot(slotEl, tier) {
     nameEl.textContent = occupant.name;
     slotEl.appendChild(nameEl);
     const altPos = occupant.positions.find((p) => p !== pos);
-    const canMove = altPos && openSet.has(altPos);
+    const canMove = positionless ? [...openSet].some((p) => p !== pos) : altPos && openSet.has(altPos);
     slotEl.draggable = !!canMove;
     slotEl.ondragstart = canMove
       ? (e) => {
@@ -270,14 +275,16 @@ function wirePositionalSlot(slotEl, tier) {
   } else {
     slotEl.draggable = false;
     slotEl.ondragstart = null;
-    if (getCurrentTier() === tier && state.armedPlayer && state.armedPlayer.positions.includes(pos) && openSet.has(pos)) {
+    const fits = state.armedPlayer && (positionless || state.armedPlayer.positions.includes(pos));
+    if (getCurrentTier() === tier && fits && openSet.has(pos)) {
       slotEl.classList.add("target-glow");
     }
   }
 
   slotEl.onclick = () => {
     if (occupant || getCurrentTier() !== tier || !state.armedPlayer) return;
-    if (state.armedPlayer.positions.includes(pos) && openSet.has(pos)) {
+    const fits = positionless || state.armedPlayer.positions.includes(pos);
+    if (fits && openSet.has(pos)) {
       const player = state.armedPlayer;
       state.armedPlayer = null;
       placePlayer(player, pos);
@@ -287,7 +294,8 @@ function wirePositionalSlot(slotEl, tier) {
   slotEl.ondragover = (e) => {
     if (!draggedPayload || getCurrentTier() !== tier) return;
     const player = draggedPayload.player;
-    const validTarget = !occupant && player.positions.includes(pos) && pos !== draggedPayload.fromPos;
+    const fits = positionless || player.positions.includes(pos);
+    const validTarget = !occupant && fits && pos !== draggedPayload.fromPos;
     if (validTarget) {
       e.preventDefault();
       slotEl.classList.add("drag-over");
@@ -303,7 +311,8 @@ function wirePositionalSlot(slotEl, tier) {
     slotEl.classList.remove("drag-over", "drag-invalid");
     if (!draggedPayload) return;
     const player = draggedPayload.player;
-    if (occupant || !player.positions.includes(pos) || pos === draggedPayload.fromPos) {
+    const fits = positionless || player.positions.includes(pos);
+    if (occupant || !fits || pos === draggedPayload.fromPos) {
       draggedPayload = null;
       return;
     }
@@ -507,7 +516,12 @@ function renderPlayerPool(pool) {
   const visible = filteredPool(pool);
   visible.forEach((p) => {
     const tier = getCurrentTier();
-    const openMatches = isConstrainedPhase() ? p.positions.filter((pos) => openSetForTier(tier).has(pos)) : [];
+    const openMatches =
+      tier === "starter"
+        ? p.positions.filter((pos) => openSetForTier(tier).has(pos))
+        : tier === "backup"
+        ? [...openSetForTier(tier)]
+        : [];
     const price = state.budgetType === "cap" ? getPlayerPrice(p) : 0;
     const remainingSlotsAfter = state.totalSlots - state.currentSlot - 1;
     const reserve = remainingSlotsAfter * RESERVE_PER_SLOT[state.mode === "12" ? 12 : 5];
