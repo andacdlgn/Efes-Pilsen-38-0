@@ -842,6 +842,41 @@ main#app {
   margin-right: auto;
 }
 
+/* ---------- Live running record during the season reveal ---------- */
+.live-record {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  min-height: 34px;
+}
+.live-rec {
+  font-family: var(--font-display);
+  font-size: 30px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.live-streak {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 12px;
+  animation: streak-pop 0.25s ease;
+}
+.live-streak.hot { background: rgba(63,148,99,0.18); color: var(--green); border: 1px solid var(--green); }
+.live-streak.cold { background: rgba(215,52,48,0.18); color: var(--red); border: 1px solid var(--red); }
+@keyframes streak-pop {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.flip-cell.flip-in { animation: flip-in 0.28s ease; }
+@keyframes flip-in {
+  from { transform: rotateX(-80deg) scale(0.9); opacity: 0.3; }
+  to { transform: rotateX(0) scale(1.05); opacity: 1; }
+}
+
 /* ---------- 38-0 celebration confetti ---------- */
 .confetti-layer {
   position: fixed;

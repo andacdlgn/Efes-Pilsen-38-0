@@ -824,28 +824,38 @@ const LEAGUE_AVG_PPG = 80;
 const LEAGUE_AVG_RATING = 7.9;
 const PYTHAG_EXPONENT = 14;
 
+// Mode-aware weighting. In Starting-5 mode there is no bench to model, so the
+// five starters ARE the team and carry full weight. In 12-man mode the starters
+// carry slightly less and the bench contributes the remainder. Without this,
+// 12-man was strictly easier (an elite bench added margin that 5-man could
+// never earn), making a perfect 38-0 ~4x more likely there. These weights are
+// calibrated so a maxed-out roster has roughly the same shot in either mode.
+const STARTER_WEIGHT = { 5: 1.25, 12: 1.0 };
+const BENCH_WEIGHT = 0.3;
+
 function playerRating(p) {
   return p.rating || 0;
 }
 
 // Estimated average scoring margin per game against a league-average opponent.
 function computeExpectedMargin() {
-  const starters = state.roster.slice(0, 5);
-  const bench = state.roster.slice(5);
+  const starters = state.roster.filter((p) => p.tier === "starter");
+  const bench = state.roster.filter((p) => p.tier !== "starter");
+  const starterWeight = STARTER_WEIGHT[state.mode === "12" ? 12 : 5];
 
-  const avgStarterRating = starters.reduce((s, p) => s + playerRating(p), 0) / starters.length;
+  const avgStarterRating = starters.reduce((s, p) => s + playerRating(p), 0) / (starters.length || 1);
   const starterDiff = avgStarterRating - LEAGUE_AVG_RATING;
 
-  let benchDiff = 0;
+  let benchTerm = 0;
   if (bench.length > 0) {
     const avgBenchRating = bench.reduce((s, p) => s + playerRating(p), 0) / bench.length;
-    benchDiff = avgBenchRating - LEAGUE_AVG_RATING;
+    benchTerm = (avgBenchRating - LEAGUE_AVG_RATING) * BENCH_WEIGHT;
   }
 
   const coach = state.coach;
   const coachPoints = coach.rating * 20 + coach.fitBonus * 10 + (coach.stability || 0) * 10;
 
-  return starterDiff * 1.0 + benchDiff * 0.3 + coachPoints;
+  return starterDiff * starterWeight + benchTerm + coachPoints;
 }
 
 function pythagoreanWinPct(margin) {
@@ -873,6 +883,7 @@ function runSimulation() {
 
 function animateScoreboard(results, onDone) {
   const track = document.getElementById("scoreboard-track");
+  const liveEl = document.getElementById("live-record");
   track.innerHTML = "";
   const cells = [];
   for (let i = 0; i < 38; i++) {
@@ -882,17 +893,36 @@ function animateScoreboard(results, onDone) {
     track.appendChild(cell);
     cells.push(cell);
   }
-  let i = 0;
+
+  if (liveEl) {
+    liveEl.hidden = false;
+    liveEl.innerHTML = `<span class="live-rec">0–0</span><span class="live-streak"></span>`;
+  }
+
+  let i = 0, w = 0, l = 0, streak = 0, streakType = null;
   const interval = setInterval(() => {
     if (i >= results.length) {
       clearInterval(interval);
+      if (liveEl) liveEl.hidden = true;
       onDone();
       return;
     }
-    cells[i].textContent = results[i];
-    cells[i].classList.add(results[i] === "W" ? "win" : "loss");
+    const res = results[i];
+    cells[i].textContent = res;
+    cells[i].classList.add(res === "W" ? "win" : "loss");
+    cells[i].classList.add("flip-in");
+
+    if (res === "W") w++; else l++;
+    if (res === streakType) streak++;
+    else { streakType = res; streak = 1; }
+
+    if (liveEl) {
+      const streakTxt =
+        streak >= 3 ? `<span class="live-streak ${streakType === "W" ? "hot" : "cold"}">${streak} ${streakType === "W" ? "WIN" : "LOSS"} STREAK</span>` : "";
+      liveEl.innerHTML = `<span class="live-rec">${w}–${l}</span>${streakTxt}`;
+    }
     i++;
-  }, 90);
+  }, 85);
 }
 
 function letterGrade(wins) {
