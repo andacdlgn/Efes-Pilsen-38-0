@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v15";
+const APP_VERSION = "v16";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -475,7 +475,7 @@ function doSpin() {
     renderSortTabs();
     document.getElementById("player-search").value = "";
     renderPlayerPool(state.currentSpinPool);
-  }, 900);
+  }, 700);
 }
 
 function respin() {
@@ -829,7 +829,7 @@ function doCoachSpin() {
     updateCoachRespinCounter();
 
     renderCoachOptions();
-  }, 900);
+  }, 700);
 }
 
 function coachRespin() {
@@ -995,7 +995,7 @@ function animateScoreboard(results, onDone) {
       if (hb) {
         hb.hidden = false;
         hb.textContent = `Halfway mark: ${w}–${l}`;
-        setTimeout(() => { hb.hidden = true; }, 900);
+        setTimeout(() => { hb.hidden = true; }, 700);
       }
     }
 
@@ -1009,7 +1009,7 @@ function animateScoreboard(results, onDone) {
       liveEl.innerHTML = `<span class="live-rec">${w}–${l}</span>${streakTxt}`;
     }
     i++;
-  }, 260);
+  }, 330);
 }
 
 function letterGrade(wins) {
@@ -1357,56 +1357,124 @@ function playPlayoffs(regularMargin, userRank) {
       sequence.push({ title: "Final Four — Final", subtitle: "Single game", ...fin });
       lastPlayoffChampion = fin.won;
       lastPlayoffFinish = fin.won ? "EuroLeague Champions" : "Runners-up";
+      lastPlayoffMedal = fin.won ? "gold" : "silver";
     } else {
       const third = playSeries(regularMargin, opp.third, 1);
       sequence.push({ title: "Final Four — Third Place Game", subtitle: "Single game", ...third });
       lastPlayoffChampion = false;
       lastPlayoffFinish = third.won ? "Third place" : "Fourth place";
+      lastPlayoffMedal = third.won ? "bronze" : null;
     }
   } else {
     lastPlayoffChampion = false;
     lastPlayoffFinish = "Eliminated in the quarterfinals";
+    lastPlayoffMedal = null;
   }
 
-  let i = 0;
-  function revealNext() {
-    if (i >= sequence.length) {
-      if (lastPlayoffChampion) {
-        trophyEl.hidden = false;
-        verdictEl.textContent = "The trophy is yours.";
-        verdictEl.className = "playoff-verdict champion";
-        SFX.crowd();
-        triggerConfetti();
-      } else {
-        verdictEl.textContent = lastPlayoffFinish + ". The road ends here.";
-      }
-      actionsEl.hidden = false;
-      finishPlayoffs();
-      return;
-    }
-    const r = sequence[i];
-    const el = document.createElement("div");
-    el.className = "playoff-round " + (r.won ? "won" : "lost");
+  // Reveal round by round, and inside each round game by game — the same
+  // beat-by-beat pacing as the regular season rather than a finished block.
+  let ri = 0;
+  function revealRound() {
+    if (ri >= sequence.length) return endPlayoffs();
+
+    const r = sequence[ri];
     const c = r.opponent.colors;
-    const seriesLabel = r.bestOf > 1 ? `${r.subtitle} · ${r.w}–${r.l}` : r.subtitle;
-    const gamesHtml = r.games
-      .map((g, gi) => `<div class="pr-game ${g.won ? "w" : "l"}">G${gi + 1} ${g.won ? "W" : "L"} ${g.score[0]}–${g.score[1]}</div>`)
-      .join("");
+    const el = document.createElement("div");
+    el.className = "playoff-round pending";
+    const seriesLabel = r.bestOf > 1 ? r.subtitle : r.subtitle;
     el.innerHTML = `
       <div class="pr-name">${r.title}</div>
       <div class="pr-matchup">
         <span class="st-badge" style="background:${c[0]};color:${c[1]}">${r.opponent.short}</span>
         <span class="pr-opp">vs ${r.opponent.name}</span>
       </div>
-      <div class="pr-series">${seriesLabel}</div>
-      <div class="pr-games">${gamesHtml}</div>
-      <div class="pr-res">${r.won ? "ADVANCED" : "ELIMINATED"}</div>`;
+      <div class="pr-series"><span class="pr-series-label">${seriesLabel}</span> <span class="pr-tally"></span></div>
+      <div class="pr-games"></div>
+      <div class="pr-res pr-res-pending">PLAYING…</div>`;
     roundsEl.appendChild(el);
-    if (r.won) SFX.win(); else SFX.loss();
-    i++;
-    setTimeout(revealNext, 1400);
+    el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    const gamesEl = el.querySelector(".pr-games");
+    const tallyEl = el.querySelector(".pr-tally");
+    const resEl = el.querySelector(".pr-res");
+    let gi = 0, w = 0, l = 0;
+
+    function revealGame() {
+      if (gi >= r.games.length) {
+        el.classList.remove("pending");
+        el.classList.add(r.won ? "won" : "lost");
+        resEl.classList.remove("pr-res-pending");
+        resEl.textContent = r.won ? "ADVANCED" : "ELIMINATED";
+        if (r.won) SFX.win(); else SFX.loss();
+        ri++;
+        setTimeout(revealRound, 1100);
+        return;
+      }
+      const g = r.games[gi];
+      const row = document.createElement("div");
+      row.className = `pr-game ${g.won ? "w" : "l"} game-in`;
+      row.textContent = `Game ${gi + 1}   ${g.won ? "W" : "L"}   ${g.score[0]}–${g.score[1]}`;
+      gamesEl.appendChild(row);
+      if (g.won) w++; else l++;
+      if (r.bestOf > 1) tallyEl.textContent = `· ${w}–${l}`;
+      if (g.won) SFX.win(); else SFX.loss();
+      gi++;
+      setTimeout(revealGame, 850);
+    }
+    setTimeout(revealGame, 500);
   }
-  revealNext();
+
+  function endPlayoffs() {
+    if (lastPlayoffMedal) {
+      trophyEl.hidden = false;
+      renderMedal(lastPlayoffMedal);
+    }
+    if (lastPlayoffChampion) {
+      verdictEl.textContent = "The trophy is yours.";
+      verdictEl.className = "playoff-verdict champion";
+      SFX.crowd();
+      triggerConfetti();
+    } else {
+      verdictEl.textContent = lastPlayoffFinish + ".";
+    }
+    actionsEl.hidden = false;
+    finishPlayoffs();
+  }
+
+  revealRound();
+}
+
+let lastPlayoffMedal = null;
+
+// Gold trophy for the title, silver medal for the runner-up, bronze for third.
+function renderMedal(kind) {
+  const stage = document.getElementById("trophy-stage");
+  if (!stage) return;
+  const config = {
+    gold:   { cls: "medal-gold",   label: "EUROLEAGUE CHAMPIONS" },
+    silver: { cls: "medal-silver", label: "RUNNERS-UP" },
+    bronze: { cls: "medal-bronze", label: "THIRD PLACE" },
+  }[kind];
+
+  const trophySvg = `
+    <svg viewBox="0 0 64 64" class="trophy-svg" aria-hidden="true">
+      <path d="M20 8h24v14a12 12 0 0 1-24 0z" fill="currentColor"/>
+      <path d="M20 12H12a8 8 0 0 0 8 8M44 12h8a8 8 0 0 1-8 8" fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="M30 34h4v10h-4zM22 44h20v5H22z" fill="currentColor"/>
+      <path d="M18 49h28v5H18z" fill="currentColor"/>
+    </svg>`;
+
+  const medalSvg = `
+    <svg viewBox="0 0 64 64" class="trophy-svg" aria-hidden="true">
+      <path d="M22 4l8 20h-8L14 6z" fill="currentColor" opacity="0.75"/>
+      <path d="M42 4l8 2-8 18h-8z" fill="currentColor" opacity="0.55"/>
+      <circle cx="32" cy="42" r="17" fill="currentColor"/>
+      <circle cx="32" cy="42" r="12" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="2"/>
+      <path d="M32 34l2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z" fill="rgba(0,0,0,0.3)"/>
+    </svg>`;
+
+  stage.className = `trophy-stage ${config.cls}`;
+  stage.innerHTML = `${kind === "gold" ? trophySvg : medalSvg}<div class="trophy-text">${config.label}</div>`;
 }
 
 function finishPlayoffs() {
@@ -1432,15 +1500,7 @@ const CHALLENGES = [
 let legendNameSet = null;
 function computeLegendSet() {
   if (legendNameSet) return legendNameSet;
-  const all = [];
-  for (const list of Object.values(state.playersBySeason)) all.push(...list);
-  const bestByName = new Map();
-  all.forEach((p) => {
-    if (!bestByName.has(p.name) || bestByName.get(p.name).rating < p.rating) bestByName.set(p.name, p);
-  });
-  legendNameSet = new Set(
-    [...bestByName.values()].sort((a, b) => b.rating - a.rating).slice(0, 20).map((p) => p.name)
-  );
+  legendNameSet = new Set(computeLegendIndex().slice(0, 20).map((e) => e.name));
   return legendNameSet;
 }
 
@@ -2021,30 +2081,65 @@ function renderMonthLabels() {
 }
 
 // ---------- Legends showcase ----------
+// Career legend index. Ranking by a single best season let small-sample
+// outliers (a 6-game cameo) top the list, so this uses a games-weighted career
+// average, multiplied by a longevity factor and a small EuroLeague-tenure
+// bonus, with a minimum career-games threshold to keep cameos out entirely.
+const LEGEND_MIN_GAMES = 40;
+
+function computeLegendIndex() {
+  const byName = new Map();
+  for (const [season, list] of Object.entries(state.playersBySeason)) {
+    list.forEach((p) => {
+      const gp =
+        (p.euroleague ? parseInt(p.euroleague.gp) || 0 : 0) +
+        (p.bsl ? parseInt(p.bsl.gp) || 0 : 0);
+      if (!byName.has(p.name)) {
+        byName.set(p.name, { name: p.name, seasons: [], totalGp: 0, weighted: 0, elSeasons: 0, sample: p, peak: null });
+      }
+      const e = byName.get(p.name);
+      e.seasons.push(season);
+      e.totalGp += gp;
+      e.weighted += p.rating * gp;
+      if (p.euroleague) e.elSeasons++;
+      if (!e.peak || e.peak.rating < p.rating) e.peak = { rating: p.rating, season };
+      if (p.countryCode) e.sample = p;
+    });
+  }
+  return [...byName.values()]
+    .filter((e) => e.totalGp >= LEGEND_MIN_GAMES)
+    .map((e) => {
+      const avg = e.totalGp > 0 ? e.weighted / e.totalGp : 0;
+      const longevity = Math.sqrt(e.seasons.length);
+      const elBonus = 1 + Math.min(e.elSeasons, 6) * 0.04;
+      return { ...e, avg, score: avg * longevity * elBonus };
+    })
+    .sort((a, b) => b.score - a.score);
+}
+
 function renderLegends() {
   const grid = document.getElementById("legends-grid");
   if (!grid) return;
-  const all = [];
-  for (const [season, list] of Object.entries(state.playersBySeason)) {
-    list.forEach((p) => all.push({ ...p, season }));
-  }
-  const bestByName = new Map();
-  all.forEach((p) => {
-    if (!bestByName.has(p.name) || bestByName.get(p.name).rating < p.rating) bestByName.set(p.name, p);
-  });
-  const top = [...bestByName.values()].sort((a, b) => b.rating - a.rating).slice(0, 20);
+  const top = computeLegendIndex().slice(0, 20);
 
   grid.innerHTML = "";
-  top.forEach((p, i) => {
+  top.forEach((e, i) => {
+    const p = e.sample;
+    const first = e.seasons[0];
+    const last = e.seasons[e.seasons.length - 1];
+    const span = first === last ? first : `${first.split("-")[0]}–${last.split("-")[1]}`;
     const el = document.createElement("div");
-    el.className = "legend-card";
+    el.className = "legend-card" + (i < 3 ? " legend-top" : "");
     el.innerHTML = `
       <div class="legend-rank">${i + 1}</div>
-      ${avatarHtml(p.name)}
+      ${avatarHtml(e.name)}
       <div class="legend-info">
-        <div class="legend-name">${p.name}</div>
-        <div class="legend-sub">${p.season} · ${p.positions.join("/")} ${p.countryCode ? flagEmoji(p.countryCode) : ""}</div>
-      </div>`;
+        <div class="legend-name">${e.name}</div>
+        <div class="legend-sub">${span} · ${e.seasons.length} season${e.seasons.length === 1 ? "" : "s"} · ${e.totalGp} games ${p.countryCode ? flagEmoji(p.countryCode) : ""}</div>
+        <div class="legend-bar"><span style="width:${Math.min(100, (e.score / top[0].score) * 100)}%"></span></div>
+      </div>
+      <div class="legend-peak" title="Best season">${e.peak.season}</div>`;
+    el.addEventListener("click", () => openPlayerModal(e.name));
     grid.appendChild(el);
   });
 }
@@ -2331,8 +2426,8 @@ function spinDecadeThenSeason() {
     setTimeout(() => {
       animEl.hidden = true;
       doSpin();
-    }, 900);
-  }, 900);
+    }, 700);
+  }, 700);
 }
 
 // ============================================================
