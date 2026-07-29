@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v28";
+const APP_VERSION = "v30";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -629,10 +629,19 @@ function renderSortTabs() {
 
 // blk/stl only exist in the EuroLeague block; a player with no EuroLeague data
 // for that stat sorts to the bottom rather than being treated as a zero.
+// Sorting ranks on EuroLeague output. Mixing the two competitions put domestic
+// numbers — which run roughly 60% higher for the same player — above genuine
+// EuroLeague production. Players with no EuroLeague minutes sort below everyone
+// who has them, on their (discounted) domestic figure.
+const BSL_TO_EL_DISPLAY = 0.62;
+
 function statValue(p, stat) {
   if (p.euroleague && p.euroleague[stat] != null) return p.euroleague[stat];
-  if (p.bsl && (stat === "pts" || stat === "reb" || stat === "ast" || stat === "stl") && p.bsl[stat] != null) return p.bsl[stat];
-  return -1;
+  if (p.bsl && ["pts", "reb", "ast", "stl"].includes(stat) && p.bsl[stat] != null) {
+    // Pushed below every EuroLeague entry, but still ordered sensibly among themselves.
+    return -1000 + p.bsl[stat] * BSL_TO_EL_DISPLAY;
+  }
+  return -2000;
 }
 
 function filteredPool(pool) {
@@ -663,8 +672,10 @@ function hashColor(name) {
   return AVATAR_COLORS[hash % AVATAR_COLORS.length];
 }
 
-// Three real Anadolu Efes kit looks: solid navy, solid white, blue/white stripes.
-const KITS = ["kit-navy", "kit-white", "kit-striped"];
+// Kit looks, all light-based so they read against the dark page: plain white,
+// white with navy detailing, and the navy/white striped shirt. The solid navy
+// kit was dropped — it disappeared into the background.
+const KITS = ["kit-white", "kit-white-navy", "kit-striped"];
 
 function avatarHtml(name) {
   const initials = initialsOf(name);
@@ -761,15 +772,9 @@ function renderPlayerPool(pool) {
         const opts = safeSlotsFor(p);
         if (!opts.length) return;
 
-        // Only one legal destination: just place them, no need to ask.
-        if (opts.length === 1) {
-          state.armedPlayer = null;
-          placePlayer(p, opts[0]);
-          return;
-        }
-
-        // Otherwise arm the player: desktop lights up the court, mobile opens
-        // the position picker sheet.
+        // Selecting a player never places them, even when only one slot is
+        // legal — confirming the position is always a separate, deliberate tap.
+        // Auto-placing made a mis-tap instantly cost a pick.
         state.armedPlayer = state.armedPlayer === p ? null : p;
         renderPlayerPool(pool);
         renderCourt();
@@ -1087,6 +1092,29 @@ function homeEdgeFor(team) {
 }
 
 // Score model tied to the game's competitiveness rather than a flat random gap.
+// A quarter-by-quarter path to the final score, so a Final Four game can be
+// watched rather than just reported. The running totals are generated to land
+// exactly on the real result.
+function buildGameFlow(finalScore) {
+  const [us, them] = finalScore;
+  const cuts = [0.26, 0.5, 0.76, 1];
+  const flow = [];
+  let prevA = 0, prevB = 0;
+  for (let q = 0; q < 4; q++) {
+    const noise = q === 3 ? 0 : (Math.random() - 0.5) * 0.06;
+    const f = Math.min(1, Math.max(0.05, cuts[q] + noise));
+    const a = q === 3 ? us : Math.round(us * f);
+    const b = q === 3 ? them : Math.round(them * f);
+    flow.push({
+      quarter: q + 1,
+      us: Math.max(a, prevA),
+      them: Math.max(b, prevB),
+    });
+    prevA = flow[q].us; prevB = flow[q].them;
+  }
+  return flow;
+}
+
 function makeScore(edge, aWins) {
   const pace = 76 + Math.round(Math.random() * 14);
   const expected = Math.abs(edge) * 0.55;
@@ -1555,7 +1583,8 @@ function playSeries(margin, opponent, bestOf, userHasHomeCourt) {
     }
     const p = winProbVs(margin, opponent, atHome);
     const won = Math.random() < p;
-    games.push({ won, atHome, score: simGameScore(p, won) });
+    const score = simGameScore(p, won);
+    games.push({ won, atHome, score, flow: buildGameFlow(score) });
     if (won) w++; else l++;
   }
   return { opponent, games, w, l, won: w >= needed, bestOf, userHasHomeCourt };
@@ -1716,6 +1745,45 @@ function playPlayoffs(regularMargin, userRank) {
     const resEl = el.querySelector(".pr-res");
     let gi = 0, w = 0, l = 0;
 
+    // Final Four ties are single games and carry the weight of the season, so
+    // they play out quarter by quarter on a live scoreboard instead of simply
+    // printing the result.
+    function revealLiveGame(g, done) {
+      const board = document.createElement("div");
+      board.className = "live-game";
+      board.innerHTML = `
+        <div class="lg-teams">
+          <span class="lg-side">EFES</span>
+          <span class="lg-score" id="lg-score">0 – 0</span>
+          <span class="lg-side">${r.opponent.short}</span>
+        </div>
+        <div class="lg-quarter" id="lg-quarter">TIP-OFF</div>
+        <div class="lg-bar"><span id="lg-bar-fill"></span></div>`;
+      gamesEl.appendChild(board);
+      const scoreEl = board.querySelector("#lg-score");
+      const qEl = board.querySelector("#lg-quarter");
+      const barEl = board.querySelector("#lg-bar-fill");
+
+      let qi = 0;
+      const tick = () => {
+        if (qi >= g.flow.length) {
+          board.classList.add(g.won ? "lg-won" : "lg-lost");
+          qEl.textContent = g.won ? "FINAL — WON" : "FINAL — LOST";
+          done();
+          return;
+        }
+        const f = g.flow[qi];
+        scoreEl.textContent = `${f.us} – ${f.them}`;
+        scoreEl.className = "lg-score " + (f.us >= f.them ? "ahead" : "behind");
+        qEl.textContent = qi === 3 ? "4TH QUARTER" : `${["1ST", "2ND", "3RD"][qi]} QUARTER`;
+        barEl.style.width = ((qi + 1) / 4) * 100 + "%";
+        SFX.spin();
+        qi++;
+        setTimeout(tick, 900);
+      };
+      setTimeout(tick, 500);
+    }
+
     function revealGame() {
       if (gi >= r.games.length) {
         el.classList.remove("pending");
@@ -1728,6 +1796,13 @@ function playPlayoffs(regularMargin, userRank) {
         return;
       }
       const g = r.games[gi];
+
+      if (r.bestOf === 1 && r.title.startsWith("Final Four") && g.flow) {
+        gi++;
+        revealLiveGame(g, () => setTimeout(revealGame, 700));
+        return;
+      }
+
       const row = document.createElement("div");
       row.className = `pr-game ${g.won ? "w" : "l"} game-in`;
       row.innerHTML = `<span>Game ${gi + 1} <span class="pr-venue">${g.atHome ? "H" : "A"}</span></span><span>${g.won ? "W" : "L"} ${g.score[0]}–${g.score[1]}</span>`;

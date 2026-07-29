@@ -1248,12 +1248,24 @@ main#app {
 .topbar-icon-btn:hover { border-color: var(--accent); }
 
 /* ---------- Jersey kits (navy / white / blue-white striped) ---------- */
-.player-avatar.kit-navy { background: #213557 !important; color: #fff; }
-.player-avatar.kit-white { background: #F4EFE3 !important; color: #213557; text-shadow: none; }
+/* All three kits are light so they stay visible on the dark page. */
+.player-avatar.kit-white {
+  background: #F4EFE3 !important;
+  color: #16294A;
+  text-shadow: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(22,41,74,0.18);
+}
+.player-avatar.kit-white-navy {
+  background: #F4EFE3 !important;
+  color: #16294A;
+  text-shadow: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 0 0 3px #213557;
+}
 .player-avatar.kit-striped {
-  background: repeating-linear-gradient(90deg, #00A4D2 0 5px, #F4EFE3 5px 10px) !important;
-  color: #10233D;
-  text-shadow: 0 1px 2px rgba(255,255,255,0.7);
+  background: repeating-linear-gradient(90deg, #213557 0 5px, #F4EFE3 5px 10px) !important;
+  color: #F4EFE3;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.85);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 
 /* ---------- Season note on spin chip ---------- */
@@ -2526,4 +2538,62 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   .ps-taken .ps-pos { color: var(--ink); }
   .ps-blocked { opacity: 0.3; cursor: not-allowed; }
   .ps-wide { min-height: 54px; }
+}
+
+/* ---------- v29: live Final Four scoreboard ---------- */
+.live-game {
+  background: var(--navy);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 14px 16px 12px;
+  margin: 6px 0;
+  animation: screen-in 0.4s ease;
+}
+.live-game.lg-won { border-color: var(--green); }
+.live-game.lg-lost { border-color: var(--red); }
+.lg-teams {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.lg-side {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-align: center;
+}
+.lg-score {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 34px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+.lg-score.ahead { color: var(--green); }
+.lg-score.behind { color: var(--red); }
+.lg-quarter {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.live-game.lg-won .lg-quarter { color: var(--green); }
+.live-game.lg-lost .lg-quarter { color: var(--red); }
+.lg-bar {
+  height: 3px;
+  background: var(--navy-3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.lg-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), #22B8E6);
+  transition: width 0.7s ease;
 }
