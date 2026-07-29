@@ -1627,3 +1627,323 @@ main#app {
   50% { transform: rotateY(90deg) scale(0.9); opacity: 0.5; }
   100% { transform: rotateY(180deg) scale(0.7); opacity: 0; }
 }
+
+/* ============================================================
+   v14 — mobile experience
+   Desktop layout is intentionally untouched; everything here is
+   scoped to touch/narrow viewports.
+   ============================================================ */
+
+/* Stop iOS auto-inflating text and prevent accidental horizontal scroll */
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+
+/* ---------- Fixed bottom placement bar (mobile only) ---------- */
+.place-bar { display: none; }
+
+@media (max-width: 860px) {
+  .place-bar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(13, 27, 48, 0.97);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid var(--accent);
+    box-shadow: 0 -8px 26px rgba(0,0,0,0.45);
+    animation: pb-rise 0.25s ease;
+  }
+  .place-bar[hidden] { display: none; }
+  @keyframes pb-rise {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  .place-bar-player { display: flex; align-items: center; gap: 9px; min-width: 0; flex: 1; }
+  .pb-info { min-width: 0; }
+  .pb-name {
+    font-weight: 700;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pb-sub { color: var(--muted); font-size: 10px; }
+  .place-bar-actions { display: flex; gap: 6px; flex: none; }
+  .pb-slot-btn {
+    background: linear-gradient(135deg, #22B8E6, var(--accent) 60%, #0087AD);
+    color: #062B38;
+    border: none;
+    border-radius: 8px;
+    min-width: 48px;
+    min-height: 44px;
+    padding: 0 12px;
+    font-family: 'Oswald', var(--font-display);
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,164,210,0.4);
+  }
+  .place-bar-cancel {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  /* Give the page room so the bar never covers the last card */
+  #screen-draft { padding-bottom: 92px; }
+}
+
+/* ---------- Compact sticky lineup strip (mobile only) ---------- */
+.mobile-lineup-strip { display: none; }
+
+@media (max-width: 860px) {
+  .mobile-lineup-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    position: sticky;
+    top: 58px;
+    z-index: 60;
+    margin: 0 0 14px;
+    padding: 8px;
+    background: rgba(13, 27, 48, 0.96);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .mobile-lineup-strip[hidden] { display: none; }
+  .mls-slot {
+    text-align: center;
+    padding: 6px 2px;
+    border-radius: 6px;
+    background: var(--navy-2);
+    border: 1px dashed var(--line);
+    min-width: 0;
+  }
+  .mls-slot.filled { border-style: solid; border-color: var(--accent); background: var(--navy-3); }
+  .mls-pos {
+    display: block;
+    font-family: 'Oswald', var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  .mls-slot.filled .mls-pos { color: var(--accent); }
+  .mls-name {
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* On mobile the big court is secondary — the strip above does the job */
+  .draft-right { order: 2; }
+  .court-wrap { max-width: 320px; }
+  .court-hint { font-size: 11px; }
+}
+
+/* ---------- Mobile: denser player cards ---------- */
+@media (max-width: 860px) {
+  .draft-layout { gap: 18px; }
+
+  .player-pool { grid-template-columns: 1fr; gap: 9px; }
+  .player-card { padding: 13px 14px; }
+  .player-card .stat-block { margin-top: 6px; padding-top: 6px; }
+  .player-card .stat-block-label { font-size: 9px; margin-bottom: 2px; }
+  .stat-row { gap: 14px; }
+  .stat-row b { font-size: 16px; }
+  .no-data-note { display: none; }
+  .info-btn { width: 30px; height: 30px; top: 8px; right: 8px; font-size: 15px; }
+
+  /* Sticky filter/search so they're always reachable while scrolling players */
+  .pool-controls {
+    position: sticky;
+    top: 118px;
+    z-index: 50;
+    background: rgba(13, 27, 48, 0.96);
+    backdrop-filter: blur(8px);
+    padding: 8px;
+    margin: 0 -8px 12px;
+    border-radius: 10px;
+  }
+  .pos-tab { min-height: 38px; padding: 8px 14px; }
+  .player-search { min-height: 38px; }
+
+  .draft-header { gap: 4px; }
+  .draft-progress { font-size: 18px; }
+  .draft-slot-label { font-size: 11px; }
+}
+
+/* ---------- Mobile: modals become bottom sheets ---------- */
+@media (max-width: 860px) {
+  .player-modal, .share-modal {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .player-modal-inner, .share-modal-inner {
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
+    animation: sheet-up 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes sheet-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  .pm-table { font-size: 11px; }
+  .pm-table th, .pm-table td { padding: 5px 4px; }
+  .pm-name { font-size: 24px; }
+  .share-modal-actions { position: sticky; bottom: 0; padding-top: 12px; }
+}
+
+/* ---------- Mobile: results, playoffs, lineup ---------- */
+@media (max-width: 860px) {
+  .scoreboard-track { grid-template-columns: repeat(10, 1fr); gap: 4px; }
+  .flip-cell { font-size: 12px; border-radius: 4px; }
+  .scoreboard-months { display: none; }
+  .live-rec { font-size: 26px; }
+  .season-chart { margin: 4px 0 18px; }
+
+  .lineup-stage { gap: 8px; }
+  .lineup-player { width: calc(50% - 6px); padding: 14px 8px; }
+  .lineup-player:nth-child(5) { width: calc(50% - 6px); }
+
+  .playoff-round { max-width: 100%; }
+  .trophy-svg { width: 88px; height: 88px; }
+  .trophy-text { font-size: 24px; }
+
+  .result-actions, .playoff-actions { flex-direction: column; }
+  .result-actions button, .playoff-actions button, .playoff-actions a { width: 100%; }
+
+  .mvp-card { max-width: 100%; }
+  .leaders-row { gap: 6px; }
+  .leader { min-width: calc(33.333% - 6px); padding: 7px 6px; }
+  .leader-name { font-size: 11px; }
+
+  .roster-tools { flex-direction: column; align-items: stretch; }
+  .roster-tools .btn-secondary { width: 100%; }
+}
+
+/* ---------- Mobile: home screen ---------- */
+@media (max-width: 860px) {
+  .legends-grid { grid-template-columns: 1fr; }
+  .achv-grid { grid-template-columns: 1fr; }
+  .history-card { gap: 10px; padding: 10px 12px; }
+  .history-rec { font-size: 22px; min-width: 66px; }
+  .history-names { font-size: 12px; }
+  .home-tabs { gap: 6px; }
+  .home-tab { padding: 8px 14px; font-size: 13px; }
+  .budget-panel { padding: 12px 14px; gap: 12px; }
+  .budget-ring-wrap, .budget-ring { width: 72px; height: 72px; }
+  .achv-toast { left: 14px; right: 14px; bottom: 14px; }
+  .version-badge { bottom: 8px; left: 8px; font-size: 12px; }
+}
+
+/* Keep the version badge clear of the placement bar */
+@media (max-width: 860px) {
+  .place-bar:not([hidden]) ~ .version-badge,
+  .version-badge { z-index: 40; }
+}
+
+/* ============================================================
+   v15 — standings, real opponents, decade wheel
+   ============================================================ */
+
+.decade-banner {
+  display: inline-block;
+  background: var(--navy-3);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: 'Oswald', var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+/* ---------- Standings ---------- */
+.standings-legend {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+.lg-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  margin-right: 6px;
+  background: var(--line);
+}
+.lg-dot.zone-playoff { background: var(--green); }
+.lg-dot.zone-playin { background: var(--accent); }
+
+.standings-table {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.standing-row {
+  display: grid;
+  grid-template-columns: 32px 46px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--navy-2);
+  font-size: 14px;
+}
+.standing-row:last-child { border-bottom: none; }
+.standing-row.zone-playoff { border-left: 3px solid var(--green); }
+.standing-row.zone-playin { border-left: 3px solid var(--accent); }
+.standing-row.is-user {
+  background: linear-gradient(90deg, rgba(0,164,210,0.18), var(--navy-3));
+  font-weight: 700;
+}
+.st-rank { font-family: 'Oswald', var(--font-display); color: var(--muted); font-size: 15px; }
+.standing-row.is-user .st-rank { color: var(--accent); }
+.st-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-family: 'Oswald', var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.st-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.st-rec { font-family: 'Oswald', var(--font-display); font-size: 15px; }
+#to-bracket-btn { display: block; margin: 0 auto; }
+
+/* ---------- Playoff matchup badge ---------- */
+.pr-matchup { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 6px; }
+.pr-opp { font-weight: 700; font-size: 14px; }
+
+@media (max-width: 860px) {
+  .standing-row { grid-template-columns: 26px 42px 1fr auto; font-size: 13px; padding: 8px 10px; gap: 8px; }
+  .st-badge { min-width: 36px; font-size: 11px; }
+}

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0D1B30">
 <title>Road to Glory — Anadolu Efes All-Time Lineup</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,6 +160,7 @@
           <span class="spin-anim-label" id="spin-anim-label">2019-20</span>
         </div>
 
+        <div class="decade-banner" id="decade-banner" hidden></div>
         <div class="locked-seasons" id="locked-seasons" hidden></div>
 
         <div class="spin-result" id="spin-result" hidden>
@@ -174,6 +176,8 @@
 
         <div class="player-pool" id="player-pool"></div>
       </div>
+
+      <div class="mobile-lineup-strip" id="mobile-lineup-strip" hidden></div>
 
       <div class="draft-right">
         <div class="court-wrap" id="court-wrap" hidden>
@@ -336,10 +340,22 @@
   </section>
 
 
+  <!-- LEAGUE STANDINGS -->
+  <section id="screen-standings" class="screen">
+    <h2 class="section-title">Final Standings</h2>
+    <p class="section-sub" id="standings-note"></p>
+    <div class="standings-legend">
+      <span><i class="lg-dot zone-playoff"></i>Top 6 — playoffs</span>
+      <span><i class="lg-dot zone-playin"></i>7–10 — play-in</span>
+    </div>
+    <div class="standings-table" id="standings-table"></div>
+    <button class="btn-primary" id="to-bracket-btn">Enter the Playoffs →</button>
+  </section>
+
   <!-- PLAYOFFS -->
   <section id="screen-playoffs" class="screen">
     <h2 class="section-title">The Playoffs</h2>
-    <p class="section-sub" id="playoff-intro">Best-of-five quarterfinal. Win it and you reach the Final Four.</p>
+    <p class="section-sub" id="playoff-intro">Best-of-five quarterfinal. Win it and you reach the Final Four — semifinal, then the final or the third-place game.</p>
     <div class="playoff-rounds" id="playoff-rounds"></div>
     <div class="playoff-verdict" id="playoff-verdict"></div>
     <div class="trophy-stage" id="trophy-stage" hidden>
@@ -356,6 +372,13 @@
       <button class="btn-secondary" id="playoff-restart-btn">Build Another Roster</button>
     </div>
   </section>
+
+
+  <div class="place-bar" id="place-bar" hidden>
+    <div class="place-bar-player" id="place-bar-player"></div>
+    <div class="place-bar-actions" id="place-bar-actions"></div>
+    <button class="place-bar-cancel" id="place-bar-cancel">✕</button>
+  </div>
 
 </main>
 

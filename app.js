@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v13";
+const APP_VERSION = "v15";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -10,6 +10,9 @@ const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: 
 const state = {
   budgetType: "unlimited", // "unlimited" | "cap"
   challenge: "none",
+  lockedDecade: null,
+  teams: [],
+  standings: [],
   captainName: null,
   tradeMode: false,
   tradeUsed: false,
@@ -83,6 +86,7 @@ async function loadData() {
   state.playersBySeason = players;
   state.coaches = coaches;
   state.coachBySeason = coachBySeason;
+  await loadTeams();
 }
 
 function showDataError(err) {
@@ -130,6 +134,7 @@ function startDraft(mode) {
   state.tradeMode = false;
   state.tradeUsed = false;
   state.lockedSeasons = [];
+  state.lockedDecade = null;
   state.budgetSpent = 0;
   document.getElementById("budget-panel").hidden = state.budgetType !== "cap";
   document.getElementById("budget-panel-sub").textContent = `Credits remaining out of ${state.budgetTotal}`;
@@ -205,7 +210,14 @@ function eligibleSeasons() {
 }
 
 function poolForSeason(season) {
-  return (state.playersBySeason[season] || []).filter((p) => !state.usedPlayerNames.has(p.name));
+  return (state.playersBySeason[season] || []).filter((p) => {
+    if (state.usedPlayerNames.has(p.name)) return false;
+    // Challenge filters remove players from the pool entirely rather than
+    // showing them as unclickable — a screen full of dead cards is worse UX.
+    if (state.challenge === "homegrown" && p.countryCode !== "TR") return false;
+    if (state.challenge === "noLegends" && computeLegendSet().has(p.name)) return false;
+    return true;
+  });
 }
 
 let poolFilterPosition = "All";
@@ -229,6 +241,8 @@ function renderDraftStep() {
   renderCourt();
   renderBench();
   updateCourtHint();
+  renderMobileLineupStrip();
+  updatePlaceBar();
 
   document.getElementById("spin-result").hidden = true;
   document.getElementById("spin-anim").hidden = true;
@@ -416,6 +430,13 @@ function renderDraftStep_labelOnly() {
 }
 
 function doSpin() {
+  // One Decade: the very first spin picks the decade, and every later spin is
+  // confined to it. This also prevents the old dead-end where a second spin
+  // landed on a different decade and left nothing selectable.
+  if (state.challenge === "singleEra" && state.lockedDecade == null) {
+    spinDecadeThenSeason();
+    return;
+  }
   const seasons = eligibleSeasons();
   const season = pickRandom(seasons);
 
@@ -431,7 +452,7 @@ function doSpin() {
   const shuffleInterval = setInterval(() => {
     labelEl.textContent = pickRandom(seasons);
     shuffleCount++;
-  }, 160);
+  }, 80);
 
   setTimeout(() => {
     clearInterval(shuffleInterval);
@@ -454,7 +475,7 @@ function doSpin() {
     renderSortTabs();
     document.getElementById("player-search").value = "";
     renderPlayerPool(state.currentSpinPool);
-  }, 2200);
+  }, 900);
 }
 
 function respin() {
@@ -793,7 +814,7 @@ function doCoachSpin() {
   animEl.hidden = false;
   const shuffleInterval = setInterval(() => {
     labelEl.textContent = pickRandom(seasons);
-  }, 160);
+  }, 80);
 
   setTimeout(() => {
     clearInterval(shuffleInterval);
@@ -808,7 +829,7 @@ function doCoachSpin() {
     updateCoachRespinCounter();
 
     renderCoachOptions();
-  }, 2200);
+  }, 900);
 }
 
 function coachRespin() {
@@ -956,8 +977,8 @@ function animateScoreboard(results, onDone) {
     if (i >= results.length) {
       clearInterval(interval);
       if (liveEl) liveEl.hidden = true;
-      drawSeasonChart(results);
-      renderMvpAndLeaders();
+      try { drawSeasonChart(results); } catch (e) { console.error("chart failed", e); }
+      try { renderMvpAndLeaders(); } catch (e) { console.error("leaders failed", e); }
       onDone();
       return;
     }
@@ -974,7 +995,7 @@ function animateScoreboard(results, onDone) {
       if (hb) {
         hb.hidden = false;
         hb.textContent = `Halfway mark: ${w}–${l}`;
-        setTimeout(() => { hb.hidden = true; }, 2200);
+        setTimeout(() => { hb.hidden = true; }, 900);
       }
     }
 
@@ -1199,7 +1220,7 @@ function evaluateAchievements(wins, playoffWon) {
   if (wins === 37) unlock("near");
   if (wins >= 30) unlock("thirty");
   if (starters.length === 5 && new Set(starters.map((p) => p.season)).size === 1) unlock("oneseason");
-  if (wins >= 25 && starters.length === 5 && starters.every((p) => looksTurkish(p.name))) unlock("homegrown");
+  if (wins >= 25 && starters.length === 5 && starters.every((p) => p.countryCode === "TR")) unlock("homegrown");
   if (wins >= 30 && state.budgetType === "cap" && state.budgetSpent <= state.budgetTotal / 2) unlock("thrifty");
   if (playoffWon) unlock("champion");
 
@@ -1256,47 +1277,53 @@ function buildNarrative(results) {
 }
 
 // ---------- Playoffs (real EuroLeague format: QF, SF, Final) ----------
-const PLAYOFF_ROUNDS = [
-  { round: "Quarterfinal", label: "Best of 5 — first to 3 wins", strength: 9, bestOf: 5 },
-  { round: "Final Four — Semifinal", label: "Single game", strength: 12, bestOf: 1 },
-  { round: "Final Four — Final", label: "Single game", strength: 13, bestOf: 1 },
-];
-
 function gaussian() {
   const u = Math.random() || 1e-9, v = Math.random() || 1e-9;
   return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
 
-// Plausible final score for a single game.
-function simGameScore(_winProb, won) {
+function simGameScore(_p, won) {
   const base = 78 + Math.round(Math.random() * 12);
   const gap = Math.max(1, Math.round(Math.abs(gaussian()) * 7) + 1);
   return won ? [base + gap, base] : [base, base + gap];
 }
 
-function runPlayoffs(regularMargin) {
-  const rounds = [];
-  let alive = true;
-  for (const cfg of PLAYOFF_ROUNDS) {
-    if (!alive) break;
-    const p = pythagoreanWinPct(regularMargin - cfg.strength);
-    const games = [];
-    let w = 0, l = 0;
-    const needed = Math.ceil(cfg.bestOf / 2);
-    while (w < needed && l < needed) {
-      const won = Math.random() < p;
-      games.push({ won, score: simGameScore(p, won) });
-      if (won) w++; else l++;
-    }
-    const seriesWon = w >= needed;
-    rounds.push({ round: cfg.round, label: cfg.label, bestOf: cfg.bestOf, games, w, l, won: seriesWon });
-    if (!seriesWon) alive = false;
-  }
-  return { rounds, champion: alive };
+// Win probability against a specific opponent, using their real-form strength.
+function winProbVs(margin, opponent) {
+  return pythagoreanWinPct(margin - opponent.strength * 1.45);
 }
 
-// Playoffs now live on their own screen and reveal round by round.
-function playPlayoffs(regularMargin) {
+function playSeries(margin, opponent, bestOf) {
+  const p = winProbVs(margin, opponent);
+  const games = [];
+  let w = 0, l = 0;
+  const needed = Math.ceil(bestOf / 2);
+  while (w < needed && l < needed) {
+    const won = Math.random() < p;
+    games.push({ won, score: simGameScore(p, won) });
+    if (won) w++; else l++;
+  }
+  return { opponent, games, w, l, won: w >= needed, bestOf };
+}
+
+let lastPlayoffChampion = false;
+let lastPlayoffFinish = "";
+
+// Seeds the bracket from the final table: the user meets progressively better
+// opposition, drawn from the actual standings rather than fixed placeholders.
+function opponentsFromStandings(userRank) {
+  const others = state.standings.filter((r) => !r.isUser);
+  const qfSeed = Math.max(0, Math.min(others.length - 1, 8 - Math.min(userRank, 6)));
+  const top = [...others].sort((a, b) => b.wins - a.wins);
+  return {
+    qf: others[qfSeed] || top[3],
+    sf: top[1] || top[0],
+    final: top[0],
+    third: top[2] || top[0],
+  };
+}
+
+function playPlayoffs(regularMargin, userRank) {
   const roundsEl = document.getElementById("playoff-rounds");
   const verdictEl = document.getElementById("playoff-verdict");
   const trophyEl = document.getElementById("trophy-stage");
@@ -1307,49 +1334,92 @@ function playPlayoffs(regularMargin) {
   trophyEl.hidden = true;
   actionsEl.hidden = true;
 
-  const { rounds, champion } = runPlayoffs(regularMargin);
-  lastPlayoffChampion = champion;
+  if (userRank > 10) {
+    lastPlayoffChampion = false;
+    lastPlayoffFinish = "Missed the postseason";
+    verdictEl.textContent = "You finished outside the top ten. No postseason this year.";
+    actionsEl.hidden = false;
+    finishPlayoffs();
+    return;
+  }
+
+  const opp = opponentsFromStandings(userRank);
+  const sequence = [];
+
+  const qf = playSeries(regularMargin, opp.qf, 5);
+  sequence.push({ title: "Quarterfinal", subtitle: "Best of 5 — first to 3 wins", ...qf });
+
+  if (qf.won) {
+    const sf = playSeries(regularMargin, opp.sf, 1);
+    sequence.push({ title: "Final Four — Semifinal", subtitle: "Single game", ...sf });
+    if (sf.won) {
+      const fin = playSeries(regularMargin, opp.final, 1);
+      sequence.push({ title: "Final Four — Final", subtitle: "Single game", ...fin });
+      lastPlayoffChampion = fin.won;
+      lastPlayoffFinish = fin.won ? "EuroLeague Champions" : "Runners-up";
+    } else {
+      const third = playSeries(regularMargin, opp.third, 1);
+      sequence.push({ title: "Final Four — Third Place Game", subtitle: "Single game", ...third });
+      lastPlayoffChampion = false;
+      lastPlayoffFinish = third.won ? "Third place" : "Fourth place";
+    }
+  } else {
+    lastPlayoffChampion = false;
+    lastPlayoffFinish = "Eliminated in the quarterfinals";
+  }
 
   let i = 0;
   function revealNext() {
-    if (i >= rounds.length) {
-      if (champion) {
+    if (i >= sequence.length) {
+      if (lastPlayoffChampion) {
         trophyEl.hidden = false;
         verdictEl.textContent = "The trophy is yours.";
         verdictEl.className = "playoff-verdict champion";
         SFX.crowd();
         triggerConfetti();
       } else {
-        const last = rounds[rounds.length - 1];
-        verdictEl.textContent = `Eliminated in the ${last.round}. The road ends here.`;
+        verdictEl.textContent = lastPlayoffFinish + ". The road ends here.";
       }
       actionsEl.hidden = false;
-      if (lastResult) lastResult.champion = champion;
-      const unlocked = evaluateAchievements(lastResult ? lastResult.wins : 0, champion);
-      if (unlocked.length) showAchievementToasts(unlocked);
+      finishPlayoffs();
       return;
     }
-    const r = rounds[i];
+    const r = sequence[i];
     const el = document.createElement("div");
     el.className = "playoff-round " + (r.won ? "won" : "lost");
-    const seriesLabel = r.bestOf > 1 ? `${r.label} · ${r.w}–${r.l}` : r.label;
+    const c = r.opponent.colors;
+    const seriesLabel = r.bestOf > 1 ? `${r.subtitle} · ${r.w}–${r.l}` : r.subtitle;
     const gamesHtml = r.games
       .map((g, gi) => `<div class="pr-game ${g.won ? "w" : "l"}">G${gi + 1} ${g.won ? "W" : "L"} ${g.score[0]}–${g.score[1]}</div>`)
       .join("");
     el.innerHTML = `
-      <div class="pr-name">${r.round}</div>
+      <div class="pr-name">${r.title}</div>
+      <div class="pr-matchup">
+        <span class="st-badge" style="background:${c[0]};color:${c[1]}">${r.opponent.short}</span>
+        <span class="pr-opp">vs ${r.opponent.name}</span>
+      </div>
       <div class="pr-series">${seriesLabel}</div>
       <div class="pr-games">${gamesHtml}</div>
       <div class="pr-res">${r.won ? "ADVANCED" : "ELIMINATED"}</div>`;
     roundsEl.appendChild(el);
     if (r.won) SFX.win(); else SFX.loss();
     i++;
-    setTimeout(revealNext, 1600);
+    setTimeout(revealNext, 1400);
   }
   revealNext();
 }
 
-let lastPlayoffChampion = false;
+function finishPlayoffs() {
+  if (lastResult) lastResult.champion = lastPlayoffChampion;
+  try {
+    const unlocked = evaluateAchievements(lastResult ? lastResult.wins : 0, lastPlayoffChampion);
+    if (unlocked.length) showAchievementToasts(unlocked);
+  } catch (e) {
+    console.error("achievements failed", e);
+  }
+}
+
+
 
 // ---------- Special challenge modes ----------
 const CHALLENGES = [
@@ -1381,15 +1451,12 @@ function decadeOf(season) {
 // Returns true if this player is allowed under the active challenge.
 function passesChallenge(player, season) {
   switch (state.challenge) {
-    case "singleEra": {
-      const chosen = state.roster.find((p) => p.season);
-      if (!chosen) return true;
-      return decadeOf(season) === decadeOf(chosen.season);
-    }
+    case "singleEra":
+      if (state.lockedDecade == null) return true;
+      return decadeOf(season) === state.lockedDecade;
     case "homegrown":
-      return looksTurkish(player.name);
     case "noLegends":
-      return !computeLegendSet().has(player.name);
+      return true; // already filtered out of the pool
     default:
       return true;
   }
@@ -2087,9 +2154,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Playoffs entry
   const toPo = document.getElementById("to-playoffs-btn");
   if (toPo) toPo.addEventListener("click", () => {
+    showScreen("screen-standings");
+    SFX.whistle();
+    lastUserRank = renderStandings(lastResult ? lastResult.wins : 0);
+  });
+
+  const toBracket = document.getElementById("to-bracket-btn");
+  if (toBracket) toBracket.addEventListener("click", () => {
     showScreen("screen-playoffs");
     SFX.whistle();
-    playPlayoffs(lastMargin);
+    playPlayoffs(lastMargin, lastUserRank);
   });
 
   const poShare = document.getElementById("playoff-share-btn");
@@ -2126,3 +2200,214 @@ function countUpRecord(wins, losses) {
     if (i >= steps) { clearInterval(t); el.textContent = `${wins}–${losses}`; }
   }, 45);
 }
+
+// ============================================================
+// v14 — mobile experience
+//
+// The core mobile problem: HTML5 drag-and-drop doesn't fire on touch devices,
+// and stacking the pool under the court meant a user had to scroll up and down
+// for every single pick. Both are solved by a fixed bottom placement bar: tap a
+// player, the bar rises with one button per open slot, tap to place. No
+// scrolling, no dragging. The desktop layout is untouched.
+// ============================================================
+
+function isMobileViewport() {
+  return window.matchMedia("(max-width: 860px)").matches;
+}
+
+function openSlotsForCurrentTier() {
+  const tier = getCurrentTier();
+  if (tier === "free") return ["BENCH"];
+  return POSITION_ORDER.filter((pos) => openSetForTier(tier).has(pos));
+}
+
+function slotsPlayerCanFill(player) {
+  const tier = getCurrentTier();
+  if (tier === "free") return ["BENCH"];
+  if (tier === "backup") return POSITION_ORDER.filter((pos) => openSetForTier(tier).has(pos));
+  return player.positions.filter((pos) => openSetForTier(tier).has(pos));
+}
+
+function updatePlaceBar() {
+  const bar = document.getElementById("place-bar");
+  if (!bar) return;
+  const p = state.armedPlayer;
+  if (!p) { bar.hidden = true; return; }
+
+  const slots = slotsPlayerCanFill(p);
+  if (!slots.length) { bar.hidden = true; return; }
+
+  document.getElementById("place-bar-player").innerHTML =
+    `${avatarHtml(p.name)}<div class="pb-info"><div class="pb-name">${p.name}</div><div class="pb-sub">${state.currentSpinSeason} · ${p.positions.join("/")}</div></div>`;
+
+  const actions = document.getElementById("place-bar-actions");
+  actions.innerHTML = "";
+  slots.forEach((slot) => {
+    const btn = document.createElement("button");
+    btn.className = "pb-slot-btn";
+    btn.textContent = slot === "BENCH" ? "Add to bench" : slot;
+    btn.addEventListener("click", () => {
+      const player = state.armedPlayer;
+      state.armedPlayer = null;
+      bar.hidden = true;
+      placePlayer(player, slot === "BENCH" ? null : slot);
+    });
+    actions.appendChild(btn);
+  });
+  bar.hidden = false;
+}
+
+// Compact lineup strip so a mobile user always sees what's filled without
+// scrolling back to the court.
+function renderMobileLineupStrip() {
+  const strip = document.getElementById("mobile-lineup-strip");
+  if (!strip) return;
+  const tier = getCurrentTier();
+  if (!isMobileViewport() || tier === "free") { strip.hidden = true; return; }
+
+  const set = tier === "starter" ? "starter" : "backup";
+  strip.hidden = false;
+  strip.innerHTML = POSITION_ORDER.map((pos) => {
+    const occupant = state.roster.find((p) => p.tier === set && p.filledPosition === pos);
+    const short = occupant ? occupant.name.split(" ").slice(-1)[0] : "";
+    return `<div class="mls-slot ${occupant ? "filled" : ""}">
+      <span class="mls-pos">${pos}</span>
+      <span class="mls-name">${short || "—"}</span>
+    </div>`;
+  }).join("");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cancel = document.getElementById("place-bar-cancel");
+  if (cancel) cancel.addEventListener("click", () => {
+    state.armedPlayer = null;
+    document.getElementById("place-bar").hidden = true;
+    renderPlayerPool(state.currentSpinPool);
+    renderCourt();
+    renderBench();
+    updateCourtHint();
+  });
+
+  window.addEventListener("resize", () => {
+    renderMobileLineupStrip();
+  });
+});
+
+// ---------- Decade wheel (One Decade challenge) ----------
+function availableDecades() {
+  const set = new Set();
+  Object.keys(state.playersBySeason).forEach((s) => set.add(decadeOf(s)));
+  return [...set].sort((a, b) => a - b);
+}
+
+function spinDecadeThenSeason() {
+  const decades = availableDecades().filter((d) => {
+    // only decades that can actually supply a full roster's worth of seasons
+    return Object.keys(state.playersBySeason).filter((s) => decadeOf(s) === d).length > 0;
+  });
+  const chosen = pickRandom(decades);
+
+  document.getElementById("spin-panel").style.display = "none";
+  document.getElementById("spin-result").hidden = true;
+  document.getElementById("pool-controls").hidden = true;
+  document.getElementById("player-pool").innerHTML = "";
+
+  const animEl = document.getElementById("spin-anim");
+  const labelEl = document.getElementById("spin-anim-label");
+  animEl.hidden = false;
+  const shuffle = setInterval(() => {
+    labelEl.textContent = pickRandom(decades) + "s";
+  }, 80);
+
+  setTimeout(() => {
+    clearInterval(shuffle);
+    labelEl.textContent = chosen + "s";
+    state.lockedDecade = chosen;
+    const banner = document.getElementById("decade-banner");
+    if (banner) {
+      banner.hidden = false;
+      banner.textContent = `Locked to the ${chosen}s`;
+    }
+    setTimeout(() => {
+      animEl.hidden = true;
+      doSpin();
+    }, 900);
+  }, 900);
+}
+
+// ============================================================
+// League standings + playoff bracket with real EuroLeague teams
+// ============================================================
+async function loadTeams() {
+  const res = await fetch("data/teams.json");
+  const data = await res.json();
+  state.teams = data.teams;
+}
+
+// Convert a team's 0-10 strength index into an expected win total over 38 games.
+// Anchored so the strongest sides land in the mid-20s and the weakest around 10,
+// which is what the real EuroLeague table looks like.
+function expectedWinsFor(strength) {
+  return 6 + strength * 2.0;
+}
+
+function buildStandings(userWins) {
+  const rows = state.teams.map((t) => {
+    const expected = expectedWinsFor(t.strength);
+    // Season-to-season noise, but small enough that a weak side can't leap to
+    // the top: a 17th-placed team stays in that neighbourhood.
+    const wins = Math.max(2, Math.min(36, Math.round(expected + gaussian() * 1.7)));
+    return { ...t, wins, losses: 38 - wins, isUser: false };
+  });
+  rows.push({
+    name: "Anadolu Efes",
+    short: "EFS",
+    colors: ["#0D2C6B", "#FFFFFF"],
+    wins: userWins,
+    losses: 38 - userWins,
+    isUser: true,
+  });
+  rows.sort((a, b) => b.wins - a.wins);
+  state.standings = rows;
+  return rows;
+}
+
+function renderStandings(userWins) {
+  const el = document.getElementById("standings-table");
+  if (!el) return;
+  const rows = buildStandings(userWins);
+  const userRank = rows.findIndex((r) => r.isUser) + 1;
+
+  el.innerHTML = rows
+    .map((r, i) => {
+      const rank = i + 1;
+      const zone = rank <= 6 ? "zone-playoff" : rank <= 10 ? "zone-playin" : "";
+      return `<div class="standing-row ${r.isUser ? "is-user" : ""} ${zone}">
+        <span class="st-rank">${rank}</span>
+        <span class="st-badge" style="background:${r.colors[0]};color:${r.colors[1]}">${r.short}</span>
+        <span class="st-name">${r.name}</span>
+        <span class="st-rec">${r.wins}–${r.losses}</span>
+      </div>`;
+    })
+    .join("");
+
+  const note = document.getElementById("standings-note");
+  if (note) {
+    note.textContent =
+      userRank <= 6
+        ? `You finished ${userRank}${ordinal(userRank)} — straight into the quarterfinals.`
+        : userRank <= 10
+        ? `You finished ${userRank}${ordinal(userRank)} — into the play-in.`
+        : `You finished ${userRank}${ordinal(userRank)} — outside the top ten. The road ends here.`;
+  }
+  return userRank;
+}
+
+function ordinal(n) {
+  if (n % 10 === 1 && n % 100 !== 11) return "st";
+  if (n % 10 === 2 && n % 100 !== 12) return "nd";
+  if (n % 10 === 3 && n % 100 !== 13) return "rd";
+  return "th";
+}
+
+let lastUserRank = 1;
