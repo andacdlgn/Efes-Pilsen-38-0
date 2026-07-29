@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v27";
+const APP_VERSION = "v28";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -345,7 +345,6 @@ function renderDraftStep() {
   renderCourt();
   renderBench();
   updateCourtHint();
-  renderMobileLineupStrip();
   renderSlotRail();
   updatePlaceBar();
 
@@ -759,17 +758,25 @@ function renderPlayerPool(pool) {
       });
 
       card.addEventListener("click", () => {
-        if (!isConstrainedPhase()) {
-          // Free bench picks have no position to choose — placing is immediate.
-          placePlayer(p, null);
+        const opts = safeSlotsFor(p);
+        if (!opts.length) return;
+
+        // Only one legal destination: just place them, no need to ask.
+        if (opts.length === 1) {
+          state.armedPlayer = null;
+          placePlayer(p, opts[0]);
           return;
         }
-        // Toggle: clicking the already-armed player disarms it.
+
+        // Otherwise arm the player: desktop lights up the court, mobile opens
+        // the position picker sheet.
         state.armedPlayer = state.armedPlayer === p ? null : p;
         renderPlayerPool(pool);
         renderCourt();
         renderBench();
         updateCourtHint();
+        renderSlotRail();
+        updatePlaceBar();
       });
     }
 
@@ -2755,23 +2762,6 @@ function renderSlotRail() {
   rail.hidden = false;
 }
 
-// Compact lineup strip so a mobile user always sees what's filled without
-// scrolling back to the court.
-function renderMobileLineupStrip() {
-  const strip = document.getElementById("mobile-lineup-strip");
-  if (!strip) return;
-  if (!isMobileViewport()) { strip.hidden = true; return; }
-
-  strip.hidden = false;
-  strip.innerHTML = POSITION_ORDER.map((pos) => {
-    const occupant = state.roster.find((p) => p.tier === "starter" && p.filledPosition === pos);
-    const short = occupant ? occupant.name.split(" ").slice(-1)[0] : "";
-    return `<div class="mls-slot ${occupant ? "filled" : ""}">
-      <span class="mls-pos">${pos}</span>
-      <span class="mls-name">${short || "—"}</span>
-    </div>`;
-  }).join("");
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("pick-sheet-close");
@@ -2780,8 +2770,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (sheet) sheet.addEventListener("click", (e) => { if (e.target === sheet) closePickSheet(); });
 
   window.addEventListener("resize", () => {
-    renderMobileLineupStrip();
-    renderSlotRail();
+      renderSlotRail();
   });
 });
 

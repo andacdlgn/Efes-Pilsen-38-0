@@ -1706,82 +1706,15 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
 }
 
 /* ---------- Compact sticky lineup strip (mobile only) ---------- */
-.mobile-lineup-strip { display: none; }
 
 @media (max-width: 860px) {
-  .mobile-lineup-strip {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
-    position: sticky;
-    top: 58px;
-    z-index: 60;
-    margin: 0 0 14px;
-    padding: 8px;
-    background: rgba(13, 27, 48, 0.96);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-  }
-  .mobile-lineup-strip[hidden] { display: none; }
-  .mls-slot {
-    text-align: center;
-    padding: 6px 2px;
-    border-radius: 6px;
-    background: var(--navy-2);
-    border: 1px dashed var(--line);
-    min-width: 0;
-  }
-  .mls-slot.filled { border-style: solid; border-color: var(--accent); background: var(--navy-3); }
-  .mls-pos {
-    display: block;
-    font-family: 'Oswald', var(--font-display);
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    color: var(--muted);
-  }
-  .mls-slot.filled .mls-pos { color: var(--accent); }
-  .mls-name {
-    display: block;
-    font-size: 9px;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 
-  /* On mobile the big court is secondary — the strip above does the job */
-  .draft-right { order: 2; }
-  .court-wrap { max-width: 320px; }
-  .court-hint { font-size: 11px; }
-}
-
-/* ---------- Mobile: denser player cards ---------- */
-@media (max-width: 860px) {
-  .draft-layout { gap: 18px; }
-
-  .player-pool { grid-template-columns: 1fr; gap: 9px; }
-  .player-card { padding: 13px 14px; }
-  .player-card .stat-block { margin-top: 6px; padding-top: 6px; }
-  .player-card .stat-block-label { font-size: 9px; margin-bottom: 2px; }
-  .stat-row { gap: 14px; }
-  .stat-row b { font-size: 16px; }
-  .no-data-note { display: none; }
-  .info-btn { width: 30px; height: 30px; top: 8px; right: 8px; font-size: 15px; }
-
-  /* Sticky filter/search so they're always reachable while scrolling players */
-  .pool-controls {
-    position: sticky;
-    top: 118px;
-    z-index: 50;
-    background: rgba(13, 27, 48, 0.96);
-    backdrop-filter: blur(8px);
-    padding: 8px;
-    margin: 0 -8px 12px;
-    border-radius: 10px;
-  }
-  .pos-tab { min-height: 38px; padding: 8px 14px; }
-  .player-search { min-height: 38px; }
+  .pos-filter-tabs { flex: 1; gap: 5px; }
+  .pos-tab { min-height: 34px; padding: 6px 11px; font-size: 12px; }
+  .player-search { min-height: 34px; font-size: 12px; order: 3; flex-basis: 100%; }
+  .sort-tabs { gap: 5px; }
+  .sort-tabs-label { display: none; }
+  .sort-tabs .pos-tab { min-height: 30px; padding: 5px 10px; font-size: 11px; }
 
   .draft-header { gap: 4px; }
   .draft-progress { font-size: 18px; }
@@ -2461,7 +2394,7 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
 
 @media (max-width: 860px) {
   /* The court is a desktop affordance; on a phone it just forced scrolling. */
-  .court-wrap, .court-hint, .bench-wrap, .mobile-lineup-strip { display: none !important; }
+  .court-wrap, .court-hint, .bench-wrap { display: none !important; }
   .draft-right { display: none; }
   .draft-layout { grid-template-columns: 1fr; }
 
