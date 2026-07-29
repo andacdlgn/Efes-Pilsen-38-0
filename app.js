@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v24";
+const APP_VERSION = "v25";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -978,31 +978,75 @@ function rosterStrength() {
   return LEAGUE_AVG_STRENGTH + computeExpectedMargin() * MARGIN_TO_STRENGTH;
 }
 
+// Per-season form: a club's real level drifts year to year with injuries,
+// signings and chemistry, so a fixed strength rating alone makes every season
+// feel identical. Each side gets a season-long modifier, redrawn every run.
+const SEASON_FORM_SD = 0.55;
+
+// Home advantage isn't uniform — some arenas are genuinely harder to win at.
+function homeEdgeFor(team) {
+  const base = HOME_COURT;
+  const bonus = team.homeFactor != null ? team.homeFactor : 0;
+  return base * (1 + bonus);
+}
+
+// Score model tied to the game's competitiveness rather than a flat random gap.
+function makeScore(edge, aWins) {
+  const pace = 76 + Math.round(Math.random() * 14);
+  const expected = Math.abs(edge) * 0.55;
+  const gap = Math.max(1, Math.round(expected + Math.abs(gaussian()) * 6.5));
+  return aWins ? [pace + gap, pace] : [pace, pace + gap];
+}
+
 function simulateLeague(userStrength) {
   const field = [
-    ...state.teams.map((t) => ({ ...t, s: t.strength, isUser: false })),
-    { name: "Anadolu Efes", short: "EFS", colors: ["#0D2C6B", "#FFFFFF"], s: userStrength, isUser: true },
+    ...state.teams.map((t) => ({
+      ...t,
+      s: t.strength + gaussian() * SEASON_FORM_SD,
+      homeFactor: (Math.random() - 0.5) * 0.7,
+      isUser: false,
+    })),
+    {
+      name: "Anadolu Efes",
+      short: "EFS",
+      colors: ["#0D2C6B", "#FFFFFF"],
+      strength: userStrength,
+      s: userStrength,
+      homeFactor: 0.15,
+      isUser: true,
+    },
   ];
 
-  const rec = new Map(field.map((t) => [t.name, { wins: 0, losses: 0, pf: 0, pa: 0 }]));
+  const rec = new Map(
+    field.map((t) => [t.name, {
+      wins: 0, losses: 0, pf: 0, pa: 0,
+      homeW: 0, homeL: 0, awayW: 0, awayL: 0,
+      beat: new Set(), lostTo: new Set(),
+      h2h: new Map(),
+    }])
+  );
   const userSchedule = [];
 
   for (let i = 0; i < field.length; i++) {
     for (let j = i + 1; j < field.length; j++) {
       for (const hostIsI of [true, false]) {
         const A = field[i], B = field[j];
-        const edge = (A.s - B.s) * OPP_SCALE + (hostIsI ? HOME_COURT : -HOME_COURT);
+        const host = hostIsI ? A : B;
+        const edge = (A.s - B.s) * OPP_SCALE + (hostIsI ? homeEdgeFor(host) : -homeEdgeFor(host));
         const aWins = Math.random() < pythagoreanWinPct(edge);
-
-        const gap = Math.max(1, Math.round(Math.abs(edge) + Math.abs(gaussian()) * 7));
-        const base = 78 + Math.round(Math.random() * 10);
-        const aScore = aWins ? base + gap : base;
-        const bScore = aWins ? base : base + gap;
+        const [aScore, bScore] = makeScore(edge, aWins);
 
         const ra = rec.get(A.name), rb = rec.get(B.name);
         ra[aWins ? "wins" : "losses"]++; rb[aWins ? "losses" : "wins"]++;
         ra.pf += aScore; ra.pa += bScore;
         rb.pf += bScore; rb.pa += aScore;
+
+        if (hostIsI) { ra[aWins ? "homeW" : "homeL"]++; rb[aWins ? "awayL" : "awayW"]++; }
+        else { ra[aWins ? "awayW" : "awayL"]++; rb[aWins ? "homeL" : "homeW"]++; }
+
+        // Real head-to-head record, so ties can be broken the way the league does.
+        ra.h2h.set(B.name, (ra.h2h.get(B.name) || 0) + (aWins ? 1 : -1));
+        rb.h2h.set(A.name, (rb.h2h.get(A.name) || 0) + (aWins ? -1 : 1));
 
         if (A.isUser || B.isUser) {
           const userWon = A.isUser ? aWins : !aWins;
@@ -1017,19 +1061,32 @@ function simulateLeague(userStrength) {
     }
   }
 
-  // The user's fixtures arrive grouped by opponent; shuffle into a plausible
-  // fixture order so the season reads like a calendar rather than a table.
   for (let i = userSchedule.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [userSchedule[i], userSchedule[j]] = [userSchedule[j], userSchedule[i]];
   }
 
-  const standings = field
-    .map((t) => {
-      const r = rec.get(t.name);
-      return { ...t, wins: r.wins, losses: r.losses, diff: r.pf - r.pa };
-    })
-    .sort((a, b) => b.wins - a.wins || b.diff - a.diff);
+  const standings = field.map((t) => {
+    const r = rec.get(t.name);
+    return {
+      ...t,
+      wins: r.wins, losses: r.losses,
+      diff: r.pf - r.pa, pf: r.pf, pa: r.pa,
+      homeRec: `${r.homeW}-${r.homeL}`,
+      awayRec: `${r.awayW}-${r.awayL}`,
+      h2h: r.h2h,
+    };
+  });
+
+  // EuroLeague tiebreak order: record, then head-to-head between the tied
+  // teams, then overall points difference. We have the actual games, so the
+  // head-to-head step uses real results rather than a proxy.
+  standings.sort((a, b) => {
+    if (b.wins !== a.wins) return b.wins - a.wins;
+    const h = (a.h2h.get(b.name) || 0);
+    if (h !== 0) return -h;
+    return b.diff - a.diff;
+  });
 
   return { standings, userSchedule };
 }
@@ -2322,15 +2379,17 @@ function renderLegends() {
   HALL_OF_LEGENDS.forEach((L) => {
     const st = legendStats(L.name);
     const el = document.createElement("div");
-    el.className = "legend-card legend-honour";
+    el.className = "legend-tile" + (st.gp ? "" : " legend-noclick");
     el.innerHTML = `
-      ${avatarHtml(L.name)}
-      <div class="legend-info">
-        <div class="legend-name">${L.name}</div>
-        <div class="legend-years">${L.years}</div>
-        <div class="legend-note">${L.note}</div>
-        ${st.gp ? `<div class="legend-stat-line">${st.seasons} recorded season${st.seasons === 1 ? "" : "s"} · ${st.gp} games</div>`
-                : `<div class="legend-stat-line legend-nostat">No per-game statistics recorded for this era</div>`}
+      <div class="lt-badge">${L.group === "foreign" ? "INTERNATIONAL" : "TÜRKİYE"}</div>
+      <div class="lt-avatar">${avatarHtml(L.name)}</div>
+      <div class="lt-name">${L.name}</div>
+      <div class="lt-years">${L.years}</div>
+      <div class="lt-note">${L.note}</div>
+      <div class="lt-foot">
+        ${st.gp
+          ? `<span class="lt-stat"><b>${st.seasons}</b> seasons</span><span class="lt-stat"><b>${st.gp}</b> games</span>`
+          : `<span class="lt-stat lt-nostat">Pre-1997 · no box scores recorded</span>`}
       </div>`;
     if (st.gp) el.addEventListener("click", () => openPlayerModal(L.name));
     grid.appendChild(el);
@@ -2653,6 +2712,7 @@ function renderStandings(userWins) {
         <span class="st-badge" style="background:${r.colors[0]};color:${r.colors[1]}">${r.short}</span>
         <span class="st-name">${r.name}</span>
         <span class="st-rec">${r.wins}–${r.losses}</span>
+        <span class="st-split" title="Home / Away">${r.homeRec || ""} <i>/</i> ${r.awayRec || ""}</span>
         <span class="st-diff ${r.diff >= 0 ? "pos" : "neg"}">${r.diff >= 0 ? "+" : ""}${r.diff}</span>
       </div>`;
     })

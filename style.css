@@ -2353,3 +2353,103 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   .bracket-connector { display: none; }
   .legends-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- v25: Legends as a four-across tile wall ---------- */
+.legends-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.legend-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  padding: 18px 14px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(170deg, var(--navy-3), var(--navy-2) 72%);
+  border: 1px solid var(--line);
+  border-top: 3px solid #E2C15B;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  overflow: hidden;
+}
+.legend-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 45% at 50% -10%, rgba(226,193,91,0.16), transparent 70%);
+  pointer-events: none;
+}
+.legend-tile:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 26px rgba(0,164,210,0.20), 0 4px 14px rgba(0,0,0,0.3);
+}
+.legend-tile.legend-noclick { cursor: default; }
+.legend-tile.legend-noclick:hover { transform: none; border-color: var(--line); }
+
+.lt-badge {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.lt-avatar { margin-bottom: 6px; }
+.lt-avatar .player-avatar { width: 52px; height: 56px; font-size: 17px; }
+.lt-name {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+}
+.lt-years {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.lt-note {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 6px 0 8px;
+  min-height: 48px;
+}
+.lt-foot {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+  width: 100%;
+}
+.lt-stat { font-size: 10px; color: var(--muted); }
+.lt-stat b { font-family: 'Oswald', var(--font-display); font-size: 14px; color: var(--ink); display: block; }
+.lt-nostat { font-style: italic; font-size: 10px; }
+
+@media (max-width: 1000px) { .legends-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px)  { .legends-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px)  { .legends-grid { grid-template-columns: 1fr; } }
+
+/* ---------- v25: standings home/away split ---------- */
+.standing-row { grid-template-columns: 32px 46px 1fr auto auto auto; }
+.st-split {
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 78px;
+  text-align: right;
+}
+.st-split i { opacity: 0.45; font-style: normal; }
+@media (max-width: 860px) {
+  .standing-row { grid-template-columns: 26px 42px 1fr auto auto; }
+  .st-split { display: none; }
+}
