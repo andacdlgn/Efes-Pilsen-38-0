@@ -402,10 +402,18 @@
   </section>
 
 
-  <div class="place-bar" id="place-bar" hidden>
-    <div class="place-bar-player" id="place-bar-player"></div>
-    <div class="place-bar-actions" id="place-bar-actions"></div>
-    <button class="place-bar-cancel" id="place-bar-cancel">✕</button>
+  <!-- Mobile: a persistent rail showing the roster, and a position picker sheet.
+       The court is desktop-only; on a phone it forced constant scrolling. -->
+  <div class="slot-rail" id="slot-rail" hidden></div>
+
+  <div class="pick-sheet" id="pick-sheet" hidden>
+    <div class="pick-sheet-panel">
+      <div class="pick-sheet-head">
+        <div class="pick-sheet-title" id="pick-sheet-title"></div>
+        <button class="pick-sheet-close" id="pick-sheet-close">✕</button>
+      </div>
+      <div class="pick-sheet-body" id="pick-sheet-body"></div>
+    </div>
   </div>
 
 </main>

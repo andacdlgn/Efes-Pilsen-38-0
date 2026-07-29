@@ -2453,3 +2453,144 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   .standing-row { grid-template-columns: 26px 42px 1fr auto auto; }
   .st-split { display: none; }
 }
+
+/* ============================================================
+   v27 — mobile: no court, position picker sheet + slot rail
+   ============================================================ */
+.slot-rail, .pick-sheet { display: none; }
+
+@media (max-width: 860px) {
+  /* The court is a desktop affordance; on a phone it just forced scrolling. */
+  .court-wrap, .court-hint, .bench-wrap, .mobile-lineup-strip { display: none !important; }
+  .draft-right { display: none; }
+  .draft-layout { grid-template-columns: 1fr; }
+
+  /* ---- persistent roster rail ---- */
+  .slot-rail {
+    display: block;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 880;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(13, 27, 48, 0.97);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+  }
+  .slot-rail[hidden] { display: none; }
+  .rail-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
+  .rail-row-bench { grid-template-columns: repeat(6, 1fr); margin-top: 5px; }
+  .rail-cell {
+    text-align: center;
+    padding: 6px 2px;
+    border-radius: 999px;
+    border: 1px dashed var(--line);
+    background: var(--navy-2);
+    min-width: 0;
+  }
+  .rail-cell.filled { border-style: solid; border-color: var(--accent); background: var(--navy-3); }
+  .rail-pos {
+    display: block;
+    font-family: 'Oswald', var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  .rail-cell.filled .rail-pos { color: var(--accent); }
+  .rail-name {
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #screen-draft { padding-bottom: 118px; }
+
+  /* ---- position picker sheet ---- */
+  .pick-sheet {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 1250;
+    background: rgba(6, 14, 26, 0.72);
+    align-items: flex-end;
+  }
+  .pick-sheet[hidden] { display: none; }
+  .pick-sheet-panel {
+    width: 100%;
+    background: linear-gradient(180deg, var(--navy-3), var(--navy-2) 40%);
+    border-top: 2px solid var(--accent);
+    border-radius: 18px 18px 0 0;
+    padding: 16px 14px calc(18px + env(safe-area-inset-bottom));
+    max-height: 82vh;
+    overflow-y: auto;
+    animation: sheet-up 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pick-sheet-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .ps-name { display: block; font-weight: 700; font-size: 17px; }
+  .ps-sub { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .pick-sheet-close {
+    flex: none;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .ps-group-label {
+    font-family: 'Oswald', var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin: 12px 0 7px;
+  }
+  .ps-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; }
+  .ps-row-free { grid-template-columns: 1fr; }
+  .ps-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 62px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: var(--navy-2);
+    color: var(--ink);
+    font-family: var(--font-body);
+    cursor: pointer;
+    padding: 6px 3px;
+  }
+  .ps-pos { font-family: 'Oswald', var(--font-display); font-size: 18px; letter-spacing: 0.04em; }
+  .ps-state {
+    font-size: 8px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .ps-open {
+    border-color: var(--accent);
+    background: linear-gradient(160deg, rgba(0,164,210,0.22), var(--navy-3));
+    box-shadow: 0 0 0 1px rgba(0,164,210,0.25);
+  }
+  .ps-open .ps-pos { color: var(--accent); }
+  .ps-open .ps-state { color: var(--accent); }
+  .ps-taken { opacity: 0.55; }
+  .ps-taken .ps-pos { color: var(--ink); }
+  .ps-blocked { opacity: 0.3; cursor: not-allowed; }
+  .ps-wide { min-height: 54px; }
+}

@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v26";
+const APP_VERSION = "v27";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -346,6 +346,7 @@ function renderDraftStep() {
   renderBench();
   updateCourtHint();
   renderMobileLineupStrip();
+  renderSlotRail();
   updatePlaceBar();
 
   document.getElementById("spin-result").hidden = true;
@@ -2655,33 +2656,103 @@ function slotsPlayerCanFill(player) {
   return safeSlotsFor(player);
 }
 
+// ---------- Mobile: position picker sheet ----------
+// Phones drop the court entirely. Tapping a player opens a sheet listing every
+// slot on the roster, so a pick is two taps with no scrolling and no dragging.
 function updatePlaceBar() {
-  const bar = document.getElementById("place-bar");
-  if (!bar) return;
+  const sheet = document.getElementById("pick-sheet");
+  if (!sheet) return;
   const p = state.armedPlayer;
-  if (!p) { bar.hidden = true; return; }
+  if (!p || !isMobileViewport()) { sheet.hidden = true; return; }
 
-  const slots = slotsPlayerCanFill(p);
-  if (!slots.length) { bar.hidden = true; return; }
+  document.getElementById("pick-sheet-title").innerHTML =
+    `<span class="ps-name">${p.name}</span><span class="ps-sub">${state.currentSpinSeason} · ${p.positions.join(" / ")}</span>`;
 
-  document.getElementById("place-bar-player").innerHTML =
-    `${avatarHtml(p.name)}<div class="pb-info"><div class="pb-name">${p.name}</div><div class="pb-sub">${state.currentSpinSeason} · ${p.positions.join("/")}</div></div>`;
+  const safe = safeSlotsFor(p);
+  const canGo = (tier, pos) =>
+    safe.find((sl) => sl.tier === tier && sl.pos === pos);
 
-  const actions = document.getElementById("place-bar-actions");
-  actions.innerHTML = "";
-  slots.forEach((slot) => {
-    const btn = document.createElement("button");
-    btn.className = "pb-slot-btn" + (slot.tier === "backup" ? " pb-backup" : slot.tier === "free" ? " pb-bench" : "");
-    btn.textContent = slot.tier === "free" ? "Bench" : (slot.tier === "backup" ? "BU " : "") + slot.pos;
+  const occupantOf = (tier, pos) =>
+    state.roster.find((r) => r.tier === tier && r.filledPosition === pos);
+
+  function tile(tier, pos) {
+    const slot = canGo(tier, pos);
+    const occ = occupantOf(tier, pos);
+    const state_ = occ ? "taken" : slot ? "open" : "blocked";
+    const sub = occ
+      ? occ.name.split(" ").slice(-1)[0]
+      : slot ? "AVAILABLE" : "N/A";
+    return `<button class="ps-tile ps-${state_}" data-tier="${tier}" data-pos="${pos}" ${slot ? "" : "disabled"}>
+      <span class="ps-pos">${pos}</span><span class="ps-state">${sub}</span></button>`;
+  }
+
+  const freeSlot = safe.find((sl) => sl.tier === "free");
+  const freeUsed = state.roster.filter((r) => r.tier === "free").length;
+
+  let html = `<div class="ps-group-label">Starting Five</div>
+    <div class="ps-row">${POSITION_ORDER.map((pos) => tile("starter", pos)).join("")}</div>`;
+
+  if (state.mode === "12") {
+    html += `<div class="ps-group-label">Bench — Backups</div>
+      <div class="ps-row">${POSITION_ORDER.map((pos) => tile("backup", pos)).join("")}</div>
+      <div class="ps-group-label">Bench — Any Position</div>
+      <div class="ps-row ps-row-free">
+        <button class="ps-tile ps-wide ${freeSlot ? "ps-open" : "ps-blocked"}" data-tier="free" ${freeSlot ? "" : "disabled"}>
+          <span class="ps-pos">BENCH</span><span class="ps-state">${freeUsed}/2 used</span>
+        </button>
+      </div>`;
+  }
+
+  const body = document.getElementById("pick-sheet-body");
+  body.innerHTML = html;
+  body.querySelectorAll(".ps-tile:not([disabled])").forEach((btn) => {
     btn.addEventListener("click", () => {
+      const tier = btn.dataset.tier;
+      const pos = btn.dataset.pos || null;
       const player = state.armedPlayer;
       state.armedPlayer = null;
-      bar.hidden = true;
-      placePlayer(player, slot);
+      sheet.hidden = true;
+      placePlayer(player, { tier, pos });
     });
-    actions.appendChild(btn);
   });
-  bar.hidden = false;
+
+  sheet.hidden = false;
+}
+
+function closePickSheet() {
+  const sheet = document.getElementById("pick-sheet");
+  if (sheet) sheet.hidden = true;
+  state.armedPlayer = null;
+  renderPlayerPool(state.currentSpinPool);
+  renderCourt();
+  renderBench();
+  updateCourtHint();
+  renderSlotRail();
+}
+
+// A always-visible rail so the phone user can see the roster taking shape.
+function renderSlotRail() {
+  const rail = document.getElementById("slot-rail");
+  if (!rail) return;
+  if (!isMobileViewport() || !state.mode || state.currentSlot >= state.totalSlots) {
+    rail.hidden = true;
+    return;
+  }
+  const cell = (tier, pos) => {
+    const occ = state.roster.find((r) => r.tier === tier && r.filledPosition === pos);
+    return `<div class="rail-cell ${occ ? "filled" : ""}">
+      <span class="rail-pos">${pos}</span>
+      <span class="rail-name">${occ ? occ.name.split(" ").slice(-1)[0] : "—"}</span>
+    </div>`;
+  };
+  let html = `<div class="rail-row">${POSITION_ORDER.map((p) => cell("starter", p)).join("")}</div>`;
+  if (state.mode === "12") {
+    const freeUsed = state.roster.filter((r) => r.tier === "free").length;
+    html += `<div class="rail-row rail-row-bench">${POSITION_ORDER.map((p) => cell("backup", p)).join("")}
+      <div class="rail-cell ${freeUsed ? "filled" : ""}"><span class="rail-pos">BN</span><span class="rail-name">${freeUsed}/2</span></div></div>`;
+  }
+  rail.innerHTML = html;
+  rail.hidden = false;
 }
 
 // Compact lineup strip so a mobile user always sees what's filled without
@@ -2703,18 +2774,14 @@ function renderMobileLineupStrip() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const cancel = document.getElementById("place-bar-cancel");
-  if (cancel) cancel.addEventListener("click", () => {
-    state.armedPlayer = null;
-    document.getElementById("place-bar").hidden = true;
-    renderPlayerPool(state.currentSpinPool);
-    renderCourt();
-    renderBench();
-    updateCourtHint();
-  });
+  const closeBtn = document.getElementById("pick-sheet-close");
+  if (closeBtn) closeBtn.addEventListener("click", closePickSheet);
+  const sheet = document.getElementById("pick-sheet");
+  if (sheet) sheet.addEventListener("click", (e) => { if (e.target === sheet) closePickSheet(); });
 
   window.addEventListener("resize", () => {
     renderMobileLineupStrip();
+    renderSlotRail();
   });
 });
 
