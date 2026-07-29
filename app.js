@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v21";
+const APP_VERSION = "v24";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -10,6 +10,7 @@ const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: 
 const state = {
   budgetType: "unlimited", // "unlimited" | "cap"
   challenge: "none",
+  userSchedule: [],
   career: null,
   lockedDecade: null,
   teams: [],
@@ -186,14 +187,18 @@ function openSetForTier(tier) {
 // still open. Backup and free-bench slots accept anyone: the 5 backup slots
 // are labeled by position for bench organization, but any player can fill
 // any of them, matching real fantasy-roster flexibility.
-function isPickable(player) {
+// `season` must be the season this player is being considered from. It used to
+// fall back to whatever season was last spun, which meant eligibleSeasons()
+// judged every candidate season against a stale one — and on the very first
+// pick there was no spun season at all, so One Decade mode dead-ended.
+function isPickable(player, season = state.currentSpinSeason) {
   if (state.budgetType === "cap") {
     const remainingSlotsAfter = state.totalSlots - state.currentSlot - 1;
     const reserve = remainingSlotsAfter * RESERVE_PER_SLOT[state.mode === "12" ? 12 : 5];
     const spendable = budgetRemaining() - reserve;
     if (getPlayerPrice(player) > spendable) return false;
   }
-  if (!passesChallenge(player, state.currentSpinSeason)) return false;
+  if (!passesChallenge(player, season)) return false;
   const tier = getCurrentTier();
   if (tier !== "starter") return true;
   return player.positions.some((pos) => openSetForTier(tier).has(pos));
@@ -204,7 +209,7 @@ function eligibleSeasons() {
   const seasons = [];
   for (const [season, list] of Object.entries(state.playersBySeason)) {
     if (state.lockedSeasons.includes(season)) continue;
-    const hasEligible = list.some((p) => !state.usedPlayerNames.has(p.name) && isPickable(p));
+    const hasEligible = list.some((p) => !state.usedPlayerNames.has(p.name) && isPickable(p, season));
     if (hasEligible) seasons.push(season);
   }
   return seasons;
@@ -881,7 +886,13 @@ function renderCoachOptions() {
 // Simulation engine
 //
 // Grounded in real EuroLeague team data rather than an arbitrary abstract score:
-// - LEAGUE_AVG_PPG (80) and LEAGUE_AVG_RATING (7.9) come from real EuroLeague
+// - Player ratings are on a EuroLeague-equivalent scale. Turkish league output
+//   is NOT treated as equal to EuroLeague output: measuring 203 same-player,
+//   same-season pairs in our own data showed a player produces about 62% as
+//   much in the EuroLeague as in the domestic league, so domestic numbers are
+//   converted by that factor before being combined, EuroLeague games are
+//   weighted more heavily, and small samples are regressed toward the mean.
+// - LEAGUE_AVG_PPG (80) and LEAGUE_AVG_RATING come from real EuroLeague
 //   standings (e.g. 2016-17: teams ranged ~78-87 PPG) and from the median PIR-like
 //   rating across our own scraped player-season dataset.
 // - Team quality is converted into an estimated points-for / points-against split,
@@ -895,7 +906,7 @@ function renderCoachOptions() {
 //   a hand-tuned noise term.
 // ============================================================
 const LEAGUE_AVG_PPG = 80;
-const LEAGUE_AVG_RATING = 7.9;
+const LEAGUE_AVG_RATING = 5.93;
 const PYTHAG_EXPONENT = 14;
 
 // Mode-aware weighting. In Starting-5 mode there is no bench to model, so the
@@ -942,19 +953,95 @@ function pythagoreanWinPct(margin) {
   return pfP / (pfP + paP);
 }
 
-function runSimulation() {
-  const margin = computeExpectedMargin();
-  const winPct = pythagoreanWinPct(margin);
+// ============================================================
+// Unified league engine
+//
+// Previously the season and the standings were two disconnected systems: the
+// user's 38 games were rolled against one flat "league average" opponent,
+// while the other clubs' records were invented separately. Nothing tied them
+// together, so the table could contradict the season it was supposed to
+// describe.
+//
+// Now a single double round-robin is played out: 20 teams, everyone home and
+// away, 380 games. The user's schedule is a real one against the real 19
+// opponents, the standings fall out of the same games, and the totals balance
+// by construction rather than by patching afterwards.
+// ============================================================
+const OPP_SCALE = 2.2;        // how much a strength gap is worth in points
+const HOME_COURT = 2.5;       // points of home advantage
+const LEAGUE_AVG_STRENGTH = 7.04;
+const MARGIN_TO_STRENGTH = 0.38;
 
-  const results = [];
-  for (let i = 0; i < 38; i++) {
-    results.push(Math.random() < winPct ? "W" : "L");
+// Convert the roster's estimated scoring margin into the same strength scale
+// the real clubs are rated on, so it can be dropped straight into the league.
+function rosterStrength() {
+  return LEAGUE_AVG_STRENGTH + computeExpectedMargin() * MARGIN_TO_STRENGTH;
+}
+
+function simulateLeague(userStrength) {
+  const field = [
+    ...state.teams.map((t) => ({ ...t, s: t.strength, isUser: false })),
+    { name: "Anadolu Efes", short: "EFS", colors: ["#0D2C6B", "#FFFFFF"], s: userStrength, isUser: true },
+  ];
+
+  const rec = new Map(field.map((t) => [t.name, { wins: 0, losses: 0, pf: 0, pa: 0 }]));
+  const userSchedule = [];
+
+  for (let i = 0; i < field.length; i++) {
+    for (let j = i + 1; j < field.length; j++) {
+      for (const hostIsI of [true, false]) {
+        const A = field[i], B = field[j];
+        const edge = (A.s - B.s) * OPP_SCALE + (hostIsI ? HOME_COURT : -HOME_COURT);
+        const aWins = Math.random() < pythagoreanWinPct(edge);
+
+        const gap = Math.max(1, Math.round(Math.abs(edge) + Math.abs(gaussian()) * 7));
+        const base = 78 + Math.round(Math.random() * 10);
+        const aScore = aWins ? base + gap : base;
+        const bScore = aWins ? base : base + gap;
+
+        const ra = rec.get(A.name), rb = rec.get(B.name);
+        ra[aWins ? "wins" : "losses"]++; rb[aWins ? "losses" : "wins"]++;
+        ra.pf += aScore; ra.pa += bScore;
+        rb.pf += bScore; rb.pa += aScore;
+
+        if (A.isUser || B.isUser) {
+          const userWon = A.isUser ? aWins : !aWins;
+          userSchedule.push({
+            opponent: A.isUser ? B : A,
+            home: A.isUser ? hostIsI : !hostIsI,
+            won: userWon,
+            score: A.isUser ? [aScore, bScore] : [bScore, aScore],
+          });
+        }
+      }
+    }
   }
 
-  const wins = results.filter((r) => r === "W").length;
-  const losses = 38 - wins;
+  // The user's fixtures arrive grouped by opponent; shuffle into a plausible
+  // fixture order so the season reads like a calendar rather than a table.
+  for (let i = userSchedule.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [userSchedule[i], userSchedule[j]] = [userSchedule[j], userSchedule[i]];
+  }
 
-  return { avgP: winPct, results, wins, losses };
+  const standings = field
+    .map((t) => {
+      const r = rec.get(t.name);
+      return { ...t, wins: r.wins, losses: r.losses, diff: r.pf - r.pa };
+    })
+    .sort((a, b) => b.wins - a.wins || b.diff - a.diff);
+
+  return { standings, userSchedule };
+}
+
+function runSimulation() {
+  const league = simulateLeague(rosterStrength());
+  state.standings = league.standings;
+  state.userSchedule = league.userSchedule;
+
+  const results = league.userSchedule.map((g) => (g.won ? "W" : "L"));
+  const wins = results.filter((r) => r === "W").length;
+  return { results, wins, losses: 38 - wins, avgP: wins / 38 };
 }
 
 function animateScoreboard(results, onDone) {
@@ -986,9 +1073,11 @@ function animateScoreboard(results, onDone) {
       return;
     }
     const res = results[i];
-    const sc = simGameScore(0, res === "W");
+    const fixture = state.userSchedule && state.userSchedule[i];
     cells[i].textContent = res;
-    cells[i].title = `Game ${i + 1}: ${res} ${sc[0]}–${sc[1]}`;
+    cells[i].title = fixture
+      ? `Game ${i + 1} ${fixture.home ? "vs" : "at"} ${fixture.opponent.name}: ${res} ${fixture.score[0]}–${fixture.score[1]}`
+      : `Game ${i + 1}: ${res}`;
     cells[i].classList.add(res === "W" ? "win" : "loss");
     cells[i].classList.add("flip-in");
     if (res === "W") SFX.win(); else SFX.loss();
@@ -1200,13 +1289,6 @@ const ACHIEVEMENTS = [
   { id: "champion", name: "Glory", desc: "Lift the EuroLeague trophy" },
 ];
 
-// A conservative Turkish-player check: names we can verify from the club's own
-// homegrown/Turkish contingent in the dataset.
-const TURKISH_MARKERS = /ğ|ş|ı|İ|ç|ö|ü/i;
-function looksTurkish(name) {
-  return TURKISH_MARKERS.test(name);
-}
-
 function evaluateAchievements(wins, playoffWon) {
   const profile = loadProfile();
   const unlocked = [];
@@ -1292,14 +1374,19 @@ function simGameScore(_p, won) {
 }
 
 // Win probability against a specific opponent, using their real-form strength.
-function winProbVs(margin, opponent) {
-  return pythagoreanWinPct(margin - opponent.strength * 1.45);
+// Playoff games run on exactly the same maths as the regular season: the gap
+// between two strength ratings, plus home court. Using a different formula
+// here was why a side could dominate the league and then look unrecognisable
+// in the postseason.
+function winProbVs(margin, opponent, atHome) {
+  const mine = LEAGUE_AVG_STRENGTH + margin * MARGIN_TO_STRENGTH;
+  const theirs = opponent.strength != null ? opponent.strength : LEAGUE_AVG_STRENGTH;
+  return pythagoreanWinPct((mine - theirs) * OPP_SCALE + (atHome ? HOME_COURT : -HOME_COURT));
 }
 
 // Real EuroLeague home pattern for a best-of-five: games 1, 2 and 5 belong to
 // the higher-seeded side. Home court is worth roughly a 3-point swing.
 const HOME_GAMES_BO5 = [1, 2, 5];
-const HOME_EDGE = 3;
 
 function playSeries(margin, opponent, bestOf, userHasHomeCourt) {
   const games = [];
@@ -1313,7 +1400,7 @@ function playSeries(margin, opponent, bestOf, userHasHomeCourt) {
     } else {
       atHome = !!userHasHomeCourt; // single games are hosted by the better seed
     }
-    const p = pythagoreanWinPct(margin - opponent.strength * 1.45 + (atHome ? HOME_EDGE : -HOME_EDGE));
+    const p = winProbVs(margin, opponent, atHome);
     const won = Math.random() < p;
     games.push({ won, atHome, score: simGameScore(p, won) });
     if (won) w++; else l++;
@@ -1341,8 +1428,11 @@ function seedPlayoffField() {
 
 // A neutral series simulation between two AI sides, returning a real series score.
 function simAiSeries(a, b, bestOf) {
-  const edge = (a.wins - b.wins) * 0.045;
-  const p = Math.min(0.88, Math.max(0.12, 0.5 + edge));
+  // Same engine as everything else: strength gap plus home court for the
+  // better-seeded side.
+  const sa = a.strength != null ? a.strength : LEAGUE_AVG_STRENGTH;
+  const sb = b.strength != null ? b.strength : LEAGUE_AVG_STRENGTH;
+  const p = pythagoreanWinPct((sa - sb) * OPP_SCALE + HOME_COURT * 0.5);
   let w = 0, l = 0;
   const needed = Math.ceil(bestOf / 2);
   while (w < needed && l < needed) {
@@ -1466,7 +1556,7 @@ function playPlayoffs(regularMargin, userRank) {
       <div class="pr-games"></div>
       <div class="pr-res pr-res-pending">PLAYING…</div>`;
     roundsEl.appendChild(el);
-    el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (el.scrollIntoView) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
     const gamesEl = el.querySelector(".pr-games");
     const tallyEl = el.querySelector(".pr-tally");
@@ -1584,15 +1674,19 @@ function computeLegendSet() {
 }
 
 function decadeOf(season) {
-  return Math.floor(parseInt(season.split("-")[0], 10) / 10) * 10;
+  if (!season) return null;
+  const year = parseInt(String(season).split("-")[0], 10);
+  return Number.isFinite(year) ? Math.floor(year / 10) * 10 : null;
 }
 
 // Returns true if this player is allowed under the active challenge.
 function passesChallenge(player, season) {
   switch (state.challenge) {
-    case "singleEra":
+    case "singleEra": {
       if (state.lockedDecade == null) return true;
-      return decadeOf(season) === state.lockedDecade;
+      const dec = decadeOf(season);
+      return dec === null || dec === state.lockedDecade;
+    }
     case "homegrown":
     case "noLegends":
       return true; // already filtered out of the pool
@@ -2406,6 +2500,7 @@ function countUpRecord(wins, losses) {
 // ============================================================
 
 function isMobileViewport() {
+  if (typeof window.matchMedia !== "function") return window.innerWidth <= 860;
   return window.matchMedia("(max-width: 860px)").matches;
 }
 
@@ -2538,68 +2633,15 @@ async function loadTeams() {
   state.teams = data.teams;
 }
 
-// Convert a team's 0-10 strength index into an expected win total over 38 games.
-// Anchored so the strongest sides land in the mid-20s and the weakest around 10,
-// which is what the real EuroLeague table looks like.
-function expectedWinsFor(strength) {
-  return 6 + strength * 2.0;
-}
-
-function buildStandings(userWins) {
-  // A round-robin is zero-sum: with N teams playing 38 games each, the total
-  // number of wins is fixed. Generating each team independently (the old bug)
-  // let the whole league drift, so a 33-win season could sit next to a rival on
-  // 25 as if 58 wins had appeared from nowhere. Here the rest of the league is
-  // generated by strength, then rescaled so the table actually balances.
-  const teams = state.teams;
-  const N = teams.length + 1;
-  const totalWins = (N * 38) / 2;
-  const remaining = totalWins - userWins;
-
-  const raw = teams.map((t) => ({
-    ...t,
-    raw: Math.max(1, expectedWinsFor(t.strength) + gaussian() * 1.7),
-  }));
-  const rawSum = raw.reduce((a, t) => a + t.raw, 0);
-
-  const rows = raw.map((t) => {
-    const scaled = (t.raw / rawSum) * remaining;
-    const wins = Math.max(2, Math.min(36, Math.round(scaled)));
-    const diff = Math.round((wins - 19) * 5.2 + gaussian() * 18);
-    return { ...t, wins, losses: 38 - wins, diff, isUser: false };
-  });
-
-  // Rounding can drift the total by a couple of games; nudge the mid-table
-  // sides until the books balance exactly.
-  let drift = rows.reduce((a, r) => a + r.wins, 0) - remaining;
-  const order = [...rows].sort((a, b) => b.wins - a.wins);
-  let i = 0;
-  while (drift !== 0 && i < 500) {
-    const r = order[i % order.length];
-    if (drift > 0 && r.wins > 2) { r.wins--; drift--; }
-    else if (drift < 0 && r.wins < 36) { r.wins++; drift++; }
-    r.losses = 38 - r.wins;
-    i++;
-  }
-
-  rows.push({
-    name: "Anadolu Efes",
-    short: "EFS",
-    colors: ["#0D2C6B", "#FFFFFF"],
-    wins: userWins,
-    losses: 38 - userWins,
-    diff: Math.round((userWins - 19) * 5.2 + gaussian() * 12),
-    isUser: true,
-  });
-  rows.sort((a, b) => b.wins - a.wins || b.diff - a.diff);
-  state.standings = rows;
-  return rows;
+function buildStandings() {
+  // The table is simply the league we already played out.
+  return state.standings || [];
 }
 
 function renderStandings(userWins) {
   const el = document.getElementById("standings-table");
   if (!el) return;
-  const rows = buildStandings(userWins);
+  const rows = buildStandings();
   const userRank = rows.findIndex((r) => r.isUser) + 1;
 
   el.innerHTML = rows
