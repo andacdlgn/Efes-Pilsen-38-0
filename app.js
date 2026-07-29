@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v19";
+const APP_VERSION = "v21";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -1326,15 +1326,55 @@ let lastPlayoffFinish = "";
 
 // Seeds the bracket from the final table: the user meets progressively better
 // opposition, drawn from the actual standings rather than fixed placeholders.
-function opponentsFromStandings(userRank) {
-  const others = state.standings.filter((r) => !r.isUser);
-  const qfSeed = Math.max(0, Math.min(others.length - 1, 8 - Math.min(userRank, 6)));
-  const top = [...others].sort((a, b) => b.wins - a.wins);
+// The eight-team bracket is built once, up front, and everything else reads
+// from it — so the opponent shown in the user's series is by definition the
+// same one shown in the bracket. (They used to be derived separately, which is
+// why they could disagree.)
+const BRACKET_PAIRS = [[1, 8], [4, 5], [2, 7], [3, 6]];
+
+let currentBracket = null;
+
+function seedPlayoffField() {
+  const sorted = [...state.standings].sort((a, b) => b.wins - a.wins || b.diff - a.diff);
+  return sorted.slice(0, 8).map((t, i) => ({ ...t, seed: i + 1 }));
+}
+
+// A neutral series simulation between two AI sides, returning a real series score.
+function simAiSeries(a, b, bestOf) {
+  const edge = (a.wins - b.wins) * 0.045;
+  const p = Math.min(0.88, Math.max(0.12, 0.5 + edge));
+  let w = 0, l = 0;
+  const needed = Math.ceil(bestOf / 2);
+  while (w < needed && l < needed) {
+    if (Math.random() < p) w++; else l++;
+  }
+  return { winner: w >= needed ? a : b, loser: w >= needed ? b : a, score: [Math.max(w, l), Math.min(w, l)] };
+}
+
+function buildBracket(userRank) {
+  const field = seedPlayoffField();
+  const bySeed = (n) => field.find((t) => t.seed === n);
+  const ties = BRACKET_PAIRS.map(([hi, lo]) => ({ a: bySeed(hi), b: bySeed(lo) })).filter((t) => t.a && t.b);
+  const userTie = ties.find((t) => t.a.isUser || t.b.isUser);
+  currentBracket = { field, ties, userTie };
+  return currentBracket;
+}
+
+// The user's route through the bracket: quarterfinal from their own tie, then
+// the survivors of the other half.
+function opponentsFromBracket(userRank) {
+  const bk = currentBracket || buildBracket(userRank);
+  const fallback = bk.field.filter((t) => !t.isUser);
+  const qf = bk.userTie ? (bk.userTie.a.isUser ? bk.userTie.b : bk.userTie.a) : fallback[0];
+
+  const others = bk.ties.filter((t) => t !== bk.userTie);
+  const semiPool = others.map((t) => (t.a.wins >= t.b.wins ? t.a : t.b));
+  const ranked = [...fallback].sort((a, b) => b.wins - a.wins);
   return {
-    qf: others[qfSeed] || top[3],
-    sf: top[1] || top[0],
-    final: top[0],
-    third: top[2] || top[0],
+    qf,
+    sf: semiPool[0] || ranked[0],
+    final: semiPool[1] || ranked[1] || ranked[0],
+    third: semiPool[2] || ranked[2] || ranked[0],
   };
 }
 
@@ -1359,7 +1399,8 @@ function playPlayoffs(regularMargin, userRank) {
     return;
   }
 
-  const opp = opponentsFromStandings(userRank);
+  buildBracket(userRank);
+  const opp = opponentsFromBracket(userRank);
   const sequence = [];
 
   // Play-In Showdown for seeds 7-10, following the real EuroLeague format:
@@ -1470,7 +1511,7 @@ function playPlayoffs(regularMargin, userRank) {
     } else {
       verdictEl.textContent = lastPlayoffFinish + ".";
     }
-    try { renderBracket(userRank, sequence.some((r) => r.title === "Quarterfinal" && r.won)); } catch (e) { console.error("bracket failed", e); }
+    try { renderBracket(userRank, sequence.find((r) => r.title === "Quarterfinal")); } catch (e) { console.error("bracket failed", e); }
     try { renderAwards(); } catch (e) { console.error("awards failed", e); }
     actionsEl.hidden = false;
     finishPlayoffs();
@@ -1538,7 +1579,7 @@ const CHALLENGES = [
 let legendNameSet = null;
 function computeLegendSet() {
   if (legendNameSet) return legendNameSet;
-  legendNameSet = new Set(computeLegendIndex().slice(0, 20).map((e) => e.name));
+  legendNameSet = new Set(HALL_OF_LEGENDS.map((L) => L.name));
   return legendNameSet;
 }
 
@@ -2123,108 +2164,81 @@ function renderMonthLabels() {
 // outliers (a 6-game cameo) top the list, so this uses a games-weighted career
 // average, multiplied by a longevity factor and a small EuroLeague-tenure
 // bonus, with a minimum career-games threshold to keep cameos out entirely.
-const LEGEND_MIN_GAMES = 40;
-const PRODUCTION_WEIGHT = 0.6;
-const TROPHY_MULTIPLIER = 2.0;
-const INDIVIDUAL_WEIGHT = 7;
+// ============================================================
+// Hall of Legends
+//
+// This is a curated honour roll, not a leaderboard. Ranking players against
+// each other produced nonsense — a productive three-year spell outranking
+// people who won the club its trophies, or a squad member from a title team
+// sitting above a 1990s icon. Every name here is presented as equal.
+//
+// The foreign contingent follows Eurohoops' feature on the ten most important
+// foreign players in Anadolu Efes history. The Turkish names are the club's
+// own landmark figures. Several of the earliest have no recorded per-game
+// statistics at all — which is precisely why a stats-driven ranking could
+// never have represented them.
+// ============================================================
+const HALL_OF_LEGENDS = [
+  // — Eurohoops' ten most important foreign players —
+  { name: "Petar Naumoski", years: "1992–94, 1995–99", note: "The playmaker who defined the club's 1990s peak", group: "foreign" },
+  { name: "Conrad McRae", years: "1995–96", note: "Central to the 1996 Korać Cup, Turkey's first European trophy", group: "foreign" },
+  { name: "Larry Richard", years: "1992–95", note: "Cornerstone of the side that reached the 1993 final", group: "foreign" },
+  { name: "Marcus Brown", years: "2001–03", note: "League MVP and All-EuroLeague Second Team", group: "foreign" },
+  { name: "Kaspars Kambala", years: "2001–03", note: "Dominant interior force of the title-winning years", group: "foreign" },
+  { name: "Nikola Prkacin", years: "2003–07", note: "Captain and the club's cerebral playmaking big", group: "foreign" },
+  { name: "Antonio Granger", years: "2002–04, 2005–07", note: "Club's all-time EuroLeague three-point leader", group: "foreign" },
+  { name: "Bryant Dunston", years: "2016–23", note: "Defensive anchor of both EuroLeague titles", group: "foreign" },
+  { name: "Shane Larkin", years: "2018–", note: "EuroLeague scoring record holder, two-time champion", group: "foreign" },
+  { name: "Vasilije Micic", years: "2018–23", note: "EuroLeague MVP and twice Final Four MVP", group: "foreign" },
+  { name: "Krunoslav Simon", years: "2018–23", note: "Versatile wing and a starter in both EuroLeague title runs", group: "foreign" },
 
-// Silverware the club actually won, and what a season was worth.
-const TROPHY_WEIGHT = { "2020-21": 7, "2021-22": 7 };   // EuroLeague titles
-const FINAL_WEIGHT  = { "2018-19": 3 };                  // EuroLeague final
-const F4_WEIGHT     = { "1999-00": 2, "2000-01": 2 };    // Final Four runs
+  // — Turkish landmark figures —
+  { name: "Hidayet Türkoğlu", years: "1996–2000", note: "Academy product who became Turkey's first NBA star", group: "turkish" },
+  { name: "Mehmet Okur", years: "2000–02", note: "Went from Efes to an NBA All-Star selection", group: "turkish" },
+  { name: "Mirsad Türkcan", years: "1996–98, 2008–10", note: "Relentless rebounder and Korać Cup era mainstay", group: "turkish" },
+  { name: "Hüseyin Beşok", years: "1998–2002", note: "Anchor of the Final Four sides at the turn of the century", group: "turkish" },
+  { name: "Kerem Tunceri", years: "2001–03, 2009–13", note: "Two spells, a decade apart, always the steady hand", group: "turkish" },
+  { name: "Kerem Gonlum", years: "2005–13", note: "Long-serving captain and dressing-room leader", group: "turkish" },
+  { name: "Ömer Onan", years: "1998–2002", note: "Homegrown wing of the club's European breakthrough", group: "turkish" },
+  { name: "Cedi Osman", years: "2011–17", note: "Academy graduate who left for the NBA", group: "turkish" },
+  { name: "Doğuş Balbay", years: "2013–22", note: "Defensive specialist across the championship era", group: "turkish" },
+];
 
-// Individual distinction earned in an Efes shirt. Kept short and deliberate —
-// only players whose personal honours or era-defining role are well documented.
-const INDIVIDUAL_HONOURS = {
-  "Vasilije Micic": 3.0,
-  "Shane Larkin": 2.2,
-  "Petar Naumoski": 2.0,
-  "Bryant Dunston": 1.4,
-  "Mirsad Türkcan": 1.2,
-  "Hidayet Türkoğlu": 1.2,
-  "Mehmet Okur": 1.2,
-  "Predrag Drobnjak": 1.0,
-  "Hüseyin Beşok": 0.8,
-  "Kerem Gonlum": 1.0,   // long-serving club figure and captain
-  "Kerem Tunceri": 0.8,
-  "Damir Mulaomerović": 0.8,
-  "Charles Smith": 0.8,
-};
-
-function computeLegendIndex() {
-  const byName = new Map();
+// Attach whatever recorded statistics we actually have to each legend.
+function legendStats(name) {
+  let seasons = 0, gp = 0, weighted = 0, peak = null;
   for (const [season, list] of Object.entries(state.playersBySeason)) {
-    list.forEach((p) => {
-      const gp =
-        (p.euroleague ? parseInt(p.euroleague.gp) || 0 : 0) +
-        (p.bsl ? parseInt(p.bsl.gp) || 0 : 0);
-      if (!byName.has(p.name)) {
-        byName.set(p.name, { name: p.name, seasons: [], totalGp: 0, weighted: 0, elSeasons: 0, trophy: 0, titles: 0, sample: p, peak: null });
-      }
-      const e = byName.get(p.name);
-      e.seasons.push(season);
-      e.totalGp += gp;
-      e.weighted += p.rating * gp;
-      if (p.euroleague) e.elSeasons++;
-      if (!e.peak || e.peak.rating < p.rating) e.peak = { rating: p.rating, season };
-      if (p.countryCode) e.sample = p;
-
-      // Trophy credit is scaled by how much the player actually contributed that
-      // season, so a squad member who barely played doesn't rank alongside the
-      // people who won it.
-      const w = TROPHY_WEIGHT[season] || FINAL_WEIGHT[season] || F4_WEIGHT[season] || 0;
-      if (w) {
-        // Squared so a fringe squad member on a title team earns only a
-        // fraction of the credit an actual contributor does.
-        const share = Math.pow(Math.min(1, gp / 34) * Math.min(1, Math.max(p.rating, 0) / 13), 2);
-        e.trophy += w * share;
-        if (TROPHY_WEIGHT[season]) e.titles++;
-      }
-    });
+    const p = list.find((x) => x.name === name);
+    if (!p) continue;
+    const games =
+      (p.euroleague ? parseInt(p.euroleague.gp) || 0 : 0) +
+      (p.bsl ? parseInt(p.bsl.gp) || 0 : 0);
+    seasons++; gp += games; weighted += p.rating * games;
+    if (!peak || peak.rating < p.rating) peak = { rating: p.rating, season };
+    if (p.countryCode) legendStats._flag = p.countryCode;
   }
-  return [...byName.values()]
-    // A legend is defined by what the club won with them, not by averages
-    // alone. A player needs either a real contribution to silverware or a
-    // documented individual distinction to appear here at all — otherwise a
-    // productive spell with nothing to show for it would rank as highly as a
-    // title-winning one.
-    .filter((e) => e.totalGp >= LEGEND_MIN_GAMES && (e.trophy > 0.35 || INDIVIDUAL_HONOURS[e.name]))
-    .map((e) => {
-      const avg = e.totalGp > 0 ? e.weighted / e.totalGp : 0;
-      // Being a legend is about what you won, not only what you averaged. Raw
-      // production is deliberately damped so a productive player with no
-      // silverware can't outrank the people who actually lifted trophies.
-      const production = avg * Math.sqrt(e.seasons.length) * (1 + Math.min(e.elSeasons, 6) * 0.04) * PRODUCTION_WEIGHT;
-      const individual = (INDIVIDUAL_HONOURS[e.name] || 0) * INDIVIDUAL_WEIGHT;
-      return { ...e, avg, production, individual, score: production + e.trophy * TROPHY_MULTIPLIER + individual };
-    })
-    .sort((a, b) => b.score - a.score);
+  return { seasons, gp, avg: gp ? weighted / gp : 0, peak };
 }
 
 function renderLegends() {
   const grid = document.getElementById("legends-grid");
   if (!grid) return;
-  const top = computeLegendIndex().slice(0, 20);
-
   grid.innerHTML = "";
-  top.forEach((e, i) => {
-    const p = e.sample;
-    const first = e.seasons[0];
-    const last = e.seasons[e.seasons.length - 1];
-    const span = first === last ? first : `${first.split("-")[0]}–${last.split("-")[1]}`;
+
+  HALL_OF_LEGENDS.forEach((L) => {
+    const st = legendStats(L.name);
     const el = document.createElement("div");
-    el.className = "legend-card" + (i < 3 ? " legend-top" : "");
+    el.className = "legend-card legend-honour";
     el.innerHTML = `
-      <div class="legend-rank">${i + 1}</div>
-      ${avatarHtml(e.name)}
+      ${avatarHtml(L.name)}
       <div class="legend-info">
-        <div class="legend-name">${e.name}</div>
-        <div class="legend-sub">${span} · ${e.seasons.length} recorded season${e.seasons.length === 1 ? "" : "s"} · ${e.totalGp} games ${p.countryCode ? flagEmoji(p.countryCode) : ""}</div>
-        <div class="legend-bar"><span style="width:${Math.min(100, (e.score / top[0].score) * 100)}%"></span></div>
-        ${e.titles ? `<div class="legend-trophies">${"🏆".repeat(e.titles)} ${e.titles} EuroLeague title${e.titles > 1 ? "s" : ""}</div>` : ""}
-      </div>
-      <div class="legend-peak" title="Best season">${e.peak.season}</div>`;
-    el.addEventListener("click", () => openPlayerModal(e.name));
+        <div class="legend-name">${L.name}</div>
+        <div class="legend-years">${L.years}</div>
+        <div class="legend-note">${L.note}</div>
+        ${st.gp ? `<div class="legend-stat-line">${st.seasons} recorded season${st.seasons === 1 ? "" : "s"} · ${st.gp} games</div>`
+                : `<div class="legend-stat-line legend-nostat">No per-game statistics recorded for this era</div>`}
+      </div>`;
+    if (st.gp) el.addEventListener("click", () => openPlayerModal(L.name));
     grid.appendChild(el);
   });
 }
@@ -2532,16 +2546,42 @@ function expectedWinsFor(strength) {
 }
 
 function buildStandings(userWins) {
-  const rows = state.teams.map((t) => {
-    const expected = expectedWinsFor(t.strength);
-    // Season-to-season noise, but small enough that a weak side can't leap to
-    // the top: a 17th-placed team stays in that neighbourhood.
-    const wins = Math.max(2, Math.min(36, Math.round(expected + gaussian() * 1.7)));
-    // Points differential correlates with record but carries its own noise, so
-    // it can genuinely separate two teams level on wins.
+  // A round-robin is zero-sum: with N teams playing 38 games each, the total
+  // number of wins is fixed. Generating each team independently (the old bug)
+  // let the whole league drift, so a 33-win season could sit next to a rival on
+  // 25 as if 58 wins had appeared from nowhere. Here the rest of the league is
+  // generated by strength, then rescaled so the table actually balances.
+  const teams = state.teams;
+  const N = teams.length + 1;
+  const totalWins = (N * 38) / 2;
+  const remaining = totalWins - userWins;
+
+  const raw = teams.map((t) => ({
+    ...t,
+    raw: Math.max(1, expectedWinsFor(t.strength) + gaussian() * 1.7),
+  }));
+  const rawSum = raw.reduce((a, t) => a + t.raw, 0);
+
+  const rows = raw.map((t) => {
+    const scaled = (t.raw / rawSum) * remaining;
+    const wins = Math.max(2, Math.min(36, Math.round(scaled)));
     const diff = Math.round((wins - 19) * 5.2 + gaussian() * 18);
     return { ...t, wins, losses: 38 - wins, diff, isUser: false };
   });
+
+  // Rounding can drift the total by a couple of games; nudge the mid-table
+  // sides until the books balance exactly.
+  let drift = rows.reduce((a, r) => a + r.wins, 0) - remaining;
+  const order = [...rows].sort((a, b) => b.wins - a.wins);
+  let i = 0;
+  while (drift !== 0 && i < 500) {
+    const r = order[i % order.length];
+    if (drift > 0 && r.wins > 2) { r.wins--; drift--; }
+    else if (drift < 0 && r.wins < 36) { r.wins++; drift++; }
+    r.losses = 38 - r.wins;
+    i++;
+  }
+
   rows.push({
     name: "Anadolu Efes",
     short: "EFS",
@@ -2551,8 +2591,6 @@ function buildStandings(userWins) {
     diff: Math.round((userWins - 19) * 5.2 + gaussian() * 12),
     isUser: true,
   });
-  // Wins first, then points differential — the league's own tiebreaker order
-  // once head-to-head results are level.
   rows.sort((a, b) => b.wins - a.wins || b.diff - a.diff);
   state.standings = rows;
   return rows;
@@ -2654,44 +2692,56 @@ function buildPlayIn(margin, userRank) {
 // ============================================================
 
 // ---------- Full bracket: simulate the other seven QF matchups too ----------
-function buildFullBracket(userRank, userQfWon) {
-  const sorted = [...state.standings].sort((a, b) => b.wins - a.wins || b.diff - a.diff);
-  const eight = sorted.slice(0, 8);
-  const pairs = [[0, 7], [3, 4], [1, 6], [2, 5]];
-
-  return pairs.map(([hi, lo]) => {
-    const a = eight[hi], b = eight[lo];
-    if (!a || !b) return null;
-    const aIsUser = a.isUser, bIsUser = b.isUser;
-    let winner;
-    if (aIsUser || bIsUser) {
-      const user = aIsUser ? a : b;
-      const other = aIsUser ? b : a;
-      winner = userQfWon ? user : other;
-    } else {
-      // Higher seed is favoured, scaled by the gap in their records.
-      const edge = (a.wins - b.wins) * 0.06 + 0.55;
-      winner = Math.random() < Math.min(0.9, Math.max(0.5, edge)) ? a : b;
-    }
-    return { a, b, winner };
-  }).filter(Boolean);
-}
-
-function renderBracket(userRank, userQfWon) {
+function renderBracket(userRank, userSeriesResult) {
   const el = document.getElementById("bracket-grid");
   if (!el) return;
-  const ties = buildFullBracket(userRank, userQfWon);
-  el.innerHTML = ties
-    .map((t) => {
-      const side = (team) => `
-        <div class="bk-team ${t.winner === team ? "bk-win" : "bk-out"} ${team.isUser ? "bk-user" : ""}">
-          <span class="st-badge" style="background:${team.colors[0]};color:${team.colors[1]}">${team.short}</span>
-          <span class="bk-name">${team.name}</span>
-          <span class="bk-rec">${team.wins}</span>
+  const bk = currentBracket || buildBracket(userRank);
+
+  // Resolve every quarterfinal: the user's is the series they actually played,
+  // the rest are simulated, and each carries a real series score.
+  const results = bk.ties.map((tie) => {
+    if (tie === bk.userTie && userSeriesResult) {
+      const user = tie.a.isUser ? tie.a : tie.b;
+      const other = tie.a.isUser ? tie.b : tie.a;
+      const won = userSeriesResult.won;
+      return {
+        tie,
+        winner: won ? user : other,
+        score: won ? [userSeriesResult.w, userSeriesResult.l] : [userSeriesResult.l, userSeriesResult.w],
+      };
+    }
+    const r = simAiSeries(tie.a, tie.b, 5);
+    return { tie, winner: r.winner, score: r.score };
+  });
+
+  const teamRow = (team, isWinner, score) => `
+    <div class="bk-team ${isWinner ? "bk-win" : "bk-out"} ${team.isUser ? "bk-user" : ""}">
+      <span class="bk-seed">${team.seed}</span>
+      <span class="st-badge" style="background:${team.colors[0]};color:${team.colors[1]}">${team.short}</span>
+      <span class="bk-name">${team.name}</span>
+      <span class="bk-series">${score}</span>
+    </div>`;
+
+  el.innerHTML = `
+    <div class="bracket-round">
+      <div class="bracket-round-label">Quarterfinals · best of 5</div>
+      ${results.map((r) => {
+        const aWon = r.winner === r.tie.a;
+        return `<div class="bk-tie">
+          ${teamRow(r.tie.a, aWon, aWon ? r.score[0] : r.score[1])}
+          ${teamRow(r.tie.b, !aWon, aWon ? r.score[1] : r.score[0])}
         </div>`;
-      return `<div class="bk-tie">${side(t.a)}${side(t.b)}</div>`;
-    })
-    .join("");
+      }).join("")}
+    </div>
+    <div class="bracket-connector"></div>
+    <div class="bracket-round">
+      <div class="bracket-round-label">Final Four</div>
+      ${results.map((r) => `
+        <div class="bk-advance ${r.winner.isUser ? "bk-user" : ""}">
+          <span class="st-badge" style="background:${r.winner.colors[0]};color:${r.winner.colors[1]}">${r.winner.short}</span>
+          <span class="bk-name">${r.winner.name}</span>
+        </div>`).join("")}
+    </div>`;
 }
 
 // ---------- Awards ceremony ----------

@@ -2275,3 +2275,81 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   .career-banner { display: none; }
   .retain-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- v20: Hall of Legends (unranked honour roll) ---------- */
+.legends-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.legend-card.legend-honour {
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-left: 3px solid #E2C15B;
+}
+.legend-honour .player-avatar { flex: none; margin-top: 2px; }
+.legend-years {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 2px 0 4px;
+}
+.legend-note { font-size: 12px; color: var(--ink); line-height: 1.45; }
+.legend-stat-line { font-size: 11px; color: var(--muted); margin-top: 6px; }
+.legend-nostat { font-style: italic; }
+
+/* ---------- v20: real bracket ---------- */
+.bracket-grid {
+  display: grid;
+  grid-template-columns: 1.4fr auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.bracket-round { display: flex; flex-direction: column; gap: 10px; }
+.bracket-round-label {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.bracket-connector {
+  align-self: stretch;
+  width: 24px;
+  border-left: 2px solid var(--line);
+  border-top: 2px solid var(--line);
+  border-bottom: 2px solid var(--line);
+  border-radius: 0 6px 6px 0;
+  margin: 26px 0;
+}
+.bk-team { grid-template-columns: 22px 46px 1fr auto; }
+.bk-seed {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+.bk-series {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 17px;
+  min-width: 18px;
+  text-align: right;
+}
+.bk-advance {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 11px 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.bk-advance.bk-user { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+
+@media (max-width: 860px) {
+  .bracket-grid { grid-template-columns: 1fr; }
+  .bracket-connector { display: none; }
+  .legends-grid { grid-template-columns: 1fr; }
+}
