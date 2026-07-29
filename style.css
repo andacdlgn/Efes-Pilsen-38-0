@@ -2597,3 +2597,118 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   background: linear-gradient(90deg, var(--accent), #22B8E6);
   transition: width 0.7s ease;
 }
+
+/* ============================================================
+   v31 — clear hierarchy between Single Season and Career Mode
+   ============================================================ */
+
+.play-block { margin-top: 8px; }
+.play-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.play-tag {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #062B38;
+}
+.play-tag-alt {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+/* --- Primary: single season --- */
+.play-primary {
+  position: relative;
+  padding: 24px 22px 22px;
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,164,210,0.10), transparent 70%),
+    linear-gradient(170deg, var(--navy-3), var(--navy-2) 70%);
+  border: 1px solid rgba(0,164,210,0.42);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.mode-card-primary {
+  border-color: rgba(0,164,210,0.4);
+  padding: 26px 22px 20px;
+}
+.mode-card-primary .mode-name { font-size: 21px; }
+.mode-go {
+  margin-top: 12px;
+  font-family: 'Oswald', var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+.mode-card-primary:hover .mode-go { color: #22B8E6; }
+
+/* Challenges belong to the single-season flow, so they sit inside it. */
+.challenge-inline {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.challenge-inline-label {
+  display: block;
+  font-family: 'Oswald', var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.challenge-inline-label .opt { opacity: 0.6; letter-spacing: 0.04em; }
+.challenge-inline .challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+.challenge-inline .challenge-card { padding: 12px 14px; }
+.challenge-inline .challenge-card .mode-name { font-size: 14px; }
+.challenge-inline .challenge-card .mode-desc { font-size: 12px; }
+
+/* --- Secondary: career mode, deliberately quieter --- */
+.play-secondary {
+  margin-top: 30px;
+  padding: 18px 18px 16px;
+  border-radius: 12px;
+  border: 1px dashed var(--line);
+  background: rgba(22, 41, 74, 0.35);
+}
+.section-title-sm { font-size: 26px; }
+.career-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.career-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.career-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.career-num {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 30px;
+  color: var(--muted);
+  flex: none;
+  min-width: 38px;
+}
+.career-card:hover .career-num { color: var(--accent); }
+.career-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.career-text .mode-name { font-size: 15px; }
+.career-text .mode-desc { font-size: 12px; }
+
+@media (max-width: 620px) {
+  .play-primary { padding: 18px 14px 16px; }
+  .career-grid { grid-template-columns: 1fr; }
+  .challenge-inline .challenge-grid { grid-template-columns: 1fr; }
+}

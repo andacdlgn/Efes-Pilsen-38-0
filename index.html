@@ -62,37 +62,58 @@
       <p class="hero-sub">Build a roster from the club's entire history since 1995. Survive 38 regular-season games, win a best-of-five quarterfinal, then take the Final Four — and lift the trophy.</p>
     </header>
 
-    <h2 class="section-title">Choose how you build</h2>
-    <div class="mode-grid">
-      <button class="mode-card" data-budget="unlimited">
-        <span class="mode-name">Unlimited Budget</span>
-        <span class="mode-desc">Draft anyone, no cost. Pure basketball fantasy.</span>
-      </button>
-      <button class="mode-card" data-budget="cap">
-        <span class="mode-name">With Salary Cap</span>
-        <span class="mode-desc">A fixed budget. Every legend has a price — spend wisely.</span>
-      </button>
-    </div>
+    <!-- Primary route: one season, chase the trophy. -->
+    <section class="play-block play-primary">
+      <div class="play-head">
+        <span class="play-tag">Play now</span>
+        <h2 class="section-title">Single Season</h2>
+      </div>
+      <p class="section-sub">One roster, one shot at the title. Build it, play 38 games, and go for the trophy.</p>
+      <div class="mode-grid">
+        <button class="mode-card mode-card-primary" data-budget="unlimited">
+          <span class="mode-name">Unlimited Budget</span>
+          <span class="mode-desc">Draft anyone, no cost. Pure basketball fantasy.</span>
+          <span class="mode-go">Start →</span>
+        </button>
+        <button class="mode-card mode-card-primary" data-budget="cap">
+          <span class="mode-name">With Salary Cap</span>
+          <span class="mode-desc">A fixed budget. Every legend has a price — spend wisely.</span>
+          <span class="mode-go">Start →</span>
+        </button>
+      </div>
+
+      <div class="challenge-inline">
+        <span class="challenge-inline-label">Add a challenge <span class="opt">(optional)</span></span>
+        <div class="challenge-grid" id="challenge-grid"></div>
+      </div>
+    </section>
 
     <div class="career-block" id="career-block" hidden></div>
 
-    <h2 class="section-title" style="margin-top:36px;">Career Mode</h2>
-    <p class="section-sub">A run of seasons. Silverware grows next year's budget; missing out shrinks it. Keep a core of three, rebuild the rest.</p>
-    <div class="mode-grid">
-      <button class="mode-card" id="career-start-5">
-        <span class="mode-num">05</span>
-        <span class="mode-name">Career · Starting 5</span>
-        <span class="mode-desc">Season after season with a five-man core.</span>
-      </button>
-      <button class="mode-card" id="career-start-12">
-        <span class="mode-num">12</span>
-        <span class="mode-name">Career · Full Roster</span>
-        <span class="mode-desc">Twelve men, a running budget, a dynasty to build.</span>
-      </button>
-    </div>
-
-    <h2 class="section-title" style="margin-top:36px;">Special challenges</h2>
-    <div class="mode-grid challenge-grid" id="challenge-grid"></div>
+    <!-- Secondary route: an extended run across many seasons. -->
+    <section class="play-block play-secondary">
+      <div class="play-head">
+        <span class="play-tag play-tag-alt">Extended play</span>
+        <h2 class="section-title section-title-sm">Career Mode</h2>
+      </div>
+      <p class="section-sub">Season after season. Silverware grows next year's budget, missing out shrinks it — keep a core of three and rebuild the rest.</p>
+      <div class="career-grid">
+        <button class="career-card" id="career-start-5">
+          <span class="career-num">05</span>
+          <span class="career-text">
+            <span class="mode-name">Starting 5</span>
+            <span class="mode-desc">A five-man core, year after year.</span>
+          </span>
+        </button>
+        <button class="career-card" id="career-start-12">
+          <span class="career-num">12</span>
+          <span class="career-text">
+            <span class="mode-name">Full Roster</span>
+            <span class="mode-desc">Twelve men, a running budget, a dynasty to build.</span>
+          </span>
+        </button>
+      </div>
+    </section>
 
     <div class="history-block" id="history-block" hidden>
       <h2 class="section-title">Your Recent Rosters</h2>
