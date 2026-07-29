@@ -40,6 +40,7 @@
     </svg>
     <span class="topbar-word">ROAD TO<span class="dash"> </span>GLORY</span>
   </button>
+  <div class="career-banner" id="career-banner" hidden></div>
   <div class="topbar-actions">
     <button class="topbar-icon-btn" id="sound-toggle" title="Sound">🔊</button>
     <button class="topbar-icon-btn" id="theme-toggle" title="Theme">🌙</button>
@@ -73,6 +74,23 @@
       </button>
     </div>
 
+    <div class="career-block" id="career-block" hidden></div>
+
+    <h2 class="section-title" style="margin-top:36px;">Career Mode</h2>
+    <p class="section-sub">A run of seasons. Silverware grows next year's budget; missing out shrinks it. Keep a core of three, rebuild the rest.</p>
+    <div class="mode-grid">
+      <button class="mode-card" id="career-start-5">
+        <span class="mode-num">05</span>
+        <span class="mode-name">Career · Starting 5</span>
+        <span class="mode-desc">Season after season with a five-man core.</span>
+      </button>
+      <button class="mode-card" id="career-start-12">
+        <span class="mode-num">12</span>
+        <span class="mode-name">Career · Full Roster</span>
+        <span class="mode-desc">Twelve men, a running budget, a dynasty to build.</span>
+      </button>
+    </div>
+
     <h2 class="section-title" style="margin-top:36px;">Special challenges</h2>
     <div class="mode-grid challenge-grid" id="challenge-grid"></div>
 
@@ -92,13 +110,14 @@
       <button class="home-tab" data-panel="panel-history">Club Timeline</button>
     </div>
     <div class="home-panel active" id="panel-legends">
+      <p class="coverage-note">Ranked by a career index: games-weighted average production, adjusted for how long a player stayed and their EuroLeague tenure (minimum 40 recorded games). <strong>Coverage caveat:</strong> per-player box scores in our sources begin in 1997–98 for the Turkish league and 2001–02 for the EuroLeague. Earlier spells — for example Petar Naumoski's first stint in the early 1990s — are part of club history but have no recorded per-game statistics, so they can't be counted here.</p>
       <div class="legends-grid" id="legends-grid"></div>
     </div>
     <div class="home-panel" id="panel-history">
       <div class="timeline" id="timeline"></div>
     </div>
 
-    <p class="data-note">Player data covers 1995–96 through 2025–26. EuroLeague stats via RealGM, Turkish BSL stats via TBLStat.net.</p>
+    <p class="data-note">Recorded player statistics run from 1997–98 (Turkish league) and 2001–02 (EuroLeague) through 2025–26. EuroLeague stats via RealGM, Turkish league stats via TBLStat.net. Squad lists exist for earlier seasons but without per-game box scores.</p>
 
     <div class="version-badge" id="version-badge"></div>
   </section>
@@ -355,7 +374,7 @@
   <!-- PLAYOFFS -->
   <section id="screen-playoffs" class="screen">
     <h2 class="section-title">The Playoffs</h2>
-    <p class="section-sub" id="playoff-intro">Best-of-five quarterfinal. Win it and you reach the Final Four — semifinal, then the final or the third-place game.</p>
+    <p class="section-sub" id="playoff-intro">Seeds 7–10 must survive the Play-In Showdown first. Then a best-of-five quarterfinal, and the Final Four: semifinal, then either the final or the third-place game.</p>
     <div class="playoff-rounds" id="playoff-rounds"></div>
     <div class="playoff-verdict" id="playoff-verdict"></div>
     <div class="trophy-stage" id="trophy-stage" hidden>
@@ -367,6 +386,15 @@
       </svg>
       <div class="trophy-text">EUROLEAGUE CHAMPIONS</div>
     </div>
+    <div class="bracket-block">
+      <h3 class="awards-title" id="bracket-title">Quarterfinal Bracket</h3>
+      <div class="bracket-grid" id="bracket-grid"></div>
+    </div>
+
+    <div class="awards-block" id="awards-block" hidden></div>
+
+    <div class="career-summary" id="career-summary" hidden></div>
+
     <div class="playoff-actions" id="playoff-actions" hidden>
       <button class="btn-primary" id="playoff-share-btn">📸 Share Result Card</button>
       <button class="btn-secondary" id="playoff-restart-btn">Build Another Roster</button>

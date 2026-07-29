@@ -2031,3 +2031,247 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   .legend-peak { display: none; }
   .pr-game { font-size: 11px; }
 }
+
+/* ---------- v17: coverage note + play-in styling ---------- */
+.coverage-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+.coverage-note strong { color: var(--ink); }
+
+.playoff-round .pr-name { line-height: 1.3; }
+
+/* ============================================================
+   v18 — bracket, awards, home court, resume, Final Four gap
+   ============================================================ */
+
+.pr-venue {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 1px 4px;
+  margin-left: 4px;
+}
+
+.st-diff { font-size: 12px; font-variant-numeric: tabular-nums; min-width: 44px; text-align: right; }
+.st-diff.pos { color: var(--green); }
+.st-diff.neg { color: var(--red); }
+.standing-row { grid-template-columns: 32px 46px 1fr auto auto; }
+
+/* ---------- Final Four break marker ---------- */
+
+/* ---------- Bracket ---------- */
+.bracket-block { margin: 28px 0; }
+.bracket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 10px;
+}
+.bk-tie {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.bk-team {
+  display: grid;
+  grid-template-columns: 46px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  font-size: 13px;
+}
+.bk-team + .bk-team { border-top: 1px solid var(--line); }
+.bk-win { background: rgba(63,148,99,0.12); font-weight: 700; }
+.bk-out { opacity: 0.5; }
+.bk-user { box-shadow: inset 3px 0 0 var(--accent); }
+.bk-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bk-rec { font-family: 'Oswald', var(--font-display); font-size: 14px; }
+
+/* ---------- Awards ---------- */
+.awards-block { margin: 28px 0; }
+.awards-title {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.awards-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.award-card {
+  background: linear-gradient(160deg, var(--navy-3), var(--navy-2) 75%);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  text-align: center;
+  min-width: 150px;
+}
+.award-card.award-mvp { border-color: #E2C15B; }
+.award-card .player-avatar { margin: 0 auto 8px; width: 42px; height: 46px; font-size: 14px; }
+.award-label {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.award-card.award-mvp .award-label { color: #E2C15B; }
+.award-name { font-weight: 700; font-size: 14px; }
+.award-sub { color: var(--muted); font-size: 11px; }
+
+.all-team {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.all-team-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.all-team-slot {
+  background: var(--navy-3);
+  border-radius: 6px;
+  padding: 8px 12px;
+  min-width: 110px;
+}
+.att-pos {
+  display: block;
+  font-family: 'Oswald', var(--font-display);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+.att-name { display: block; font-size: 12px; font-weight: 600; }
+
+/* ---------- Legend trophies ---------- */
+.legend-trophies {
+  font-size: 10px;
+  color: #E2C15B;
+  margin-top: 4px;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Resume bar ---------- */
+.resume-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(160deg, var(--navy-3), var(--navy-2));
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.5);
+  max-width: calc(100vw - 28px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.resume-text { font-size: 13px; font-weight: 600; }
+.resume-actions { display: flex; gap: 8px; }
+.resume-actions .btn-secondary { margin-top: 0; }
+
+@media (max-width: 860px) {
+  .standing-row { grid-template-columns: 26px 42px 1fr auto auto; }
+  .st-diff { font-size: 11px; min-width: 36px; }
+  .awards-row { flex-direction: column; align-items: stretch; }
+  .award-card { min-width: 0; }
+  .resume-bar { bottom: 12px; }
+}
+
+/* ---------- v19: Career Mode ---------- */
+.career-banner {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--navy-3);
+  border: 1px solid var(--accent);
+  padding: 5px 12px;
+  border-radius: 14px;
+}
+.cb-sep { color: var(--muted); }
+.career-block { margin-top: 36px; }
+.career-history { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+.ch-row {
+  display: grid;
+  grid-template-columns: 42px 72px 1fr;
+  gap: 10px;
+  align-items: center;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+.ch-row.ch-title { border-color: #E2C15B; }
+.ch-season { font-family: 'Oswald', var(--font-display); color: var(--accent); }
+.ch-rec { font-family: 'Oswald', var(--font-display); }
+.ch-out { color: var(--muted); font-size: 12px; }
+.career-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.career-actions .btn-secondary { margin-top: 0; }
+
+.career-summary {
+  background: linear-gradient(160deg, var(--navy-3), var(--navy-2) 75%);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 22px;
+  margin: 24px auto;
+  max-width: 620px;
+}
+.career-head { text-align: center; margin-bottom: 16px; }
+.career-season-label { font-family: 'Oswald', var(--font-display); font-size: 24px; letter-spacing: 0.04em; }
+.career-outcome { color: var(--accent); font-weight: 700; font-size: 14px; }
+.career-stats { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+.career-stats > div {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-align: center;
+  min-width: 84px;
+}
+.cs-val { display: block; font-family: 'Oswald', var(--font-display); font-size: 21px; }
+.cs-val.pos { color: var(--green); }
+.cs-val.neg { color: var(--red); }
+.cs-lbl { display: block; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; }
+.career-next { text-align: center; color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+.career-next strong { color: var(--accent); }
+
+.retain-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; margin-bottom: 18px; }
+.retain-card {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 11px;
+  cursor: pointer;
+  text-align: left;
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+.retain-card.kept { border-color: var(--accent); background: var(--navy-3); box-shadow: 0 0 0 2px rgba(0,164,210,0.28); }
+.retain-name { font-weight: 700; font-size: 13px; }
+.retain-sub { color: var(--muted); font-size: 11px; }
+#career-next-btn { display: block; margin: 0 auto; }
+
+@media (max-width: 860px) {
+  .career-banner { display: none; }
+  .retain-grid { grid-template-columns: 1fr; }
+}

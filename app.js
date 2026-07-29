@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v16";
+const APP_VERSION = "v19";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -10,6 +10,7 @@ const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: 
 const state = {
   budgetType: "unlimited", // "unlimited" | "cap"
   challenge: "none",
+  career: null,
   lockedDecade: null,
   teams: [],
   standings: [],
@@ -715,7 +716,9 @@ function placePlayer(player, filledPosition) {
   state.armedPlayer = null;
 
   state.currentSlot++;
+  saveDraftState();
   if (state.currentSlot >= state.totalSlots) {
+    clearDraftState();
     renderRosterScreen();
   } else {
     renderDraftStep();
@@ -1293,17 +1296,29 @@ function winProbVs(margin, opponent) {
   return pythagoreanWinPct(margin - opponent.strength * 1.45);
 }
 
-function playSeries(margin, opponent, bestOf) {
-  const p = winProbVs(margin, opponent);
+// Real EuroLeague home pattern for a best-of-five: games 1, 2 and 5 belong to
+// the higher-seeded side. Home court is worth roughly a 3-point swing.
+const HOME_GAMES_BO5 = [1, 2, 5];
+const HOME_EDGE = 3;
+
+function playSeries(margin, opponent, bestOf, userHasHomeCourt) {
   const games = [];
   let w = 0, l = 0;
   const needed = Math.ceil(bestOf / 2);
   while (w < needed && l < needed) {
+    const gameNo = games.length + 1;
+    let atHome;
+    if (bestOf > 1) {
+      atHome = userHasHomeCourt ? HOME_GAMES_BO5.includes(gameNo) : !HOME_GAMES_BO5.includes(gameNo);
+    } else {
+      atHome = !!userHasHomeCourt; // single games are hosted by the better seed
+    }
+    const p = pythagoreanWinPct(margin - opponent.strength * 1.45 + (atHome ? HOME_EDGE : -HOME_EDGE));
     const won = Math.random() < p;
-    games.push({ won, score: simGameScore(p, won) });
+    games.push({ won, atHome, score: simGameScore(p, won) });
     if (won) w++; else l++;
   }
-  return { opponent, games, w, l, won: w >= needed, bestOf };
+  return { opponent, games, w, l, won: w >= needed, bestOf, userHasHomeCourt };
 }
 
 let lastPlayoffChampion = false;
@@ -1336,6 +1351,7 @@ function playPlayoffs(regularMargin, userRank) {
 
   if (userRank > 10) {
     lastPlayoffChampion = false;
+    lastPlayoffMedal = null;
     lastPlayoffFinish = "Missed the postseason";
     verdictEl.textContent = "You finished outside the top ten. No postseason this year.";
     actionsEl.hidden = false;
@@ -1346,20 +1362,36 @@ function playPlayoffs(regularMargin, userRank) {
   const opp = opponentsFromStandings(userRank);
   const sequence = [];
 
-  const qf = playSeries(regularMargin, opp.qf, 5);
+  // Play-In Showdown for seeds 7-10, following the real EuroLeague format:
+  // 7v8 winner takes the 7th playoff seed; 9v10 loser is out; the 7/8 loser
+  // then meets the 9/10 winner for the last playoff spot.
+  let survivedPlayIn = true;
+  if (userRank >= 7 && userRank <= 10) {
+    const playIn = buildPlayIn(regularMargin, userRank);
+    sequence.push(...playIn.stages);
+    survivedPlayIn = playIn.advanced;
+    if (!survivedPlayIn) {
+      lastPlayoffChampion = false;
+      lastPlayoffMedal = null;
+      lastPlayoffFinish = "Knocked out in the Play-In Showdown";
+    }
+  }
+
+  if (survivedPlayIn) {
+  const qf = playSeries(regularMargin, opp.qf, 5, userRank <= 4);
   sequence.push({ title: "Quarterfinal", subtitle: "Best of 5 — first to 3 wins", ...qf });
 
   if (qf.won) {
-    const sf = playSeries(regularMargin, opp.sf, 1);
+    const sf = playSeries(regularMargin, opp.sf, 1, false); // Final Four is neutral
     sequence.push({ title: "Final Four — Semifinal", subtitle: "Single game", ...sf });
     if (sf.won) {
-      const fin = playSeries(regularMargin, opp.final, 1);
+      const fin = playSeries(regularMargin, opp.final, 1, false);
       sequence.push({ title: "Final Four — Final", subtitle: "Single game", ...fin });
       lastPlayoffChampion = fin.won;
       lastPlayoffFinish = fin.won ? "EuroLeague Champions" : "Runners-up";
       lastPlayoffMedal = fin.won ? "gold" : "silver";
     } else {
-      const third = playSeries(regularMargin, opp.third, 1);
+      const third = playSeries(regularMargin, opp.third, 1, false);
       sequence.push({ title: "Final Four — Third Place Game", subtitle: "Single game", ...third });
       lastPlayoffChampion = false;
       lastPlayoffFinish = third.won ? "Third place" : "Fourth place";
@@ -1369,6 +1401,7 @@ function playPlayoffs(regularMargin, userRank) {
     lastPlayoffChampion = false;
     lastPlayoffFinish = "Eliminated in the quarterfinals";
     lastPlayoffMedal = null;
+  }
   }
 
   // Reveal round by round, and inside each round game by game — the same
@@ -1413,7 +1446,7 @@ function playPlayoffs(regularMargin, userRank) {
       const g = r.games[gi];
       const row = document.createElement("div");
       row.className = `pr-game ${g.won ? "w" : "l"} game-in`;
-      row.textContent = `Game ${gi + 1}   ${g.won ? "W" : "L"}   ${g.score[0]}–${g.score[1]}`;
+      row.innerHTML = `<span>Game ${gi + 1} <span class="pr-venue">${g.atHome ? "H" : "A"}</span></span><span>${g.won ? "W" : "L"} ${g.score[0]}–${g.score[1]}</span>`;
       gamesEl.appendChild(row);
       if (g.won) w++; else l++;
       if (r.bestOf > 1) tallyEl.textContent = `· ${w}–${l}`;
@@ -1437,8 +1470,13 @@ function playPlayoffs(regularMargin, userRank) {
     } else {
       verdictEl.textContent = lastPlayoffFinish + ".";
     }
+    try { renderBracket(userRank, sequence.some((r) => r.title === "Quarterfinal" && r.won)); } catch (e) { console.error("bracket failed", e); }
+    try { renderAwards(); } catch (e) { console.error("awards failed", e); }
     actionsEl.hidden = false;
     finishPlayoffs();
+    if (state.career) {
+      try { finishCareerSeason(userRank); } catch (e) { console.error("career failed", e); }
+    }
   }
 
   revealRound();
@@ -2086,6 +2124,32 @@ function renderMonthLabels() {
 // average, multiplied by a longevity factor and a small EuroLeague-tenure
 // bonus, with a minimum career-games threshold to keep cameos out entirely.
 const LEGEND_MIN_GAMES = 40;
+const PRODUCTION_WEIGHT = 0.6;
+const TROPHY_MULTIPLIER = 2.0;
+const INDIVIDUAL_WEIGHT = 7;
+
+// Silverware the club actually won, and what a season was worth.
+const TROPHY_WEIGHT = { "2020-21": 7, "2021-22": 7 };   // EuroLeague titles
+const FINAL_WEIGHT  = { "2018-19": 3 };                  // EuroLeague final
+const F4_WEIGHT     = { "1999-00": 2, "2000-01": 2 };    // Final Four runs
+
+// Individual distinction earned in an Efes shirt. Kept short and deliberate —
+// only players whose personal honours or era-defining role are well documented.
+const INDIVIDUAL_HONOURS = {
+  "Vasilije Micic": 3.0,
+  "Shane Larkin": 2.2,
+  "Petar Naumoski": 2.0,
+  "Bryant Dunston": 1.4,
+  "Mirsad Türkcan": 1.2,
+  "Hidayet Türkoğlu": 1.2,
+  "Mehmet Okur": 1.2,
+  "Predrag Drobnjak": 1.0,
+  "Hüseyin Beşok": 0.8,
+  "Kerem Gonlum": 1.0,   // long-serving club figure and captain
+  "Kerem Tunceri": 0.8,
+  "Damir Mulaomerović": 0.8,
+  "Charles Smith": 0.8,
+};
 
 function computeLegendIndex() {
   const byName = new Map();
@@ -2095,7 +2159,7 @@ function computeLegendIndex() {
         (p.euroleague ? parseInt(p.euroleague.gp) || 0 : 0) +
         (p.bsl ? parseInt(p.bsl.gp) || 0 : 0);
       if (!byName.has(p.name)) {
-        byName.set(p.name, { name: p.name, seasons: [], totalGp: 0, weighted: 0, elSeasons: 0, sample: p, peak: null });
+        byName.set(p.name, { name: p.name, seasons: [], totalGp: 0, weighted: 0, elSeasons: 0, trophy: 0, titles: 0, sample: p, peak: null });
       }
       const e = byName.get(p.name);
       e.seasons.push(season);
@@ -2104,15 +2168,35 @@ function computeLegendIndex() {
       if (p.euroleague) e.elSeasons++;
       if (!e.peak || e.peak.rating < p.rating) e.peak = { rating: p.rating, season };
       if (p.countryCode) e.sample = p;
+
+      // Trophy credit is scaled by how much the player actually contributed that
+      // season, so a squad member who barely played doesn't rank alongside the
+      // people who won it.
+      const w = TROPHY_WEIGHT[season] || FINAL_WEIGHT[season] || F4_WEIGHT[season] || 0;
+      if (w) {
+        // Squared so a fringe squad member on a title team earns only a
+        // fraction of the credit an actual contributor does.
+        const share = Math.pow(Math.min(1, gp / 34) * Math.min(1, Math.max(p.rating, 0) / 13), 2);
+        e.trophy += w * share;
+        if (TROPHY_WEIGHT[season]) e.titles++;
+      }
     });
   }
   return [...byName.values()]
-    .filter((e) => e.totalGp >= LEGEND_MIN_GAMES)
+    // A legend is defined by what the club won with them, not by averages
+    // alone. A player needs either a real contribution to silverware or a
+    // documented individual distinction to appear here at all — otherwise a
+    // productive spell with nothing to show for it would rank as highly as a
+    // title-winning one.
+    .filter((e) => e.totalGp >= LEGEND_MIN_GAMES && (e.trophy > 0.35 || INDIVIDUAL_HONOURS[e.name]))
     .map((e) => {
       const avg = e.totalGp > 0 ? e.weighted / e.totalGp : 0;
-      const longevity = Math.sqrt(e.seasons.length);
-      const elBonus = 1 + Math.min(e.elSeasons, 6) * 0.04;
-      return { ...e, avg, score: avg * longevity * elBonus };
+      // Being a legend is about what you won, not only what you averaged. Raw
+      // production is deliberately damped so a productive player with no
+      // silverware can't outrank the people who actually lifted trophies.
+      const production = avg * Math.sqrt(e.seasons.length) * (1 + Math.min(e.elSeasons, 6) * 0.04) * PRODUCTION_WEIGHT;
+      const individual = (INDIVIDUAL_HONOURS[e.name] || 0) * INDIVIDUAL_WEIGHT;
+      return { ...e, avg, production, individual, score: production + e.trophy * TROPHY_MULTIPLIER + individual };
     })
     .sort((a, b) => b.score - a.score);
 }
@@ -2135,8 +2219,9 @@ function renderLegends() {
       ${avatarHtml(e.name)}
       <div class="legend-info">
         <div class="legend-name">${e.name}</div>
-        <div class="legend-sub">${span} · ${e.seasons.length} season${e.seasons.length === 1 ? "" : "s"} · ${e.totalGp} games ${p.countryCode ? flagEmoji(p.countryCode) : ""}</div>
+        <div class="legend-sub">${span} · ${e.seasons.length} recorded season${e.seasons.length === 1 ? "" : "s"} · ${e.totalGp} games ${p.countryCode ? flagEmoji(p.countryCode) : ""}</div>
         <div class="legend-bar"><span style="width:${Math.min(100, (e.score / top[0].score) * 100)}%"></span></div>
+        ${e.titles ? `<div class="legend-trophies">${"🏆".repeat(e.titles)} ${e.titles} EuroLeague title${e.titles > 1 ? "s" : ""}</div>` : ""}
       </div>
       <div class="legend-peak" title="Best season">${e.peak.season}</div>`;
     el.addEventListener("click", () => openPlayerModal(e.name));
@@ -2452,7 +2537,10 @@ function buildStandings(userWins) {
     // Season-to-season noise, but small enough that a weak side can't leap to
     // the top: a 17th-placed team stays in that neighbourhood.
     const wins = Math.max(2, Math.min(36, Math.round(expected + gaussian() * 1.7)));
-    return { ...t, wins, losses: 38 - wins, isUser: false };
+    // Points differential correlates with record but carries its own noise, so
+    // it can genuinely separate two teams level on wins.
+    const diff = Math.round((wins - 19) * 5.2 + gaussian() * 18);
+    return { ...t, wins, losses: 38 - wins, diff, isUser: false };
   });
   rows.push({
     name: "Anadolu Efes",
@@ -2460,9 +2548,12 @@ function buildStandings(userWins) {
     colors: ["#0D2C6B", "#FFFFFF"],
     wins: userWins,
     losses: 38 - userWins,
+    diff: Math.round((userWins - 19) * 5.2 + gaussian() * 12),
     isUser: true,
   });
-  rows.sort((a, b) => b.wins - a.wins);
+  // Wins first, then points differential — the league's own tiebreaker order
+  // once head-to-head results are level.
+  rows.sort((a, b) => b.wins - a.wins || b.diff - a.diff);
   state.standings = rows;
   return rows;
 }
@@ -2482,6 +2573,7 @@ function renderStandings(userWins) {
         <span class="st-badge" style="background:${r.colors[0]};color:${r.colors[1]}">${r.short}</span>
         <span class="st-name">${r.name}</span>
         <span class="st-rec">${r.wins}–${r.losses}</span>
+        <span class="st-diff ${r.diff >= 0 ? "pos" : "neg"}">${r.diff >= 0 ? "+" : ""}${r.diff}</span>
       </div>`;
     })
     .join("");
@@ -2490,9 +2582,9 @@ function renderStandings(userWins) {
   if (note) {
     note.textContent =
       userRank <= 6
-        ? `You finished ${userRank}${ordinal(userRank)} — straight into the quarterfinals.`
+        ? `You finished ${userRank}${ordinal(userRank)} — a bye straight into the quarterfinals.`
         : userRank <= 10
-        ? `You finished ${userRank}${ordinal(userRank)} — into the play-in.`
+        ? `You finished ${userRank}${ordinal(userRank)} — into the Play-In Showdown for one of the last two playoff spots.`
         : `You finished ${userRank}${ordinal(userRank)} — outside the top ten. The road ends here.`;
   }
   return userRank;
@@ -2506,3 +2598,454 @@ function ordinal(n) {
 }
 
 let lastUserRank = 1;
+
+// ---------- Play-In Showdown (real EuroLeague format) ----------
+// Seeds 7-10 fight for the last two playoff berths:
+//   7v8  → winner takes the 7th seed outright
+//   9v10 → loser is eliminated
+//   loser of 7/8 vs winner of 9/10 → winner takes the 8th seed
+function buildPlayIn(margin, userRank) {
+  const others = state.standings.filter((r) => !r.isUser);
+  // Pick opponents whose record sits nearest the seed we need to face.
+  const nearestTo = (targetRank) => {
+    const sorted = [...state.standings].sort((a, b) => b.wins - a.wins);
+    const cand = sorted[targetRank - 1];
+    return cand && !cand.isUser ? cand : others[Math.min(targetRank, others.length - 1)];
+  };
+
+  const stages = [];
+  let advanced = false;
+
+  if (userRank === 7 || userRank === 8) {
+    const rivalRank = userRank === 7 ? 8 : 7;
+    const g1 = playSeries(margin, nearestTo(rivalRank), 1, userRank === 7);
+    stages.push({
+      title: "Play-In · 7 vs 8",
+      subtitle: userRank === 7 ? "Win and you're in as the 7 seed" : "Win and you're in as the 7 seed",
+      ...g1,
+    });
+    if (g1.won) {
+      advanced = true;
+    } else {
+      // Second chance against the survivor of the 9/10 game.
+      const g2 = playSeries(margin, nearestTo(9), 1, true);
+      stages.push({ title: "Play-In · Last Chance", subtitle: "Winner takes the final playoff spot", ...g2 });
+      advanced = g2.won;
+    }
+  } else {
+    // Seeds 9 and 10 must win twice.
+    const rivalRank = userRank === 9 ? 10 : 9;
+    const g1 = playSeries(margin, nearestTo(rivalRank), 1, userRank === 9);
+    stages.push({ title: "Play-In · 9 vs 10", subtitle: "Lose and your season is over", ...g1 });
+    if (g1.won) {
+      const g2 = playSeries(margin, nearestTo(8), 1, false);
+      stages.push({ title: "Play-In · Last Chance", subtitle: "Winner takes the final playoff spot", ...g2 });
+      advanced = g2.won;
+    } else {
+      advanced = false;
+    }
+  }
+
+  return { stages, advanced };
+}
+
+// ============================================================
+// v18: full bracket, awards ceremony, draft autosave, F4 gap
+// ============================================================
+
+// ---------- Full bracket: simulate the other seven QF matchups too ----------
+function buildFullBracket(userRank, userQfWon) {
+  const sorted = [...state.standings].sort((a, b) => b.wins - a.wins || b.diff - a.diff);
+  const eight = sorted.slice(0, 8);
+  const pairs = [[0, 7], [3, 4], [1, 6], [2, 5]];
+
+  return pairs.map(([hi, lo]) => {
+    const a = eight[hi], b = eight[lo];
+    if (!a || !b) return null;
+    const aIsUser = a.isUser, bIsUser = b.isUser;
+    let winner;
+    if (aIsUser || bIsUser) {
+      const user = aIsUser ? a : b;
+      const other = aIsUser ? b : a;
+      winner = userQfWon ? user : other;
+    } else {
+      // Higher seed is favoured, scaled by the gap in their records.
+      const edge = (a.wins - b.wins) * 0.06 + 0.55;
+      winner = Math.random() < Math.min(0.9, Math.max(0.5, edge)) ? a : b;
+    }
+    return { a, b, winner };
+  }).filter(Boolean);
+}
+
+function renderBracket(userRank, userQfWon) {
+  const el = document.getElementById("bracket-grid");
+  if (!el) return;
+  const ties = buildFullBracket(userRank, userQfWon);
+  el.innerHTML = ties
+    .map((t) => {
+      const side = (team) => `
+        <div class="bk-team ${t.winner === team ? "bk-win" : "bk-out"} ${team.isUser ? "bk-user" : ""}">
+          <span class="st-badge" style="background:${team.colors[0]};color:${team.colors[1]}">${team.short}</span>
+          <span class="bk-name">${team.name}</span>
+          <span class="bk-rec">${team.wins}</span>
+        </div>`;
+      return `<div class="bk-tie">${side(t.a)}${side(t.b)}</div>`;
+    })
+    .join("");
+}
+
+// ---------- Awards ceremony ----------
+function renderAwards() {
+  const el = document.getElementById("awards-block");
+  if (!el || !state.roster.length) return;
+  const roster = [...state.roster].sort((a, b) => b.rating - a.rating);
+  const mvp = roster[0];
+
+  const bestOf = (stat) => {
+    let best = null, bv = -1;
+    state.roster.forEach((p) => {
+      const v = statValue(p, stat);
+      if (v > bv) { bv = v; best = p; }
+    });
+    return best;
+  };
+  const defender = bestOf("blk") || bestOf("stl");
+  const allFirst = POSITION_ORDER
+    .map((pos) => state.roster.find((p) => p.tier === "starter" && p.filledPosition === pos))
+    .filter(Boolean);
+
+  el.hidden = false;
+  el.innerHTML = `
+    <h3 class="awards-title">End-of-Season Awards</h3>
+    <div class="awards-row">
+      <div class="award-card award-mvp">
+        <div class="award-label">Season MVP</div>
+        ${avatarHtml(mvp.name)}
+        <div class="award-name">${mvp.name}</div>
+        <div class="award-sub">${mvp.season}</div>
+      </div>
+      ${defender ? `<div class="award-card">
+        <div class="award-label">Best Defender</div>
+        ${avatarHtml(defender.name)}
+        <div class="award-name">${defender.name}</div>
+        <div class="award-sub">${defender.season}</div>
+      </div>` : ""}
+      ${state.captainName ? `<div class="award-card">
+        <div class="award-label">Captain</div>
+        ${avatarHtml(state.captainName)}
+        <div class="award-name">${state.captainName}</div>
+        <div class="award-sub">Team leader</div>
+      </div>` : ""}
+    </div>
+    <div class="all-team">
+      <div class="award-label">All-EuroLeague First Team</div>
+      <div class="all-team-row">
+        ${allFirst.map((p) => `<div class="all-team-slot"><span class="att-pos">${p.filledPosition}</span><span class="att-name">${p.name}</span></div>`).join("")}
+      </div>
+    </div>`;
+}
+
+// ---------- Draft autosave ----------
+const DRAFT_KEY = "efes380_draft_v1";
+
+function saveDraftState() {
+  try {
+    if (!state.mode || !state.roster) return;
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({
+      mode: state.mode,
+      budgetType: state.budgetType,
+      budgetTotal: state.budgetTotal,
+      budgetSpent: state.budgetSpent,
+      challenge: state.challenge,
+      lockedDecade: state.lockedDecade,
+      lockedSeasons: state.lockedSeasons,
+      roster: state.roster,
+      currentSlot: state.currentSlot,
+      respinsUsed: state.respinsUsed,
+      captainName: state.captainName,
+      tradeUsed: state.tradeUsed,
+      savedAt: Date.now(),
+    }));
+  } catch { /* storage unavailable */ }
+}
+
+function clearDraftState() {
+  try { localStorage.removeItem(DRAFT_KEY); } catch { /* ignore */ }
+}
+
+function loadDraftState() {
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY);
+    if (!raw) return null;
+    const d = JSON.parse(raw);
+    // Only offer to resume a draft that is genuinely mid-flight.
+    if (!d.roster || d.currentSlot >= (d.mode === "12" ? 12 : 5)) return null;
+    if (Date.now() - (d.savedAt || 0) > 1000 * 60 * 60 * 24 * 7) return null;
+    return d;
+  } catch {
+    return null;
+  }
+}
+
+function resumeDraft(d) {
+  state.mode = d.mode;
+  state.totalSlots = d.mode === "12" ? 12 : 5;
+  state.budgetType = d.budgetType;
+  state.budgetTotal = d.budgetTotal;
+  state.budgetSpent = d.budgetSpent;
+  state.challenge = d.challenge || "none";
+  state.lockedDecade = d.lockedDecade ?? null;
+  state.lockedSeasons = d.lockedSeasons || [];
+  state.roster = d.roster || [];
+  state.currentSlot = d.currentSlot || 0;
+  state.respinsUsed = d.respinsUsed || 0;
+  state.respinsAllowed = d.mode === "5" ? 1 : 3;
+  state.captainName = d.captainName || null;
+  state.tradeUsed = !!d.tradeUsed;
+  state.usedPlayerNames = new Set(state.roster.map((p) => p.name));
+
+  state.openPositions = new Set(POSITION_ORDER);
+  state.openBackupPositions = new Set(POSITION_ORDER);
+  state.roster.forEach((p) => {
+    if (p.tier === "starter" && p.filledPosition) state.openPositions.delete(p.filledPosition);
+    if (p.tier === "backup" && p.filledPosition) state.openBackupPositions.delete(p.filledPosition);
+  });
+
+  document.getElementById("budget-panel").hidden = state.budgetType !== "cap";
+  const sub = document.getElementById("budget-panel-sub");
+  if (sub) sub.textContent = `Credits remaining out of ${state.budgetTotal}`;
+  updateBudgetGauge();
+  showScreen("screen-draft");
+  renderDraftStep();
+}
+
+function maybeOfferResume() {
+  const d = loadDraftState();
+  if (!d) return;
+  const bar = document.createElement("div");
+  bar.className = "resume-bar";
+  const picked = (d.roster || []).length;
+  bar.innerHTML = `
+    <div class="resume-text">You have an unfinished roster — ${picked} pick${picked === 1 ? "" : "s"} in.</div>
+    <div class="resume-actions">
+      <button class="btn-primary btn-small" id="resume-yes">Continue</button>
+      <button class="btn-secondary btn-small" id="resume-no">Discard</button>
+    </div>`;
+  document.body.appendChild(bar);
+  bar.querySelector("#resume-yes").addEventListener("click", () => { bar.remove(); resumeDraft(d); });
+  bar.querySelector("#resume-no").addEventListener("click", () => { bar.remove(); clearDraftState(); });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  maybeOfferResume();
+});
+
+// ============================================================
+// v19 — Career Mode
+//
+// A run of seasons instead of a one-off. Winning silverware grows next
+// season's budget; missing the postseason shrinks it. You keep a small core
+// and rebuild the rest each summer, so a title team decays unless you manage
+// the cap well.
+// ============================================================
+const CAREER_KEY = "efes380_career_v1";
+const CAREER_START_BUDGET = { 5: 120, 12: 280 };
+const RETAIN_LIMIT = 3;
+
+const CAREER_REWARDS = {
+  champion: { budget: 26, label: "EuroLeague title" },
+  runnerUp: { budget: 14, label: "Runner-up" },
+  finalFour: { budget: 10, label: "Final Four" },
+  playoffs: { budget: 5, label: "Playoff berth" },
+  playIn: { budget: 0, label: "Play-in exit" },
+  missed: { budget: -16, label: "Missed the postseason" },
+};
+
+function loadCareer() {
+  try { return JSON.parse(localStorage.getItem(CAREER_KEY)); } catch { return null; }
+}
+function saveCareer(c) {
+  try { localStorage.setItem(CAREER_KEY, JSON.stringify(c)); } catch { /* ignore */ }
+}
+function clearCareer() {
+  try { localStorage.removeItem(CAREER_KEY); } catch { /* ignore */ }
+}
+
+function startCareer(mode) {
+  const career = {
+    mode,
+    season: 1,
+    budget: CAREER_START_BUDGET[mode === "12" ? 12 : 5],
+    titles: 0,
+    trophies: [],
+    retained: [],
+    history: [],
+  };
+  saveCareer(career);
+  state.career = career;
+  beginCareerSeason();
+}
+
+function beginCareerSeason() {
+  const c = state.career;
+  if (!c) return;
+  state.budgetType = "cap";
+  state.challenge = "none";
+  startDraft(c.mode);
+  // Career overrides the standard budget with the running one.
+  state.budgetTotal = Math.round(c.budget);
+  document.getElementById("budget-panel").hidden = false;
+  const sub = document.getElementById("budget-panel-sub");
+  if (sub) sub.textContent = `Credits remaining out of ${state.budgetTotal}`;
+
+  // Carry the retained core straight into the new roster.
+  if (c.retained && c.retained.length) {
+    c.retained.forEach((p) => {
+      if (state.currentSlot >= state.totalSlots) return;
+      const tier = getCurrentTier();
+      let slot = null;
+      if (tier !== "free") {
+        const open = [...openSetForTier(tier)];
+        slot = tier === "starter"
+          ? (p.positions.find((pos) => openSetForTier(tier).has(pos)) || open[0])
+          : open[0];
+      }
+      state.currentSpinSeason = p.season;
+      placePlayer(p, slot);
+    });
+  }
+  updateBudgetGauge();
+  updateCareerBanner();
+}
+
+function careerOutcome(userRank, medal, champion) {
+  if (champion) return "champion";
+  if (medal === "silver") return "runnerUp";
+  if (medal === "bronze") return "finalFour";
+  if (userRank <= 6) return "playoffs";
+  if (userRank <= 10) return "playIn";
+  return "missed";
+}
+
+function finishCareerSeason(userRank) {
+  const c = state.career;
+  if (!c) return;
+  const outcome = careerOutcome(userRank, lastPlayoffMedal, lastPlayoffChampion);
+  const reward = CAREER_REWARDS[outcome];
+
+  c.history.push({
+    season: c.season,
+    wins: lastResult ? lastResult.wins : 0,
+    losses: lastResult ? 38 - lastResult.wins : 0,
+    rank: userRank,
+    outcome: reward.label,
+    champion: lastPlayoffChampion,
+  });
+  if (lastPlayoffChampion) { c.titles++; c.trophies.push(c.season); }
+  c.budget = Math.max(70, c.budget + reward.budget);
+  c.season++;
+  saveCareer(c);
+  renderCareerSummary(reward);
+}
+
+function renderCareerSummary(reward) {
+  const c = state.career;
+  const panel = document.getElementById("career-summary");
+  if (!panel || !c) return;
+  panel.hidden = false;
+  const last = c.history[c.history.length - 1];
+  panel.innerHTML = `
+    <div class="career-head">
+      <div class="career-season-label">Season ${last.season} complete</div>
+      <div class="career-outcome">${last.outcome}</div>
+    </div>
+    <div class="career-stats">
+      <div><span class="cs-val">${last.wins}–${last.losses}</span><span class="cs-lbl">Record</span></div>
+      <div><span class="cs-val">${last.rank}${ordinal(last.rank)}</span><span class="cs-lbl">Finish</span></div>
+      <div><span class="cs-val">${c.titles}</span><span class="cs-lbl">Titles</span></div>
+      <div><span class="cs-val ${reward.budget >= 0 ? "pos" : "neg"}">${reward.budget >= 0 ? "+" : ""}${reward.budget}</span><span class="cs-lbl">Budget</span></div>
+    </div>
+    <p class="career-next">Next season's budget: <strong>${Math.round(c.budget)}</strong> credits. Keep up to ${RETAIN_LIMIT} players.</p>
+    <div class="retain-grid" id="retain-grid"></div>
+    <button class="btn-primary" id="career-next-btn">Start Season ${c.season} →</button>`;
+
+  const grid = panel.querySelector("#retain-grid");
+  const chosen = new Set();
+  state.roster.forEach((p) => {
+    const card = document.createElement("button");
+    card.className = "retain-card";
+    card.innerHTML = `
+      ${avatarHtml(p.name)}
+      <div class="retain-info">
+        <div class="retain-name">${p.name}</div>
+        <div class="retain-sub">${p.season} · ${p.filledPosition || "Bench"} · ${getPlayerPrice(p)}cr</div>
+      </div>`;
+    card.addEventListener("click", () => {
+      if (chosen.has(p.name)) { chosen.delete(p.name); card.classList.remove("kept"); }
+      else if (chosen.size < RETAIN_LIMIT) { chosen.add(p.name); card.classList.add("kept"); }
+      SFX.place();
+    });
+    grid.appendChild(card);
+  });
+
+  panel.querySelector("#career-next-btn").addEventListener("click", () => {
+    c.retained = state.roster.filter((p) => chosen.has(p.name)).map((p) => ({ ...p, tier: undefined, filledPosition: undefined }));
+    saveCareer(c);
+    panel.hidden = true;
+    state.career = c;
+    beginCareerSeason();
+  });
+}
+
+function updateCareerBanner() {
+  const el = document.getElementById("career-banner");
+  if (!el) return;
+  const c = state.career;
+  if (!c) { el.hidden = true; return; }
+  el.hidden = false;
+  el.innerHTML = `<span class="cb-season">Season ${c.season}</span>
+    <span class="cb-sep">·</span>
+    <span class="cb-titles">${c.titles} title${c.titles === 1 ? "" : "s"}</span>
+    <span class="cb-sep">·</span>
+    <span class="cb-budget">${Math.round(c.budget)} cr</span>`;
+}
+
+function renderCareerHome() {
+  const c = loadCareer();
+  const block = document.getElementById("career-block");
+  if (!block) return;
+  if (!c) { block.hidden = true; return; }
+  block.hidden = false;
+  block.innerHTML = `
+    <h2 class="section-title">Career in Progress</h2>
+    <p class="section-sub">Season ${c.season} · ${c.titles} title${c.titles === 1 ? "" : "s"} · ${Math.round(c.budget)} credits</p>
+    <div class="career-history">
+      ${c.history.slice(-6).map((h) => `
+        <div class="ch-row ${h.champion ? "ch-title" : ""}">
+          <span class="ch-season">S${h.season}</span>
+          <span class="ch-rec">${h.wins}–${h.losses}</span>
+          <span class="ch-out">${h.champion ? "🏆 " : ""}${h.outcome}</span>
+        </div>`).join("")}
+    </div>
+    <div class="career-actions">
+      <button class="btn-primary" id="career-continue">Continue Career</button>
+      <button class="btn-secondary" id="career-abandon">Abandon</button>
+    </div>`;
+  block.querySelector("#career-continue").addEventListener("click", () => {
+    state.career = c;
+    beginCareerSeason();
+  });
+  block.querySelector("#career-abandon").addEventListener("click", () => {
+    clearCareer();
+    state.career = null;
+    renderCareerHome();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderCareerHome();
+  const c5 = document.getElementById("career-start-5");
+  const c12 = document.getElementById("career-start-12");
+  if (c5) c5.addEventListener("click", () => { if (state.dataReady) startCareer("5"); });
+  if (c12) c12.addEventListener("click", () => { if (state.dataReady) startCareer("12"); });
+});
