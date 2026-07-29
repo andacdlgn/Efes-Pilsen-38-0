@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v25";
+const APP_VERSION = "v26";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -10,6 +10,7 @@ const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: 
 const state = {
   budgetType: "unlimited", // "unlimited" | "cap"
   challenge: "none",
+  freeSlotsOpen: 0,
   userSchedule: [],
   career: null,
   lockedDecade: null,
@@ -126,7 +127,8 @@ function startDraft(mode) {
   state.budgetTotal = BUDGET_TOTAL[mode === "12" ? 12 : 5];
   state.currentSlot = 0;
   state.openPositions = new Set(POSITION_ORDER);
-  state.openBackupPositions = new Set(POSITION_ORDER);
+  state.openBackupPositions = new Set(mode === "12" ? POSITION_ORDER : []);
+  state.freeSlotsOpen = mode === "12" ? 2 : 0;
   state.roster = [];
   state.usedPlayerNames = new Set();
   state.armedPlayer = null;
@@ -164,20 +166,53 @@ function resetToCategory() {
 // Three tiers for the 12-man mode: starters (0-4, one per position), positional
 // backups (5-9, one backup per position), then 2 fully free bench spots (10-11).
 // The 5-man mode only ever has the "starter" tier.
+// Every slot on the roster is open from the very first pick. The draft used to
+// run in strict phases (five starters, then five backups, then the bench),
+// which meant a player you wanted on the bench was unplaceable if it wasn't
+// yet "bench time". Now you choose where each pick goes, and starter and
+// backup slots both enforce the real position — only the two extra bench
+// slots take anyone.
 function getCurrentTier() {
-  if (state.currentSlot < 5) return "starter";
-  if (state.mode === "12" && state.currentSlot < 10) return "backup";
-  return "free";
+  // Kept for the few places that just need to know whether positions matter.
+  return state.freeSlotsOpen > 0 || state.openPositions.size || state.openBackupPositions.size
+    ? "open"
+    : "full";
 }
 
 function isConstrainedPhase() {
-  return getCurrentTier() !== "free";
+  return state.openPositions.size > 0 || state.openBackupPositions.size > 0;
+}
+
+// Bench-only free slots don't care about position; everything else does.
+function slotLabel(slot) {
+  return slot.tier === "free" ? "Bench" : (slot.tier === "backup" ? "Backup " : "") + slot.pos;
+}
+
+// Where can this player legally go right now?
+function availableSlotsFor(player) {
+  const slots = [];
+  POSITION_ORDER.forEach((pos) => {
+    if (state.openPositions.has(pos) && player.positions.includes(pos)) {
+      slots.push({ tier: "starter", pos });
+    }
+  });
+  POSITION_ORDER.forEach((pos) => {
+    if (state.openBackupPositions.has(pos) && player.positions.includes(pos)) {
+      slots.push({ tier: "backup", pos });
+    }
+  });
+  if (state.freeSlotsOpen > 0) slots.push({ tier: "free", pos: null });
+  return slots;
 }
 
 function openSetForTier(tier) {
   if (tier === "starter") return state.openPositions;
   if (tier === "backup") return state.openBackupPositions;
   return null;
+}
+
+function slotsRemaining() {
+  return state.openPositions.size + state.openBackupPositions.size + state.freeSlotsOpen;
 }
 
 // A player can currently be picked if (in cap mode) their price fits the
@@ -191,17 +226,74 @@ function openSetForTier(tier) {
 // fall back to whatever season was last spun, which meant eligibleSeasons()
 // judged every candidate season against a stale one — and on the very first
 // pick there was no spun season at all, so One Decade mode dead-ended.
-function isPickable(player, season = state.currentSpinSeason) {
-  if (state.budgetType === "cap") {
-    const remainingSlotsAfter = state.totalSlots - state.currentSlot - 1;
-    const reserve = remainingSlotsAfter * RESERVE_PER_SLOT[state.mode === "12" ? 12 : 5];
-    const spendable = budgetRemaining() - reserve;
-    if (getPlayerPrice(player) > spendable) return false;
+// How many open slots still demand each position (starters + backups).
+function openDemandByPosition() {
+  const demand = {};
+  POSITION_ORDER.forEach((pos) => {
+    demand[pos] = (state.openPositions.has(pos) ? 1 : 0) + (state.openBackupPositions.has(pos) ? 1 : 0);
+  });
+  return demand;
+}
+
+// Everyone still available to be drafted, honouring locked seasons, challenges
+// and (in cap mode) what we can still afford.
+function remainingCandidates() {
+  const out = [];
+  const seen = new Set();
+  for (const [season, list] of Object.entries(state.playersBySeason)) {
+    if (state.lockedSeasons.includes(season)) continue;
+    for (const p of list) {
+      if (state.usedPlayerNames.has(p.name) || seen.has(p.name)) continue;
+      if (!passesChallenge(p, season)) continue;
+      if (state.challenge === "homegrown" && p.countryCode !== "TR") continue;
+      if (state.challenge === "noLegends" && computeLegendSet().has(p.name)) continue;
+      seen.add(p.name);
+      out.push(p);
+    }
   }
+  return out;
+}
+
+// Taking this player must not strand a slot that nobody else can fill. A flat
+// per-slot reserve can't see this: in a thin pool (the 1990s have exactly two
+// point guards) one careless pick makes the roster impossible to complete.
+function wouldStrandASlot(player, slot) {
+  const demand = openDemandByPosition();
+  if (slot.tier !== "free" && demand[slot.pos] > 0) demand[slot.pos]--;
+
+  const pool = remainingCandidates().filter((p) => p.name !== player.name);
+  const budgetLeft = state.budgetType === "cap"
+    ? budgetRemaining() - getPlayerPrice(player)
+    : Infinity;
+
+  for (const pos of POSITION_ORDER) {
+    if (demand[pos] <= 0) continue;
+    const fillers = pool
+      .filter((p) => p.positions.includes(pos))
+      .map((p) => (state.budgetType === "cap" ? getPlayerPrice(p) : 0))
+      .sort((a, b) => a - b);
+    if (fillers.length < demand[pos]) return true;
+    // The cheapest way to satisfy this position must still be affordable.
+    const cheapest = fillers.slice(0, demand[pos]).reduce((a, b) => a + b, 0);
+    if (cheapest > budgetLeft) return true;
+  }
+  return false;
+}
+
+function isPickable(player, season = state.currentSpinSeason) {
   if (!passesChallenge(player, season)) return false;
-  const tier = getCurrentTier();
-  if (tier !== "starter") return true;
-  return player.positions.some((pos) => openSetForTier(tier).has(pos));
+  const slots = availableSlotsFor(player);
+  if (!slots.length) return false;
+  if (state.budgetType === "cap" && getPlayerPrice(player) > budgetRemaining()) return false;
+  // Pickable if at least one destination leaves the roster completable.
+  return slots.some((slot) => !wouldStrandASlot(player, slot));
+}
+
+// Destinations that are actually safe to use for this player.
+function safeSlotsFor(player) {
+  const slots = availableSlotsFor(player);
+  const safe = slots.filter((slot) => !wouldStrandASlot(player, slot));
+  return safe.length ? safe : [];
 }
 
 // Seasons that have at least one undrafted, currently pickable player.
@@ -234,15 +326,21 @@ function tierLabel(tier) {
   return { starter: "starters", backup: "backups", free: "extra bench" }[tier];
 }
 
+function openSlotsLabel() {
+  const parts = [];
+  const st = POSITION_ORDER.filter((p) => state.openPositions.has(p));
+  const bu = POSITION_ORDER.filter((p) => state.openBackupPositions.has(p));
+  if (st.length) parts.push(`Starters: ${st.join(" · ")}`);
+  if (bu.length) parts.push(`Backups: ${bu.join(" · ")}`);
+  if (state.freeSlotsOpen > 0) parts.push(`Bench: ${state.freeSlotsOpen} free`);
+  return parts.join("   |   ") || "Roster complete";
+}
+
 function renderDraftStep() {
   const total = state.totalSlots;
-  const tier = getCurrentTier();
   state.armedPlayer = null;
   document.getElementById("draft-progress").textContent = `PICK ${state.currentSlot + 1} / ${total}`;
-  document.getElementById("draft-slot-label").textContent =
-    tier === "free"
-      ? "Extra Bench — Free Position"
-      : `Open ${tierLabel(tier)} positions: ${POSITION_ORDER.filter((p) => openSetForTier(tier).has(p)).join(" · ")}`;
+  document.getElementById("draft-slot-label").textContent = openSlotsLabel();
   updateRespinCounter();
   renderCourt();
   renderBench();
@@ -266,18 +364,12 @@ function updateRespinCounter() {
 function updateCourtHint() {
   const hint = document.getElementById("court-hint");
   if (!hint) return;
-  const tier = getCurrentTier();
-  if (tier === "free") {
-    hint.hidden = true;
-    return;
-  }
   hint.hidden = false;
   if (state.armedPlayer) {
-    const openMatches =
-      tier === "starter"
-        ? state.armedPlayer.positions.filter((pos) => openSetForTier(tier).has(pos))
-        : [...openSetForTier(tier)];
-    hint.textContent = `Place ${state.armedPlayer.name} at ${openMatches.join(" / ")} — tap the lit spot.`;
+    const opts = safeSlotsFor(state.armedPlayer).map((o) =>
+      o.tier === "free" ? "Bench" : (o.tier === "backup" ? "Backup " : "") + o.pos
+    );
+    hint.textContent = `Place ${state.armedPlayer.name} at ${opts.join(" / ")} — tap the lit spot.`;
     hint.classList.add("active");
   } else {
     hint.textContent = "Drag a player onto an open spot, or tap a player then tap a lit spot.";
@@ -295,7 +387,7 @@ let draggedPayload = null; // { mode: "new", player } | { mode: "move", player, 
 function wirePositionalSlot(slotEl, tier) {
   const pos = slotEl.dataset.pos;
   const openSet = openSetForTier(tier);
-  const positionless = tier !== "starter"; // backups/free: any player can fill any open slot
+  const positionless = false; // starter AND backup slots both enforce the real position
   const occupant = state.roster.find((p) => p.tier === tier && p.filledPosition === pos);
   slotEl.classList.toggle("filled", !!occupant);
   slotEl.classList.remove("target-glow");
@@ -321,26 +413,25 @@ function wirePositionalSlot(slotEl, tier) {
   } else {
     slotEl.draggable = false;
     slotEl.ondragstart = null;
-    const fits = state.armedPlayer && (positionless || state.armedPlayer.positions.includes(pos));
-    if (getCurrentTier() === tier && fits && openSet.has(pos)) {
+    const fits = state.armedPlayer && state.armedPlayer.positions.includes(pos);
+    if (fits && openSet.has(pos)) {
       slotEl.classList.add("target-glow");
     }
   }
 
   slotEl.onclick = () => {
-    if (occupant || getCurrentTier() !== tier || !state.armedPlayer) return;
-    const fits = positionless || state.armedPlayer.positions.includes(pos);
-    if (fits && openSet.has(pos)) {
+    if (occupant || !state.armedPlayer) return;
+    if (state.armedPlayer.positions.includes(pos) && openSet.has(pos)) {
       const player = state.armedPlayer;
       state.armedPlayer = null;
-      placePlayer(player, pos);
+      placePlayer(player, { tier, pos });
     }
   };
 
   slotEl.ondragover = (e) => {
-    if (!draggedPayload || getCurrentTier() !== tier) return;
+    if (!draggedPayload) return;
     const player = draggedPayload.player;
-    const fits = positionless || player.positions.includes(pos);
+    const fits = player.positions.includes(pos);
     const validTarget = !occupant && fits && pos !== draggedPayload.fromPos;
     if (validTarget) {
       e.preventDefault();
@@ -357,7 +448,7 @@ function wirePositionalSlot(slotEl, tier) {
     slotEl.classList.remove("drag-over", "drag-invalid");
     if (!draggedPayload) return;
     const player = draggedPayload.player;
-    const fits = positionless || player.positions.includes(pos);
+    const fits = player.positions.includes(pos);
     if (occupant || !fits || pos === draggedPayload.fromPos) {
       draggedPayload = null;
       return;
@@ -371,8 +462,8 @@ function wirePositionalSlot(slotEl, tier) {
       renderDraftStep_labelOnly();
       updateCourtHint();
       if (!document.getElementById("spin-result").hidden) renderPlayerPool(state.currentSpinPool);
-    } else if (getCurrentTier() === tier) {
-      placePlayer(player, pos);
+    } else {
+      placePlayer(player, { tier, pos });
     }
     draggedPayload = null;
   };
@@ -380,12 +471,6 @@ function wirePositionalSlot(slotEl, tier) {
 
 function renderCourt() {
   const wrap = document.getElementById("court-wrap");
-  const tier = getCurrentTier();
-  const showCourt = tier === "starter" || state.roster.some((p) => p.tier === "starter");
-  if (!showCourt) {
-    wrap.hidden = true;
-    return;
-  }
   wrap.hidden = false;
   wrap.querySelectorAll(".court-slot").forEach((slotEl) => wirePositionalSlot(slotEl, "starter"));
 }
@@ -412,7 +497,7 @@ function renderBench() {
       slotEl.appendChild(nameEl);
     }
     slotEl.ondragover = (e) => {
-      if (!draggedPayload || occupant || getCurrentTier() !== "free") return;
+      if (!draggedPayload || occupant || state.freeSlotsOpen <= 0) return;
       e.preventDefault();
       slotEl.classList.add("drag-over");
     };
@@ -421,18 +506,14 @@ function renderBench() {
       e.preventDefault();
       slotEl.classList.remove("drag-over");
       if (!draggedPayload || occupant || draggedPayload.mode !== "new") return;
-      placePlayer(draggedPayload.player, null);
+      placePlayer(draggedPayload.player, { tier: "free", pos: null });
       draggedPayload = null;
     };
   });
 }
 
 function renderDraftStep_labelOnly() {
-  const tier = getCurrentTier();
-  document.getElementById("draft-slot-label").textContent =
-    tier === "free"
-      ? "Extra Bench — Free Position"
-      : `Open ${tierLabel(tier)} positions: ${POSITION_ORDER.filter((p) => openSetForTier(tier).has(p)).join(" · ")}`;
+  document.getElementById("draft-slot-label").textContent = openSlotsLabel();
 }
 
 function doSpin() {
@@ -631,13 +712,9 @@ function renderPlayerPool(pool) {
   container.innerHTML = "";
   const visible = filteredPool(pool);
   visible.forEach((p) => {
-    const tier = getCurrentTier();
-    const openMatches =
-      tier === "starter"
-        ? p.positions.filter((pos) => openSetForTier(tier).has(pos))
-        : tier === "backup"
-        ? [...openSetForTier(tier)]
-        : [];
+    const openMatches = safeSlotsFor(p).map((o) =>
+      o.tier === "free" ? "BENCH" : (o.tier === "backup" ? "BU " : "") + o.pos
+    );
     const price = state.budgetType === "cap" ? getPlayerPrice(p) : 0;
     const remainingSlotsAfter = state.totalSlots - state.currentSlot - 1;
     const reserve = remainingSlotsAfter * RESERVE_PER_SLOT[state.mode === "12" ? 12 : 5];
@@ -662,7 +739,7 @@ function renderPlayerPool(pool) {
         ${avatarHtml(p.name)}
         <div class="player-name">${p.name}</div>
       </div>
-      <div class="player-meta">${state.currentSpinSeason}${isConstrainedPhase() ? ` · <span class="open-line">${openMatches.length ? "OPEN: " + openMatches.join(" / ") : "position filled"}</span>` : ""}</div>
+      <div class="player-meta">${state.currentSpinSeason}${` · <span class="open-line">${openMatches.length ? "OPEN: " + openMatches.join(" / ") : "no slot available"}</span>`}</div>
       ${bioLineHtml(p)}
       ${honorsHtml(honorsFor(p, state.currentSpinSeason))}
       ${blocksHtml}
@@ -699,11 +776,22 @@ function renderPlayerPool(pool) {
   });
 }
 
-function placePlayer(player, filledPosition) {
-  const tier = getCurrentTier();
-  if (tier !== "free") {
-    openSetForTier(tier).delete(filledPosition);
+function placePlayer(player, slot) {
+  // Accept either the new {tier,pos} object or a bare position string / null,
+  // resolving the latter to the first legal slot for that player.
+  let target = slot;
+  if (typeof slot === "string" || slot == null) {
+    const options = availableSlotsFor(player);
+    target = slot == null
+      ? (options.find((o) => o.tier === "free") || options[0])
+      : (options.find((o) => o.pos === slot) || options[0]);
   }
+  if (!target) return;
+  const tier = target.tier;
+  const filledPosition = target.pos;
+
+  if (tier === "free") state.freeSlotsOpen--;
+  else openSetForTier(tier).delete(filledPosition);
   if (state.budgetType === "cap") {
     state.budgetSpent += getPlayerPrice(player);
     updateBudgetGauge();
@@ -2563,17 +2651,8 @@ function isMobileViewport() {
   return window.matchMedia("(max-width: 860px)").matches;
 }
 
-function openSlotsForCurrentTier() {
-  const tier = getCurrentTier();
-  if (tier === "free") return ["BENCH"];
-  return POSITION_ORDER.filter((pos) => openSetForTier(tier).has(pos));
-}
-
 function slotsPlayerCanFill(player) {
-  const tier = getCurrentTier();
-  if (tier === "free") return ["BENCH"];
-  if (tier === "backup") return POSITION_ORDER.filter((pos) => openSetForTier(tier).has(pos));
-  return player.positions.filter((pos) => openSetForTier(tier).has(pos));
+  return safeSlotsFor(player);
 }
 
 function updatePlaceBar() {
@@ -2592,13 +2671,13 @@ function updatePlaceBar() {
   actions.innerHTML = "";
   slots.forEach((slot) => {
     const btn = document.createElement("button");
-    btn.className = "pb-slot-btn";
-    btn.textContent = slot === "BENCH" ? "Add to bench" : slot;
+    btn.className = "pb-slot-btn" + (slot.tier === "backup" ? " pb-backup" : slot.tier === "free" ? " pb-bench" : "");
+    btn.textContent = slot.tier === "free" ? "Bench" : (slot.tier === "backup" ? "BU " : "") + slot.pos;
     btn.addEventListener("click", () => {
       const player = state.armedPlayer;
       state.armedPlayer = null;
       bar.hidden = true;
-      placePlayer(player, slot === "BENCH" ? null : slot);
+      placePlayer(player, slot);
     });
     actions.appendChild(btn);
   });
@@ -2610,13 +2689,11 @@ function updatePlaceBar() {
 function renderMobileLineupStrip() {
   const strip = document.getElementById("mobile-lineup-strip");
   if (!strip) return;
-  const tier = getCurrentTier();
-  if (!isMobileViewport() || tier === "free") { strip.hidden = true; return; }
+  if (!isMobileViewport()) { strip.hidden = true; return; }
 
-  const set = tier === "starter" ? "starter" : "backup";
   strip.hidden = false;
   strip.innerHTML = POSITION_ORDER.map((pos) => {
-    const occupant = state.roster.find((p) => p.tier === set && p.filledPosition === pos);
+    const occupant = state.roster.find((p) => p.tier === "starter" && p.filledPosition === pos);
     const short = occupant ? occupant.name.split(" ").slice(-1)[0] : "";
     return `<div class="mls-slot ${occupant ? "filled" : ""}">
       <span class="mls-pos">${pos}</span>
@@ -2957,10 +3034,12 @@ function resumeDraft(d) {
   state.usedPlayerNames = new Set(state.roster.map((p) => p.name));
 
   state.openPositions = new Set(POSITION_ORDER);
-  state.openBackupPositions = new Set(POSITION_ORDER);
+  state.openBackupPositions = new Set(d.mode === "12" ? POSITION_ORDER : []);
+  state.freeSlotsOpen = d.mode === "12" ? 2 : 0;
   state.roster.forEach((p) => {
     if (p.tier === "starter" && p.filledPosition) state.openPositions.delete(p.filledPosition);
     if (p.tier === "backup" && p.filledPosition) state.openBackupPositions.delete(p.filledPosition);
+    if (p.tier === "free") state.freeSlotsOpen--;
   });
 
   document.getElementById("budget-panel").hidden = state.budgetType !== "cap";
@@ -3054,16 +3133,10 @@ function beginCareerSeason() {
   if (c.retained && c.retained.length) {
     c.retained.forEach((p) => {
       if (state.currentSlot >= state.totalSlots) return;
-      const tier = getCurrentTier();
-      let slot = null;
-      if (tier !== "free") {
-        const open = [...openSetForTier(tier)];
-        slot = tier === "starter"
-          ? (p.positions.find((pos) => openSetForTier(tier).has(pos)) || open[0])
-          : open[0];
-      }
+      const options = availableSlotsFor(p);
+      if (!options.length) return;
       state.currentSpinSeason = p.season;
-      placePlayer(p, slot);
+      placePlayer(p, options[0]);
     });
   }
   updateBudgetGauge();
