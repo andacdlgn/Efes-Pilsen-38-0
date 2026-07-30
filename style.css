@@ -555,6 +555,18 @@ main#app {
   animation: pulse-glow 1.1s ease-in-out infinite;
   cursor: pointer;
 }
+/* An already-placed player the user can relocate: subtle affordance + armed state. */
+.court-slot.filled.movable, .bench-slot.filled.movable { cursor: pointer; }
+.court-slot.move-source, .bench-slot.move-source {
+  border-color: #E8B23A;
+  border-style: solid;
+  box-shadow: 0 0 0 3px rgba(232,178,58,0.22), 0 0 20px rgba(232,178,58,0.6);
+  animation: pulse-move 1.1s ease-in-out infinite;
+}
+@keyframes pulse-move {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(232,178,58,0.20), 0 0 14px rgba(232,178,58,0.45); }
+  50% { box-shadow: 0 0 0 5px rgba(232,178,58,0.30), 0 0 24px rgba(232,178,58,0.75); }
+}
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 0 4px rgba(0,164,210,0.18), 0 0 16px rgba(0,164,210,0.45); }
   50% { box-shadow: 0 0 0 6px rgba(0,164,210,0.28), 0 0 26px rgba(0,164,210,0.75); }

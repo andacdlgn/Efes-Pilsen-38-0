@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v31";
+const APP_VERSION = "v32";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -35,6 +35,10 @@ const state = {
   currentSpinSeason: null,
   currentSpinPool: [],
   armedPlayer: null,
+  // A player already on the roster that the user has tapped to relocate
+  // (e.g. slide a PG/SG from PG to SG to free the PG slot for an incoming pick).
+  // Shape: { player, fromTier, fromPos } — mutually exclusive with armedPlayer.
+  moving: null,
   coach: null,
   coachRespinsUsed: 0,
   coachRespinsAllowed: 1,
@@ -65,7 +69,7 @@ const state = {
 // ============================================================
 const PRICE_EXPONENT = 1.15;
 const PRICE_SCALE = 1.3;
-const BUDGET_TOTAL = { 5: 120, 12: 280 };
+const BUDGET_TOTAL = { 5: 80, 12: 190 };
 const RESERVE_PER_SLOT = { 5: 9, 12: 5 };
 
 function getPlayerPrice(player) {
@@ -132,6 +136,7 @@ function startDraft(mode) {
   state.roster = [];
   state.usedPlayerNames = new Set();
   state.armedPlayer = null;
+  state.moving = null;
   state.respinsUsed = 0;
   state.respinsAllowed = mode === "5" ? 1 : 3;
   state.captainName = null;
@@ -209,6 +214,63 @@ function openSetForTier(tier) {
   if (tier === "starter") return state.openPositions;
   if (tier === "backup") return state.openBackupPositions;
   return null;
+}
+
+// Open slots an already-placed player could be relocated to. This is what powers
+// the "slide a flex player to their other position" move: a PG/SG parked at PG
+// can shift to SG (or a backup/bench slot) to free PG for an incoming pick.
+// Excludes the slot they currently occupy.
+function moveDestsFor(occ) {
+  if (!occ) return [];
+  const curTier = occ.tier;
+  const curPos = occ.filledPosition;
+  const dests = [];
+  POSITION_ORDER.forEach((pos) => {
+    if (!occ.positions.includes(pos)) return;
+    if (state.openPositions.has(pos) && !(curTier === "starter" && curPos === pos)) {
+      dests.push({ tier: "starter", pos });
+    }
+    if (state.mode === "12" && state.openBackupPositions.has(pos) && !(curTier === "backup" && curPos === pos)) {
+      dests.push({ tier: "backup", pos });
+    }
+  });
+  if (state.mode === "12" && state.freeSlotsOpen > 0 && curTier !== "free") {
+    dests.push({ tier: "free", pos: null });
+  }
+  return dests;
+}
+
+function isMoveDest(dest) {
+  if (!state.moving) return false;
+  return moveDestsFor(state.moving.player).some(
+    (d) => d.tier === dest.tier && d.pos === dest.pos
+  );
+}
+
+// Relocate the currently-armed roster player to `dest`. Reopens the slot they
+// leave and closes the one they take; budget is untouched (they're already paid
+// for). Works across tiers (starter/backup/bench) so it also handles shelving a
+// starter to the bench to make room.
+function performMove(dest) {
+  const m = state.moving;
+  if (!m) return;
+  const occ = m.player;
+  if (m.fromTier === "free") state.freeSlotsOpen++;
+  else openSetForTier(m.fromTier).add(m.fromPos);
+  if (dest.tier === "free") state.freeSlotsOpen--;
+  else openSetForTier(dest.tier).delete(dest.pos);
+  occ.tier = dest.tier;
+  occ.filledPosition = dest.tier === "free" ? null : dest.pos;
+  state.moving = null;
+  state.lastPlacedName = occ.name;
+  if (SFX && SFX.place) SFX.place();
+  saveDraftState();
+  renderCourt();
+  renderBench();
+  renderDraftStep_labelOnly();
+  updateCourtHint();
+  renderSlotRail();
+  if (!document.getElementById("spin-result").hidden) renderPlayerPool(state.currentSpinPool);
 }
 
 function slotsRemaining() {
@@ -339,6 +401,7 @@ function openSlotsLabel() {
 function renderDraftStep() {
   const total = state.totalSlots;
   state.armedPlayer = null;
+  state.moving = null;
   document.getElementById("draft-progress").textContent = `PICK ${state.currentSlot + 1} / ${total}`;
   document.getElementById("draft-slot-label").textContent = openSlotsLabel();
   updateRespinCounter();
@@ -365,14 +428,20 @@ function updateCourtHint() {
   const hint = document.getElementById("court-hint");
   if (!hint) return;
   hint.hidden = false;
-  if (state.armedPlayer) {
+  if (state.moving) {
+    const opts = moveDestsFor(state.moving.player).map((o) =>
+      o.tier === "free" ? "Bench" : (o.tier === "backup" ? "Backup " : "") + o.pos
+    );
+    hint.textContent = `Move ${state.moving.player.name} to ${opts.join(" / ")} — tap the lit spot, or tap ${state.moving.player.name} again to cancel.`;
+    hint.classList.add("active");
+  } else if (state.armedPlayer) {
     const opts = safeSlotsFor(state.armedPlayer).map((o) =>
       o.tier === "free" ? "Bench" : (o.tier === "backup" ? "Backup " : "") + o.pos
     );
     hint.textContent = `Place ${state.armedPlayer.name} at ${opts.join(" / ")} — tap the lit spot.`;
     hint.classList.add("active");
   } else {
-    hint.textContent = "Drag a player onto an open spot, or tap a player then tap a lit spot.";
+    hint.textContent = "Tap a pick then a lit spot to place. Tap a player already on the roster to slide them to their other position.";
     hint.classList.remove("active");
   }
 }
@@ -392,6 +461,7 @@ function wirePositionalSlot(slotEl, tier) {
   slotEl.classList.toggle("filled", !!occupant);
   slotEl.classList.remove("target-glow");
   slotEl.innerHTML = "";
+  slotEl.classList.remove("move-source");
   if (occupant) {
     const nameEl = document.createElement("div");
     nameEl.className = tier === "starter" ? "court-slot-name" : "bench-slot-name";
@@ -401,8 +471,11 @@ function wirePositionalSlot(slotEl, tier) {
       slotEl.classList.add("just-placed");
       setTimeout(() => slotEl.classList.remove("just-placed"), 500);
     }
-    const altPos = occupant.positions.find((p) => p !== pos);
-    const canMove = positionless ? [...openSet].some((p) => p !== pos) : altPos && openSet.has(altPos);
+    const canMove = moveDestsFor(occupant).length > 0;
+    if (canMove) slotEl.classList.add("movable");
+    else slotEl.classList.remove("movable");
+    // Highlight the slot the user has armed for relocation.
+    if (state.moving && state.moving.player === occupant) slotEl.classList.add("move-source");
     slotEl.draggable = !!canMove;
     slotEl.ondragstart = canMove
       ? (e) => {
@@ -411,21 +484,44 @@ function wirePositionalSlot(slotEl, tier) {
         }
       : null;
   } else {
+    slotEl.classList.remove("movable");
     slotEl.draggable = false;
     slotEl.ondragstart = null;
-    const fits = state.armedPlayer && state.armedPlayer.positions.includes(pos);
-    if (fits && openSet.has(pos)) {
+    const fitsNew = state.armedPlayer && state.armedPlayer.positions.includes(pos) && openSet && openSet.has(pos);
+    const fitsMove = isMoveDest({ tier, pos });
+    if (fitsNew || fitsMove) {
       slotEl.classList.add("target-glow");
     }
   }
 
   slotEl.onclick = () => {
-    if (occupant || !state.armedPlayer) return;
-    if (state.armedPlayer.positions.includes(pos) && openSet.has(pos)) {
-      const player = state.armedPlayer;
-      state.armedPlayer = null;
-      placePlayer(player, { tier, pos });
+    // 1) An empty, lit slot: either relocate the armed roster player here, or
+    //    drop a freshly-picked (armed) player here.
+    if (!occupant) {
+      if (state.moving && isMoveDest({ tier, pos })) {
+        performMove({ tier, pos });
+        return;
+      }
+      if (state.armedPlayer && state.armedPlayer.positions.includes(pos) && openSet && openSet.has(pos)) {
+        const player = state.armedPlayer;
+        state.armedPlayer = null;
+        placePlayer(player, { tier, pos });
+      }
+      return;
     }
+    // 2) An occupied slot: tap to arm this player for relocation (tap again to
+    //    cancel). Ignored while a fresh pick is armed — finish that placement
+    //    first. Only players with somewhere to go are armable.
+    if (state.armedPlayer) return;
+    if (moveDestsFor(occupant).length === 0) return;
+    if (state.moving && state.moving.player === occupant) {
+      state.moving = null;
+    } else {
+      state.moving = { player: occupant, fromTier: tier, fromPos: pos };
+    }
+    renderCourt();
+    renderBench();
+    updateCourtHint();
   };
 
   slotEl.ondragover = (e) => {
@@ -454,14 +550,8 @@ function wirePositionalSlot(slotEl, tier) {
       return;
     }
     if (draggedPayload.mode === "move") {
-      openSet.add(draggedPayload.fromPos);
-      openSet.delete(pos);
-      player.filledPosition = pos;
-      renderCourt();
-      renderBench();
-      renderDraftStep_labelOnly();
-      updateCourtHint();
-      if (!document.getElementById("spin-result").hidden) renderPlayerPool(state.currentSpinPool);
+      state.moving = { player, fromTier: draggedPayload.tier, fromPos: draggedPayload.fromPos };
+      performMove({ tier, pos });
     } else {
       placePlayer(player, { tier, pos });
     }
@@ -484,18 +574,64 @@ function renderBench() {
   wrap.hidden = false;
   wrap.querySelectorAll("#bench-backup-row .bench-slot").forEach((slotEl) => wirePositionalSlot(slotEl, "backup"));
 
+  const freePlayers = state.roster.filter((p) => p.tier === "free");
+  const armedCanFree =
+    state.armedPlayer && safeSlotsFor(state.armedPlayer).some((s) => s.tier === "free");
+  const moveCanFree = isMoveDest({ tier: "free", pos: null });
+
   document.querySelectorAll("#bench-free-row .bench-slot-free").forEach((slotEl) => {
     const idx = parseInt(slotEl.dataset.index, 10);
-    const freePlayers = state.roster.filter((p) => p.tier === "free");
     const occupant = freePlayers[idx];
     slotEl.classList.toggle("filled", !!occupant);
+    slotEl.classList.remove("target-glow", "move-source", "movable");
     slotEl.innerHTML = "";
+    slotEl.draggable = false;
+    slotEl.ondragstart = null;
+
     if (occupant) {
       const nameEl = document.createElement("div");
       nameEl.className = "bench-slot-name";
       nameEl.textContent = occupant.name;
       slotEl.appendChild(nameEl);
+      const canMove = moveDestsFor(occupant).length > 0;
+      if (canMove) slotEl.classList.add("movable");
+      if (state.moving && state.moving.player === occupant) slotEl.classList.add("move-source");
+      slotEl.draggable = !!canMove;
+      slotEl.ondragstart = canMove
+        ? (e) => {
+            draggedPayload = { mode: "move", player: occupant, fromPos: null, tier: "free" };
+            e.dataTransfer.effectAllowed = "move";
+          }
+        : null;
+    } else if (state.freeSlotsOpen > 0 && (armedCanFree || moveCanFree)) {
+      slotEl.classList.add("target-glow");
     }
+
+    slotEl.onclick = () => {
+      if (occupant) {
+        if (state.armedPlayer) return;
+        if (moveDestsFor(occupant).length === 0) return;
+        state.moving =
+          state.moving && state.moving.player === occupant
+            ? null
+            : { player: occupant, fromTier: "free", fromPos: null };
+        renderCourt();
+        renderBench();
+        updateCourtHint();
+        return;
+      }
+      if (state.freeSlotsOpen <= 0) return;
+      if (state.moving && moveCanFree) {
+        performMove({ tier: "free", pos: null });
+        return;
+      }
+      if (state.armedPlayer && armedCanFree) {
+        const player = state.armedPlayer;
+        state.armedPlayer = null;
+        placePlayer(player, { tier: "free", pos: null });
+      }
+    };
+
     slotEl.ondragover = (e) => {
       if (!draggedPayload || occupant || state.freeSlotsOpen <= 0) return;
       e.preventDefault();
@@ -505,8 +641,13 @@ function renderBench() {
     slotEl.ondrop = (e) => {
       e.preventDefault();
       slotEl.classList.remove("drag-over");
-      if (!draggedPayload || occupant || draggedPayload.mode !== "new") return;
-      placePlayer(draggedPayload.player, { tier: "free", pos: null });
+      if (!draggedPayload || occupant || state.freeSlotsOpen <= 0) return;
+      if (draggedPayload.mode === "move") {
+        state.moving = { player: draggedPayload.player, fromTier: draggedPayload.tier, fromPos: draggedPayload.fromPos };
+        performMove({ tier: "free", pos: null });
+      } else {
+        placePlayer(draggedPayload.player, { tier: "free", pos: null });
+      }
       draggedPayload = null;
     };
   });
@@ -548,6 +689,7 @@ function doSpin() {
     state.currentSpinSeason = season;
     state.currentSpinPool = poolForSeason(season);
     state.armedPlayer = null;
+    state.moving = null;
     poolFilterPosition = "All";
     poolSearchQuery = "";
     poolSortStat = "pts";
@@ -775,6 +917,7 @@ function renderPlayerPool(pool) {
         // Selecting a player never places them, even when only one slot is
         // legal — confirming the position is always a separate, deliberate tap.
         // Auto-placing made a mis-tap instantly cost a pick.
+        state.moving = null;
         state.armedPlayer = state.armedPlayer === p ? null : p;
         renderPlayerPool(pool);
         renderCourt();
@@ -820,6 +963,7 @@ function placePlayer(player, slot) {
   state.lastPlacedName = player.name;
   SFX.place();
   state.armedPlayer = null;
+  state.moving = null;
 
   state.currentSlot++;
   saveDraftState();
@@ -3211,16 +3355,16 @@ document.addEventListener("DOMContentLoaded", () => {
 // the cap well.
 // ============================================================
 const CAREER_KEY = "efes380_career_v1";
-const CAREER_START_BUDGET = { 5: 120, 12: 280 };
+const CAREER_START_BUDGET = { 5: 80, 12: 190 };
 const RETAIN_LIMIT = 3;
 
 const CAREER_REWARDS = {
-  champion: { budget: 26, label: "EuroLeague title" },
-  runnerUp: { budget: 14, label: "Runner-up" },
-  finalFour: { budget: 10, label: "Final Four" },
-  playoffs: { budget: 5, label: "Playoff berth" },
+  champion: { budget: 18, label: "EuroLeague title" },
+  runnerUp: { budget: 10, label: "Runner-up" },
+  finalFour: { budget: 7, label: "Final Four" },
+  playoffs: { budget: 3, label: "Playoff berth" },
   playIn: { budget: 0, label: "Play-in exit" },
-  missed: { budget: -16, label: "Missed the postseason" },
+  missed: { budget: -11, label: "Missed the postseason" },
 };
 
 function loadCareer() {
@@ -3298,7 +3442,7 @@ function finishCareerSeason(userRank) {
     champion: lastPlayoffChampion,
   });
   if (lastPlayoffChampion) { c.titles++; c.trophies.push(c.season); }
-  c.budget = Math.max(70, c.budget + reward.budget);
+  c.budget = Math.max(48, c.budget + reward.budget);
   c.season++;
   saveCareer(c);
   renderCareerSummary(reward);
