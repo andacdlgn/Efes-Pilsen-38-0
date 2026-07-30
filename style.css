@@ -2782,3 +2782,32 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
 .sr-line b.neg { color: var(--red); }
 .sr-foot { margin: 10px 2px 0; font-size: 11px; color: var(--muted); line-height: 1.4; }
 :root[data-theme="light"] .season-report { background: rgba(255,255,255,0.75); }
+
+/* ---------- Chemistry mode ---------- */
+.mode-card-chem {
+  margin-top: 12px;
+  width: 100%;
+  border: 1px solid var(--accent);
+  background: linear-gradient(135deg, rgba(0,164,210,0.10), rgba(232,178,58,0.06));
+}
+.mode-card-chem .mode-name { display: flex; align-items: center; gap: 8px; }
+.chem-tag {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
+  background: var(--accent); color: #04222c;
+  padding: 2px 6px; border-radius: 999px;
+}
+.chem-panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(11, 22, 38, 0.6);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.chem-panel-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.chem-panel-title { font-family: var(--font-display); letter-spacing: 0.03em; font-size: 13px; text-transform: uppercase; color: var(--muted); }
+.chem-score { font-family: var(--font-display); font-size: 24px; line-height: 1; color: var(--fg); }
+.chem-bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
+.chem-bar-fill { height: 100%; width: 4%; border-radius: 999px; background: var(--accent); transition: width 0.3s ease, background 0.3s ease; }
+:root[data-reduce-motion="on"] .chem-bar-fill { transition: none; }
+.chem-panel-sub { display: block; margin-top: 8px; font-size: 12px; color: var(--muted); }
+:root[data-theme="light"] .chem-panel { background: rgba(255,255,255,0.75); }

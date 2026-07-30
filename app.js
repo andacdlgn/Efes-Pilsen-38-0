@@ -2,13 +2,14 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v33";
+const APP_VERSION = "v34";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
 
 const state = {
   budgetType: "unlimited", // "unlimited" | "cap"
+  chemistryOn: false,      // Chemistry mode: roster cohesion boosts the team
   challenge: "none",
   freeSlotsOpen: 0,
   userSchedule: [],
@@ -164,6 +165,31 @@ function updateBudgetGauge() {
   document.getElementById("budget-remaining").textContent = remaining;
 }
 
+// Live chemistry meter shown during the draft in Chemistry mode.
+function updateChemistryPanel() {
+  const panel = document.getElementById("chem-panel");
+  if (!panel) return;
+  if (!state.chemistryOn) { panel.hidden = true; return; }
+  panel.hidden = false;
+  const { score } = computeChemistry();
+  const margin = chemistryMargin();
+  const scoreEl = document.getElementById("chem-score");
+  const fill = document.getElementById("chem-bar-fill");
+  const sub = document.getElementById("chem-panel-sub");
+  if (scoreEl) scoreEl.textContent = score;
+  if (fill) {
+    fill.style.width = Math.max(4, Math.min(100, score)) + "%";
+    fill.style.background = score >= 65 ? "var(--green)" : score >= 40 ? "var(--accent)" : score >= 22 ? "#E8B23A" : "var(--red)";
+  }
+  if (sub) {
+    const label = score >= 65 ? "Elite cohesion" : score >= 40 ? "Strong core" : score >= 22 ? "Building" : "Strangers";
+    const sign = margin >= 0 ? "+" : "";
+    sub.textContent = state.roster.length < 2
+      ? "Draft teammates from the same era to build cohesion."
+      : `${label} · ${sign}${margin.toFixed(1)} pts/game to your team`;
+  }
+}
+
 function resetToCategory() {
   showScreen("screen-category");
 }
@@ -270,6 +296,7 @@ function performMove(dest) {
   renderDraftStep_labelOnly();
   updateCourtHint();
   renderSlotRail();
+  updateChemistryPanel();
   if (!document.getElementById("spin-result").hidden) renderPlayerPool(state.currentSpinPool);
 }
 
@@ -410,6 +437,7 @@ function renderDraftStep() {
   updateCourtHint();
   renderSlotRail();
   updatePlaceBar();
+  updateChemistryPanel();
 
   document.getElementById("spin-result").hidden = true;
   document.getElementById("spin-anim").hidden = true;
@@ -1177,6 +1205,71 @@ const PYTHAG_EXPONENT = 14;
 const STARTER_WEIGHT = { 5: 1.25, 12: 1.0 };
 const BENCH_WEIGHT = 0.3;
 
+// ============================================================
+// Chemistry (Chemistry mode)
+//
+// A cohesive roster — players who were actually teammates in real Efes seasons,
+// drawn from a tight window, with a national core — earns a bonus that stands
+// in for the intangible "they know each other's game". Calibrated so a single
+// golden-era roster is worth ~+3–3.5 wins over a scattershot all-time all-stars
+// team, which is a real trade-off (you sacrifice some raw talent spread to
+// gather stars from one era). Neutral for an average roster, tiny penalty only
+// for the most scattered.
+// ============================================================
+let PLAYER_SEASONS = null;
+function playerSeasonsMap() {
+  if (PLAYER_SEASONS) return PLAYER_SEASONS;
+  PLAYER_SEASONS = {};
+  for (const [season, list] of Object.entries(state.playersBySeason || {})) {
+    for (const p of list) {
+      (PLAYER_SEASONS[p.name] = PLAYER_SEASONS[p.name] || new Set()).add(season);
+    }
+  }
+  return PLAYER_SEASONS;
+}
+
+function seasonYear(s) { return parseInt(String(s).slice(0, 4), 10); }
+
+// Returns { score (0-100), linkRatio, span, core } for the current roster.
+function computeChemistry() {
+  const roster = state.roster || [];
+  const n = roster.length;
+  if (n < 2) return { score: 0, linkRatio: 0, span: 0, core: 0 };
+  const seasons = playerSeasonsMap();
+  let links = 0, pairs = 0;
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      pairs++;
+      const A = seasons[roster[i].name] || new Set();
+      const B = seasons[roster[j].name] || new Set();
+      let shared = false;
+      for (const s of A) { if (B.has(s)) { shared = true; break; } }
+      if (shared) links++;
+    }
+  }
+  const linkRatio = pairs ? links / pairs : 0;
+  const ys = roster.map((p) => seasonYear(p.season)).filter((y) => !isNaN(y));
+  const span = ys.length ? Math.max(...ys) - Math.min(...ys) : 0;
+  const compact = Math.max(0, 1 - span / 25);
+  const cc = {};
+  roster.forEach((p) => { const k = p.countryCode || "?"; cc[k] = (cc[k] || 0) + 1; });
+  const core = Math.max(...Object.values(cc)) / n;
+  const score01 = 0.65 * linkRatio + 0.22 * compact + 0.13 * core;
+  return { score: Math.round(score01 * 100), linkRatio, span, core };
+}
+
+const CHEM_PIVOT = 22;   // scattershot rosters land here → roughly neutral
+const CHEM_K = 0.075;    // margin points per chemistry point above pivot
+const CHEM_MIN = -1.0;
+const CHEM_MAX = 3.5;    // a cohesive roster is worth ~+2–3 wins at contention level
+
+// Chemistry expressed as bonus scoring margin, folded into the roster's margin.
+function chemistryMargin() {
+  if (!state.chemistryOn) return 0;
+  const { score } = computeChemistry();
+  return Math.max(CHEM_MIN, Math.min(CHEM_MAX, (score - CHEM_PIVOT) * CHEM_K));
+}
+
 function playerRating(p) {
   return p.rating || 0;
 }
@@ -1201,7 +1294,7 @@ function computeExpectedMargin() {
   const coach = state.coach;
   const coachPoints = coach.rating * 20 + coach.fitBonus * 10 + (coach.stability || 0) * 10;
 
-  return starterDiff * starterWeight + benchTerm + coachPoints;
+  return starterDiff * starterWeight + benchTerm + coachPoints + chemistryMargin();
 }
 
 function pythagoreanWinPct(margin) {
@@ -1490,6 +1583,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".mode-card[data-budget]").forEach((btn) => {
     btn.addEventListener("click", () => {
       state.budgetType = btn.dataset.budget;
+      state.chemistryOn = btn.dataset.chem === "1";
       showScreen("screen-mode");
     });
   });
@@ -1560,7 +1654,7 @@ document.addEventListener("DOMContentLoaded", () => {
       saveHistoryEntry({
         wins, losses, champion: false,
         mode: state.mode === "12" ? "12-Man" : "Starting 5",
-        budget: state.budgetType === "cap" ? "Salary Cap" : "Unlimited",
+        budget: state.chemistryOn ? "Chemistry" : state.budgetType === "cap" ? "Salary Cap" : "Unlimited",
         starters: state.roster.filter((p) => p.tier === "starter").map((p) => p.name),
       });
       if (losses === 0) { SFX.crowd(); triggerConfetti(); }
@@ -1626,6 +1720,18 @@ const ACHIEVEMENTS = [
   { id: "homegrown", name: "Homegrown", desc: "Win 25+ with a starting five of Turkish players" },
   { id: "thrifty", name: "Bargain Hunter", desc: "Win 30+ using under half the salary cap" },
   { id: "champion", name: "Glory", desc: "Lift the EuroLeague trophy" },
+  // — expansion —
+  { id: "topseed", name: "Top of the Table", desc: "Finish the regular season in 1st place" },
+  { id: "finalfour", name: "Final Four", desc: "Reach the Final Four" },
+  { id: "runnerup", name: "So Near", desc: "Lose in the final" },
+  { id: "bully", name: "Giant Slayer", desc: "Go unbeaten against the top 6" },
+  { id: "immortal", name: "Immortal", desc: "Go 38–0 and lift the trophy" },
+  { id: "moneyball", name: "Moneyball", desc: "Win the title spending under 60% of the cap" },
+  { id: "homeglory", name: "Homegrown Glory", desc: "Win the title with five Turkish starters" },
+  { id: "purist", name: "No Legends Needed", desc: "Win 25+ in the No Legends challenge" },
+  { id: "oneera", name: "Children of One Era", desc: "Win 25+ in the One Decade challenge" },
+  { id: "brotherhood", name: "Brotherhood", desc: "Win 30+ with 60+ chemistry in Chemistry mode" },
+  { id: "dynasty", name: "Dynasty", desc: "Win 3 titles in a single Career" },
 ];
 
 function evaluateAchievements(wins, playoffWon) {
@@ -1647,6 +1753,34 @@ function evaluateAchievements(wins, playoffWon) {
   if (wins >= 25 && starters.length === 5 && starters.every((p) => p.countryCode === "TR")) unlock("homegrown");
   if (wins >= 30 && state.budgetType === "cap" && state.budgetSpent <= state.budgetTotal / 2) unlock("thrifty");
   if (playoffWon) unlock("champion");
+
+  // — expansion —
+  const rank = typeof lastUserRank === "number" ? lastUserRank : null;
+  const medal = typeof lastPlayoffMedal !== "undefined" ? lastPlayoffMedal : null;
+  const fiveTurkishStarters = starters.length === 5 && starters.every((p) => p.countryCode === "TR");
+
+  if (rank === 1) unlock("topseed");
+  if (medal) unlock("finalfour"); // any medal means at least a Final Four berth
+  if (medal === "silver") unlock("runnerup");
+  if (wins === 38 && playoffWon) unlock("immortal");
+  if (playoffWon && state.budgetType === "cap" && state.budgetSpent <= state.budgetTotal * 0.6) unlock("moneyball");
+  if (playoffWon && fiveTurkishStarters) unlock("homeglory");
+  if (wins >= 25 && state.challenge === "noLegends") unlock("purist");
+  if (wins >= 25 && state.challenge === "singleEra") unlock("oneera");
+  if (wins >= 30 && state.chemistryOn && computeChemistry().score >= 60) unlock("brotherhood");
+  if ((state.career && state.career.titles) >= 3) unlock("dynasty");
+
+  // Unbeaten vs the top 6 of the final table.
+  try {
+    const sched = state.userSchedule || [];
+    const table = buildStandings();
+    if (sched.length && table.length) {
+      const rankByName = {};
+      table.forEach((t, i) => { rankByName[t.name] = i + 1; });
+      const vsTop6 = sched.filter((g) => (rankByName[g.opponent.name] || 99) <= 6);
+      if (vsTop6.length >= 6 && vsTop6.every((g) => g.won)) unlock("bully");
+    }
+  } catch (e) { /* schedule not available — skip */ }
 
   profile.bestWins = Math.max(profile.bestWins || 0, wins);
   profile.gamesPlayed = (profile.gamesPlayed || 0) + 1;
@@ -3557,6 +3691,7 @@ function beginCareerSeason() {
   const c = state.career;
   if (!c) return;
   state.budgetType = "cap";
+  state.chemistryOn = false;
   state.challenge = "none";
   startDraft(c.mode);
   // Career overrides the standard budget with the running one.

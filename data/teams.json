@@ -1,0 +1,24 @@
+{
+  "_note": "Strength is a 0-10 index built from EuroLeague finishes over the last five seasons, weighted heavily toward the most recent two (2024-25 and 2025-26). It is an approximation used for simulation seeding only, not an official rating.",
+  "teams": [
+    { "name": "Olympiacos", "short": "OLY", "colors": ["#C8102E", "#FFFFFF"], "strength": 9.2 },
+    { "name": "Fenerbahçe Beko", "short": "FEN", "colors": ["#0B1B45", "#FFED00"], "strength": 9.1 },
+    { "name": "Panathinaikos", "short": "PAO", "colors": ["#0B7A3B", "#FFFFFF"], "strength": 8.9 },
+    { "name": "AS Monaco", "short": "MON", "colors": ["#C8102E", "#FFFFFF"], "strength": 8.6 },
+    { "name": "Real Madrid", "short": "RMB", "colors": ["#FFFFFF", "#5B6770"], "strength": 8.5 },
+    { "name": "FC Barcelona", "short": "BAR", "colors": ["#A50044", "#004D98"], "strength": 8.0 },
+    { "name": "Hapoel Tel Aviv", "short": "HTA", "colors": ["#C8102E", "#000000"], "strength": 7.6 },
+    { "name": "Žalgiris Kaunas", "short": "ZAL", "colors": ["#1B7A3D", "#FFFFFF"], "strength": 7.4 },
+    { "name": "Maccabi Tel Aviv", "short": "MTA", "colors": ["#FFD700", "#0033A0"], "strength": 7.2 },
+    { "name": "Virtus Bologna", "short": "VIR", "colors": ["#000000", "#FFFFFF"], "strength": 6.8 },
+    { "name": "Crvena zvezda", "short": "RED", "colors": ["#C8102E", "#FFFFFF"], "strength": 6.6 },
+    { "name": "Partizan", "short": "PAR", "colors": ["#000000", "#FFFFFF"], "strength": 6.4 },
+    { "name": "Baskonia", "short": "BAS", "colors": ["#003DA5", "#FFFFFF"], "strength": 6.2 },
+    { "name": "Dubai Basketball", "short": "DUB", "colors": ["#0B3B60", "#C5A253"], "strength": 6.0 },
+    { "name": "Olimpia Milano", "short": "MIL", "colors": ["#C8102E", "#FFFFFF"], "strength": 5.9 },
+    { "name": "Paris Basketball", "short": "PRS", "colors": ["#1D1D1B", "#E30613"], "strength": 5.8 },
+    { "name": "Valencia Basket", "short": "VAL", "colors": ["#F36F21", "#000000"], "strength": 5.6 },
+    { "name": "Bayern Munich", "short": "BAY", "colors": ["#DC052D", "#0066B2"], "strength": 5.3 },
+    { "name": "LDLC ASVEL", "short": "ASV", "colors": ["#000000", "#C8102E"], "strength": 4.6 }
+  ]
+}

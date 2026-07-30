@@ -83,6 +83,12 @@
         </button>
       </div>
 
+      <button class="mode-card mode-card-chem" data-budget="unlimited" data-chem="1">
+        <span class="mode-name">Chemistry <span class="chem-tag">NEW</span></span>
+        <span class="mode-desc">No budget — but stars from the same era, real teammates and a national core, click. Cohesion is worth wins; an all-time all-star team of strangers isn't.</span>
+        <span class="mode-go">Start →</span>
+      </button>
+
       <div class="challenge-inline">
         <span class="challenge-inline-label">Add a challenge <span class="opt">(optional)</span></span>
         <div class="challenge-grid" id="challenge-grid"></div>
@@ -187,6 +193,15 @@
             <span class="budget-panel-title">Salary Cap</span>
             <span class="budget-panel-sub" id="budget-panel-sub">Credits remaining out of 100</span>
           </div>
+        </div>
+
+        <div class="chem-panel" id="chem-panel" hidden>
+          <div class="chem-panel-head">
+            <span class="chem-panel-title">Team Chemistry</span>
+            <span class="chem-score" id="chem-score">0</span>
+          </div>
+          <div class="chem-bar"><div class="chem-bar-fill" id="chem-bar-fill"></div></div>
+          <span class="chem-panel-sub" id="chem-panel-sub">Draft teammates from the same era to build cohesion.</span>
         </div>
 
         <div class="spin-panel" id="spin-panel">
