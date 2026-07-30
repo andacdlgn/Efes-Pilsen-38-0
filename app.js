@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v32";
+const APP_VERSION = "v33";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -746,7 +746,14 @@ function renderFilterTabs() {
 }
 
 const SORT_STATS = ["pts", "reb", "ast", "blk", "stl"];
-const SORT_STAT_LABEL = { pts: "PTS", reb: "REB", ast: "AST", blk: "BLK", stl: "STL" };
+const SORT_STAT_LABEL = { ovr: "OVR", value: "VALUE", pts: "PTS", reb: "REB", ast: "AST", blk: "BLK", stl: "STL" };
+
+function activeSortStats() {
+  // OVR (the hidden overall that drives the sim) is always useful for team
+  // building; VALUE (overall per credit) only matters when a cap is in play.
+  const base = ["ovr", ...SORT_STATS];
+  return state.budgetType === "cap" ? ["ovr", "value", ...SORT_STATS] : base;
+}
 
 function renderSortTabs() {
   const container = document.getElementById("sort-tabs");
@@ -756,7 +763,9 @@ function renderSortTabs() {
   label.className = "sort-tabs-label";
   label.textContent = "Sort by:";
   container.appendChild(label);
-  SORT_STATS.forEach((stat) => {
+  const stats = activeSortStats();
+  if (!stats.includes(poolSortStat)) poolSortStat = "pts";
+  stats.forEach((stat) => {
     const btn = document.createElement("button");
     btn.className = "pos-tab" + (stat === poolSortStat ? " active" : "");
     btn.textContent = SORT_STAT_LABEL[stat];
@@ -778,6 +787,11 @@ function renderSortTabs() {
 const BSL_TO_EL_DISPLAY = 0.62;
 
 function statValue(p, stat) {
+  if (stat === "ovr") return p.rating || 0;
+  if (stat === "value") {
+    const price = getPlayerPrice(p);
+    return price > 0 ? (p.rating || 0) / price : 0;
+  }
   if (p.euroleague && p.euroleague[stat] != null) return p.euroleague[stat];
   if (p.bsl && ["pts", "reb", "ast", "stl"].includes(stat) && p.bsl[stat] != null) {
     // Pushed below every EuroLeague entry, but still ordered sensibly among themselves.
@@ -2299,6 +2313,21 @@ function applyTheme(theme) {
   if (btn) btn.textContent = theme === "light" ? "☀️" : "🌙";
 }
 
+// ---------- Reduced motion ----------
+// Defaults to the OS/browser "prefers-reduced-motion" setting the first time,
+// then remembers the user's explicit choice. When on, all animations and
+// transitions are neutralised via CSS (see [data-reduce-motion="on"]).
+function applyMotion(mode) {
+  document.documentElement.setAttribute("data-reduce-motion", mode);
+  localStorage.setItem("efes380_motion", mode);
+  const btn = document.getElementById("motion-toggle");
+  if (btn) {
+    btn.textContent = mode === "on" ? "🟢" : "🌀";
+    btn.title = mode === "on" ? "Motion reduced — tap to restore" : "Reduce motion";
+    btn.classList.toggle("active", mode === "on");
+  }
+}
+
 // ---------- Roster history ----------
 const HISTORY_KEY = "efes380_history_v1";
 
@@ -2441,6 +2470,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (soundOn) SFX.bounce();
     });
   }
+
+  const savedMotion = localStorage.getItem("efes380_motion")
+    || (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "on" : "off");
+  applyMotion(savedMotion);
+  const motionBtn = document.getElementById("motion-toggle");
+  if (motionBtn) motionBtn.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-reduce-motion") === "on" ? "off" : "on";
+    applyMotion(next);
+  });
 
   renderHistory();
 
@@ -2663,8 +2701,8 @@ const HALL_OF_LEGENDS = [
   { name: "Mehmet Okur", years: "2000–02", note: "Went from Efes to an NBA All-Star selection", group: "turkish" },
   { name: "Mirsad Türkcan", years: "1996–98, 2008–10", note: "Relentless rebounder and Korać Cup era mainstay", group: "turkish" },
   { name: "Hüseyin Beşok", years: "1998–2002", note: "Anchor of the Final Four sides at the turn of the century", group: "turkish" },
-  { name: "Kerem Tunceri", years: "2001–03, 2009–13", note: "Two spells, a decade apart, always the steady hand", group: "turkish" },
-  { name: "Kerem Gonlum", years: "2005–13", note: "Long-serving captain and dressing-room leader", group: "turkish" },
+  { name: "Kerem Tunçeri", years: "2001–03, 2009–13", note: "Two spells, a decade apart, always the steady hand", group: "turkish" },
+  { name: "Kerem Gönlüm", years: "2005–13", note: "Long-serving captain and dressing-room leader", group: "turkish" },
   { name: "Ömer Onan", years: "1998–2002", note: "Homegrown wing of the club's European breakthrough", group: "turkish" },
   { name: "Cedi Osman", years: "2011–17", note: "Academy graduate who left for the NBA", group: "turkish" },
   { name: "Doğuş Balbay", years: "2013–22", note: "Defensive specialist across the championship era", group: "turkish" },
@@ -2819,6 +2857,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showScreen("screen-standings");
     SFX.whistle();
     lastUserRank = renderStandings(lastResult ? lastResult.wins : 0);
+    renderSeasonReport();
   });
 
   const toBracket = document.getElementById("to-bracket-btn");
@@ -2945,18 +2984,10 @@ function updatePlaceBar() {
   sheet.hidden = false;
 }
 
-function closePickSheet() {
-  const sheet = document.getElementById("pick-sheet");
-  if (sheet) sheet.hidden = true;
-  state.armedPlayer = null;
-  renderPlayerPool(state.currentSpinPool);
-  renderCourt();
-  renderBench();
-  updateCourtHint();
-  renderSlotRail();
-}
-
 // A always-visible rail so the phone user can see the roster taking shape.
+// Filled starter/backup cells are tappable: tap one to relocate that player
+// (e.g. slide a PG/SG from PG to SG) via a move sheet — the touch equivalent of
+// the desktop tap-to-move.
 function renderSlotRail() {
   const rail = document.getElementById("slot-rail");
   if (!rail) return;
@@ -2966,7 +2997,9 @@ function renderSlotRail() {
   }
   const cell = (tier, pos) => {
     const occ = state.roster.find((r) => r.tier === tier && r.filledPosition === pos);
-    return `<div class="rail-cell ${occ ? "filled" : ""}">
+    const movable = occ && moveDestsFor(occ).length > 0;
+    return `<div class="rail-cell ${occ ? "filled" : ""} ${movable ? "movable" : ""}"
+        ${movable ? `data-tier="${tier}" data-pos="${pos}"` : ""}>
       <span class="rail-pos">${pos}</span>
       <span class="rail-name">${occ ? occ.name.split(" ").slice(-1)[0] : "—"}</span>
     </div>`;
@@ -2978,7 +3011,70 @@ function renderSlotRail() {
       <div class="rail-cell ${freeUsed ? "filled" : ""}"><span class="rail-pos">BN</span><span class="rail-name">${freeUsed}/2</span></div></div>`;
   }
   rail.innerHTML = html;
+  rail.querySelectorAll(".rail-cell.movable").forEach((c) => {
+    c.addEventListener("click", () => {
+      const tier = c.dataset.tier, pos = c.dataset.pos;
+      const occ = state.roster.find((r) => r.tier === tier && r.filledPosition === pos);
+      if (occ) openMoveSheet(occ, tier, pos);
+    });
+  });
   rail.hidden = false;
+}
+
+// ---------- Mobile: relocate an already-placed player ----------
+function openMoveSheet(occ, fromTier, fromPos) {
+  const sheet = document.getElementById("pick-sheet");
+  if (!sheet) return;
+  state.armedPlayer = null;
+  state.moving = { player: occ, fromTier, fromPos };
+
+  document.getElementById("pick-sheet-title").innerHTML =
+    `<span class="ps-name">Move ${occ.name}</span><span class="ps-sub">from ${fromTier === "free" ? "Bench" : (fromTier === "backup" ? "Backup " : "") + fromPos} · ${occ.positions.join(" / ")}</span>`;
+
+  const dests = moveDestsFor(occ);
+  const has = (tier, pos) => dests.some((d) => d.tier === tier && d.pos === pos);
+  const tile = (tier, pos, label) => {
+    const ok = has(tier, pos);
+    return `<button class="ps-tile ${ok ? "ps-open" : "ps-blocked"}" data-tier="${tier}" data-pos="${pos == null ? "" : pos}" ${ok ? "" : "disabled"}>
+      <span class="ps-pos">${label}</span><span class="ps-state">${ok ? "MOVE HERE" : "—"}</span></button>`;
+  };
+
+  let html = `<div class="ps-group-label">Starting Five</div>
+    <div class="ps-row">${POSITION_ORDER.map((pos) => tile("starter", pos, pos)).join("")}</div>`;
+  if (state.mode === "12") {
+    html += `<div class="ps-group-label">Bench — Backups</div>
+      <div class="ps-row">${POSITION_ORDER.map((pos) => tile("backup", pos, pos)).join("")}</div>
+      <div class="ps-group-label">Bench — Any Position</div>
+      <div class="ps-row ps-row-free">
+        <button class="ps-tile ps-wide ${has("free", null) ? "ps-open" : "ps-blocked"}" data-tier="free" data-pos="" ${has("free", null) ? "" : "disabled"}>
+          <span class="ps-pos">BENCH</span><span class="ps-state">${has("free", null) ? "MOVE HERE" : "—"}</span>
+        </button>
+      </div>`;
+  }
+
+  const body = document.getElementById("pick-sheet-body");
+  body.innerHTML = html;
+  body.querySelectorAll(".ps-tile:not([disabled])").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tier = btn.dataset.tier;
+      const pos = btn.dataset.pos || null;
+      sheet.hidden = true;
+      performMove({ tier, pos });
+    });
+  });
+  sheet.hidden = false;
+}
+
+function closePickSheet() {
+  const sheet = document.getElementById("pick-sheet");
+  if (sheet) sheet.hidden = true;
+  state.armedPlayer = null;
+  state.moving = null;
+  renderPlayerPool(state.currentSpinPool);
+  renderCourt();
+  renderBench();
+  updateCourtHint();
+  renderSlotRail();
 }
 
 
@@ -3080,6 +3176,71 @@ function renderStandings(userWins) {
         : `You finished ${userRank}${ordinal(userRank)} — outside the top ten. The road ends here.`;
   }
   return userRank;
+}
+
+// ---------- Season report: who you played and how it went ----------
+// In a full double round-robin every team faces the same slate, so raw
+// "strength of schedule" is identical league-wide. What actually varies — and
+// what tells the story of the season — is how you fared against the good teams
+// vs the rest, home vs away, and your signature win and worst night. That's
+// what this panel surfaces from the 38 games already simulated.
+function renderSeasonReport() {
+  const el = document.getElementById("season-report");
+  if (!el) return;
+  const games = state.userSchedule || [];
+  const standings = buildStandings();
+  if (!games.length || !standings.length) { el.innerHTML = ""; return; }
+
+  const rankOf = {};
+  standings.forEach((t, i) => { rankOf[t.name] = i + 1; });
+
+  const tiers = [
+    { key: "top", label: "vs Top 6", test: (r) => r <= 6 },
+    { key: "mid", label: "vs 7–12", test: (r) => r >= 7 && r <= 12 },
+    { key: "low", label: "vs 13–19", test: (r) => r >= 13 },
+  ];
+  const tierRec = { top: [0, 0], mid: [0, 0], low: [0, 0] };
+  let homeW = 0, homeL = 0, awayW = 0, awayL = 0, pf = 0, pa = 0;
+  let bestWin = null, worstLoss = null;
+
+  games.forEach((g) => {
+    const r = rankOf[g.opponent.name] || 20;
+    const t = tiers.find((x) => x.test(r));
+    if (t) tierRec[t.key][g.won ? 0 : 1]++;
+    if (g.home) g.won ? homeW++ : homeL++;
+    else g.won ? awayW++ : awayL++;
+    const us = g.score[0], them = g.score[1];
+    pf += us; pa += them;
+    const margin = us - them;
+    if (g.won && (!bestWin || margin > bestWin.margin)) bestWin = { g, margin };
+    if (!g.won && (!worstLoss || margin < worstLoss.margin)) worstLoss = { g, margin };
+  });
+
+  const rec = (a) => `${a[0]}–${a[1]}`;
+  const diff = pf - pa;
+  const avgMargin = (diff / games.length).toFixed(1);
+  const sideNote = (g) => `${g.home ? "vs" : "at"} ${g.opponent.short} ${g.score[0]}–${g.score[1]}`;
+
+  const tierCards = tiers
+    .map((t) => `<div class="sr-tier">
+        <span class="sr-tier-label">${t.label}</span>
+        <span class="sr-tier-rec">${rec(tierRec[t.key])}</span>
+      </div>`)
+    .join("");
+
+  el.innerHTML = `
+    <div class="sr-head">Season Report</div>
+    <div class="sr-tiers">${tierCards}</div>
+    <div class="sr-lines">
+      <div class="sr-line"><span>Home</span><b>${rec([homeW, homeL])}</b></div>
+      <div class="sr-line"><span>Away</span><b>${rec([awayW, awayL])}</b></div>
+      <div class="sr-line"><span>Point differential</span><b class="${diff >= 0 ? "pos" : "neg"}">${diff >= 0 ? "+" : ""}${diff}</b></div>
+      <div class="sr-line"><span>Avg margin / game</span><b class="${avgMargin >= 0 ? "pos" : "neg"}">${avgMargin >= 0 ? "+" : ""}${avgMargin}</b></div>
+      ${bestWin ? `<div class="sr-line"><span>Signature win</span><b class="pos">${sideNote(bestWin.g)} (+${bestWin.margin})</b></div>` : ""}
+      ${worstLoss ? `<div class="sr-line"><span>Worst night</span><b class="neg">${sideNote(worstLoss.g)} (${worstLoss.margin})</b></div>` : ""}
+    </div>
+    <p class="sr-foot">Everyone plays a full home-and-away round robin, so the slate is equal league-wide — what counts is how you handled the top of the table.</p>
+  `;
 }
 
 function ordinal(n) {

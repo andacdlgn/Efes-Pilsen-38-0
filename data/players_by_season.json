@@ -7,7 +7,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 3.6,
         "ast": 0.7,
         "gp": "9",
@@ -27,7 +27,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 12.0,
+        "pts": 12,
         "reb": 4.4,
         "ast": 1.9,
         "gp": "26",
@@ -52,7 +52,7 @@
         "ast": 0.9,
         "gp": "10",
         "rating_raw": 5.8,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 4.86,
       "country": "Türkiye",
@@ -147,12 +147,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 6.0,
+        "pts": 6,
         "reb": 1.3,
         "ast": 1.1,
         "gp": "7",
         "rating_raw": 5.1,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 4.89,
       "country": "Türkiye",
@@ -168,7 +168,7 @@
       "euroleague": null,
       "bsl": {
         "pts": 15.8,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 5.7,
         "gp": "32",
         "rating_raw": 17.7,
@@ -191,7 +191,7 @@
         "reb": 7.9,
         "ast": 0.8,
         "gp": "16",
-        "rating_raw": 16.0,
+        "rating_raw": 16,
         "stl": 1.19
       },
       "rating": 7.98,
@@ -207,7 +207,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 5.0,
+        "pts": 5,
         "reb": 1.9,
         "ast": 0.3,
         "gp": "32",
@@ -269,7 +269,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 10.0,
+        "pts": 10,
         "reb": 4.7,
         "ast": 1.6,
         "gp": "31",
@@ -280,7 +280,7 @@
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "2.08",
-      "ratingRaw": 8.0
+      "ratingRaw": 8
     },
     {
       "name": "Hüseyin Beşok",
@@ -309,12 +309,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 0.0,
-        "reb": 2.0,
+        "pts": 0,
+        "reb": 2,
         "ast": 0.5,
         "gp": "2",
-        "rating_raw": 2.0,
-        "stl": 0.0
+        "rating_raw": 2,
+        "stl": 0
       },
       "rating": 5.2,
       "country": "Türkiye",
@@ -354,7 +354,7 @@
         "ast": 0.1,
         "gp": "17",
         "rating_raw": 1.7,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 3.18,
       "country": "Türkiye",
@@ -390,7 +390,7 @@
       "euroleague": null,
       "bsl": {
         "pts": 15.6,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 5.8,
         "gp": "36",
         "rating_raw": 18.2,
@@ -431,7 +431,7 @@
       "euroleague": null,
       "bsl": {
         "pts": 11.1,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 1.9,
         "gp": "35",
         "rating_raw": 8.3,
@@ -575,7 +575,7 @@
       "bsl": {
         "pts": 12.1,
         "reb": 9.5,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "32",
         "rating_raw": 16.9,
         "stl": 0.88
@@ -594,7 +594,7 @@
       "euroleague": null,
       "bsl": {
         "pts": 15.8,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 1.9,
         "gp": "36",
         "rating_raw": 12.1,
@@ -613,12 +613,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 2.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 2,
         "gp": "1",
-        "rating_raw": 2.0,
-        "stl": 0.0
+        "rating_raw": 2,
+        "stl": 0
       },
       "rating": 5.46,
       "country": "ABD",
@@ -634,7 +634,7 @@
       "euroleague": null,
       "bsl": {
         "pts": 8.1,
-        "reb": 6.0,
+        "reb": 6,
         "ast": 1.9,
         "gp": "7",
         "rating_raw": 10.7,
@@ -657,7 +657,7 @@
         "reb": 1.3,
         "ast": 0.3,
         "gp": "16",
-        "rating_raw": 2.0,
+        "rating_raw": 2,
         "stl": 0.13
       },
       "rating": 3.35,
@@ -734,12 +734,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 12.0,
-        "reb": 7.0,
-        "ast": 2.0,
+        "pts": 12,
+        "reb": 7,
+        "ast": 2,
         "gp": "1",
-        "rating_raw": 14.0,
-        "stl": 1.0
+        "rating_raw": 14,
+        "stl": 1
       },
       "rating": 5.96,
       "country": "ABD",
@@ -754,12 +754,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 5.0,
-        "reb": 0.0,
-        "ast": 0.0,
+        "pts": 5,
+        "reb": 0,
+        "ast": 0,
         "gp": "1",
-        "rating_raw": 5.0,
-        "stl": 0.0
+        "rating_raw": 5,
+        "stl": 0
       },
       "rating": 5.58,
       "country": "Türkiye",
@@ -796,7 +796,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 18.0,
+        "pts": 18,
         "reb": 2.2,
         "ast": 4.8,
         "gp": "32",
@@ -841,7 +841,7 @@
         "ast": 0.7,
         "gp": "3",
         "rating_raw": 1.7,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 4.93,
       "country": "Türkiye",
@@ -860,7 +860,7 @@
         "reb": 1.5,
         "ast": 1.2,
         "gp": "20",
-        "rating_raw": 6.0,
+        "rating_raw": 6,
         "stl": 0.8
       },
       "rating": 4.56,
@@ -1000,7 +1000,7 @@
       "bsl": {
         "pts": 9.2,
         "reb": 1.5,
-        "ast": 2.0,
+        "ast": 2,
         "gp": "32",
         "rating_raw": 8.4,
         "stl": 0.97
@@ -1020,8 +1020,8 @@
       ],
       "euroleague": {
         "pts": 17.7,
-        "reb": 3.0,
-        "ast": 4.0,
+        "reb": 3,
+        "ast": 4,
         "stl": 1.5,
         "blk": 0.1,
         "gp": "11",
@@ -1127,7 +1127,7 @@
       "ratingRaw": 7.13
     },
     {
-      "name": "Omer Onan",
+      "name": "Ömer Onan",
       "positions": [
         "SG"
       ],
@@ -1155,7 +1155,7 @@
       "ratingRaw": 4.21
     },
     {
-      "name": "Kerem Tunceri",
+      "name": "Kerem Tunçeri",
       "positions": [
         "PG"
       ],
@@ -1188,7 +1188,7 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 2.0,
+        "pts": 2,
         "reb": 1.9,
         "ast": 0.8,
         "stl": 0.7,
@@ -1229,7 +1229,7 @@
         "reb": 3.3,
         "ast": 0.7,
         "gp": "24",
-        "rating_raw": 7.0,
+        "rating_raw": 7,
         "stl": 0.42
       },
       "rating": 4.26,
@@ -1244,11 +1244,11 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 5.0,
+        "pts": 5,
         "reb": 1.5,
         "ast": 1.5,
         "stl": 1.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "4",
         "rating_raw": 2.7
       },
@@ -1257,7 +1257,7 @@
         "reb": 0.8,
         "ast": 2.2,
         "gp": "25",
-        "rating_raw": 6.0,
+        "rating_raw": 6,
         "stl": 0.72
       },
       "rating": 4.26,
@@ -1273,12 +1273,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 3.0,
-        "reb": 0.0,
-        "ast": 1.0,
+        "pts": 3,
+        "reb": 0,
+        "ast": 1,
         "gp": "1",
-        "rating_raw": -1.0,
-        "stl": 0.0
+        "rating_raw": -1,
+        "stl": 0
       },
       "rating": 5.34,
       "country": "Türkiye",
@@ -1292,13 +1292,13 @@
         "C"
       ],
       "euroleague": {
-        "pts": 2.0,
+        "pts": 2,
         "reb": 3.8,
         "ast": 0.6,
         "stl": 0.8,
         "blk": 0.4,
         "gp": "9",
-        "rating_raw": 3.0
+        "rating_raw": 3
       },
       "bsl": {
         "pts": 4.5,
@@ -1320,19 +1320,19 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": 0.0
+        "rating_raw": 0
       },
       "bsl": null,
       "rating": 5.38,
       "country": "Türkiye",
       "countryCode": "TR",
-      "ratingRaw": 0.0
+      "ratingRaw": 0
     }
   ],
   "2002-03": [
@@ -1381,7 +1381,7 @@
       "bsl": {
         "pts": 16.1,
         "reb": 6.9,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "33",
         "rating_raw": 17.9,
         "stl": 0.88
@@ -1407,7 +1407,7 @@
         "rating_raw": 8.8
       },
       "bsl": {
-        "pts": 13.0,
+        "pts": 13,
         "reb": 3.6,
         "ast": 1.3,
         "gp": "35",
@@ -1428,7 +1428,7 @@
       "euroleague": {
         "pts": 7.3,
         "reb": 3.3,
-        "ast": 2.0,
+        "ast": 2,
         "stl": 0.9,
         "blk": 0.4,
         "gp": "16",
@@ -1449,7 +1449,7 @@
       "ratingRaw": 5.81
     },
     {
-      "name": "Kerem Tunceri",
+      "name": "Kerem Tunçeri",
       "positions": [
         "PG"
       ],
@@ -1483,9 +1483,9 @@
       ],
       "euroleague": {
         "pts": 4.5,
-        "reb": 4.0,
+        "reb": 4,
         "ast": 0.7,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.5,
         "gp": "20",
         "rating_raw": 3.5
@@ -1505,7 +1505,7 @@
       "ratingRaw": 5.74
     },
     {
-      "name": "Alper Yilmaz",
+      "name": "Alper Yılmaz",
       "positions": [
         "SG"
       ],
@@ -1520,10 +1520,10 @@
       },
       "bsl": {
         "pts": 4.4,
-        "reb": 3.0,
-        "ast": 2.0,
+        "reb": 3,
+        "ast": 2,
         "gp": "33",
-        "rating_raw": 7.0,
+        "rating_raw": 7,
         "stl": 1.09
       },
       "rating": 4.56,
@@ -1549,7 +1549,7 @@
       "bsl": {
         "pts": 6.3,
         "reb": 3.9,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "26",
         "rating_raw": 7.9,
         "stl": 0.85
@@ -1567,10 +1567,10 @@
       ],
       "euroleague": {
         "pts": 2.7,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 1.5,
         "stl": 0.9,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "20",
         "rating_raw": 0.7
       },
@@ -1619,7 +1619,7 @@
         "reb": 5.7,
         "ast": 0.5,
         "gp": "10",
-        "rating_raw": 11.0,
+        "rating_raw": 11,
         "stl": 0.7
       },
       "rating": 6.2,
@@ -1638,9 +1638,9 @@
         "reb": 1.2,
         "ast": 0.7,
         "stl": 0.7,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "15",
-        "rating_raw": 3.0
+        "rating_raw": 3
       },
       "bsl": {
         "pts": 8.7,
@@ -1695,7 +1695,7 @@
       "bsl": {
         "pts": 16.5,
         "reb": 4.5,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "35",
         "rating_raw": 17.1,
         "stl": 1.09
@@ -1713,7 +1713,7 @@
       ],
       "euroleague": {
         "pts": 14.3,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 1.6,
         "stl": 1.5,
         "blk": 0.2,
@@ -1746,7 +1746,7 @@
         "stl": 0.9,
         "blk": 0.4,
         "gp": "18",
-        "rating_raw": 8.0
+        "rating_raw": 8
       },
       "bsl": {
         "pts": 12.3,
@@ -1828,9 +1828,9 @@
         "reb": 1.3,
         "ast": 3.8,
         "stl": 1.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "20",
-        "rating_raw": 5.0
+        "rating_raw": 5
       },
       "bsl": {
         "pts": 5.5,
@@ -1855,7 +1855,7 @@
         "pts": 7.8,
         "reb": 4.2,
         "ast": 1.5,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.4,
         "gp": "16",
         "rating_raw": 5.9
@@ -1875,7 +1875,7 @@
       "ratingRaw": 6.95
     },
     {
-      "name": "Alper Yilmaz",
+      "name": "Alper Yılmaz",
       "positions": [
         "SG"
       ],
@@ -1909,12 +1909,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 2.0,
+        "pts": 2,
         "reb": 1.3,
-        "ast": 2.0,
+        "ast": 2,
         "gp": "3",
         "rating_raw": 5.7,
-        "stl": 2.0
+        "stl": 2
       },
       "rating": 5.37,
       "country": "Türkiye",
@@ -1932,7 +1932,7 @@
         "reb": 2.8,
         "ast": 3.8,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "11",
         "rating_raw": 4.7
       },
@@ -1960,7 +1960,7 @@
         "reb": 0.5,
         "ast": 0.1,
         "stl": 0.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "11",
         "rating_raw": 0.2
       },
@@ -1984,18 +1984,18 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": 0.0
+        "rating_raw": 0
       },
       "bsl": {
         "pts": 1.9,
         "reb": 1.1,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "15",
         "rating_raw": 1.3,
         "stl": 0.13
@@ -2012,13 +2012,13 @@
         "PF"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "2",
-        "rating_raw": 0.0
+        "rating_raw": 0
       },
       "bsl": {
         "pts": 1.5,
@@ -2045,7 +2045,7 @@
         "pts": 14.5,
         "reb": 2.4,
         "ast": 2.6,
-        "stl": 2.0,
+        "stl": 2,
         "blk": 0.3,
         "gp": "23",
         "rating_raw": 9.3
@@ -2167,7 +2167,7 @@
         "reb": 4.7,
         "ast": 1.1,
         "gp": "35",
-        "rating_raw": 11.0,
+        "rating_raw": 11,
         "stl": 0.57
       },
       "rating": 5.96,
@@ -2184,9 +2184,9 @@
       "euroleague": {
         "pts": 6.9,
         "reb": 1.7,
-        "ast": 2.0,
+        "ast": 2,
         "stl": 1.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "23",
         "rating_raw": 4.8
       },
@@ -2219,11 +2219,11 @@
         "rating_raw": 4.8
       },
       "bsl": {
-        "pts": 12.0,
+        "pts": 12,
         "reb": 6.8,
         "ast": 0.8,
         "gp": "32",
-        "rating_raw": 15.0,
+        "rating_raw": 15,
         "stl": 0.97
       },
       "rating": 6.82,
@@ -2233,7 +2233,7 @@
       "ratingRaw": 7.08
     },
     {
-      "name": "Alper Yilmaz",
+      "name": "Alper Yılmaz",
       "positions": [
         "SG"
       ],
@@ -2267,17 +2267,17 @@
       ],
       "euroleague": {
         "pts": 1.3,
-        "reb": 0.0,
-        "ast": 1.0,
+        "reb": 0,
+        "ast": 1,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "3",
-        "rating_raw": 1.0
+        "rating_raw": 1
       },
       "bsl": {
         "pts": 2.5,
         "reb": 0.8,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "8",
         "rating_raw": 2.9,
         "stl": 0.75
@@ -2296,14 +2296,14 @@
       "euroleague": {
         "pts": 1.6,
         "reb": 0.4,
-        "ast": 0.0,
+        "ast": 0,
         "stl": 0.8,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "5",
-        "rating_raw": 0.0
+        "rating_raw": 0
       },
       "bsl": {
-        "pts": 5.0,
+        "pts": 5,
         "reb": 1.7,
         "ast": 1.1,
         "gp": "19",
@@ -2323,10 +2323,10 @@
       ],
       "euroleague": {
         "pts": 2.3,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 0.6,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "21",
         "rating_raw": -0.1
       },
@@ -2354,7 +2354,7 @@
         "reb": 0.3,
         "ast": 0.3,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "3",
         "rating_raw": -0.9
       },
@@ -2363,7 +2363,7 @@
         "reb": 1.4,
         "ast": 0.8,
         "gp": "12",
-        "rating_raw": 2.0,
+        "rating_raw": 2,
         "stl": 0.08
       },
       "rating": 3.14,
@@ -2485,7 +2485,7 @@
       ],
       "euroleague": {
         "pts": 10.1,
-        "reb": 5.0,
+        "reb": 5,
         "ast": 0.7,
         "stl": 1.3,
         "blk": 0.7,
@@ -2514,18 +2514,18 @@
       "euroleague": {
         "pts": 5.7,
         "reb": 1.3,
-        "ast": 2.0,
+        "ast": 2,
         "stl": 0.8,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "22",
-        "rating_raw": 2.0
+        "rating_raw": 2
       },
       "bsl": {
         "pts": 7.2,
         "reb": 1.6,
-        "ast": 3.0,
+        "ast": 3,
         "gp": "37",
-        "rating_raw": 7.0,
+        "rating_raw": 7,
         "stl": 0.89
       },
       "rating": 3.77,
@@ -2535,7 +2535,7 @@
       "ratingRaw": 3.3
     },
     {
-      "name": "Kerem Gonlum",
+      "name": "Kerem Gönlüm",
       "positions": [
         "PF"
       ],
@@ -2543,10 +2543,10 @@
         "pts": 4.5,
         "reb": 6.4,
         "ast": 0.2,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.2,
         "gp": "22",
-        "rating_raw": 7.0
+        "rating_raw": 7
       },
       "bsl": {
         "pts": 6.9,
@@ -2572,9 +2572,9 @@
         "reb": 0.3,
         "ast": 0.3,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "8",
-        "rating_raw": -1.0
+        "rating_raw": -1
       },
       "bsl": {
         "pts": 3.4,
@@ -2600,13 +2600,13 @@
         "reb": 0.2,
         "ast": 0.9,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "11",
         "rating_raw": 0.7
       },
       "bsl": {
         "pts": 3.7,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 2.3,
         "gp": "24",
         "rating_raw": 5.2,
@@ -2658,7 +2658,7 @@
         "ast": 1.8,
         "gp": "16",
         "rating_raw": 11.1,
-        "stl": 2.0
+        "stl": 2
       },
       "rating": 6.36,
       "country": "ABD",
@@ -2676,7 +2676,7 @@
         "reb": 3.5,
         "ast": 0.5,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "4",
         "rating_raw": 3.5
       },
@@ -2704,7 +2704,7 @@
         "reb": 1.4,
         "ast": 3.1,
         "stl": 1.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "16",
         "rating_raw": 9.4
       },
@@ -2732,7 +2732,7 @@
         "reb": 0.6,
         "ast": 0.1,
         "stl": 0.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "12",
         "rating_raw": -1.5
       },
@@ -2756,11 +2756,11 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 1.0,
+        "pts": 1,
         "reb": 0.7,
-        "ast": 0.0,
+        "ast": 0,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "3",
         "rating_raw": 0.7
       },
@@ -2792,7 +2792,7 @@
         "stl": 0.7,
         "blk": 1.8,
         "gp": "20",
-        "rating_raw": 14.0
+        "rating_raw": 14
       },
       "bsl": {
         "pts": 11.4,
@@ -2814,7 +2814,7 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 14.0,
+        "pts": 14,
         "reb": 2.6,
         "ast": 3.8,
         "stl": 0.8,
@@ -2873,10 +2873,10 @@
         "pts": 6.6,
         "reb": 3.9,
         "ast": 1.3,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.1,
         "gp": "20",
-        "rating_raw": 5.0
+        "rating_raw": 5
       },
       "bsl": {
         "pts": 5.8,
@@ -2893,7 +2893,7 @@
       "ratingRaw": 4.69
     },
     {
-      "name": "Kerem Gonlum",
+      "name": "Kerem Gönlüm",
       "positions": [
         "PF"
       ],
@@ -2914,7 +2914,7 @@
         "rating_raw": 14.9,
         "stl": 1.26
       },
-      "rating": 8.0,
+      "rating": 8,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "2.08",
@@ -2930,13 +2930,13 @@
         "reb": 1.5,
         "ast": 1.2,
         "stl": 0.8,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "18",
         "rating_raw": 2.5
       },
       "bsl": {
         "pts": 5.3,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 2.7,
         "gp": "37",
         "rating_raw": 6.7,
@@ -2965,7 +2965,7 @@
       "bsl": {
         "pts": 3.6,
         "reb": 1.5,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "32",
         "rating_raw": 3.4,
         "stl": 0.66
@@ -2984,7 +2984,7 @@
       "euroleague": null,
       "bsl": {
         "pts": 3.8,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 4.6,
         "gp": "5",
         "rating_raw": 5.6,
@@ -3006,9 +3006,9 @@
         "reb": 1.9,
         "ast": 0.3,
         "stl": 0.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "7",
-        "rating_raw": 6.0
+        "rating_raw": 6
       },
       "bsl": {
         "pts": 11.1,
@@ -3061,10 +3061,10 @@
       "bsl": {
         "pts": 2.2,
         "reb": 1.5,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "15",
         "rating_raw": 1.8,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 3.36,
       "country": "Türkiye",
@@ -3101,7 +3101,7 @@
         "pts": 5.9,
         "reb": 2.8,
         "ast": 0.8,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.1,
         "gp": "14",
         "rating_raw": 4.1
@@ -3127,7 +3127,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 2.0,
+        "pts": 2,
         "reb": 1.8,
         "ast": 0.8,
         "gp": "10",
@@ -3196,9 +3196,9 @@
       "euroleague": {
         "pts": 2.4,
         "reb": 0.8,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "5",
         "rating_raw": 1.8
       },
@@ -3215,19 +3215,19 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 2.0,
-        "reb": 1.0,
-        "ast": 0.0,
-        "stl": 1.0,
-        "blk": 0.0,
+        "pts": 2,
+        "reb": 1,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": 3.0
+        "rating_raw": 3
       },
       "bsl": null,
       "rating": 5.58,
       "country": "Türkiye",
       "countryCode": "TR",
-      "ratingRaw": 3.0
+      "ratingRaw": 3
     },
     {
       "name": "Fikret Can Akin",
@@ -3239,7 +3239,7 @@
         "reb": 0.5,
         "ast": 1.3,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "6",
         "rating_raw": 0.1
       },
@@ -3317,7 +3317,7 @@
         "reb": 2.8,
         "ast": 2.9,
         "stl": 1.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "20",
         "rating_raw": 8.2
       },
@@ -3369,7 +3369,7 @@
         "C"
       ],
       "euroleague": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 6.5,
         "ast": 0.9,
         "stl": 0.8,
@@ -3392,14 +3392,14 @@
       "ratingRaw": 9.53
     },
     {
-      "name": "Kerem Gonlum",
+      "name": "Kerem Gönlüm",
       "positions": [
         "PF"
       ],
       "euroleague": {
         "pts": 6.4,
-        "reb": 5.0,
-        "ast": 1.0,
+        "reb": 5,
+        "ast": 1,
         "stl": 0.6,
         "blk": 0.2,
         "gp": "20",
@@ -3410,7 +3410,7 @@
         "reb": 7.6,
         "ast": 1.3,
         "gp": "36",
-        "rating_raw": 15.0,
+        "rating_raw": 15,
         "stl": 0.81
       },
       "rating": 7.7,
@@ -3429,7 +3429,7 @@
         "reb": 1.4,
         "ast": 1.4,
         "stl": 0.6,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "20",
         "rating_raw": 2.4
       },
@@ -3448,22 +3448,22 @@
       "ratingRaw": 3.83
     },
     {
-      "name": "Andrew Nicholas",
+      "name": "Drew Nicholas",
       "positions": [
         "SG"
       ],
       "euroleague": {
         "pts": 16.5,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 2.9,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.1,
         "gp": "14",
         "rating_raw": 10.4
       },
       "bsl": {
         "pts": 12.7,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 3.8,
         "gp": "16",
         "rating_raw": 12.8,
@@ -3483,9 +3483,9 @@
       "euroleague": {
         "pts": 0.7,
         "reb": 1.3,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "3",
         "rating_raw": 0.3
       },
@@ -3495,7 +3495,7 @@
         "ast": 0.1,
         "gp": "8",
         "rating_raw": 1.3,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 3.51,
       "country": "Türkiye",
@@ -3514,7 +3514,7 @@
         "reb": 1.3,
         "ast": 0.2,
         "gp": "10",
-        "rating_raw": 1.0,
+        "rating_raw": 1,
         "stl": 0.1
       },
       "rating": 3.62,
@@ -3531,7 +3531,7 @@
       "euroleague": null,
       "bsl": {
         "pts": 6.1,
-        "reb": 4.0,
+        "reb": 4,
         "ast": 0.6,
         "gp": "11",
         "rating_raw": 5.9,
@@ -3551,7 +3551,7 @@
       "euroleague": null,
       "bsl": {
         "pts": 8.8,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 0.8,
         "gp": "12",
         "rating_raw": 7.2,
@@ -3598,10 +3598,10 @@
       ],
       "euroleague": {
         "pts": 3.2,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 0.4,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "9",
         "rating_raw": 0.9
       },
@@ -3610,10 +3610,10 @@
         "reb": 2.2,
         "ast": 1.7,
         "gp": "9",
-        "rating_raw": 8.0,
+        "rating_raw": 8,
         "stl": 1.44
       },
-      "rating": 4.0,
+      "rating": 4,
       "country": "ABD",
       "countryCode": "US",
       "height": "1.89",
@@ -3629,7 +3629,7 @@
         "reb": 1.9,
         "ast": 1.3,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "8",
         "rating_raw": 4.1
       },
@@ -3641,7 +3641,7 @@
         "rating_raw": 7.9,
         "stl": 0.75
       },
-      "rating": 5.0,
+      "rating": 5,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "1.90",
@@ -3653,10 +3653,10 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
+        "pts": 0,
         "reb": 0.2,
-        "ast": 0.0,
-        "stl": 0.0,
+        "ast": 0,
+        "stl": 0,
         "blk": 0.2,
         "gp": "5",
         "rating_raw": 0.2
@@ -3673,20 +3673,20 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": -2.0
+        "rating_raw": -2
       },
       "bsl": null,
       "rating": 5.24,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "1.98",
-      "ratingRaw": -2.0
+      "ratingRaw": -2
     }
   ],
   "2008-09": [
@@ -3697,17 +3697,17 @@
       ],
       "euroleague": {
         "pts": 12.8,
-        "reb": 4.0,
+        "reb": 4,
         "ast": 3.1,
         "stl": 1.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "10",
         "rating_raw": 11.5
       },
       "bsl": {
         "pts": 9.8,
         "reb": 3.6,
-        "ast": 3.0,
+        "ast": 3,
         "gp": "40",
         "rating_raw": 12.2,
         "stl": 1.63
@@ -3724,7 +3724,7 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 12.0,
+        "pts": 12,
         "reb": 3.2,
         "ast": 1.6,
         "stl": 2.2,
@@ -3748,14 +3748,14 @@
         "pts": 10.9,
         "reb": 1.8,
         "ast": 1.7,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.1,
         "gp": "10",
         "rating_raw": 6.7
       },
       "bsl": {
         "pts": 8.3,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 2.5,
         "gp": "24",
         "rating_raw": 8.8,
@@ -3768,7 +3768,7 @@
       "ratingRaw": 5.9
     },
     {
-      "name": "Kerem Gonlum",
+      "name": "Kerem Gönlüm",
       "positions": [
         "PF"
       ],
@@ -3802,19 +3802,19 @@
       ],
       "euroleague": {
         "pts": 6.4,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 0.7,
         "stl": 0.7,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "10",
         "rating_raw": 6.4
       },
       "bsl": {
         "pts": 6.5,
         "reb": 3.2,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "35",
-        "rating_raw": 9.0,
+        "rating_raw": 9,
         "stl": 0.74
       },
       "rating": 5.8,
@@ -3861,7 +3861,7 @@
         "reb": 1.5,
         "ast": 0.6,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "8",
         "rating_raw": 2.3
       },
@@ -3886,11 +3886,11 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 1.0,
-        "reb": 1.0,
-        "ast": 0.0,
+        "pts": 1,
+        "reb": 1,
+        "ast": 0,
         "gp": "2",
-        "rating_raw": 2.0,
+        "rating_raw": 2,
         "stl": 0.64
       },
       "rating": 5.2,
@@ -3909,7 +3909,7 @@
         "reb": 0.4,
         "ast": 0.3,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "7",
         "rating_raw": 0.8
       },
@@ -3955,9 +3955,9 @@
       "euroleague": {
         "pts": 3.8,
         "reb": 0.5,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "10",
         "rating_raw": 0.7
       },
@@ -3986,7 +3986,7 @@
         "reb": 0.5,
         "ast": 1.5,
         "gp": "6",
-        "rating_raw": 3.0,
+        "rating_raw": 3,
         "stl": 0.67
       },
       "rating": 4.59,
@@ -4021,16 +4021,16 @@
         "C"
       ],
       "euroleague": {
-        "pts": 8.0,
-        "reb": 1.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 8,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": 4.0
+        "rating_raw": 4
       },
       "bsl": {
-        "pts": 9.0,
+        "pts": 9,
         "reb": 5.6,
         "ast": 0.7,
         "gp": "24",
@@ -4050,12 +4050,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
         "gp": "1",
-        "rating_raw": -2.0,
-        "stl": 0.0
+        "rating_raw": -2,
+        "stl": 0
       },
       "rating": 5.29,
       "country": "Türkiye",
@@ -4073,7 +4073,7 @@
         "reb": 0.6,
         "ast": 0.4,
         "stl": 0.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "5",
         "rating_raw": 0.6
       },
@@ -4098,18 +4098,18 @@
       ],
       "euroleague": {
         "pts": 3.8,
-        "reb": 0.0,
+        "reb": 0,
         "ast": 0.8,
         "stl": 0.8,
         "blk": 0.2,
         "gp": "5",
-        "rating_raw": 2.0
+        "rating_raw": 2
       },
       "bsl": null,
       "rating": 4.77,
       "country": "ABD",
       "countryCode": "US",
-      "ratingRaw": 2.0
+      "ratingRaw": 2
     },
     {
       "name": "Peja Drobnjak",
@@ -4118,9 +4118,9 @@
       ],
       "euroleague": {
         "pts": 2.3,
-        "reb": 1.0,
-        "ast": 0.0,
-        "stl": 0.0,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
         "blk": 0.5,
         "gp": "4",
         "rating_raw": 0.7
@@ -4139,9 +4139,9 @@
       "euroleague": {
         "pts": 0.5,
         "reb": 0.5,
-        "ast": 0.0,
+        "ast": 0,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "2",
         "rating_raw": -2.5
       },
@@ -4161,7 +4161,7 @@
       "euroleague": {
         "pts": 12.6,
         "reb": 2.6,
-        "ast": 2.0,
+        "ast": 2,
         "stl": 1.9,
         "blk": 0.4,
         "gp": "16",
@@ -4180,11 +4180,11 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 10.0,
+        "pts": 10,
         "reb": 1.7,
         "ast": 2.3,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "16",
         "rating_raw": 5.6
       },
@@ -4292,7 +4292,7 @@
         "C"
       ],
       "euroleague": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 5.8,
         "ast": 0.5,
         "stl": 0.4,
@@ -4308,7 +4308,7 @@
         "rating_raw": 10.3,
         "stl": 0.28
       },
-      "rating": 7.0,
+      "rating": 7,
       "country": "Hırvatistan",
       "countryCode": "HR",
       "height": "2.13",
@@ -4326,12 +4326,12 @@
         "stl": 0.3,
         "blk": 0.5,
         "gp": "15",
-        "rating_raw": 5.0
+        "rating_raw": 5
       },
       "bsl": {
         "pts": 9.1,
         "reb": 3.3,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "28",
         "rating_raw": 10.4,
         "stl": 0.64
@@ -4343,7 +4343,7 @@
       "ratingRaw": 5.84
     },
     {
-      "name": "Kerem Tunceri",
+      "name": "Kerem Tunçeri",
       "positions": [
         "PG"
       ],
@@ -4379,10 +4379,10 @@
       "bsl": {
         "pts": 1.2,
         "reb": 0.6,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "5",
         "rating_raw": 0.8,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 4.38,
       "country": "Türkiye",
@@ -4417,8 +4417,8 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 2.0,
-        "reb": 2.0,
+        "pts": 2,
+        "reb": 2,
         "ast": 0.2,
         "gp": "19",
         "rating_raw": 2.8,
@@ -4440,7 +4440,7 @@
         "reb": 0.9,
         "ast": 1.4,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "14",
         "rating_raw": 2.2
       },
@@ -4468,7 +4468,7 @@
         "reb": 2.4,
         "ast": 0.1,
         "stl": 0.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "9",
         "rating_raw": 2.1
       },
@@ -4496,9 +4496,9 @@
         "reb": 1.6,
         "ast": 0.4,
         "stl": 0.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "9",
-        "rating_raw": 1.0
+        "rating_raw": 1
       },
       "bsl": {
         "pts": 4.8,
@@ -4541,18 +4541,18 @@
       ],
       "euroleague": {
         "pts": 3.3,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 1.3,
         "stl": 0.7,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "6",
-        "rating_raw": 3.0
+        "rating_raw": 3
       },
       "bsl": null,
       "rating": 4.93,
       "country": "Sırbistan",
       "countryCode": "RS",
-      "ratingRaw": 3.0
+      "ratingRaw": 3
     }
   ],
   "2010-11": [
@@ -4566,16 +4566,16 @@
         "reb": 2.3,
         "ast": 1.7,
         "stl": 0.7,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "14",
-        "rating_raw": 11.0
+        "rating_raw": 11
       },
       "bsl": {
         "pts": 12.7,
         "reb": 2.3,
         "ast": 1.9,
         "gp": "32",
-        "rating_raw": 11.0,
+        "rating_raw": 11,
         "stl": 0.69
       },
       "rating": 7.76,
@@ -4585,14 +4585,14 @@
       "ratingRaw": 8.37
     },
     {
-      "name": "Kerem Gonlum",
+      "name": "Kerem Gönlüm",
       "positions": [
         "PF"
       ],
       "euroleague": {
         "pts": 9.4,
         "reb": 5.7,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.5,
         "blk": 0.2,
         "gp": "15",
@@ -4600,7 +4600,7 @@
       },
       "bsl": {
         "pts": 12.3,
-        "reb": 7.0,
+        "reb": 7,
         "ast": 1.5,
         "gp": "31",
         "rating_raw": 16.8,
@@ -4613,7 +4613,7 @@
       "ratingRaw": 10.45
     },
     {
-      "name": "Kerem Tunceri",
+      "name": "Kerem Tunçeri",
       "positions": [
         "PG"
       ],
@@ -4621,10 +4621,10 @@
         "pts": 9.1,
         "reb": 1.8,
         "ast": 3.5,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.1,
         "gp": "16",
-        "rating_raw": 8.0
+        "rating_raw": 8
       },
       "bsl": {
         "pts": 7.9,
@@ -4649,13 +4649,13 @@
         "pts": 8.6,
         "reb": 5.6,
         "ast": 1.1,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.1,
         "gp": "16",
-        "rating_raw": 9.0
+        "rating_raw": 9
       },
       "bsl": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 4.4,
         "ast": 2.2,
         "gp": "34",
@@ -4741,7 +4741,7 @@
       "bsl": {
         "pts": 7.8,
         "reb": 3.4,
-        "ast": 2.0,
+        "ast": 2,
         "gp": "31",
         "rating_raw": 10.3,
         "stl": 0.68
@@ -4764,17 +4764,17 @@
         "stl": 0.5,
         "blk": 0.1,
         "gp": "15",
-        "rating_raw": 2.0
+        "rating_raw": 2
       },
       "bsl": null,
       "rating": 3.82,
       "country": "ABD",
       "countryCode": "US",
       "height": "1.91",
-      "ratingRaw": 2.0
+      "ratingRaw": 2
     },
     {
-      "name": "Sinan Guler",
+      "name": "Sinan Güler",
       "positions": [
         "SG"
       ],
@@ -4782,7 +4782,7 @@
         "pts": 3.9,
         "reb": 1.9,
         "ast": 0.9,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.2,
         "gp": "15",
         "rating_raw": 2.5
@@ -4792,7 +4792,7 @@
         "reb": 2.3,
         "ast": 2.1,
         "gp": "35",
-        "rating_raw": 8.0,
+        "rating_raw": 8,
         "stl": 1.34
       },
       "rating": 4.43,
@@ -4830,10 +4830,10 @@
       "bsl": {
         "pts": 2.5,
         "reb": 0.5,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "2",
-        "rating_raw": 3.0,
-        "stl": 0.0
+        "rating_raw": 3,
+        "stl": 0
       },
       "rating": 5.27,
       "country": "Türkiye",
@@ -4847,11 +4847,11 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 1.0,
-        "reb": 0.0,
+        "pts": 1,
+        "reb": 0,
         "ast": 0.5,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "4",
         "rating_raw": -0.1
       },
@@ -4877,14 +4877,14 @@
       "euroleague": {
         "pts": 2.5,
         "reb": 0.6,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "8",
         "rating_raw": 0.8
       },
       "bsl": {
-        "pts": 6.0,
+        "pts": 6,
         "reb": 0.8,
         "ast": 2.3,
         "gp": "32",
@@ -4905,7 +4905,7 @@
       "euroleague": null,
       "bsl": {
         "pts": 6.1,
-        "reb": 4.0,
+        "reb": 4,
         "ast": 0.5,
         "gp": "33",
         "rating_raw": 8.5,
@@ -4925,9 +4925,9 @@
       "euroleague": {
         "pts": 4.2,
         "reb": 0.8,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.8,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "6",
         "rating_raw": -0.2
       },
@@ -4951,11 +4951,11 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 4.0,
+        "pts": 4,
         "reb": 2.3,
         "ast": 0.3,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "3",
         "rating_raw": 0.9
       },
@@ -4972,10 +4972,10 @@
       ],
       "euroleague": {
         "pts": 1.3,
-        "reb": 0.0,
+        "reb": 0,
         "ast": 0.5,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "4",
         "rating_raw": 0.5
       },
@@ -5002,7 +5002,7 @@
         "rating_raw": 8.9
       },
       "bsl": {
-        "pts": 12.0,
+        "pts": 12,
         "reb": 2.7,
         "ast": 1.9,
         "gp": "33",
@@ -5049,7 +5049,7 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 10.0,
+        "pts": 10,
         "reb": 5.6,
         "ast": 1.1,
         "stl": 0.8,
@@ -5106,7 +5106,7 @@
       ],
       "euroleague": {
         "pts": 4.7,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 0.5,
         "stl": 0.6,
         "blk": 0.1,
@@ -5118,7 +5118,7 @@
         "reb": 1.6,
         "ast": 1.1,
         "gp": "39",
-        "rating_raw": 7.0,
+        "rating_raw": 7,
         "stl": 0.72
       },
       "rating": 4.02,
@@ -5128,7 +5128,7 @@
       "ratingRaw": 3.58
     },
     {
-      "name": "Kerem Tunceri",
+      "name": "Kerem Tunçeri",
       "positions": [
         "PG"
       ],
@@ -5147,7 +5147,7 @@
         "ast": 5.1,
         "gp": "41",
         "rating_raw": 10.9,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 5.59,
       "country": "Türkiye",
@@ -5156,13 +5156,13 @@
       "ratingRaw": 5.55
     },
     {
-      "name": "Sinan Guler",
+      "name": "Sinan Güler",
       "positions": [
         "SG"
       ],
       "euroleague": {
         "pts": 4.1,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 1.4,
         "stl": 0.6,
         "blk": 0.1,
@@ -5172,7 +5172,7 @@
       "bsl": {
         "pts": 6.5,
         "reb": 2.3,
-        "ast": 2.0,
+        "ast": 2,
         "gp": "43",
         "rating_raw": 7.9,
         "stl": 1.02
@@ -5193,7 +5193,7 @@
         "reb": 0.1,
         "ast": 0.8,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "8",
         "rating_raw": -0.4
       },
@@ -5220,8 +5220,8 @@
         "pts": 5.3,
         "reb": 0.6,
         "ast": 0.3,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "8",
         "rating_raw": -0.1
       },
@@ -5245,17 +5245,17 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 1.0,
+        "pts": 1,
         "reb": 0.5,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "2",
-        "rating_raw": -1.0
+        "rating_raw": -1
       },
       "bsl": {
         "pts": 3.5,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 0.3,
         "gp": "16",
         "rating_raw": 3.5,
@@ -5274,8 +5274,8 @@
       ],
       "euroleague": {
         "pts": 2.5,
-        "reb": 4.0,
-        "ast": 0.0,
+        "reb": 4,
+        "ast": 0,
         "stl": 0.5,
         "blk": 0.5,
         "gp": "2",
@@ -5286,7 +5286,7 @@
         "reb": 4.9,
         "ast": 0.7,
         "gp": "26",
-        "rating_raw": 9.0,
+        "rating_raw": 9,
         "stl": 0.62
       },
       "rating": 5.32,
@@ -5305,7 +5305,7 @@
         "reb": 3.2,
         "ast": 2.8,
         "stl": 1.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "6",
         "rating_raw": 8.8
       },
@@ -5314,7 +5314,7 @@
         "reb": 2.5,
         "ast": 2.5,
         "gp": "24",
-        "rating_raw": 8.0,
+        "rating_raw": 8,
         "stl": 0.96
       },
       "rating": 5.88,
@@ -5335,15 +5335,15 @@
         "stl": 1.6,
         "blk": 0.4,
         "gp": "9",
-        "rating_raw": 7.0
+        "rating_raw": 7
       },
       "bsl": {
         "pts": 8.1,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 1.5,
         "gp": "28",
         "rating_raw": 9.1,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 5.97,
       "country": "ABD",
@@ -5382,7 +5382,7 @@
         "reb": 1.5,
         "ast": 2.6,
         "stl": 0.8,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "10",
         "rating_raw": 2.3
       },
@@ -5414,7 +5414,7 @@
         "reb": 3.1,
         "ast": 4.1,
         "gp": "22",
-        "rating_raw": 14.0,
+        "rating_raw": 14,
         "stl": 0.95
       },
       "rating": 9.27,
@@ -5431,8 +5431,8 @@
       "euroleague": {
         "pts": 9.4,
         "reb": 3.7,
-        "ast": 1.0,
-        "stl": 1.0,
+        "ast": 1,
+        "stl": 1,
         "blk": 0.1,
         "gp": "29",
         "rating_raw": 7.5
@@ -5486,8 +5486,8 @@
       ],
       "euroleague": {
         "pts": 9.1,
-        "reb": 3.0,
-        "ast": 1.0,
+        "reb": 3,
+        "ast": 1,
         "stl": 0.8,
         "blk": 0.1,
         "gp": "24",
@@ -5513,9 +5513,9 @@
         "PG"
       ],
       "euroleague": {
-        "pts": 9.0,
+        "pts": 9,
         "reb": 3.9,
-        "ast": 4.0,
+        "ast": 4,
         "stl": 1.8,
         "blk": 0.2,
         "gp": "29",
@@ -5529,7 +5529,7 @@
       "ratingRaw": 9.5
     },
     {
-      "name": "Kerem Gonlum",
+      "name": "Kerem Gönlüm",
       "positions": [
         "PF"
       ],
@@ -5564,15 +5564,15 @@
       "euroleague": {
         "pts": 5.7,
         "reb": 2.4,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.7,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "26",
         "rating_raw": 3.7
       },
       "bsl": {
         "pts": 10.3,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 1.8,
         "gp": "16",
         "rating_raw": 11.3,
@@ -5590,7 +5590,7 @@
         "C"
       ],
       "euroleague": {
-        "pts": 5.0,
+        "pts": 5,
         "reb": 3.8,
         "ast": 0.4,
         "stl": 0.1,
@@ -5613,21 +5613,21 @@
       "ratingRaw": 3.66
     },
     {
-      "name": "Kerem Tunceri",
+      "name": "Kerem Tunçeri",
       "positions": [
         "PG"
       ],
       "euroleague": {
         "pts": 3.9,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 2.1,
         "stl": 0.4,
         "blk": 0.1,
         "gp": "25",
-        "rating_raw": 3.0
+        "rating_raw": 3
       },
       "bsl": {
-        "pts": 6.0,
+        "pts": 6,
         "reb": 1.3,
         "ast": 2.8,
         "gp": "31",
@@ -5641,23 +5641,23 @@
       "ratingRaw": 3.43
     },
     {
-      "name": "Sinan Guler",
+      "name": "Sinan Güler",
       "positions": [
         "SG"
       ],
       "euroleague": {
-        "pts": 3.0,
+        "pts": 3,
         "reb": 0.9,
         "ast": 0.7,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "22",
         "rating_raw": 1.1
       },
       "bsl": {
         "pts": 5.4,
-        "reb": 2.0,
-        "ast": 2.0,
+        "reb": 2,
+        "ast": 2,
         "gp": "37",
         "rating_raw": 6.9,
         "stl": 0.95
@@ -5675,10 +5675,10 @@
       ],
       "euroleague": {
         "pts": 2.5,
-        "reb": 2.0,
-        "ast": 0.0,
+        "reb": 2,
+        "ast": 0,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "2",
         "rating_raw": -2.5
       },
@@ -5708,8 +5708,8 @@
         "reb": 0.7,
         "ast": 0.3,
         "gp": "3",
-        "rating_raw": 7.0,
-        "stl": 1.0
+        "rating_raw": 7,
+        "stl": 1
       },
       "rating": 5.51,
       "country": "Türkiye",
@@ -5755,7 +5755,7 @@
         "reb": 0.9,
         "ast": 0.3,
         "stl": 0.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "9",
         "rating_raw": 0.1
       },
@@ -5781,11 +5781,11 @@
       "euroleague": {
         "pts": 4.3,
         "reb": 1.8,
-        "ast": 0.0,
+        "ast": 0,
         "stl": 0.3,
         "blk": 0.3,
         "gp": "4",
-        "rating_raw": 3.0
+        "rating_raw": 3
       },
       "bsl": {
         "pts": 3.3,
@@ -5793,7 +5793,7 @@
         "ast": 0.3,
         "gp": "3",
         "rating_raw": 3.7,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 4.76,
       "country": "Uruguay",
@@ -5808,7 +5808,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 2.0,
+        "pts": 2,
         "reb": 0.9,
         "ast": 0.1,
         "gp": "12",
@@ -5848,12 +5848,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
         "gp": "1",
-        "rating_raw": -1.0,
-        "stl": 0.0
+        "rating_raw": -1,
+        "stl": 0
       },
       "rating": 5.34,
       "country": "Türkiye",
@@ -5878,7 +5878,7 @@
         "rating_raw": 7.8
       },
       "bsl": {
-        "pts": 10.0,
+        "pts": 10,
         "reb": 4.4,
         "ast": 1.9,
         "gp": "33",
@@ -5902,7 +5902,7 @@
         "reb": 2.4,
         "ast": 3.7,
         "stl": 0.9,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "23",
         "rating_raw": 4.9
       },
@@ -5930,7 +5930,7 @@
         "reb": 2.1,
         "ast": 0.4,
         "stl": 0.6,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "19",
         "rating_raw": 1.4
       },
@@ -5949,7 +5949,7 @@
       "ratingRaw": 3.52
     },
     {
-      "name": "Dogus Balbay",
+      "name": "Doğuş Balbay",
       "positions": [
         "PG"
       ],
@@ -5983,12 +5983,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 0.0,
+        "pts": 0,
         "reb": 1.5,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "2",
-        "rating_raw": 2.0,
-        "stl": 0.0
+        "rating_raw": 2,
+        "stl": 0
       },
       "rating": 5.2,
       "country": "Türkiye",
@@ -6019,7 +6019,7 @@
         "rating_raw": 6.2,
         "stl": 0.96
       },
-      "rating": 4.0,
+      "rating": 4,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "2.04",
@@ -6032,7 +6032,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 5.0,
+        "pts": 5,
         "reb": 2.4,
         "ast": 0.4,
         "gp": "7",
@@ -6053,15 +6053,15 @@
       "euroleague": {
         "pts": 1.9,
         "reb": 1.7,
-        "ast": 0.0,
+        "ast": 0,
         "stl": 0.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "9",
         "rating_raw": -0.5
       },
       "bsl": {
         "pts": 4.2,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 0.2,
         "gp": "25",
         "rating_raw": 4.1,
@@ -6082,18 +6082,18 @@
         "pts": 1.4,
         "reb": 0.4,
         "ast": 0.2,
-        "stl": 0.0,
+        "stl": 0,
         "blk": 0.4,
         "gp": "5",
-        "rating_raw": 1.0
+        "rating_raw": 1
       },
       "bsl": {
         "pts": 1.2,
         "reb": 1.4,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "12",
         "rating_raw": 1.7,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 3.17,
       "country": "Türkiye",
@@ -6106,20 +6106,21 @@
       "positions": [
         "PG"
       ],
-      "euroleague": null,
-      "bsl": {
-        "pts": 8.9,
-        "reb": 3.4,
-        "ast": 4.7,
-        "gp": "32",
-        "rating_raw": 12.6,
-        "stl": 1.69
+      "euroleague": {
+        "pts": 9.7,
+        "reb": 3.3,
+        "ast": 5.4,
+        "stl": 1.9,
+        "blk": 0.5,
+        "gp": "15",
+        "rating_raw": 9.6
       },
-      "rating": 7.19,
+      "bsl": null,
+      "rating": 7.75,
       "country": "ABD",
       "countryCode": "US",
       "height": "1.91",
-      "ratingRaw": 7.81
+      "ratingRaw": 9.6
     },
     {
       "name": "Kerem Gönlüm",
@@ -6205,18 +6206,18 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 1.0,
+        "pts": 1,
         "reb": 0.5,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "4",
-        "rating_raw": 0.0,
+        "rating_raw": 0,
         "stl": 0.25
       },
       "rating": 4.48,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "2.01",
-      "ratingRaw": 0.0
+      "ratingRaw": 0
     },
     {
       "name": "Scotty Hopson",
@@ -6256,7 +6257,7 @@
         "reb": 4.7,
         "ast": 0.8,
         "stl": 0.5,
-        "blk": 1.0,
+        "blk": 1,
         "gp": "17",
         "rating_raw": 5.7
       },
@@ -6280,7 +6281,7 @@
         "C"
       ],
       "euroleague": {
-        "pts": 4.0,
+        "pts": 4,
         "reb": 2.3,
         "ast": 0.5,
         "stl": 0.2,
@@ -6290,11 +6291,11 @@
       },
       "bsl": {
         "pts": 4.5,
-        "reb": 3.0,
-        "ast": 1.0,
+        "reb": 3,
+        "ast": 1,
         "gp": "2",
         "rating_raw": 6.5,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 4.63,
       "country": "Hırvatistan",
@@ -6333,7 +6334,7 @@
         "reb": 2.3,
         "ast": 1.7,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "3",
         "rating_raw": 7.8
       },
@@ -6363,27 +6364,6 @@
       "countryCode": "US",
       "height": "1.88",
       "ratingRaw": 9.8
-    },
-    {
-      "name": "Jamont Gordon",
-      "positions": [
-        "PG"
-      ],
-      "euroleague": {
-        "pts": 9.7,
-        "reb": 3.3,
-        "ast": 5.4,
-        "stl": 1.9,
-        "blk": 0.5,
-        "gp": "15",
-        "rating_raw": 9.6
-      },
-      "bsl": null,
-      "rating": 7.75,
-      "country": "ABD",
-      "countryCode": "US",
-      "height": "1.91",
-      "ratingRaw": 9.6
     },
     {
       "name": "Tadija Dragicevic",
@@ -6474,7 +6454,7 @@
         "reb": 1.9,
         "ast": 1.6,
         "stl": 0.7,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "27",
         "rating_raw": 3.5
       },
@@ -6500,7 +6480,7 @@
       "euroleague": {
         "pts": 6.8,
         "reb": 3.8,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.6,
         "blk": 0.8,
         "gp": "28",
@@ -6534,7 +6514,7 @@
         "ast": 1.1,
         "gp": "39",
         "rating_raw": 9.3,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 5.54,
       "country": "Türkiye",
@@ -6552,7 +6532,7 @@
         "reb": 0.8,
         "ast": 0.1,
         "stl": 0.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "9",
         "rating_raw": 1.1
       },
@@ -6597,10 +6577,10 @@
       ],
       "euroleague": {
         "pts": 2.8,
-        "reb": 1.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "5",
         "rating_raw": 1.4
       },
@@ -6610,7 +6590,7 @@
         "ast": 0.3,
         "gp": "27",
         "rating_raw": 1.5,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 2.47,
       "country": "Türkiye",
@@ -6652,10 +6632,10 @@
         "PG"
       ],
       "euroleague": {
-        "pts": 7.0,
+        "pts": 7,
         "reb": 2.5,
-        "ast": 3.0,
-        "stl": 1.0,
+        "ast": 3,
+        "stl": 1,
         "blk": 0.3,
         "gp": "28",
         "rating_raw": 6.2
@@ -6663,7 +6643,7 @@
       "bsl": {
         "pts": 5.8,
         "reb": 2.5,
-        "ast": 3.0,
+        "ast": 3,
         "gp": "21",
         "rating_raw": 7.9,
         "stl": 1.57
@@ -6682,15 +6662,15 @@
       "euroleague": {
         "pts": 2.3,
         "reb": 1.5,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "4",
-        "rating_raw": 1.0
+        "rating_raw": 1
       },
       "bsl": {
         "pts": 1.3,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 0.2,
         "gp": "18",
         "rating_raw": 1.8,
@@ -6712,14 +6692,14 @@
         "reb": 1.4,
         "ast": 0.8,
         "stl": 0.6,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "19",
         "rating_raw": 2.9
       },
       "bsl": {
         "pts": 4.7,
         "reb": 1.3,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "26",
         "rating_raw": 4.9,
         "stl": 0.46
@@ -6743,7 +6723,7 @@
         "stl": 0.2,
         "blk": 0.3,
         "gp": "28",
-        "rating_raw": 5.0
+        "rating_raw": 5
       },
       "bsl": {
         "pts": 11.4,
@@ -6765,13 +6745,13 @@
         "C"
       ],
       "euroleague": {
-        "pts": 13.0,
+        "pts": 13,
         "reb": 5.1,
         "ast": 1.3,
         "stl": 0.3,
         "blk": 0.5,
         "gp": "20",
-        "rating_raw": 13.0
+        "rating_raw": 13
       },
       "bsl": {
         "pts": 12.4,
@@ -6793,13 +6773,13 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 6.0,
+        "pts": 6,
         "reb": 2.5,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.5,
-        "blk": 1.0,
+        "blk": 1,
         "gp": "2",
-        "rating_raw": 6.0
+        "rating_raw": 6
       },
       "bsl": {
         "pts": 0.6,
@@ -6857,7 +6837,7 @@
         "rating_raw": 9.7,
         "stl": 0.67
       },
-      "rating": 7.0,
+      "rating": 7,
       "country": "Fransa",
       "countryCode": "FR",
       "height": "1.89",
@@ -6869,11 +6849,11 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 4.0,
+        "pts": 4,
         "reb": 1.4,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "5",
         "rating_raw": 1.6
       },
@@ -6895,7 +6875,7 @@
         "reb": 2.9,
         "ast": 7.9,
         "stl": 0.8,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "24",
         "rating_raw": 14.1
       },
@@ -6952,7 +6932,7 @@
         "reb": 3.1,
         "ast": 3.9,
         "stl": 0.7,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "23",
         "rating_raw": 7.5
       },
@@ -7016,7 +6996,7 @@
       "bsl": {
         "pts": 9.8,
         "reb": 3.6,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "38",
         "rating_raw": 10.6,
         "stl": 1.03
@@ -7035,7 +7015,7 @@
       ],
       "euroleague": {
         "pts": 7.9,
-        "reb": 5.0,
+        "reb": 5,
         "ast": 1.2,
         "stl": 0.5,
         "blk": 1.1,
@@ -7044,7 +7024,7 @@
       },
       "bsl": {
         "pts": 10.2,
-        "reb": 6.0,
+        "reb": 6,
         "ast": 1.3,
         "gp": "38",
         "rating_raw": 15.8,
@@ -7119,10 +7099,10 @@
       ],
       "euroleague": {
         "pts": 5.9,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 0.3,
         "stl": 0.3,
-        "blk": 1.0,
+        "blk": 1,
         "gp": "24",
         "rating_raw": 4.6
       },
@@ -7150,9 +7130,9 @@
         "reb": 0.4,
         "ast": 0.5,
         "stl": 0.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "18",
-        "rating_raw": -0.0
+        "rating_raw": 0
       },
       "bsl": {
         "pts": 3.3,
@@ -7174,21 +7154,21 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 2.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 2,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": 2.0
+        "rating_raw": 2
       },
       "bsl": {
         "pts": 1.9,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 0.1,
         "gp": "7",
         "rating_raw": 1.6,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 4.09,
       "country": "Türkiye",
@@ -7234,7 +7214,7 @@
         "reb": 1.9,
         "ast": 1.7,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "21",
         "rating_raw": 7.1
       },
@@ -7258,11 +7238,11 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 1.0,
+        "pts": 1,
         "reb": 1.5,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "2",
         "rating_raw": -0.5
       },
@@ -7286,11 +7266,11 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 7.0,
+        "pts": 7,
         "reb": 2.8,
         "ast": 0.8,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "4",
         "rating_raw": 6.1
       },
@@ -7312,7 +7292,7 @@
         "reb": 1.7,
         "ast": 5.6,
         "stl": 0.8,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "35",
         "rating_raw": 10.1
       },
@@ -7322,7 +7302,7 @@
         "ast": 6.7,
         "gp": "33",
         "rating_raw": 13.6,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 8.79,
       "country": "Fransa",
@@ -7339,14 +7319,14 @@
         "pts": 12.3,
         "reb": 5.5,
         "ast": 2.2,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.5,
         "gp": "35",
         "rating_raw": 12.5
       },
       "bsl": {
         "pts": 11.7,
-        "reb": 5.0,
+        "reb": 5,
         "ast": 1.8,
         "gp": "35",
         "rating_raw": 13.5,
@@ -7378,7 +7358,7 @@
         "reb": 6.4,
         "ast": 1.3,
         "gp": "35",
-        "rating_raw": 16.0,
+        "rating_raw": 16,
         "stl": 1.03
       },
       "rating": 10.03,
@@ -7424,7 +7404,7 @@
       "euroleague": {
         "pts": 9.2,
         "reb": 7.3,
-        "ast": 2.0,
+        "ast": 2,
         "stl": 1.1,
         "blk": 0.9,
         "gp": "35",
@@ -7432,10 +7412,10 @@
       },
       "bsl": {
         "pts": 7.6,
-        "reb": 6.0,
+        "reb": 6,
         "ast": 1.8,
         "gp": "28",
-        "rating_raw": 11.0,
+        "rating_raw": 11,
         "stl": 0.82
       },
       "rating": 8.88,
@@ -7456,7 +7436,7 @@
         "stl": 0.2,
         "blk": 0.1,
         "gp": "35",
-        "rating_raw": 4.0
+        "rating_raw": 4
       },
       "bsl": {
         "pts": 10.5,
@@ -7513,10 +7493,10 @@
         "stl": 0.1,
         "blk": 0.9,
         "gp": "16",
-        "rating_raw": 3.0
+        "rating_raw": 3
       },
       "bsl": {
-        "pts": 9.0,
+        "pts": 9,
         "reb": 3.2,
         "ast": 0.7,
         "gp": "10",
@@ -7556,9 +7536,9 @@
       ],
       "euroleague": {
         "pts": 8.6,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 0.6,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.3,
         "gp": "23",
         "rating_raw": 3.6
@@ -7568,7 +7548,7 @@
         "reb": 3.3,
         "ast": 0.8,
         "gp": "6",
-        "rating_raw": 10.0,
+        "rating_raw": 10,
         "stl": 1.33
       },
       "rating": 4.59,
@@ -7585,7 +7565,7 @@
       "euroleague": {
         "pts": 1.9,
         "reb": 1.5,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.6,
         "blk": 0.1,
         "gp": "28",
@@ -7612,10 +7592,10 @@
       ],
       "euroleague": {
         "pts": 1.9,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 0.4,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "11",
         "rating_raw": 0.8
       },
@@ -7679,11 +7659,11 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 1.6,
         "ast": 1.4,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "10",
         "rating_raw": 4.5
       },
@@ -7704,7 +7684,7 @@
         "reb": 1.5,
         "ast": 0.4,
         "stl": 0.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "17",
         "rating_raw": 1.4
       },
@@ -7721,20 +7701,20 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 1.0,
+        "pts": 1,
         "reb": 0.5,
         "ast": 0.5,
         "stl": 1.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "2",
-        "rating_raw": 1.0
+        "rating_raw": 1
       },
       "bsl": null,
       "rating": 5.17,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "1.97",
-      "ratingRaw": 1.0
+      "ratingRaw": 1
     }
   ],
   "2017-18": [
@@ -7757,7 +7737,7 @@
         "reb": 2.7,
         "ast": 3.4,
         "gp": "34",
-        "rating_raw": 15.0,
+        "rating_raw": 15,
         "stl": 1.24
       },
       "rating": 8.48,
@@ -7804,7 +7784,7 @@
       "euroleague": {
         "pts": 9.4,
         "reb": 5.8,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.6,
         "blk": 0.3,
         "gp": "30",
@@ -7861,15 +7841,15 @@
       ],
       "euroleague": {
         "pts": 8.7,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 0.7,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "29",
         "rating_raw": 6.9
       },
       "bsl": {
-        "pts": 13.0,
+        "pts": 13,
         "reb": 3.8,
         "ast": 1.2,
         "gp": "32",
@@ -7888,9 +7868,9 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 7.0,
+        "pts": 7,
         "reb": 1.6,
-        "ast": 2.0,
+        "ast": 2,
         "stl": 0.4,
         "blk": 0.1,
         "gp": "16",
@@ -7915,7 +7895,7 @@
         "ast": 0.3,
         "gp": "8",
         "rating_raw": -0.1,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 3.64,
       "country": "Türkiye",
@@ -7932,8 +7912,8 @@
         "pts": 0.4,
         "reb": 1.8,
         "ast": 0.6,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "5",
         "rating_raw": 1.2
       },
@@ -7995,7 +7975,7 @@
       },
       "bsl": {
         "pts": 8.5,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 1.5,
         "gp": "20",
         "rating_raw": 8.1,
@@ -8045,14 +8025,14 @@
         "reb": 0.1,
         "ast": 0.1,
         "stl": 0.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "8",
         "rating_raw": -0.9
       },
       "bsl": {
         "pts": 1.4,
         "reb": 0.5,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "16",
         "rating_raw": 0.5,
         "stl": 0.13
@@ -8070,10 +8050,10 @@
       ],
       "euroleague": {
         "pts": 2.5,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 0.5,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "4",
         "rating_raw": 1.9
       },
@@ -8099,9 +8079,9 @@
       "euroleague": {
         "pts": 15.5,
         "reb": 3.5,
-        "ast": 4.0,
+        "ast": 4,
         "stl": 0.7,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "6",
         "rating_raw": 11.5
       },
@@ -8128,9 +8108,9 @@
       "euroleague": {
         "pts": 7.9,
         "reb": 2.1,
-        "ast": 2.0,
+        "ast": 2,
         "stl": 0.6,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "14",
         "rating_raw": 4.8
       },
@@ -8154,17 +8134,17 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
+        "pts": 0,
         "reb": 0.5,
         "ast": 0.5,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "2",
-        "rating_raw": -3.0
+        "rating_raw": -3
       },
       "bsl": {
         "pts": 4.3,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 0.3,
         "gp": "4",
         "rating_raw": 5.8,
@@ -8231,11 +8211,11 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 5.0,
+        "pts": 5,
         "reb": 3.3,
         "ast": 0.3,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "3",
         "rating_raw": 1.9
       },
@@ -8251,19 +8231,19 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 2.0,
-        "reb": 2.0,
+        "pts": 2,
+        "reb": 2,
         "ast": 0.4,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "8",
-        "rating_raw": 0.0
+        "rating_raw": 0
       },
       "bsl": null,
       "rating": 3.67,
       "country": "Slovenya",
       "countryCode": "SI",
-      "ratingRaw": 0.0
+      "ratingRaw": 0
     }
   ],
   "2018-19": [
@@ -8280,14 +8260,14 @@
         "stl": 0.9,
         "blk": 0.1,
         "gp": "35",
-        "rating_raw": 11.0
+        "rating_raw": 11
       },
       "bsl": {
         "pts": 15.1,
         "reb": 2.8,
         "ast": 4.5,
         "gp": "24",
-        "rating_raw": 16.0,
+        "rating_raw": 16,
         "stl": 1.46
       },
       "rating": 9.7,
@@ -8305,7 +8285,7 @@
         "pts": 12.4,
         "reb": 2.2,
         "ast": 5.5,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.1,
         "gp": "37",
         "rating_raw": 10.4
@@ -8331,7 +8311,7 @@
         "PF"
       ],
       "euroleague": {
-        "pts": 12.0,
+        "pts": 12,
         "reb": 6.1,
         "ast": 1.5,
         "stl": 1.1,
@@ -8341,7 +8321,7 @@
       },
       "bsl": {
         "pts": 14.2,
-        "reb": 8.0,
+        "reb": 8,
         "ast": 1.9,
         "gp": "23",
         "rating_raw": 18.3,
@@ -8431,7 +8411,7 @@
         "reb": 5.6,
         "ast": 1.6,
         "gp": "34",
-        "rating_raw": 15.0,
+        "rating_raw": 15,
         "stl": 0.82
       },
       "rating": 9.3,
@@ -8447,7 +8427,7 @@
       ],
       "euroleague": {
         "pts": 4.8,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 0.7,
         "stl": 0.2,
         "blk": 0.1,
@@ -8507,7 +8487,7 @@
         "reb": 0.6,
         "ast": 0.9,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "11",
         "rating_raw": 0.6
       },
@@ -8531,7 +8511,7 @@
         "PG"
       ],
       "euroleague": {
-        "pts": 2.0,
+        "pts": 2,
         "reb": 1.4,
         "ast": 1.3,
         "stl": 0.4,
@@ -8540,7 +8520,7 @@
         "rating_raw": 2.3
       },
       "bsl": {
-        "pts": 4.0,
+        "pts": 4,
         "reb": 3.1,
         "ast": 2.8,
         "gp": "38",
@@ -8581,13 +8561,13 @@
       "euroleague": null,
       "bsl": {
         "pts": 3.8,
-        "reb": 1.0,
-        "ast": 1.0,
+        "reb": 1,
+        "ast": 1,
         "gp": "4",
         "rating_raw": 3.8,
         "stl": 0.5
       },
-      "rating": 5.0,
+      "rating": 5,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "1.90",
@@ -8639,11 +8619,11 @@
         "C"
       ],
       "euroleague": {
-        "pts": 2.0,
+        "pts": 2,
         "reb": 0.4,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "9",
         "rating_raw": 1.3
       },
@@ -8678,7 +8658,7 @@
       "bsl": {
         "pts": 15.3,
         "reb": 7.8,
-        "ast": 2.0,
+        "ast": 2,
         "gp": "6",
         "rating_raw": 20.3,
         "stl": 0.17
@@ -8718,7 +8698,7 @@
         "pts": 1.4,
         "reb": 0.4,
         "ast": 0.3,
-        "stl": 0.0,
+        "stl": 0,
         "blk": 0.1,
         "gp": "9",
         "rating_raw": 1.4
@@ -8740,14 +8720,14 @@
         "reb": 3.1,
         "ast": 4.1,
         "stl": 1.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "25",
         "rating_raw": 20.6
       },
       "bsl": {
         "pts": 12.9,
         "reb": 2.7,
-        "ast": 4.0,
+        "ast": 4,
         "gp": "10",
         "rating_raw": 13.6,
         "stl": 1.4
@@ -8768,7 +8748,7 @@
         "reb": 2.5,
         "ast": 5.8,
         "stl": 1.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "24",
         "rating_raw": 12.6
       },
@@ -8777,7 +8757,7 @@
         "reb": 1.9,
         "ast": 6.4,
         "gp": "16",
-        "rating_raw": 12.0,
+        "rating_raw": 12,
         "stl": 0.88
       },
       "rating": 9.56,
@@ -8880,7 +8860,7 @@
       "euroleague": {
         "pts": 7.8,
         "reb": 4.4,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 1.3,
         "blk": 0.4,
         "gp": "28",
@@ -8901,12 +8881,12 @@
       "ratingRaw": 8.16
     },
     {
-      "name": "Sertac Sanli",
+      "name": "Sertaç Şanlı",
       "positions": [
         "C"
       ],
       "euroleague": {
-        "pts": 7.0,
+        "pts": 7,
         "reb": 2.2,
         "ast": 0.3,
         "stl": 0.2,
@@ -8939,16 +8919,16 @@
         "reb": 3.1,
         "ast": 0.4,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "12",
         "rating_raw": 5.3
       },
       "bsl": {
-        "pts": 9.0,
-        "reb": 6.0,
+        "pts": 9,
+        "reb": 6,
         "ast": 1.7,
         "gp": "6",
-        "rating_raw": 12.0,
+        "rating_raw": 12,
         "stl": 1.17
       },
       "rating": 5.83,
@@ -9011,19 +8991,19 @@
       "country": "ABD",
       "countryCode": "US",
       "height": "1.98",
-      "ratingRaw": 5.0
+      "ratingRaw": 5
     },
     {
-      "name": "Dogus Balbay",
+      "name": "Doğuş Balbay",
       "positions": [
         "PG"
       ],
       "euroleague": {
         "pts": 1.2,
-        "reb": 1.0,
+        "reb": 1,
         "ast": 0.9,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "25",
         "rating_raw": 1.9
       },
@@ -9061,7 +9041,7 @@
         "reb": 5.6,
         "ast": 0.7,
         "gp": "7",
-        "rating_raw": 14.0,
+        "rating_raw": 14,
         "stl": 1.57
       },
       "rating": 8.81,
@@ -9080,7 +9060,7 @@
         "reb": 0.4,
         "ast": 1.6,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "9",
         "rating_raw": 2.6
       },
@@ -9147,8 +9127,8 @@
         "pts": 0.3,
         "reb": 0.6,
         "ast": 0.7,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "9",
         "rating_raw": -0.5
       },
@@ -9157,7 +9137,7 @@
         "reb": 2.6,
         "ast": 2.8,
         "gp": "23",
-        "rating_raw": 7.0,
+        "rating_raw": 7,
         "stl": 0.39
       },
       "rating": 3.61,
@@ -9172,16 +9152,16 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": -2.0
+        "rating_raw": -2
       },
       "bsl": {
-        "pts": 5.0,
+        "pts": 5,
         "reb": 2.3,
         "ast": 0.9,
         "gp": "19",
@@ -9200,20 +9180,20 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 1.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 1,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": -1.0
+        "rating_raw": -1
       },
       "bsl": null,
       "rating": 5.31,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "1.92",
-      "ratingRaw": -1.0
+      "ratingRaw": -1
     }
   ],
   "2020-21": [
@@ -9227,7 +9207,7 @@
         "reb": 2.6,
         "ast": 4.9,
         "stl": 1.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "40",
         "rating_raw": 13.2
       },
@@ -9236,7 +9216,7 @@
         "reb": 1.8,
         "ast": 4.2,
         "gp": "30",
-        "rating_raw": 13.0,
+        "rating_raw": 13,
         "stl": 0.7
       },
       "rating": 10.43,
@@ -9262,7 +9242,7 @@
       },
       "bsl": {
         "pts": 8.6,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 3.3,
         "gp": "22",
         "rating_raw": 9.3,
@@ -9341,7 +9321,7 @@
       "euroleague": {
         "pts": 7.9,
         "reb": 3.9,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.9,
         "blk": 0.9,
         "gp": "36",
@@ -9362,7 +9342,7 @@
       "ratingRaw": 8.15
     },
     {
-      "name": "Sertac Sanli",
+      "name": "Sertaç Şanlı",
       "positions": [
         "C"
       ],
@@ -9503,7 +9483,7 @@
       "ratingRaw": 5.22
     },
     {
-      "name": "Bugrahan Tuncer",
+      "name": "Buğrahan Tuncer",
       "positions": [
         "PG"
       ],
@@ -9512,7 +9492,7 @@
         "reb": 1.2,
         "ast": 1.1,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "16",
         "rating_raw": 2.2
       },
@@ -9531,7 +9511,7 @@
       "ratingRaw": 4.84
     },
     {
-      "name": "Dogus Balbay",
+      "name": "Doğuş Balbay",
       "positions": [
         "PG"
       ],
@@ -9564,11 +9544,11 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 0.0,
+        "pts": 0,
         "reb": 0.5,
         "ast": 0.3,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "4",
         "rating_raw": -0.4
       },
@@ -9593,14 +9573,14 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 0.0,
+        "pts": 0,
         "reb": 0.5,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "2",
         "rating_raw": -0.5,
-        "stl": 0.0
+        "stl": 0
       },
-      "rating": 5.0,
+      "rating": 5,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": null,
@@ -9616,7 +9596,7 @@
         "reb": 0.7,
         "ast": 0.6,
         "stl": 0.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "9",
         "rating_raw": 1.1
       },
@@ -9641,7 +9621,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 1.0,
+        "pts": 1,
         "reb": 0.3,
         "ast": 0.3,
         "gp": "4",
@@ -9663,8 +9643,8 @@
         "pts": 0.7,
         "reb": 0.8,
         "ast": 0.3,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "6",
         "rating_raw": -0.4
       },
@@ -9688,11 +9668,11 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 1.0,
+        "pts": 1,
         "reb": 0.5,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "2",
         "rating_raw": 0.5
       },
@@ -9722,7 +9702,7 @@
         "reb": 2.7,
         "ast": 4.6,
         "stl": 1.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "34",
         "rating_raw": 13.5
       },
@@ -9731,7 +9711,7 @@
         "reb": 2.6,
         "ast": 5.4,
         "gp": "25",
-        "rating_raw": 17.0,
+        "rating_raw": 17,
         "stl": 0.64
       },
       "rating": 11.17,
@@ -9748,17 +9728,17 @@
       ],
       "euroleague": {
         "pts": 14.7,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 5.3,
         "stl": 1.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "39",
         "rating_raw": 14.5
       },
       "bsl": {
         "pts": 11.8,
         "reb": 2.8,
-        "ast": 5.0,
+        "ast": 5,
         "gp": "31",
         "rating_raw": 13.2,
         "stl": 0.81
@@ -9781,14 +9761,14 @@
         "stl": 0.4,
         "blk": 0.5,
         "gp": "40",
-        "rating_raw": 10.0
+        "rating_raw": 10
       },
       "bsl": {
         "pts": 12.8,
         "reb": 5.5,
         "ast": 1.1,
         "gp": "25",
-        "rating_raw": 16.0,
+        "rating_raw": 16,
         "stl": 0.52
       },
       "rating": 9.23,
@@ -9805,19 +9785,19 @@
       ],
       "euroleague": {
         "pts": 9.2,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 1.9,
         "stl": 0.5,
         "blk": 0.3,
         "gp": "35",
-        "rating_raw": 7.0
+        "rating_raw": 7
       },
       "bsl": {
         "pts": 14.1,
         "reb": 1.8,
         "ast": 2.2,
         "gp": "23",
-        "rating_raw": 14.0,
+        "rating_raw": 14,
         "stl": 0.83
       },
       "rating": 7.2,
@@ -9842,11 +9822,11 @@
         "rating_raw": 9.4
       },
       "bsl": {
-        "pts": 9.0,
+        "pts": 9,
         "reb": 7.1,
         "ast": 1.4,
         "gp": "20",
-        "rating_raw": 12.0,
+        "rating_raw": 12,
         "stl": 0.45
       },
       "rating": 8.28,
@@ -9866,12 +9846,12 @@
         "reb": 3.2,
         "ast": 0.9,
         "stl": 0.8,
-        "blk": 1.0,
+        "blk": 1,
         "gp": "37",
         "rating_raw": 7.9
       },
       "bsl": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 4.3,
         "ast": 1.3,
         "gp": "24",
@@ -9902,7 +9882,7 @@
       "bsl": {
         "pts": 9.5,
         "reb": 4.5,
-        "ast": 4.0,
+        "ast": 4,
         "gp": "13",
         "rating_raw": 13.5,
         "stl": 0.62
@@ -9928,12 +9908,12 @@
         "rating_raw": 4.3
       },
       "bsl": {
-        "pts": 11.0,
+        "pts": 11,
         "reb": 4.2,
         "ast": 2.2,
         "gp": "30",
         "rating_raw": 13.3,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 5.8,
       "country": "ABD",
@@ -9958,7 +9938,7 @@
       "bsl": {
         "pts": 15.2,
         "reb": 6.2,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "13",
         "rating_raw": 19.2,
         "stl": 0.23
@@ -10013,7 +9993,7 @@
       },
       "bsl": {
         "pts": 8.9,
-        "reb": 4.0,
+        "reb": 4,
         "ast": 1.3,
         "gp": "9",
         "rating_raw": 12.3,
@@ -10026,7 +10006,7 @@
       "ratingRaw": 4.86
     },
     {
-      "name": "Bugrahan Tuncer",
+      "name": "Buğrahan Tuncer",
       "positions": [
         "PG"
       ],
@@ -10035,14 +10015,14 @@
         "reb": 0.6,
         "ast": 0.5,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "10",
         "rating_raw": 0.8
       },
       "bsl": {
         "pts": 8.7,
         "reb": 2.1,
-        "ast": 4.0,
+        "ast": 4,
         "gp": "41",
         "rating_raw": 10.3,
         "stl": 0.61
@@ -10051,7 +10031,7 @@
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "1.93",
-      "ratingRaw": 5.0
+      "ratingRaw": 5
     },
     {
       "name": "Erten Gazi",
@@ -10063,7 +10043,7 @@
         "reb": 0.4,
         "ast": 0.4,
         "stl": 0.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "14",
         "rating_raw": -0.5
       },
@@ -10090,13 +10070,13 @@
         "pts": 0.1,
         "reb": 0.7,
         "ast": 0.3,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "7",
         "rating_raw": 0.1
       },
       "bsl": {
-        "pts": 2.0,
+        "pts": 2,
         "reb": 2.1,
         "ast": 1.2,
         "gp": "9",
@@ -10155,20 +10135,20 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": 0.0
+        "rating_raw": 0
       },
       "bsl": {
         "pts": 4.6,
         "reb": 2.5,
         "ast": 0.6,
         "gp": "39",
-        "rating_raw": 6.0,
+        "rating_raw": 6,
         "stl": 0.41
       },
       "rating": 4.16,
@@ -10187,7 +10167,7 @@
         "reb": 0.3,
         "ast": 0.7,
         "stl": 0.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "6",
         "rating_raw": 0.7
       },
@@ -10210,10 +10190,10 @@
         "pts": 16.7,
         "reb": 5.7,
         "ast": 2.1,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.2,
         "gp": "34",
-        "rating_raw": 14.0
+        "rating_raw": 14
       },
       "bsl": {
         "pts": 14.5,
@@ -10235,7 +10215,7 @@
         "PG"
       ],
       "euroleague": {
-        "pts": 16.0,
+        "pts": 16,
         "reb": 3.2,
         "ast": 5.4,
         "stl": 0.9,
@@ -10268,7 +10248,7 @@
         "reb": 2.5,
         "ast": 4.8,
         "stl": 1.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "17",
         "rating_raw": 10.9
       },
@@ -10295,7 +10275,7 @@
       "euroleague": {
         "pts": 10.8,
         "reb": 2.1,
-        "ast": 2.0,
+        "ast": 2,
         "stl": 1.1,
         "blk": 0.8,
         "gp": "30",
@@ -10304,7 +10284,7 @@
       "bsl": {
         "pts": 14.6,
         "reb": 1.6,
-        "ast": 2.0,
+        "ast": 2,
         "gp": "24",
         "rating_raw": 14.5,
         "stl": 0.79
@@ -10330,7 +10310,7 @@
         "rating_raw": 8.5
       },
       "bsl": {
-        "pts": 14.0,
+        "pts": 14,
         "reb": 4.8,
         "ast": 3.4,
         "gp": "26",
@@ -10378,13 +10358,13 @@
         "PF"
       ],
       "euroleague": {
-        "pts": 7.0,
+        "pts": 7,
         "reb": 2.7,
         "ast": 0.5,
         "stl": 0.3,
         "blk": 0.3,
         "gp": "33",
-        "rating_raw": 6.0
+        "rating_raw": 6
       },
       "bsl": {
         "pts": 12.1,
@@ -10448,7 +10428,7 @@
         "reb": 5.5,
         "ast": 0.7,
         "gp": "13",
-        "rating_raw": 13.0,
+        "rating_raw": 13,
         "stl": 0.69
       },
       "rating": 5.87,
@@ -10467,7 +10447,7 @@
         "reb": 0.5,
         "ast": 0.5,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "10",
         "rating_raw": 1.2
       },
@@ -10515,12 +10495,12 @@
         "rating_raw": 2.1
       },
       "bsl": {
-        "pts": 2.0,
-        "reb": 2.0,
-        "ast": 2.0,
+        "pts": 2,
+        "reb": 2,
+        "ast": 2,
         "gp": "1",
-        "rating_raw": 0.0,
-        "stl": 0.0
+        "rating_raw": 0,
+        "stl": 0
       },
       "rating": 3.87,
       "country": "ABD",
@@ -10538,7 +10518,7 @@
         "reb": 0.7,
         "ast": 0.1,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "11",
         "rating_raw": -0.2
       },
@@ -10566,13 +10546,13 @@
         "reb": 0.6,
         "ast": 1.9,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "7",
-        "rating_raw": 1.0
+        "rating_raw": 1
       },
       "bsl": {
         "pts": 6.6,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 2.6,
         "gp": "31",
         "rating_raw": 7.5,
@@ -10591,7 +10571,7 @@
       ],
       "euroleague": {
         "pts": 1.5,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 0.3,
         "stl": 0.3,
         "blk": 0.3,
@@ -10603,7 +10583,7 @@
         "reb": 0.6,
         "ast": 0.6,
         "gp": "14",
-        "rating_raw": 1.0,
+        "rating_raw": 1,
         "stl": 0.14
       },
       "rating": 3.15,
@@ -10618,13 +10598,13 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
+        "pts": 0,
+        "reb": 0,
         "ast": 0.2,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "6",
-        "rating_raw": -1.0
+        "rating_raw": -1
       },
       "bsl": {
         "pts": 3.2,
@@ -10646,13 +10626,13 @@
         "C"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": 0.0
+        "rating_raw": 0
       },
       "bsl": {
         "pts": 3.4,
@@ -10680,7 +10660,7 @@
         "ast": 0.4,
         "gp": "14",
         "rating_raw": 1.6,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 3.38,
       "country": "Türkiye",
@@ -10694,11 +10674,11 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
+        "pts": 0,
         "reb": 0.3,
         "ast": 0.3,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "3",
         "rating_raw": -0.4
       },
@@ -10724,7 +10704,7 @@
         "stl": 1.1,
         "blk": 0.1,
         "gp": "35",
-        "rating_raw": 16.0
+        "rating_raw": 16
       },
       "bsl": {
         "pts": 16.8,
@@ -10749,8 +10729,8 @@
       "euroleague": {
         "pts": 13.3,
         "reb": 4.6,
-        "ast": 2.0,
-        "stl": 1.0,
+        "ast": 2,
+        "stl": 1,
         "blk": 0.2,
         "gp": "25",
         "rating_raw": 10.9
@@ -10760,8 +10740,8 @@
         "reb": 5.1,
         "ast": 3.2,
         "gp": "19",
-        "rating_raw": 12.0,
-        "stl": 1.0
+        "rating_raw": 12,
+        "stl": 1
       },
       "rating": 8.71,
       "country": "ABD",
@@ -10776,9 +10756,9 @@
       ],
       "euroleague": {
         "pts": 10.9,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 2.8,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.5,
         "gp": "35",
         "rating_raw": 7.8
@@ -10818,7 +10798,7 @@
         "ast": 3.1,
         "gp": "27",
         "rating_raw": 14.8,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 8.13,
       "country": "Fransa",
@@ -10866,10 +10846,10 @@
         "stl": 0.5,
         "blk": 0.2,
         "gp": "11",
-        "rating_raw": 7.0
+        "rating_raw": 7
       },
       "bsl": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 4.7,
         "ast": 0.9,
         "gp": "9",
@@ -10899,7 +10879,7 @@
       "bsl": {
         "pts": 14.5,
         "reb": 5.5,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "2",
         "rating_raw": 16.5,
         "stl": 0.5
@@ -10922,7 +10902,7 @@
         "stl": 0.6,
         "blk": 0.3,
         "gp": "26",
-        "rating_raw": 8.0
+        "rating_raw": 8
       },
       "bsl": {
         "pts": 10.4,
@@ -10946,7 +10926,7 @@
       "euroleague": {
         "pts": 7.2,
         "reb": 4.3,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.8,
         "blk": 0.4,
         "gp": "34",
@@ -10981,7 +10961,7 @@
         "rating_raw": 7.3
       },
       "bsl": {
-        "pts": 15.0,
+        "pts": 15,
         "reb": 5.8,
         "ast": 1.5,
         "gp": "21",
@@ -11031,14 +11011,14 @@
         "rating_raw": 3.9
       },
       "bsl": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 3.8,
         "ast": 0.6,
         "gp": "38",
-        "rating_raw": 9.0,
+        "rating_raw": 9,
         "stl": 0.66
       },
-      "rating": 5.0,
+      "rating": 5,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "2.13",
@@ -11054,14 +11034,14 @@
         "reb": 1.2,
         "ast": 1.3,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "24",
         "rating_raw": 2.3
       },
       "bsl": {
         "pts": 7.1,
         "reb": 2.5,
-        "ast": 3.0,
+        "ast": 3,
         "gp": "13",
         "rating_raw": 9.4,
         "stl": 0.77
@@ -11092,7 +11072,7 @@
         "ast": 2.5,
         "gp": "28",
         "rating_raw": 9.6,
-        "stl": 1.0
+        "stl": 1
       },
       "rating": 4.71,
       "country": "Türkiye",
@@ -11110,7 +11090,7 @@
         "reb": 0.5,
         "ast": 0.4,
         "stl": 0.1,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "10",
         "rating_raw": -1.7
       },
@@ -11135,7 +11115,7 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 2.0,
+        "pts": 2,
         "reb": 1.4,
         "ast": 0.2,
         "gp": "27",
@@ -11177,16 +11157,16 @@
       "bsl": {
         "pts": 0.5,
         "reb": 1.5,
-        "ast": 0.0,
+        "ast": 0,
         "gp": "2",
-        "rating_raw": 0.0,
+        "rating_raw": 0,
         "stl": 0.5
       },
       "rating": 5.04,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": null,
-      "ratingRaw": 0.0
+      "ratingRaw": 0
     },
     {
       "name": "Melih Tunca",
@@ -11215,17 +11195,17 @@
       ],
       "euroleague": {
         "pts": 0.5,
-        "reb": 0.0,
+        "reb": 0,
         "ast": 0.5,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "2",
         "rating_raw": -0.5
       },
       "bsl": {
         "pts": 4.7,
         "reb": 1.9,
-        "ast": 2.0,
+        "ast": 2,
         "gp": "26",
         "rating_raw": 5.6,
         "stl": 0.7
@@ -11262,20 +11242,20 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
         "gp": "1",
-        "rating_raw": 0.0
+        "rating_raw": 0
       },
       "bsl": null,
       "rating": 5.38,
       "country": "Türkiye",
       "countryCode": "TR",
       "height": "2.04",
-      "ratingRaw": 0.0
+      "ratingRaw": 0
     },
     {
       "name": "Emre Melih Tunca",
@@ -11283,11 +11263,11 @@
         "SF"
       ],
       "euroleague": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
-        "stl": 1.0,
-        "blk": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 1,
+        "blk": 0,
         "gp": "3",
         "rating_raw": -0.6
       },
@@ -11316,9 +11296,9 @@
       "bsl": {
         "pts": 10.6,
         "reb": 2.2,
-        "ast": 3.0,
+        "ast": 3,
         "gp": "29",
-        "rating_raw": 11.0,
+        "rating_raw": 11,
         "stl": 1.07
       },
       "rating": 8.95,
@@ -11338,7 +11318,7 @@
         "reb": 2.6,
         "ast": 4.5,
         "stl": 1.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "28",
         "rating_raw": 11.9
       },
@@ -11363,7 +11343,7 @@
       ],
       "euroleague": {
         "pts": 9.5,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 4.5,
         "stl": 0.9,
         "blk": 0.4,
@@ -11371,7 +11351,7 @@
         "rating_raw": 10.4
       },
       "bsl": {
-        "pts": 6.0,
+        "pts": 6,
         "reb": 1.8,
         "ast": 3.9,
         "gp": "31",
@@ -11391,7 +11371,7 @@
       ],
       "euroleague": {
         "pts": 9.5,
-        "reb": 5.0,
+        "reb": 5,
         "ast": 1.2,
         "stl": 0.6,
         "blk": 1.3,
@@ -11401,7 +11381,7 @@
       "bsl": {
         "pts": 7.7,
         "reb": 4.2,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "24",
         "rating_raw": 11.5,
         "stl": 0.92
@@ -11429,10 +11409,10 @@
       },
       "bsl": {
         "pts": 11.2,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 2.1,
         "gp": "13",
-        "rating_raw": 12.0,
+        "rating_raw": 12,
         "stl": 0.69
       },
       "rating": 6.91,
@@ -11451,7 +11431,7 @@
         "reb": 4.2,
         "ast": 0.5,
         "stl": 0.5,
-        "blk": 1.0,
+        "blk": 1,
         "gp": "38",
         "rating_raw": 9.4
       },
@@ -11485,9 +11465,9 @@
         "rating_raw": 7.3
       },
       "bsl": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 3.2,
-        "ast": 4.0,
+        "ast": 4,
         "gp": "18",
         "rating_raw": 10.2,
         "stl": 0.89
@@ -11510,7 +11490,7 @@
         "stl": 0.5,
         "blk": 0.2,
         "gp": "37",
-        "rating_raw": 6.0
+        "rating_raw": 6
       },
       "bsl": {
         "pts": 14.9,
@@ -11564,7 +11544,7 @@
       "euroleague": {
         "pts": 6.5,
         "reb": 2.9,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.5,
         "blk": 0.2,
         "gp": "39",
@@ -11575,7 +11555,7 @@
         "reb": 3.9,
         "ast": 0.9,
         "gp": "33",
-        "rating_raw": 9.0,
+        "rating_raw": 9,
         "stl": 0.42
       },
       "rating": 5.77,
@@ -11601,7 +11581,7 @@
       "bsl": {
         "pts": 7.3,
         "reb": 4.2,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "35",
         "rating_raw": 10.3,
         "stl": 0.71
@@ -11634,7 +11614,7 @@
       "ratingRaw": 0.6
     },
     {
-      "name": "Dogus Ozdemiroglu",
+      "name": "Doğuş Özdemiroğlu",
       "positions": [
         "PG"
       ],
@@ -11643,7 +11623,7 @@
         "reb": 0.5,
         "ast": 0.5,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "10",
         "rating_raw": -0.1
       },
@@ -11673,11 +11653,11 @@
         "stl": 0.7,
         "blk": 0.1,
         "gp": "12",
-        "rating_raw": 3.0
+        "rating_raw": 3
       },
       "bsl": {
         "pts": 3.4,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 2.1,
         "gp": "36",
         "rating_raw": 6.5,
@@ -11697,9 +11677,9 @@
       "euroleague": {
         "pts": 0.7,
         "reb": 0.7,
-        "ast": 1.0,
-        "stl": 0.0,
-        "blk": 0.0,
+        "ast": 1,
+        "stl": 0,
+        "blk": 0,
         "gp": "11",
         "rating_raw": 0.4
       },
@@ -11736,16 +11716,16 @@
         "SG"
       ],
       "euroleague": {
-        "pts": 2.0,
-        "reb": 0.0,
+        "pts": 2,
+        "reb": 0,
         "ast": 0.5,
         "stl": 0.5,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "2",
-        "rating_raw": 1.0
+        "rating_raw": 1
       },
       "bsl": {
-        "pts": 4.0,
+        "pts": 4,
         "reb": 1.3,
         "ast": 1.5,
         "gp": "29",
@@ -11765,12 +11745,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
         "gp": "1",
-        "rating_raw": -1.0,
-        "stl": 0.0
+        "rating_raw": -1,
+        "stl": 0
       },
       "rating": 5.34,
       "country": "Türkiye",
@@ -11791,7 +11771,7 @@
         "reb": 2.3,
         "ast": 4.2,
         "stl": 0.3,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "12",
         "rating_raw": 12.4
       },
@@ -11847,7 +11827,7 @@
         "reb": 1.7,
         "ast": 3.1,
         "stl": 0.9,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "16",
         "rating_raw": 9.1
       },
@@ -11904,14 +11884,14 @@
         "pts": 9.7,
         "reb": 2.4,
         "ast": 2.5,
-        "stl": 1.0,
+        "stl": 1,
         "blk": 0.2,
         "gp": "26",
         "rating_raw": 5.4
       },
       "bsl": {
         "pts": 10.1,
-        "reb": 3.0,
+        "reb": 3,
         "ast": 2.7,
         "gp": "26",
         "rating_raw": 10.9,
@@ -11958,7 +11938,7 @@
         "C"
       ],
       "euroleague": {
-        "pts": 8.0,
+        "pts": 8,
         "reb": 4.6,
         "ast": 1.2,
         "stl": 0.5,
@@ -12048,13 +12028,13 @@
         "reb": 0.9,
         "ast": 1.1,
         "stl": 0.4,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "33",
         "rating_raw": 2.6
       },
       "bsl": {
         "pts": 10.8,
-        "reb": 2.0,
+        "reb": 2,
         "ast": 2.1,
         "gp": "36",
         "rating_raw": 10.1,
@@ -12076,7 +12056,7 @@
         "reb": 1.1,
         "ast": 0.3,
         "stl": 0.2,
-        "blk": 0.0,
+        "blk": 0,
         "gp": "30",
         "rating_raw": 3.7
       },
@@ -12085,7 +12065,7 @@
         "reb": 1.6,
         "ast": 0.5,
         "gp": "21",
-        "rating_raw": 6.0,
+        "rating_raw": 6,
         "stl": 0.24
       },
       "rating": 4.15,
@@ -12138,11 +12118,11 @@
         "rating_raw": 4.5
       },
       "bsl": {
-        "pts": 5.0,
+        "pts": 5,
         "reb": 1.2,
-        "ast": 1.0,
+        "ast": 1,
         "gp": "19",
-        "rating_raw": 5.0,
+        "rating_raw": 5,
         "stl": 0.63
       },
       "rating": 4.41,
@@ -12199,7 +12179,7 @@
         "reb": 3.1,
         "ast": 1.9,
         "gp": "34",
-        "rating_raw": 8.0,
+        "rating_raw": 8,
         "stl": 0.91
       },
       "rating": 3.64,
@@ -12220,7 +12200,7 @@
         "ast": 0.5,
         "gp": "6",
         "rating_raw": 1.5,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 4.31,
       "country": "Türkiye",
@@ -12238,8 +12218,8 @@
         "pts": 3.3,
         "reb": 0.3,
         "ast": 0.5,
-        "stl": 0.0,
-        "blk": 0.0,
+        "stl": 0,
+        "blk": 0,
         "gp": "8",
         "rating_raw": 1.3
       },
@@ -12266,10 +12246,10 @@
       "bsl": {
         "pts": 7.5,
         "reb": 2.5,
-        "ast": 3.0,
+        "ast": 3,
         "gp": "2",
         "rating_raw": 9.5,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 5.78,
       "country": "Yunanistan",
@@ -12284,12 +12264,12 @@
       ],
       "euroleague": null,
       "bsl": {
-        "pts": 0.0,
-        "reb": 0.0,
-        "ast": 0.0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
         "gp": "5",
         "rating_raw": -0.2,
-        "stl": 0.0
+        "stl": 0
       },
       "rating": 4.21,
       "country": "Türkiye",
@@ -12305,18 +12285,18 @@
       "euroleague": {
         "pts": 2.2,
         "reb": 3.4,
-        "ast": 1.0,
+        "ast": 1,
         "stl": 0.4,
         "blk": 0.6,
         "gp": "5",
-        "rating_raw": 4.0
+        "rating_raw": 4
       },
       "bsl": null,
       "rating": 5.3,
       "country": "Yunanistan",
       "countryCode": "GR",
       "height": "2.18",
-      "ratingRaw": 4.0
+      "ratingRaw": 4
     }
   ]
 }
