@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v34";
+const APP_VERSION = "v35";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -185,7 +185,7 @@ function updateChemistryPanel() {
     const label = score >= 65 ? "Elite cohesion" : score >= 40 ? "Strong core" : score >= 22 ? "Building" : "Strangers";
     const sign = margin >= 0 ? "+" : "";
     sub.textContent = state.roster.length < 2
-      ? "Draft teammates from the same era to build cohesion."
+      ? "Draft real teammates or a national core to build cohesion."
       : `${label} · ${sign}${margin.toFixed(1)} pts/game to your team`;
   }
 }
@@ -1208,13 +1208,15 @@ const BENCH_WEIGHT = 0.3;
 // ============================================================
 // Chemistry (Chemistry mode)
 //
-// A cohesive roster — players who were actually teammates in real Efes seasons,
-// drawn from a tight window, with a national core — earns a bonus that stands
-// in for the intangible "they know each other's game". Calibrated so a single
-// golden-era roster is worth ~+3–3.5 wins over a scattershot all-time all-stars
-// team, which is a real trade-off (you sacrifice some raw talent spread to
-// gather stars from one era). Neutral for an average roster, tiny penalty only
-// for the most scattered.
+// A cohesive roster earns a bonus that stands in for the intangible "they
+// know each other's game". Two things build it, and drafting order/era has
+// nothing to do with either: (1) real bonds — pairs of players who actually
+// shared an Efes season at some point in their careers, no matter which
+// season each was drafted at in this game; (2) a national core — several
+// players from the same country. Calibrated so a real golden-era teammate
+// core, or a strong national core, is worth ~+3–3.5 wins over a scattershot
+// all-time all-stars team of strangers. Neutral for an average roster, tiny
+// penalty only for the most disconnected.
 // ============================================================
 let PLAYER_SEASONS = null;
 function playerSeasonsMap() {
@@ -1228,13 +1230,11 @@ function playerSeasonsMap() {
   return PLAYER_SEASONS;
 }
 
-function seasonYear(s) { return parseInt(String(s).slice(0, 4), 10); }
-
-// Returns { score (0-100), linkRatio, span, core } for the current roster.
+// Returns { score (0-100), linkRatio, core } for the current roster.
 function computeChemistry() {
   const roster = state.roster || [];
   const n = roster.length;
-  if (n < 2) return { score: 0, linkRatio: 0, span: 0, core: 0 };
+  if (n < 2) return { score: 0, linkRatio: 0, core: 0 };
   const seasons = playerSeasonsMap();
   let links = 0, pairs = 0;
   for (let i = 0; i < n; i++) {
@@ -1248,17 +1248,14 @@ function computeChemistry() {
     }
   }
   const linkRatio = pairs ? links / pairs : 0;
-  const ys = roster.map((p) => seasonYear(p.season)).filter((y) => !isNaN(y));
-  const span = ys.length ? Math.max(...ys) - Math.min(...ys) : 0;
-  const compact = Math.max(0, 1 - span / 25);
   const cc = {};
   roster.forEach((p) => { const k = p.countryCode || "?"; cc[k] = (cc[k] || 0) + 1; });
   const core = Math.max(...Object.values(cc)) / n;
-  const score01 = 0.65 * linkRatio + 0.22 * compact + 0.13 * core;
-  return { score: Math.round(score01 * 100), linkRatio, span, core };
+  const score01 = 0.75 * linkRatio + 0.25 * core;
+  return { score: Math.round(score01 * 100), linkRatio, core };
 }
 
-const CHEM_PIVOT = 22;   // scattershot rosters land here → roughly neutral
+const CHEM_PIVOT = 30;   // scattershot rosters land here → roughly neutral
 const CHEM_K = 0.075;    // margin points per chemistry point above pivot
 const CHEM_MIN = -1.0;
 const CHEM_MAX = 3.5;    // a cohesive roster is worth ~+2–3 wins at contention level
