@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v38";
+const APP_VERSION = "v39";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -1408,23 +1408,39 @@ function homeEdgeFor(team) {
 // A quarter-by-quarter path to the final score, so a Final Four game can be
 // watched rather than just reported. The running totals are generated to land
 // exactly on the real result.
+//
+// Each side's total is split into 4 quarter scores independently (its own
+// random weights), not as a shared fraction of both scores — otherwise both
+// teams grow at the identical rate every quarter and the team ahead at Q1 is
+// mathematically guaranteed to stay ahead the whole game (the margin just
+// scales up), so there's never a lead change. Independent per-team splits
+// let one side open hot and cool off, or come from behind, while the
+// cumulative score still lands exactly on the real final result at Q4.
+function splitIntoQuarters(total) {
+  const weights = [0, 0, 0, 0].map(() => 0.65 + Math.random() * 0.7);
+  const sum = weights.reduce((a, b) => a + b, 0);
+  const parts = weights.map((w) => Math.max(0, Math.round((total * w) / sum)));
+  const diff = total - parts.reduce((a, b) => a + b, 0);
+  parts[3] = Math.max(0, parts[3] + diff);
+  return parts;
+}
+
 function buildGameFlow(finalScore) {
   const [us, them] = finalScore;
-  const cuts = [0.26, 0.5, 0.76, 1];
+  const usParts = splitIntoQuarters(us);
+  const themParts = splitIntoQuarters(them);
   const flow = [];
-  let prevA = 0, prevB = 0;
+  let cumUs = 0, cumThem = 0;
   for (let q = 0; q < 4; q++) {
-    const noise = q === 3 ? 0 : (Math.random() - 0.5) * 0.06;
-    const f = Math.min(1, Math.max(0.05, cuts[q] + noise));
-    const a = q === 3 ? us : Math.round(us * f);
-    const b = q === 3 ? them : Math.round(them * f);
-    flow.push({
-      quarter: q + 1,
-      us: Math.max(a, prevA),
-      them: Math.max(b, prevB),
-    });
-    prevA = flow[q].us; prevB = flow[q].them;
+    cumUs += usParts[q];
+    cumThem += themParts[q];
+    flow.push({ quarter: q + 1, us: cumUs, them: cumThem });
   }
+  // Rounding can leave the last checkpoint a point or two off the real
+  // final score — snap it exactly so the displayed result always matches
+  // the game's actual outcome.
+  flow[3].us = us;
+  flow[3].them = them;
   return flow;
 }
 
