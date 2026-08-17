@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v37";
+const APP_VERSION = "v38";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -972,6 +972,7 @@ function renderPlayerPool(pool) {
       <div class="player-meta">${state.currentSpinSeason}${` · <span class="open-line">${openMatches.length ? "OPEN: " + openMatches.join(" / ") : "no slot available"}</span>`}</div>
       ${bioLineHtml(p)}
       ${honorsHtml(honorsFor(p, state.currentSpinSeason))}
+      ${legendNoteHtml(p.name)}
       ${blocksHtml}
       <button class="info-btn" data-player="${p.name}" title="Career detail">i</button>
     `;
@@ -1084,6 +1085,7 @@ function renderRosterCards(containerId, coachBannerId) {
       ${bioLineHtml(p)}
       ${state.captainName === p.name ? '<div class="captain-badge">★ CAPTAIN</div>' : ""}
       ${honorsHtml(honorsFor(p, p.season))}
+      ${legendNoteHtml(p.name)}
       ${buildStatBlocksHtml(p, p.season)}
     `;
     card.addEventListener("click", () => {
@@ -1382,8 +1384,12 @@ const MARGIN_TO_STRENGTH = 0.38;
 
 // Convert the roster's estimated scoring margin into the same strength scale
 // the real clubs are rated on, so it can be dropped straight into the league.
-function rosterStrength() {
-  return LEAGUE_AVG_STRENGTH + computeExpectedMargin() * MARGIN_TO_STRENGTH;
+// Accepts an already-computed margin to avoid re-running computeExpectedMargin
+// when the caller (runSimulation) needs that value again right afterwards —
+// falls back to computing it fresh for any other caller.
+function rosterStrength(margin) {
+  const m = margin != null ? margin : computeExpectedMargin();
+  return LEAGUE_AVG_STRENGTH + m * MARGIN_TO_STRENGTH;
 }
 
 // Per-season form: a club's real level drifts year to year with injuries,
@@ -1523,9 +1529,13 @@ function simulateLeague(userStrength) {
 }
 
 function runSimulation() {
-  const league = simulateLeague(rosterStrength());
+  // Computed once and reused both for the simulation itself and for
+  // lastMargin below — this used to be computed twice per Simulate click.
+  const margin = computeExpectedMargin();
+  const league = simulateLeague(rosterStrength(margin));
   state.standings = league.standings;
   state.userSchedule = league.userSchedule;
+  lastMargin = margin;
 
   const results = league.userSchedule.map((g) => (g.won ? "W" : "L"));
   const wins = results.filter((r) => r === "W").length;
@@ -1705,7 +1715,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("result-actions").hidden = false;
       document.getElementById("to-playoffs-btn").hidden = false;
       lastResult = { wins, losses, champion: false };
-      lastMargin = computeExpectedMargin();
 
       saveHistoryEntry({
         wins, losses, champion: false,
@@ -2559,13 +2568,23 @@ function renderHistory() {
 
 // ---------- Season context (only verifiable club history) ----------
 const SEASON_NOTES = {
-  "1995-96": "Korać Cup winners",
-  "1999-00": "First Turkish team in a EuroLeague Final Four",
+  "1995-96": "Korać Cup winners — the first European trophy won by a Turkish club, in any sport",
+  "1999-00": "First Turkish team in a EuroLeague Final Four, Ergin Ataman's first season as head coach",
   "2000-01": "SuproLeague Final Four",
-  "2018-19": "EuroLeague runners-up",
+  "2006-07": "First Turkish club to play NBA teams — faced the Denver Nuggets and Golden State Warriors that October",
+  "2007-08": "David Blatt's only season as head coach; hosted the Minnesota Timberwolves in Turkey",
+  "2008-09": "Ergin Ataman returns for a second spell as head coach",
+  "2010-11": "Velimir Perasović's first spell as head coach; the club moved into the Sinan Erdem Dome",
+  "2011-12": "Renamed from Efes Pilsen to Anadolu Efes under new tobacco-sponsorship rules",
+  "2014-15": "Dušan Ivković takes over as head coach",
+  "2016-17": "Velimir Perasović's second spell as head coach",
+  "2017-18": "Finished 16th and last in the EuroLeague — rock bottom right before the turnaround",
+  "2018-19": "EuroLeague runners-up and BSL champions in the same season — Shane Larkin's 38 points sealed a Game 7 title over Fenerbahçe",
   "2019-20": "Season cancelled (COVID-19) while leading",
   "2020-21": "EuroLeague Champions",
   "2021-22": "EuroLeague Champions",
+  "2022-23": "A rare down year — finished 11th and missed the EuroLeague playoffs",
+  "2025-26": "Luca Banchi's season as head coach",
 };
 
 function seasonNoteHtml(season) {
@@ -2904,6 +2923,17 @@ const HALL_OF_LEGENDS = [
   { name: "Doğuş Balbay", years: "2013–22", note: "Defensive specialist across the championship era", group: "turkish" },
 ];
 
+// O(1) lookup instead of scanning the array on every card render.
+const HALL_OF_LEGENDS_BY_NAME = new Map(HALL_OF_LEGENDS.map((l) => [l.name, l]));
+
+// Surfaces the curated Hall of Legends note right on the draft/roster card —
+// previously this only appeared on the home-screen Legends tile, so picking
+// a legend during the draft carried none of that context with it.
+function legendNoteHtml(name) {
+  const l = HALL_OF_LEGENDS_BY_NAME.get(name);
+  return l ? `<div class="card-legend-note">★ ${l.note}</div>` : "";
+}
+
 // Attach whatever recorded statistics we actually have to each legend.
 function legendStats(name) {
   let seasons = 0, gp = 0, weighted = 0, peak = null;
@@ -2947,13 +2977,19 @@ function renderLegends() {
 
 // ---------- Club timeline (verified club milestones) ----------
 const TIMELINE = [
+  { year: "1976", text: "Founded as Efes Pilsen S.K., taking over the second-division club Kadıköyspor." },
+  { year: "1979", text: "Turkish champions in their first-ever season in the top flight." },
   { year: "1996", text: "First Turkish club to win a European trophy — the Korać Cup." },
   { year: "2000", text: "First Turkish team to reach a EuroLeague Final Four." },
   { year: "2001", text: "Reached the SuproLeague Final Four." },
-  { year: "2019", text: "EuroLeague runners-up." },
+  { year: "2006", text: "First Turkish club to play NBA teams — faced the Nuggets and Warriors in the US." },
+  { year: "2011", text: "Renamed from Efes Pilsen to Anadolu Efes after new sponsorship rules." },
+  { year: "2019", text: "EuroLeague runners-up, and BSL champions in the same season." },
   { year: "2020", text: "Leading the EuroLeague when the season was cancelled." },
   { year: "2021", text: "EuroLeague Champions — the club's first continental title." },
   { year: "2022", text: "EuroLeague Champions again — back-to-back." },
+  { year: "2023", text: "A rare down year — 11th place, missing the playoffs after two titles." },
+  { year: "2024", text: "Moved into the new Basketball Development Centre as the club's home arena." },
 ];
 
 function renderTimeline() {
@@ -2971,6 +3007,12 @@ const LOADING_TIPS = [
   "Tip: Your captain's contribution counts for more.",
   "Tip: You get one trade after the roster is complete.",
   "Tip: Winning the trophy matters more than a perfect record.",
+  "Trivia: Efes were founded in 1976, absorbing the second-division club Kadıköyspor.",
+  "Trivia: The 1995-96 Korać Cup was the first European trophy ever won by a Turkish club, in any sport.",
+  "Trivia: Shane Larkin scored 38 points in a Game 7 to win the 2019 BSL title.",
+  "Trivia: Efes hold the Turkish record for EuroLeague titles, league titles, Turkish Cups and Presidential Cups.",
+  "Trivia: In 2006 Efes became the first Turkish club to play NBA teams, facing the Nuggets and the Warriors.",
+  "Trivia: The club was called Efes Pilsen until a 2011 sponsorship-rule change renamed it Anadolu Efes.",
 ];
 
 // ---------- First-time tutorial ----------

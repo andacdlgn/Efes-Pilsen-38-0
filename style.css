@@ -1084,6 +1084,15 @@ main#app {
 .achv-toast-name { font-weight: 700; font-size: 14px; }
 .achv-toast-desc { color: var(--muted); font-size: 12px; }
 
+/* ---------- Hall of Legends note, surfaced on draft/roster cards ---------- */
+.card-legend-note {
+  color: var(--accent);
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.35;
+  margin: 6px 0 2px;
+}
+
 /* ---------- Honors on cards ---------- */
 .honor-row { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 2px; }
 .honor-badge {
