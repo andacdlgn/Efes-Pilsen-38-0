@@ -12428,19 +12428,6 @@
       "ratingRaw": -0.12
     },
     {
-      "name": "Doğuş Özdemiroğlu",
-      "positions": [
-        "PG"
-      ],
-      "euroleague": null,
-      "bsl": null,
-      "rating": 3.22,
-      "country": "Türkiye",
-      "countryCode": "TR",
-      "height": "1.91",
-      "ratingRaw": 2.39
-    },
-    {
       "name": "Mike James",
       "positions": [
         "PG"
@@ -12531,32 +12518,6 @@
       "countryCode": "AO",
       "ratingRaw": 0,
       "height": "2.08"
-    },
-    {
-      "name": "Tyrique Jones",
-      "positions": [
-        "C"
-      ],
-      "euroleague": null,
-      "bsl": null,
-      "rating": 5.93,
-      "country": "ABD",
-      "countryCode": "US",
-      "ratingRaw": 0,
-      "height": "2.06"
-    },
-    {
-      "name": "Derek Willis",
-      "positions": [
-        "SF"
-      ],
-      "euroleague": null,
-      "bsl": null,
-      "rating": 5.93,
-      "country": "ABD",
-      "countryCode": "US",
-      "ratingRaw": 0,
-      "height": "2.06"
     }
   ]
 }
