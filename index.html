@@ -93,6 +93,26 @@
         <span class="challenge-inline-label">Add a challenge <span class="opt">(optional)</span></span>
         <div class="challenge-grid" id="challenge-grid"></div>
       </div>
+
+      <div class="optrule-inline">
+        <span class="challenge-inline-label">Optional rules <span class="opt">(off by default)</span></span>
+        <div class="optrule-row">
+          <button class="optrule-toggle" id="toggle-injuries" type="button" aria-pressed="false">
+            <span class="optrule-switch"></span>
+            <span class="optrule-text">
+              <span class="optrule-name">Injuries</span>
+              <span class="optrule-desc">A random player misses a short stretch of games.</span>
+            </span>
+          </button>
+          <button class="optrule-toggle" id="toggle-midtrade" type="button" aria-pressed="false">
+            <span class="optrule-switch"></span>
+            <span class="optrule-text">
+              <span class="optrule-name">Mid-Season Trade</span>
+              <span class="optrule-desc">Swap one player once, partway through the season.</span>
+            </span>
+          </button>
+        </div>
+      </div>
     </section>
 
     <div class="career-block" id="career-block" hidden></div>
@@ -368,6 +388,7 @@
     <button class="btn-primary" id="sim-btn">Simulate The Season</button>
     <div class="live-record" id="live-record" hidden></div>
     <div class="halftime-banner" id="halftime-banner" hidden></div>
+    <div class="injury-banner" id="injury-banner" hidden></div>
     <div class="scoreboard-months" id="scoreboard-months"></div>
     <div class="scoreboard-track" id="scoreboard-track"></div>
     <canvas class="season-chart" id="season-chart" width="760" height="200" hidden></canvas>
@@ -399,6 +420,10 @@
           <button class="btn-secondary" id="share-close">Close</button>
         </div>
       </div>
+    </div>
+
+    <div class="trade-modal" id="trade-modal" hidden>
+      <div class="trade-modal-inner" id="trade-modal-body"></div>
     </div>
   </section>
 

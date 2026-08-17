@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v39";
+const APP_VERSION = "v40";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -21,6 +21,12 @@ const state = {
   tradeMode: false,
   tradeUsed: false,
   lockedSeasons: [],
+  // Optional rules (off by default) — toggled on the mode-select screen.
+  injuriesOn: false,
+  midTradeOn: false,
+  midTradeUsed: false,
+  midTradeCheckpoint: -1,
+  seasonInjury: null, // { start, len, playerName } for the season just simulated
   lastPlacedName: null,
   budgetTotal: 100,
   budgetSpent: 0,
@@ -1352,7 +1358,26 @@ function computeExpectedMargin() {
   const coach = state.coach;
   const coachPoints = coach.rating * 20 + coach.fitBonus * 10 + (coach.stability || 0) * 10;
 
-  return starterDiff * starterWeight + benchTerm + coachPoints + chemistryMargin();
+  return starterDiff * starterWeight + benchTerm + coachPoints + chemistryMargin() + careerContinuityMargin();
+}
+
+// Career Mode continuity bonus: real historical player-seasons can't
+// literally age (there's no birth-date data to age them from), so instead
+// keeping the same player on the roster across consecutive Career Mode
+// seasons builds a small, capped chemistry-style bonus — "years together"
+// standing in for player development. Always 0 outside Career Mode.
+const CONTINUITY_BONUS_PER_YEAR = 0.6;
+const CONTINUITY_BONUS_CAP_YEARS = 3;
+
+function careerContinuityMargin() {
+  const c = state.career;
+  if (!c || !c.continuity) return 0;
+  let total = 0;
+  state.roster.forEach((p) => {
+    const years = c.continuity[p.name] || 0;
+    total += Math.min(years, CONTINUITY_BONUS_CAP_YEARS) * CONTINUITY_BONUS_PER_YEAR;
+  });
+  return total;
 }
 
 function pythagoreanWinPct(margin) {
@@ -1409,32 +1434,43 @@ function homeEdgeFor(team) {
 // watched rather than just reported. The running totals are generated to land
 // exactly on the real result.
 //
-// Each side's total is split into 4 quarter scores independently (its own
-// random weights), not as a shared fraction of both scores — otherwise both
-// teams grow at the identical rate every quarter and the team ahead at Q1 is
-// mathematically guaranteed to stay ahead the whole game (the margin just
-// scales up), so there's never a lead change. Independent per-team splits
-// let one side open hot and cool off, or come from behind, while the
+// Each side's remaining total is split independently quarter by quarter (its
+// own random weight), not as a shared fraction of both scores — otherwise
+// both teams grow at the identical rate every quarter and the team ahead at
+// Q1 is mathematically guaranteed to stay ahead the whole game (the margin
+// just scales up), so there's never a lead change. Independent per-team
+// splits let one side open hot and cool off, or come from behind, while the
 // cumulative score still lands exactly on the real final result at Q4.
-function splitIntoQuarters(total) {
-  const weights = [0, 0, 0, 0].map(() => 0.65 + Math.random() * 0.7);
-  const sum = weights.reduce((a, b) => a + b, 0);
-  const parts = weights.map((w) => Math.max(0, Math.round((total * w) / sum)));
-  const diff = total - parts.reduce((a, b) => a + b, 0);
-  parts[3] = Math.max(0, parts[3] + diff);
-  return parts;
-}
-
+//
+// Momentum: a quarter won by a clear margin nudges a small, decaying weight
+// bump into that team's next quarter (and a matching dip for the other
+// side) — a real "run" a team can go on, without ever being able to change
+// the final result, which is always snapped exactly at Q4.
 function buildGameFlow(finalScore) {
   const [us, them] = finalScore;
-  const usParts = splitIntoQuarters(us);
-  const themParts = splitIntoQuarters(them);
+  let remUs = us, remThem = them;
+  let momUs = 0, momThem = 0;
   const flow = [];
   let cumUs = 0, cumThem = 0;
   for (let q = 0; q < 4; q++) {
-    cumUs += usParts[q];
-    cumThem += themParts[q];
+    const left = 4 - q;
+    let qUs, qThem;
+    if (left === 1) {
+      qUs = remUs; qThem = remThem;
+    } else {
+      const wUs = Math.max(0.2, 1 + momUs + (Math.random() - 0.5) * 0.7);
+      const wThem = Math.max(0.2, 1 + momThem + (Math.random() - 0.5) * 0.7);
+      qUs = Math.max(0, Math.min(remUs, Math.round((remUs / left) * wUs)));
+      qThem = Math.max(0, Math.min(remThem, Math.round((remThem / left) * wThem)));
+    }
+    remUs -= qUs; remThem -= qThem;
+    cumUs += qUs; cumThem += qThem;
     flow.push({ quarter: q + 1, us: cumUs, them: cumThem });
+
+    const qGap = qUs - qThem;
+    if (qGap >= 6) { momUs = 0.18; momThem = -0.1; }
+    else if (qGap <= -6) { momThem = 0.18; momUs = -0.1; }
+    else { momUs *= 0.3; momThem *= 0.3; }
   }
   // Rounding can leave the last checkpoint a point or two off the real
   // final score — snap it exactly so the displayed result always matches
@@ -1444,6 +1480,66 @@ function buildGameFlow(finalScore) {
   return flow;
 }
 
+// Re-splits whatever's left of a live Final Four game's score into the
+// remaining quarters with a chosen variance, used by the live tactical
+// choice (see revealLiveGame) to let a mid-game decision actually reshape
+// how the rest of the game plays out, while the final score never moves.
+function resplitRemaining(remUs, remThem, count, variance) {
+  const partsFor = (total) => {
+    if (count <= 1) return [Math.max(0, total)];
+    const weights = Array.from({ length: count }, () => (1 - variance) + Math.random() * (2 * variance));
+    const sum = weights.reduce((a, b) => a + b, 0);
+    const parts = weights.map((w) => Math.max(0, Math.round((total * w) / sum)));
+    const diff = total - parts.reduce((a, b) => a + b, 0);
+    parts[count - 1] = Math.max(0, parts[count - 1] + diff);
+    return parts;
+  };
+  return { us: partsFor(remUs), them: partsFor(remThem) };
+}
+
+function applyTacticalChoice(g, afterQuarterIdx, style) {
+  const finalUs = g.score[0], finalThem = g.score[1];
+  const doneUs = g.flow[afterQuarterIdx].us, doneThem = g.flow[afterQuarterIdx].them;
+  const remQuarters = 3 - afterQuarterIdx;
+  if (remQuarters <= 0) return;
+  const variance = style === "fast" ? 0.55 : 0.16;
+  const { us: usParts, them: themParts } = resplitRemaining(finalUs - doneUs, finalThem - doneThem, remQuarters, variance);
+  let cumUs = doneUs, cumThem = doneThem;
+  for (let k = 0; k < remQuarters; k++) {
+    cumUs += usParts[k]; cumThem += themParts[k];
+    g.flow[afterQuarterIdx + 1 + k] = { quarter: afterQuarterIdx + 2 + k, us: cumUs, them: cumThem };
+  }
+  g.flow[3].us = finalUs;
+  g.flow[3].them = finalThem;
+}
+
+// Live Final Four tactical choice: a short pause between quarters where the
+// user picks how the team plays the next one. Purely cosmetic in its own
+// right — the real effect is applyTacticalChoice() reshaping the remaining
+// quarters' variance — with a timeout fallback so the reveal never stalls
+// if nobody clicks.
+function showTacticalPrompt(board, callback) {
+  const prompt = document.createElement("div");
+  prompt.className = "lg-tactic-prompt";
+  prompt.innerHTML = `
+    <span class="lg-tactic-label">Next quarter:</span>
+    <button class="lg-tactic-btn" data-style="fast">⚡ Hızlı Oyna</button>
+    <button class="lg-tactic-btn" data-style="steady">🛡️ Kontrollü Oyna</button>
+  `;
+  board.appendChild(prompt);
+  let settled = false;
+  const finish = (style) => {
+    if (settled) return;
+    settled = true;
+    prompt.remove();
+    callback(style);
+  };
+  prompt.querySelectorAll(".lg-tactic-btn").forEach((btn) => {
+    btn.addEventListener("click", () => { SFX.place(); finish(btn.dataset.style); });
+  });
+  setTimeout(() => finish("steady"), 4000);
+}
+
 function makeScore(edge, aWins) {
   const pace = 76 + Math.round(Math.random() * 14);
   const expected = Math.abs(edge) * 0.55;
@@ -1451,7 +1547,31 @@ function makeScore(edge, aWins) {
   return aWins ? [pace + gap, pace] : [pace, pace + gap];
 }
 
-function simulateLeague(userStrength) {
+// Injury strength penalty: how many strength points the user's roster
+// loses for the games it's applied to — enough to be felt (~2-3 points of
+// scoring margin via OPP_SCALE) without deciding the season on its own.
+const INJURY_STRENGTH_PENALTY = 1.4;
+
+// Shuffles the schedule for display, but keeps any injury-window games
+// grouped together as a contiguous run (their internal order preserved) so
+// the story reads as "hurt, then back", not scattered randomly through the
+// season. With no tagged games this reduces to a plain Fisher-Yates shuffle,
+// identical to the previous behaviour.
+function shuffleKeepingInjuryTogether(schedule) {
+  const tagged = schedule.filter((g) => g.injured);
+  const rest = schedule.filter((g) => !g.injured);
+  for (let i = rest.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [rest[i], rest[j]] = [rest[j], rest[i]];
+  }
+  if (!tagged.length) return rest;
+  const minStart = Math.min(3, rest.length);
+  const maxStart = Math.max(minStart, rest.length - 3);
+  const insertAt = minStart + Math.floor(Math.random() * Math.max(1, maxStart - minStart));
+  return [...rest.slice(0, insertAt), ...tagged, ...rest.slice(insertAt)];
+}
+
+function simulateLeague(userStrength, injury) {
   const field = [
     ...state.teams.map((t) => ({
       ...t,
@@ -1480,12 +1600,29 @@ function simulateLeague(userStrength) {
   );
   const userSchedule = [];
 
+  // The double round-robin always generates the user's matchups in a fixed,
+  // deterministic order (one opponent-block — home game + away game — per
+  // entry in state.teams), well before the display shuffle below. That lets
+  // an injury be defined as "N consecutive opponent-blocks" up front and
+  // still land as a genuinely contiguous stretch once shown.
+  const numOpponents = field.length - 1;
+  let injuryBlockStart = -1;
+  if (injury && injury.blocks > 0 && numOpponents > injury.blocks) {
+    injuryBlockStart = Math.floor(Math.random() * (numOpponents - injury.blocks));
+  }
+  let blockIndex = -1;
+
   for (let i = 0; i < field.length; i++) {
     for (let j = i + 1; j < field.length; j++) {
+      const isUserPair = j === field.length - 1;
+      if (isUserPair) blockIndex++;
+      const inInjuryWindow = injuryBlockStart >= 0 && isUserPair &&
+        blockIndex >= injuryBlockStart && blockIndex < injuryBlockStart + injury.blocks;
       for (const hostIsI of [true, false]) {
         const A = field[i], B = field[j];
         const host = hostIsI ? A : B;
-        const edge = (A.s - B.s) * OPP_SCALE + (hostIsI ? homeEdgeFor(host) : -homeEdgeFor(host));
+        const bStrength = inInjuryWindow ? B.s - INJURY_STRENGTH_PENALTY : B.s;
+        const edge = (A.s - bStrength) * OPP_SCALE + (hostIsI ? homeEdgeFor(host) : -homeEdgeFor(host));
         const aWins = Math.random() < pythagoreanWinPct(edge);
         const [aScore, bScore] = makeScore(edge, aWins);
 
@@ -1508,16 +1645,14 @@ function simulateLeague(userStrength) {
             home: A.isUser ? hostIsI : !hostIsI,
             won: userWon,
             score: A.isUser ? [aScore, bScore] : [bScore, aScore],
+            injured: inInjuryWindow || undefined,
           });
         }
       }
     }
   }
 
-  for (let i = userSchedule.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [userSchedule[i], userSchedule[j]] = [userSchedule[j], userSchedule[i]];
-  }
+  const orderedSchedule = shuffleKeepingInjuryTogether(userSchedule);
 
   const standings = field.map((t) => {
     const r = rec.get(t.name);
@@ -1541,24 +1676,219 @@ function simulateLeague(userStrength) {
     return b.diff - a.diff;
   });
 
-  return { standings, userSchedule };
+  return { standings, userSchedule: orderedSchedule };
+}
+
+// How many opponent-blocks (2 games each) an injury takes out — and how
+// likely one happens at all in a season when the rule is switched on.
+const INJURY_CHANCE = 0.65;
+const INJURY_BLOCKS_MIN = 2;
+const INJURY_BLOCKS_MAX = 3;
+
+function pickInjuryFlavorName() {
+  const bench = state.roster.filter((p) => p.tier !== "starter");
+  const pool = bench.length ? bench : state.roster;
+  if (!pool.length) return null;
+  return pool[Math.floor(Math.random() * pool.length)].name;
 }
 
 function runSimulation() {
   // Computed once and reused both for the simulation itself and for
   // lastMargin below — this used to be computed twice per Simulate click.
   const margin = computeExpectedMargin();
-  const league = simulateLeague(rosterStrength(margin));
+
+  let injury = null;
+  if (state.injuriesOn && Math.random() < INJURY_CHANCE) {
+    injury = { blocks: INJURY_BLOCKS_MIN + Math.floor(Math.random() * (INJURY_BLOCKS_MAX - INJURY_BLOCKS_MIN + 1)) };
+  }
+  const league = simulateLeague(rosterStrength(margin), injury);
   state.standings = league.standings;
   state.userSchedule = league.userSchedule;
   lastMargin = margin;
 
-  const results = league.userSchedule.map((g) => (g.won ? "W" : "L"));
+  state.midTradeUsed = false;
+  state.midTradeCheckpoint = state.midTradeOn ? 12 + Math.floor(Math.random() * 14) : -1;
+
+  const injuredIdx = state.userSchedule.findIndex((g) => g.injured);
+  state.seasonInjury = injuredIdx === -1 ? null : {
+    start: injuredIdx,
+    len: state.userSchedule.filter((g) => g.injured).length,
+    playerName: pickInjuryFlavorName(),
+  };
+
+  const results = state.userSchedule.map((g) => (g.won ? "W" : "L"));
   const wins = results.filter((r) => r === "W").length;
   return { results, wins, losses: 38 - wins, avgP: wins / 38 };
 }
 
-function animateScoreboard(results, onDone) {
+// ---------- Mid-season trade (optional rule) ----------
+function flatPlayerPool() {
+  const out = [];
+  for (const [season, list] of Object.entries(state.playersBySeason || {})) {
+    list.forEach((p) => out.push({ ...p, season }));
+  }
+  return out;
+}
+
+function tradeCandidates(pos) {
+  const used = state.usedPlayerNames;
+  return flatPlayerPool()
+    .filter((p) => p.positions.includes(pos) && !used.has(p.name))
+    .filter((p) => state.challenge !== "homegrown" || p.countryCode === "TR")
+    .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+    .slice(0, 60);
+}
+
+function swapRosterPlayer(outPlayer, inPlayer) {
+  const idx = state.roster.findIndex((p) => p.name === outPlayer.name);
+  if (idx === -1) return;
+  if (state.budgetType === "cap") {
+    state.budgetSpent += getPlayerPrice(inPlayer) - getPlayerPrice(outPlayer);
+    updateBudgetGauge();
+  }
+  state.usedPlayerNames.delete(outPlayer.name);
+  state.usedPlayerNames.add(inPlayer.name);
+  state.roster[idx] = {
+    ...inPlayer,
+    season: inPlayer.season,
+    filledPosition: outPlayer.filledPosition,
+    tier: outPlayer.tier,
+  };
+}
+
+// Re-rolls exactly the user's remaining games (from fromIndex on) against
+// the same opponent strengths already fixed for the season, using the
+// roster's new strength after a trade — then keeps the standings zero-sum
+// by applying the same win/loss/points swing to the specific opponent each
+// game was against, rather than just overwriting the user's own row.
+function applyMidSeasonTrade(fromIndex, newMargin) {
+  const newStrength = rosterStrength(newMargin);
+  const userRow = state.standings.find((t) => t.isUser);
+  if (!userRow) return;
+  for (let i = fromIndex; i < state.userSchedule.length; i++) {
+    const g = state.userSchedule[i];
+    const opp = g.opponent;
+    const oppRow = state.standings.find((t) => t.name === opp.name);
+    const oldWon = g.won, oldScore = g.score;
+    const hostEdge = g.home ? homeEdgeFor({ homeFactor: 0.15 }) : -homeEdgeFor(opp);
+    const edge = (newStrength - opp.s) * OPP_SCALE + hostEdge;
+    const won = Math.random() < pythagoreanWinPct(edge);
+    const score = makeScore(edge, won);
+    g.won = won; g.score = score;
+    if (!oppRow) continue;
+
+    if (won !== oldWon) {
+      userRow.wins += won ? 1 : -1; userRow.losses += won ? -1 : 1;
+      oppRow.wins += won ? -1 : 1; oppRow.losses += won ? 1 : -1;
+      const delta = (won ? 1 : -1) - (oldWon ? 1 : -1);
+      userRow.h2h.set(opp.name, (userRow.h2h.get(opp.name) || 0) + delta);
+      oppRow.h2h.set(userRow.name, (oppRow.h2h.get(userRow.name) || 0) - delta);
+    }
+    userRow.pf += score[0] - oldScore[0]; userRow.pa += score[1] - oldScore[1];
+    userRow.diff = userRow.pf - userRow.pa;
+    oppRow.pf += score[1] - oldScore[1]; oppRow.pa += score[0] - oldScore[0];
+    oppRow.diff = oppRow.pf - oppRow.pa;
+  }
+  state.standings.sort((a, b) => {
+    if (b.wins !== a.wins) return b.wins - a.wins;
+    const h = a.h2h.get(b.name) || 0;
+    if (h !== 0) return -h;
+    return b.diff - a.diff;
+  });
+}
+
+function openTradeWindow(gameIndex, onClose) {
+  state.midTradeUsed = true;
+  const modal = document.getElementById("trade-modal");
+  const body = document.getElementById("trade-modal-body");
+  if (!modal || !body) { onClose(); return; }
+  modal.hidden = false;
+
+  function renderStepOut() {
+    const roster = sortedRoster();
+    body.innerHTML = `
+      <h3>Mid-Season Trade Window</h3>
+      <p class="trade-sub">Game ${gameIndex + 1} of 38 — swap one player out for the rest of the season, or skip.</p>
+      <div class="trade-list" id="trade-out-list">
+        ${roster.map((p) => `
+          <button class="trade-row" data-name="${p.name}">
+            <span class="trade-row-pos">${p.filledPosition || ""}</span>
+            <span class="trade-row-name">${p.name}</span>
+            <span class="trade-row-season">${p.season}</span>
+          </button>`).join("")}
+      </div>
+      <button class="btn-secondary" id="trade-skip-btn">Skip — Keep This Roster</button>
+    `;
+    body.querySelectorAll(".trade-row").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const outPlayer = state.roster.find((p) => p.name === btn.dataset.name);
+        if (outPlayer) renderStepIn(outPlayer);
+      });
+    });
+    const skipBtn = document.getElementById("trade-skip-btn");
+    if (skipBtn) skipBtn.addEventListener("click", () => closeAndResume(null));
+  }
+
+  function renderStepIn(outPlayer) {
+    const candidates = tradeCandidates(outPlayer.filledPosition);
+    body.innerHTML = `
+      <h3>Bring In a ${outPlayer.filledPosition || "Player"}</h3>
+      <p class="trade-sub">Replacing <strong>${outPlayer.name}</strong> (${outPlayer.season})</p>
+      <div class="trade-list" id="trade-in-list">
+        ${candidates.map((p) => `
+          <button class="trade-row" data-name="${p.name}" data-season="${p.season}">
+            <span class="trade-row-name">${p.name}</span>
+            <span class="trade-row-season">${p.season}</span>
+            <span class="trade-row-rating">${(p.rating || 0).toFixed(1)}</span>
+          </button>`).join("") || `<p class="trade-empty">No eligible replacements found.</p>`}
+      </div>
+      <button class="btn-secondary" id="trade-back-btn">← Back</button>
+    `;
+    body.querySelectorAll(".trade-row").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const inPlayer = flatPlayerPool().find((p) => p.name === btn.dataset.name && p.season === btn.dataset.season);
+        if (inPlayer) confirmTrade(outPlayer, inPlayer);
+      });
+    });
+    const backBtn = document.getElementById("trade-back-btn");
+    if (backBtn) backBtn.addEventListener("click", renderStepOut);
+  }
+
+  function confirmTrade(outPlayer, inPlayer) {
+    swapRosterPlayer(outPlayer, inPlayer);
+    const newMargin = computeExpectedMargin();
+    applyMidSeasonTrade(gameIndex, newMargin);
+    closeAndResume(`${outPlayer.name} → ${inPlayer.name}`);
+  }
+
+  function closeAndResume(note) {
+    modal.hidden = true;
+    if (note) {
+      const hb = document.getElementById("halftime-banner");
+      if (hb) {
+        hb.hidden = false;
+        hb.textContent = `🔁 Trade: ${note}`;
+        setTimeout(() => { hb.hidden = true; }, 1400);
+      }
+    }
+    onClose();
+  }
+
+  renderStepOut();
+}
+
+// ---------- Injury banner (optional rule) ----------
+function showInjuryBanner(injury, starting) {
+  const el = document.getElementById("injury-banner");
+  if (!el || !injury || !injury.playerName) return;
+  el.hidden = false;
+  el.textContent = starting
+    ? `🤕 ${injury.playerName} is out for the next ${injury.len} games`
+    : `✅ ${injury.playerName} is back`;
+  setTimeout(() => { el.hidden = true; }, 1600);
+}
+
+function animateScoreboard(onDone) {
   const track = document.getElementById("scoreboard-track");
   const liveEl = document.getElementById("live-record");
   track.innerHTML = "";
@@ -1576,24 +1906,44 @@ function animateScoreboard(results, onDone) {
     liveEl.innerHTML = `<span class="live-rec">0–0</span><span class="live-streak"></span>`;
   }
 
+  const injury = state.seasonInjury;
   let i = 0, w = 0, l = 0, streak = 0, streakType = null;
-  const interval = setInterval(() => {
-    if (i >= results.length) {
-      clearInterval(interval);
-      if (liveEl) liveEl.hidden = true;
-      try { drawSeasonChart(results); } catch (e) { console.error("chart failed", e); }
-      try { renderMvpAndLeaders(); } catch (e) { console.error("leaders failed", e); }
-      onDone();
+
+  function finish() {
+    if (liveEl) liveEl.hidden = true;
+    // The reveal reads results live off state.userSchedule so a mid-season
+    // trade (which rewrites games from its checkpoint on, after they've
+    // already been revealed as W/L once) is reflected here for real —
+    // recomputed fresh rather than trusting whatever was true at kickoff.
+    const finalResults = state.userSchedule.map((g) => (g.won ? "W" : "L"));
+    const finalWins = finalResults.filter((r) => r === "W").length;
+    try { drawSeasonChart(finalResults); } catch (e) { console.error("chart failed", e); }
+    try { renderMvpAndLeaders(); } catch (e) { console.error("leaders failed", e); }
+    onDone(finalResults, finalWins, 38 - finalWins);
+  }
+
+  function step() {
+    if (i >= state.userSchedule.length) { finish(); return; }
+
+    // Mid-season trade checkpoint: pause the reveal and let the user swap
+    // one player in before continuing with the rest of the season.
+    if (state.midTradeOn && !state.midTradeUsed && i === state.midTradeCheckpoint) {
+      openTradeWindow(i, () => setTimeout(step, 500));
       return;
     }
-    const res = results[i];
-    const fixture = state.userSchedule && state.userSchedule[i];
+
+    if (injury) {
+      if (i === injury.start) showInjuryBanner(injury, true);
+      if (i === injury.start + injury.len) showInjuryBanner(injury, false);
+    }
+
+    const fixture = state.userSchedule[i];
+    const res = fixture.won ? "W" : "L";
     cells[i].textContent = res;
-    cells[i].title = fixture
-      ? `Game ${i + 1} ${fixture.home ? "vs" : "at"} ${fixture.opponent.name}: ${res} ${fixture.score[0]}–${fixture.score[1]}`
-      : `Game ${i + 1}: ${res}`;
+    cells[i].title = `Game ${i + 1} ${fixture.home ? "vs" : "at"} ${fixture.opponent.name}: ${res} ${fixture.score[0]}–${fixture.score[1]}`;
     cells[i].classList.add(res === "W" ? "win" : "loss");
     cells[i].classList.add("flip-in");
+    if (injury && i >= injury.start && i < injury.start + injury.len) cells[i].classList.add("injured-game");
     if (res === "W") SFX.win(); else SFX.loss();
 
     if (i === 18) {
@@ -1615,7 +1965,9 @@ function animateScoreboard(results, onDone) {
       liveEl.innerHTML = `<span class="live-rec">${w}–${l}</span>${streakTxt}`;
     }
     i++;
-  }, 330);
+    setTimeout(step, 330);
+  }
+  step();
 }
 
 function letterGrade(wins) {
@@ -1674,6 +2026,22 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => startDraft(btn.dataset.mode));
   });
 
+  // Optional rules — off by default, toggled independently of the primary mode.
+  const injuriesToggle = document.getElementById("toggle-injuries");
+  if (injuriesToggle) injuriesToggle.addEventListener("click", () => {
+    state.injuriesOn = !state.injuriesOn;
+    injuriesToggle.classList.toggle("active", state.injuriesOn);
+    injuriesToggle.setAttribute("aria-pressed", state.injuriesOn ? "true" : "false");
+    SFX.place();
+  });
+  const midTradeToggle = document.getElementById("toggle-midtrade");
+  if (midTradeToggle) midTradeToggle.addEventListener("click", () => {
+    state.midTradeOn = !state.midTradeOn;
+    midTradeToggle.classList.toggle("active", state.midTradeOn);
+    midTradeToggle.setAttribute("aria-pressed", state.midTradeOn ? "true" : "false");
+    SFX.place();
+  });
+
   document.getElementById("topbar-home-btn").addEventListener("click", () => {
     resetToCategory();
   });
@@ -1714,8 +2082,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("sim-btn").addEventListener("click", () => {
     document.getElementById("sim-btn").hidden = true;
-    const { results, wins, losses } = runSimulation();
-    animateScoreboard(results, () => {
+    runSimulation();
+    animateScoreboard((results, wins, losses) => {
       const finalEl = document.getElementById("final-record");
       finalEl.hidden = false;
       finalEl.innerHTML = `
@@ -2151,8 +2519,16 @@ function playPlayoffs(regularMargin, userRank) {
         qEl.textContent = qi === 3 ? "4TH QUARTER" : `${["1ST", "2ND", "3RD"][qi]} QUARTER`;
         barEl.style.width = ((qi + 1) / 4) * 100 + "%";
         SFX.spin();
+        const finishedQuarter = qi;
         qi++;
-        setTimeout(tick, 900);
+        if (finishedQuarter < 3) {
+          showTacticalPrompt(board, (style) => {
+            if (style) applyTacticalChoice(g, finishedQuarter, style);
+            setTimeout(tick, 700);
+          });
+        } else {
+          setTimeout(tick, 900);
+        }
       };
       setTimeout(tick, 500);
     }
@@ -3722,6 +4098,8 @@ function saveDraftState() {
       respinsUsed: state.respinsUsed,
       captainName: state.captainName,
       tradeUsed: state.tradeUsed,
+      injuriesOn: state.injuriesOn,
+      midTradeOn: state.midTradeOn,
       savedAt: Date.now(),
     }));
   } catch { /* storage unavailable */ }
@@ -3760,6 +4138,8 @@ function resumeDraft(d) {
   state.respinsAllowed = d.mode === "5" ? 1 : 3;
   state.captainName = d.captainName || null;
   state.tradeUsed = !!d.tradeUsed;
+  state.injuriesOn = !!d.injuriesOn;
+  state.midTradeOn = !!d.midTradeOn;
   state.usedPlayerNames = new Set(state.roster.map((p) => p.name));
 
   state.openPositions = new Set(POSITION_ORDER);
@@ -3839,6 +4219,7 @@ function startCareer(mode) {
     titles: 0,
     trophies: [],
     retained: [],
+    continuity: {},
     history: [],
   };
   saveCareer(career);
@@ -3852,6 +4233,12 @@ function beginCareerSeason() {
   state.budgetType = "cap";
   state.chemistryOn = false;
   state.challenge = "none";
+  // Injuries / mid-season trade are single-season-only toggles that live on
+  // the mode-select screen — Career Mode bypasses that screen entirely, so
+  // force them off rather than risk inheriting a stale value from an earlier
+  // single-season attempt in the same browser session.
+  state.injuriesOn = false;
+  state.midTradeOn = false;
   startDraft(c.mode);
   // Career overrides the standard budget with the running one.
   state.budgetTotal = Math.round(c.budget);
@@ -3927,13 +4314,15 @@ function renderCareerSummary(reward) {
   const grid = panel.querySelector("#retain-grid");
   const chosen = new Set();
   state.roster.forEach((p) => {
+    const years = (c.continuity && c.continuity[p.name]) || 0;
+    const continuityTag = years > 0 ? ` · 🔗 ${years}${years === 1 ? "yr" : "yrs"} together` : "";
     const card = document.createElement("button");
     card.className = "retain-card";
     card.innerHTML = `
       ${avatarHtml(p.name)}
       <div class="retain-info">
         <div class="retain-name">${p.name}</div>
-        <div class="retain-sub">${p.season} · ${p.filledPosition || "Bench"} · ${getPlayerPrice(p)}cr</div>
+        <div class="retain-sub">${p.season} · ${p.filledPosition || "Bench"} · ${getPlayerPrice(p)}cr${continuityTag}</div>
       </div>`;
     card.addEventListener("click", () => {
       if (chosen.has(p.name)) { chosen.delete(p.name); card.classList.remove("kept"); }
@@ -3944,7 +4333,14 @@ function renderCareerSummary(reward) {
   });
 
   panel.querySelector("#career-next-btn").addEventListener("click", () => {
-    c.retained = state.roster.filter((p) => chosen.has(p.name)).map((p) => ({ ...p, tier: undefined, filledPosition: undefined }));
+    const keepers = state.roster.filter((p) => chosen.has(p.name));
+    const nextContinuity = {};
+    keepers.forEach((p) => {
+      const prevYears = (c.continuity && c.continuity[p.name]) || 0;
+      nextContinuity[p.name] = prevYears + 1;
+    });
+    c.continuity = nextContinuity;
+    c.retained = keepers.map((p) => ({ ...p, tier: undefined, filledPosition: undefined }));
     saveCareer(c);
     panel.hidden = true;
     state.career = c;

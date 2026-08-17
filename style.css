@@ -1393,6 +1393,63 @@ main#app {
 .pm-table th { color: var(--accent); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
 .pm-table td:first-child, .pm-table th:first-child { text-align: left; }
 
+/* ---------- Mid-season trade modal ---------- */
+.trade-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  background: rgba(6, 14, 26, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto;
+}
+.trade-modal-inner {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 82vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+.trade-modal-inner h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.03em;
+  margin: 0 0 4px;
+}
+.trade-sub { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
+.trade-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; max-height: 46vh; overflow-y: auto; }
+.trade-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--navy-3);
+  color: var(--ink);
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+.trade-row:hover { border-color: var(--accent); }
+.trade-row-pos {
+  font-family: 'Oswald', var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  min-width: 26px;
+}
+.trade-row-name { font-size: 14px; font-weight: 600; }
+.trade-row-season, .trade-row-rating { font-size: 12px; color: var(--muted); text-align: right; }
+.trade-empty { color: var(--muted); font-size: 13px; font-style: italic; }
+
 /* ---------- Roster history ---------- */
 .history-block { margin-top: 44px; }
 .history-list { display: flex; flex-direction: column; gap: 8px; }
@@ -1577,6 +1634,16 @@ main#app {
   margin-bottom: 12px;
   animation: streak-pop 0.3s ease;
 }
+.injury-banner {
+  text-align: center;
+  font-family: 'Oswald', var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--pos-c);
+  margin-bottom: 12px;
+  animation: streak-pop 0.3s ease;
+}
+.flip-cell.injured-game { box-shadow: inset 0 0 0 2px var(--pos-c); }
 .scoreboard-months {
   display: flex;
   justify-content: space-between;
@@ -2661,6 +2728,36 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   background: linear-gradient(90deg, var(--accent), #22B8E6);
   transition: width 0.7s ease;
 }
+.lg-tactic-prompt {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  animation: streak-pop 0.25s ease;
+}
+.lg-tactic-label {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex: none;
+}
+.lg-tactic-btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: rgba(0,164,210,0.12);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.lg-tactic-btn:hover { background: rgba(0,164,210,0.25); transform: translateY(-1px); }
 
 /* ============================================================
    v31 — clear hierarchy between Single Season and Career Mode
@@ -2734,6 +2831,60 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
 .challenge-inline .challenge-card .mode-name { font-size: 14px; }
 .challenge-inline .challenge-card .mode-desc { font-size: 12px; }
 
+/* Optional rules — independent on/off toggles, not a single-select group. */
+.optrule-inline {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.optrule-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+}
+.optrule-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--navy-2);
+  color: var(--ink);
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.optrule-toggle:hover { border-color: rgba(0,164,210,0.5); }
+.optrule-toggle.active {
+  border-color: var(--accent);
+  background: rgba(0,164,210,0.12);
+}
+.optrule-switch {
+  flex: none;
+  width: 32px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(237,234,226,0.15);
+  position: relative;
+  margin-top: 2px;
+  transition: background 0.15s ease;
+}
+.optrule-switch::after {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--ink);
+  transition: transform 0.15s ease;
+}
+.optrule-toggle.active .optrule-switch { background: var(--accent); }
+.optrule-toggle.active .optrule-switch::after { transform: translateX(14px); }
+.optrule-name { display: block; font-size: 14px; font-weight: 700; }
+.optrule-desc { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
 /* --- Secondary: career mode, deliberately quieter --- */
 .play-secondary {
   margin-top: 30px;
@@ -2775,6 +2926,7 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   .play-primary { padding: 18px 14px 16px; }
   .career-grid { grid-template-columns: 1fr; }
   .challenge-inline .challenge-grid { grid-template-columns: 1fr; }
+  .optrule-row { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
