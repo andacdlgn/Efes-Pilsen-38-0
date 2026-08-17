@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v36";
+const APP_VERSION = "v37";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -869,19 +869,54 @@ function avatarHtml(name) {
   return `<div class="player-avatar ${kit}">${initials}</div>`;
 }
 
-function buildStatBlocksHtml(p) {
+// Per-season stat ceilings, used only to scale the little in-card bars —
+// "how tall is this bar relative to the best in this season's pool", not an
+// absolute scale. Cached per season since the pool doesn't change mid-draft.
+let SEASON_STAT_MAX = {};
+function seasonStatMax(season) {
+  if (SEASON_STAT_MAX[season]) return SEASON_STAT_MAX[season];
+  const list = (state.playersBySeason && state.playersBySeason[season]) || [];
+  const max = { el: { pts: 1, reb: 1, ast: 1, blk: 1, stl: 1 }, bsl: { pts: 1, reb: 1, ast: 1, stl: 1 } };
+  list.forEach((pl) => {
+    if (pl.euroleague) {
+      const e = pl.euroleague;
+      ["pts", "reb", "ast", "blk", "stl"].forEach((k) => { if (e[k] > max.el[k]) max.el[k] = e[k]; });
+    }
+    if (pl.bsl) {
+      const b = pl.bsl;
+      ["pts", "reb", "ast", "stl"].forEach((k) => { const v = b[k] != null ? b[k] : 0; if (v > max.bsl[k]) max.bsl[k] = v; });
+    }
+  });
+  SEASON_STAT_MAX[season] = max;
+  return max;
+}
+
+function statBarRow(label, value, max) {
+  const pct = Math.max(3, Math.min(100, Math.round((value / (max || 1)) * 100)));
+  return `<div class="stat-bar-row">
+    <span class="stat-bar-label">${label}</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:${pct}%"></div></div>
+    <span class="stat-bar-val">${value.toFixed(1)}</span>
+  </div>`;
+}
+
+// `season` picks which pool the bars are scaled against — the currently
+// spinning season for draft-pool cards, or the player's own drafted season
+// for roster cards.
+function buildStatBlocksHtml(p, season) {
   let html = "";
+  const max = seasonStatMax(season || p.season);
   if (p.euroleague) {
     const e = p.euroleague;
     html += `
       <div class="stat-block">
         <div class="stat-block-label">EuroLeague</div>
-        <div class="stat-row">
-          <div><b>${e.pts.toFixed(1)}</b><span>PTS</span></div>
-          <div><b>${e.reb.toFixed(1)}</b><span>REB</span></div>
-          <div><b>${e.ast.toFixed(1)}</b><span>AST</span></div>
-          <div><b>${e.blk.toFixed(1)}</b><span>BLK</span></div>
-          <div><b>${e.stl.toFixed(1)}</b><span>STL</span></div>
+        <div class="stat-bars">
+          ${statBarRow("PTS", e.pts, max.el.pts)}
+          ${statBarRow("REB", e.reb, max.el.reb)}
+          ${statBarRow("AST", e.ast, max.el.ast)}
+          ${statBarRow("BLK", e.blk, max.el.blk)}
+          ${statBarRow("STL", e.stl, max.el.stl)}
         </div>
       </div>`;
   }
@@ -890,11 +925,11 @@ function buildStatBlocksHtml(p) {
     html += `
       <div class="stat-block">
         <div class="stat-block-label">BSL</div>
-        <div class="stat-row">
-          <div><b>${b.pts.toFixed(1)}</b><span>PTS</span></div>
-          <div><b>${b.reb.toFixed(1)}</b><span>REB</span></div>
-          <div><b>${b.ast.toFixed(1)}</b><span>AST</span></div>
-          <div><b>${(b.stl != null ? b.stl : 0).toFixed(1)}</b><span>STL</span></div>
+        <div class="stat-bars">
+          ${statBarRow("PTS", b.pts, max.bsl.pts)}
+          ${statBarRow("REB", b.reb, max.bsl.reb)}
+          ${statBarRow("AST", b.ast, max.bsl.ast)}
+          ${statBarRow("STL", b.stl != null ? b.stl : 0, max.bsl.stl)}
         </div>
         <div class="no-data-note">BSL source has no blocks data</div>
       </div>`;
@@ -920,7 +955,7 @@ function renderPlayerPool(pool) {
     const card = document.createElement("div");
     card.className = "player-card era-" + eraClassOf(state.currentSpinSeason) + (pickable ? "" : " player-card-disabled") + (isArmed ? " selected" : "");
 
-    const blocksHtml = buildStatBlocksHtml(p);
+    const blocksHtml = buildStatBlocksHtml(p, state.currentSpinSeason);
     const priceTagHtml =
       state.budgetType === "cap"
         ? `<span class="player-price-tag${affordable ? "" : " unaffordable"}">${price}cr</span>`
@@ -928,7 +963,7 @@ function renderPlayerPool(pool) {
 
     card.innerHTML = `
       <div class="card-top-row">
-        <div class="position-badge">${p.positions.join(" / ")}</div>${priceTagHtml}
+        <div class="position-badge" data-pos="${p.positions[0] || ''}">${p.positions.join(" / ")}</div>${priceTagHtml}
       </div>
       <div class="player-head-row">
         ${avatarHtml(p.name)}
@@ -1040,7 +1075,7 @@ function renderRosterCards(containerId, coachBannerId) {
     const card = document.createElement("div");
     card.className = "roster-card era-" + eraClassOf(p.season);
     card.innerHTML = `
-      <div class="roster-slot-tag">${tag}</div>
+      <div class="roster-slot-tag" data-pos="${p.filledPosition || ''}">${tag}</div>
       <div class="player-head-row">
         ${avatarHtml(p.name)}
         <div class="player-name">${p.name}</div>
@@ -1049,7 +1084,7 @@ function renderRosterCards(containerId, coachBannerId) {
       ${bioLineHtml(p)}
       ${state.captainName === p.name ? '<div class="captain-badge">★ CAPTAIN</div>' : ""}
       ${honorsHtml(honorsFor(p, p.season))}
-      ${buildStatBlocksHtml(p)}
+      ${buildStatBlocksHtml(p, p.season)}
     `;
     card.addEventListener("click", () => {
       if (state.tradeMode) executeTrade(p);
@@ -2598,7 +2633,7 @@ function renderLineupIntro(onDone) {
     el.className = "lineup-player";
     el.style.animationDelay = i * 0.55 + "s";
     el.innerHTML = `
-      <div class="lineup-pos">${p.filledPosition}</div>
+      <div class="lineup-pos" data-pos="${p.filledPosition || ''}">${p.filledPosition}</div>
       ${avatarHtml(p.name)}
       <div class="lineup-name">${p.name}</div>
       <div class="lineup-season">${p.season}</div>`;
@@ -3605,7 +3640,7 @@ function renderAwards() {
     <div class="all-team">
       <div class="award-label">All-EuroLeague First Team</div>
       <div class="all-team-row">
-        ${allFirst.map((p) => `<div class="all-team-slot"><span class="att-pos">${p.filledPosition}</span><span class="att-name">${p.name}</span></div>`).join("")}
+        ${allFirst.map((p) => `<div class="all-team-slot"><span class="att-pos" data-pos="${p.filledPosition || ''}">${p.filledPosition}</span><span class="att-name">${p.name}</span></div>`).join("")}
       </div>
     </div>`;
 }

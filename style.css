@@ -11,6 +11,13 @@
   --line: rgba(237, 234, 226, 0.12);
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Work Sans', system-ui, sans-serif;
+  /* Position colour-coding — cool for perimeter, warm for interior, kept
+     clear of --red/--green which already carry win/loss meaning. */
+  --pos-pg: #7C6FD1;
+  --pos-sg: #4C8FE0;
+  --pos-sf: #3FB88F;
+  --pos-pf: #E0A23F;
+  --pos-c:  #D96A4C;
 }
 
 * { box-sizing: border-box; }
@@ -422,6 +429,13 @@ main#app {
   border-radius: 3px;
   margin-bottom: 8px;
 }
+/* Position colour-coding — a quick scan cue across the pool, roster,
+   lineup and awards screens without adding any new UI. */
+.position-badge[data-pos="PG"] { background: var(--pos-pg); }
+.position-badge[data-pos="SG"] { background: var(--pos-sg); }
+.position-badge[data-pos="SF"] { background: var(--pos-sf); }
+.position-badge[data-pos="PF"] { background: var(--pos-pf); }
+.position-badge[data-pos="C"]  { background: var(--pos-c); }
 
 .stat-block {
   margin-top: 8px;
@@ -436,15 +450,27 @@ main#app {
   letter-spacing: 0.06em;
   margin-bottom: 4px;
 }
-.stat-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+/* Stat bars — each row scales to the best value in that season's pool, so a
+   card's shape (long PTS/AST bars vs long REB/BLK bars) reads as a player
+   profile at a glance, without having to parse five separate numbers. */
+.stat-bars { display: flex; flex-direction: column; gap: 4px; }
+.stat-bar-row {
+  display: grid;
+  grid-template-columns: 26px 1fr 28px;
+  align-items: center;
+  gap: 6px;
 }
-.stat-row div { text-align: left; }
-.stat-row b { color: var(--accent); font-family: var(--font-display); font-size: 17px; display: block; line-height: 1.1; }
-.stat-row span { color: var(--muted); font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em; }
-.no-data-note { color: var(--muted); font-size: 11px; font-style: italic; }
+.stat-bar-label { color: var(--muted); font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em; }
+.stat-bar-track { height: 5px; border-radius: 999px; background: rgba(237, 234, 226, 0.08); overflow: hidden; }
+.stat-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+  transition: width 0.3s ease;
+}
+:root[data-reduce-motion="on"] .stat-bar-fill { transition: none; }
+.stat-bar-val { color: var(--accent); font-family: var(--font-display); font-size: 13px; text-align: right; line-height: 1; }
+.no-data-note { color: var(--muted); font-size: 11px; font-style: italic; margin-top: 4px; }
 .open-line { color: var(--accent); font-weight: 600; font-size: 11px; }
 
 /* ---------- Player pool / player cards ---------- */
@@ -756,6 +782,11 @@ main#app {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.roster-slot-tag[data-pos="PG"] { color: var(--pos-pg); }
+.roster-slot-tag[data-pos="SG"] { color: var(--pos-sg); }
+.roster-slot-tag[data-pos="SF"] { color: var(--pos-sf); }
+.roster-slot-tag[data-pos="PF"] { color: var(--pos-pf); }
+.roster-slot-tag[data-pos="C"]  { color: var(--pos-c); }
 
 /* ---------- Coach select ---------- */
 .coach-grid {
@@ -1401,6 +1432,11 @@ main#app {
   color: var(--accent);
   margin-bottom: 10px;
 }
+.lineup-pos[data-pos="PG"] { color: var(--pos-pg); }
+.lineup-pos[data-pos="SG"] { color: var(--pos-sg); }
+.lineup-pos[data-pos="SF"] { color: var(--pos-sf); }
+.lineup-pos[data-pos="PF"] { color: var(--pos-pf); }
+.lineup-pos[data-pos="C"]  { color: var(--pos-c); }
 .lineup-name { font-weight: 700; font-size: 15px; line-height: 1.25; }
 .lineup-season { color: var(--muted); font-size: 12px; margin-top: 4px; }
 #lineup-continue-btn { display: block; margin: 0 auto; }
@@ -2107,6 +2143,11 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   color: var(--accent);
   letter-spacing: 0.06em;
 }
+.att-pos[data-pos="PG"] { color: var(--pos-pg); }
+.att-pos[data-pos="SG"] { color: var(--pos-sg); }
+.att-pos[data-pos="SF"] { color: var(--pos-sf); }
+.att-pos[data-pos="PF"] { color: var(--pos-pf); }
+.att-pos[data-pos="C"]  { color: var(--pos-c); }
 .att-name { display: block; font-size: 12px; font-weight: 600; }
 
 /* ---------- Legend trophies ---------- */

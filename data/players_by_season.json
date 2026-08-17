@@ -12274,5 +12274,289 @@
       "height": "2.18",
       "ratingRaw": 4
     }
+  ],
+  "2026-27": [
+    {
+      "name": "Brice Dessert",
+      "positions": [
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.9,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "2.10",
+      "ratingRaw": 5.95
+    },
+    {
+      "name": "Burak Can Yıldızlı",
+      "positions": [
+        "PF",
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 4.31,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.04",
+      "ratingRaw": 0.93
+    },
+    {
+      "name": "David Mutaf",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 3.33,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.97",
+      "ratingRaw": 2.3
+    },
+    {
+      "name": "Ercan Osmani",
+      "positions": [
+        "C",
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 7.68,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "2.13",
+      "ratingRaw": 8.06
+    },
+    {
+      "name": "Erkan Yilmaz",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 3.64,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.92",
+      "ratingRaw": 3.12
+    },
+    {
+      "name": "Georgios Papagiannis",
+      "positions": [
+        "C",
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.3,
+      "country": "Yunanistan",
+      "countryCode": "GR",
+      "height": "2.18",
+      "ratingRaw": 4
+    },
+    {
+      "name": "Isaia Cordinier",
+      "positions": [
+        "SF",
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 6.34,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "height": "1.96",
+      "ratingRaw": 6.53
+    },
+    {
+      "name": "Jordan Loyd",
+      "positions": [
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 7.16,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.93",
+      "ratingRaw": 7.47
+    },
+    {
+      "name": "Kai Jones",
+      "positions": [
+        "C",
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 6.33,
+      "country": "Bahamalar",
+      "countryCode": "BS",
+      "height": "2.11",
+      "ratingRaw": 6.45
+    },
+    {
+      "name": "P.J. Dozier",
+      "positions": [
+        "PG",
+        "SG"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "ABD",
+      "countryCode": "US",
+      "height": "1.98",
+      "ratingRaw": 5.98
+    },
+    {
+      "name": "Rüzgar Fenemen",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 4.21,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": null,
+      "ratingRaw": -0.12
+    },
+    {
+      "name": "Doğuş Özdemiroğlu",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 3.22,
+      "country": "Türkiye",
+      "countryCode": "TR",
+      "height": "1.91",
+      "ratingRaw": 2.39
+    },
+    {
+      "name": "Mike James",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "ABD",
+      "countryCode": "US",
+      "ratingRaw": 0,
+      "height": "1.85"
+    },
+    {
+      "name": "Daron Russell",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "ABD",
+      "countryCode": "US",
+      "ratingRaw": 0
+    },
+    {
+      "name": "Matthew Strazel",
+      "positions": [
+        "PG"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "Fransa",
+      "countryCode": "FR",
+      "ratingRaw": 0,
+      "height": "1.82"
+    },
+    {
+      "name": "Santiago Yusta",
+      "positions": [
+        "SF",
+        "PF"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "İspanya",
+      "countryCode": "ES",
+      "ratingRaw": 0,
+      "height": "2.00"
+    },
+    {
+      "name": "Collin Malcolm",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "ABD",
+      "countryCode": "US",
+      "ratingRaw": 0,
+      "height": "2.00"
+    },
+    {
+      "name": "Dario Šarić",
+      "positions": [
+        "PF",
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "Hırvatistan",
+      "countryCode": "HR",
+      "ratingRaw": 0,
+      "height": "2.08"
+    },
+    {
+      "name": "Bruno Fernando",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "Angola",
+      "countryCode": "AO",
+      "ratingRaw": 0,
+      "height": "2.08"
+    },
+    {
+      "name": "Tyrique Jones",
+      "positions": [
+        "C"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "ABD",
+      "countryCode": "US",
+      "ratingRaw": 0,
+      "height": "2.06"
+    },
+    {
+      "name": "Derek Willis",
+      "positions": [
+        "SF"
+      ],
+      "euroleague": null,
+      "bsl": null,
+      "rating": 5.93,
+      "country": "ABD",
+      "countryCode": "US",
+      "ratingRaw": 0,
+      "height": "2.06"
+    }
   ]
 }
