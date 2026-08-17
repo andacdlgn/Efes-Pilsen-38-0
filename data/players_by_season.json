@@ -4112,7 +4112,7 @@
       "ratingRaw": 2
     },
     {
-      "name": "Peja Drobnjak",
+      "name": "Predrag Drobnjak",
       "positions": [
         "SF"
       ],
@@ -6151,26 +6151,6 @@
       "ratingRaw": 7.11
     },
     {
-      "name": "Kostas Vasileiadis",
-      "positions": [
-        "C"
-      ],
-      "euroleague": null,
-      "bsl": {
-        "pts": 8.6,
-        "reb": 2.2,
-        "ast": 1.6,
-        "gp": "22",
-        "rating_raw": 8.4,
-        "stl": 0.5
-      },
-      "rating": 5.42,
-      "country": "Yunanistan",
-      "countryCode": "GR",
-      "height": "2.00",
-      "ratingRaw": 5.21
-    },
-    {
       "name": "Milko Bjelica",
       "positions": [
         "SF",
@@ -6304,27 +6284,6 @@
       "ratingRaw": 2.64
     },
     {
-      "name": "Kostas Vasiliadis",
-      "positions": [
-        "SG"
-      ],
-      "euroleague": {
-        "pts": 10.9,
-        "reb": 2.8,
-        "ast": 1.4,
-        "stl": 0.9,
-        "blk": 0.2,
-        "gp": "20",
-        "rating_raw": 7.7
-      },
-      "bsl": null,
-      "rating": 6.9,
-      "country": "Yunanistan",
-      "countryCode": "GR",
-      "height": "2.00",
-      "ratingRaw": 7.7
-    },
-    {
       "name": "Alexandros Vasileiadis",
       "positions": [
         "SG"
@@ -6384,6 +6343,35 @@
       "country": "Sırbistan",
       "countryCode": "RS",
       "ratingRaw": 4.4
+    },
+    {
+      "name": "Kostas Vasileiadis",
+      "positions": [
+        "C",
+        "SG"
+      ],
+      "euroleague": {
+        "pts": 10.9,
+        "reb": 2.8,
+        "ast": 1.4,
+        "stl": 0.9,
+        "blk": 0.2,
+        "gp": "20",
+        "rating_raw": 7.7
+      },
+      "bsl": {
+        "pts": 8.6,
+        "reb": 2.2,
+        "ast": 1.6,
+        "gp": "22",
+        "rating_raw": 8.4,
+        "stl": 0.5
+      },
+      "rating": 6.9,
+      "country": "Yunanistan",
+      "countryCode": "GR",
+      "height": "2.00",
+      "ratingRaw": 7.7
     }
   ],
   "2014-15": [
@@ -12238,26 +12226,6 @@
       "ratingRaw": 2.3
     },
     {
-      "name": "Georgios Papagiannis",
-      "positions": [
-        "C"
-      ],
-      "euroleague": null,
-      "bsl": {
-        "pts": 7.5,
-        "reb": 2.5,
-        "ast": 3,
-        "gp": "2",
-        "rating_raw": 9.5,
-        "stl": 0
-      },
-      "rating": 5.78,
-      "country": "Yunanistan",
-      "countryCode": "GR",
-      "height": "2.18",
-      "ratingRaw": 5.89
-    },
-    {
       "name": "Rüzgar Fenemen",
       "positions": [
         "SF"
@@ -12278,8 +12246,9 @@
       "ratingRaw": -0.12
     },
     {
-      "name": "George Papagiannis",
+      "name": "Georgios Papagiannis",
       "positions": [
+        "C",
         "SF"
       ],
       "euroleague": {
@@ -12291,7 +12260,14 @@
         "gp": "5",
         "rating_raw": 4
       },
-      "bsl": null,
+      "bsl": {
+        "pts": 7.5,
+        "reb": 2.5,
+        "ast": 3,
+        "gp": "2",
+        "rating_raw": 9.5,
+        "stl": 0
+      },
       "rating": 5.3,
       "country": "Yunanistan",
       "countryCode": "GR",

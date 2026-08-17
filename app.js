@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v35";
+const APP_VERSION = "v36";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -1271,6 +1271,29 @@ function playerRating(p) {
   return p.rating || 0;
 }
 
+// Era strength index — a raw rating was earned against the competition of
+// its own time, and that competition pool has deepened a lot since the
+// 1990s (a much smaller scouting net, a thinner continental field, less
+// athletic/professionalised opposition than the EuroLeague fields real
+// clubs' current strengths in teams.json are built from). Left unadjusted,
+// an old raw rating is compared straight against today's baseline as if
+// the two eras were equally competitive, which they weren't. This scales
+// a player's rating toward that modern baseline before it enters the
+// engine — heaviest for pre-EuroLeague/1990s BSL seasons, easing off
+// through the 2000s, and essentially untouched from the mid-2010s on,
+// which is roughly where the EuroLeague field is judged to already be at
+// today's depth. A simplification, not a researched coefficient — tune
+// freely.
+function seasonYear(s) { return parseInt(String(s).slice(0, 4), 10); }
+function eraFactor(season) {
+  const year = seasonYear(season);
+  if (isNaN(year)) return 1;
+  if (year < 2000) return 0.90;   // pre-EuroLeague-era BSL / European Cup
+  if (year < 2008) return 0.94;   // early EuroLeague, still consolidating
+  if (year < 2014) return 0.97;   // deepening field
+  return 1.0;                     // modern EuroLeague depth
+}
+
 // Estimated average scoring margin per game against a league-average opponent.
 function computeExpectedMargin() {
   const starters = state.roster.filter((p) => p.tier === "starter");
@@ -1278,13 +1301,14 @@ function computeExpectedMargin() {
   const starterWeight = STARTER_WEIGHT[state.mode === "12" ? 12 : 5];
 
   const captainBoost = (p) => (state.captainName === p.name ? 1.15 : 1);
+  const eraRating = (p) => playerRating(p) * eraFactor(p.season);
   const avgStarterRating =
-    starters.reduce((s, p) => s + playerRating(p) * captainBoost(p), 0) / (starters.length || 1);
+    starters.reduce((s, p) => s + eraRating(p) * captainBoost(p), 0) / (starters.length || 1);
   const starterDiff = avgStarterRating - LEAGUE_AVG_RATING;
 
   let benchTerm = 0;
   if (bench.length > 0) {
-    const avgBenchRating = bench.reduce((s, p) => s + playerRating(p), 0) / bench.length;
+    const avgBenchRating = bench.reduce((s, p) => s + eraRating(p), 0) / bench.length;
     benchTerm = (avgBenchRating - LEAGUE_AVG_RATING) * BENCH_WEIGHT;
   }
 
@@ -2426,14 +2450,20 @@ function noiseBurst(durationMs, gainVal = 0.05) {
   src.start();
 }
 
+const HAPTIC_OK = typeof navigator !== "undefined" && typeof navigator.vibrate === "function";
+function haptic(pattern) {
+  if (!HAPTIC_OK || !soundOn) return;
+  try { navigator.vibrate(pattern); } catch { /* unsupported or blocked, ignore */ }
+}
+
 const SFX = {
   bounce: () => tone(180, 120, "sine", 0.07),
-  place: () => { tone(440, 90, "triangle", 0.05); setTimeout(() => tone(660, 110, "triangle", 0.04), 70); },
-  spin: () => tone(320, 70, "square", 0.025),
-  win: () => tone(720, 90, "sine", 0.04),
-  loss: () => tone(200, 110, "sawtooth", 0.035),
-  whistle: () => { tone(1800, 180, "square", 0.03); setTimeout(() => tone(2100, 160, "square", 0.025), 120); },
-  crowd: () => { noiseBurst(1400, 0.05); setTimeout(() => noiseBurst(1000, 0.035), 500); },
+  place: () => { tone(440, 90, "triangle", 0.05); setTimeout(() => tone(660, 110, "triangle", 0.04), 70); haptic(12); },
+  spin: () => { tone(320, 70, "square", 0.025); haptic(8); },
+  win: () => { tone(720, 90, "sine", 0.04); haptic([15, 40, 15]); },
+  loss: () => { tone(200, 110, "sawtooth", 0.035); haptic(20); },
+  whistle: () => { tone(1800, 180, "square", 0.03); setTimeout(() => tone(2100, 160, "square", 0.025), 120); haptic(10); },
+  crowd: () => { noiseBurst(1400, 0.05); setTimeout(() => noiseBurst(1000, 0.035), 500); haptic([20, 60, 20, 60, 30]); },
 };
 
 // ---------- Theme ----------
@@ -3491,21 +3521,43 @@ function renderBracket(userRank, userSeriesResult) {
 }
 
 // ---------- Awards ceremony ----------
+// NBA-style end-of-season suite: the ones with a real single-season, roster
+// -level analogue (MVP, DPOY, Sixth Man, an All-League team) transfer over
+// cleanly. Rookie of the Year / Most Improved don't — there's no real
+// season-to-season player progression here to measure them against, so
+// they're skipped rather than faked.
 function renderAwards() {
   const el = document.getElementById("awards-block");
   if (!el || !state.roster.length) return;
   const roster = [...state.roster].sort((a, b) => b.rating - a.rating);
   const mvp = roster[0];
 
-  const bestOf = (stat) => {
+  const bestOf = (stat, pool) => {
     let best = null, bv = -1;
-    state.roster.forEach((p) => {
+    (pool || state.roster).forEach((p) => {
       const v = statValue(p, stat);
       if (v > bv) { bv = v; best = p; }
     });
     return best;
   };
-  const defender = bestOf("blk") || bestOf("stl");
+  const dpoy = bestOf("blk") || bestOf("stl");
+  const bench = state.roster.filter((p) => p.tier !== "starter");
+  const sixthMan = bench.length ? [...bench].sort((a, b) => b.rating - a.rating)[0] : null;
+  // Finals MVP isn't always the season MVP in real life either — weighted
+  // toward the best players without being locked to whoever tops the full
+  // roster, so a title run can crown a different star of the series.
+  const finalsPool = roster.slice(0, 3);
+  const finalsWeights = finalsPool.map((p) => Math.max(0.1, p.rating));
+  const finalsTotal = finalsWeights.reduce((a, b) => a + b, 0);
+  let finalsMvp = null;
+  if (lastPlayoffChampion && finalsPool.length) {
+    let r = Math.random() * finalsTotal;
+    finalsMvp = finalsPool[finalsPool.length - 1];
+    for (let i = 0; i < finalsPool.length; i++) {
+      r -= finalsWeights[i];
+      if (r <= 0) { finalsMvp = finalsPool[i]; break; }
+    }
+  }
   const allFirst = POSITION_ORDER
     .map((pos) => state.roster.find((p) => p.tier === "starter" && p.filledPosition === pos))
     .filter(Boolean);
@@ -3520,11 +3572,28 @@ function renderAwards() {
         <div class="award-name">${mvp.name}</div>
         <div class="award-sub">${mvp.season}</div>
       </div>
-      ${defender ? `<div class="award-card">
-        <div class="award-label">Best Defender</div>
-        ${avatarHtml(defender.name)}
-        <div class="award-name">${defender.name}</div>
-        <div class="award-sub">${defender.season}</div>
+      ${finalsMvp ? `<div class="award-card award-mvp">
+        <div class="award-label">Finals MVP</div>
+        ${avatarHtml(finalsMvp.name)}
+        <div class="award-name">${finalsMvp.name}</div>
+        <div class="award-sub">${finalsMvp.season}</div>
+      </div>` : ""}
+      ${dpoy ? `<div class="award-card">
+        <div class="award-label">Defensive Player of the Year</div>
+        ${avatarHtml(dpoy.name)}
+        <div class="award-name">${dpoy.name}</div>
+        <div class="award-sub">${dpoy.season}</div>
+      </div>` : ""}
+      ${sixthMan ? `<div class="award-card">
+        <div class="award-label">Sixth Man of the Year</div>
+        ${avatarHtml(sixthMan.name)}
+        <div class="award-name">${sixthMan.name}</div>
+        <div class="award-sub">${sixthMan.season}</div>
+      </div>` : ""}
+      ${state.coach ? `<div class="award-card">
+        <div class="award-label">Coach of the Year</div>
+        <div class="award-name">${state.coach.name}</div>
+        <div class="award-sub">Head Coach</div>
       </div>` : ""}
       ${state.captainName ? `<div class="award-card">
         <div class="award-label">Captain</div>
