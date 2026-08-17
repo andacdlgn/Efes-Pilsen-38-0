@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v40";
+const APP_VERSION = "v41";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -197,6 +197,15 @@ function updateChemistryPanel() {
 }
 
 function resetToCategory() {
+  // Returning home always drops any Career Mode session that's live in
+  // memory — otherwise the topbar's "Season N · cr" banner (and a stale
+  // budget total) kept showing through a normal single-season game started
+  // right after leaving a career run. Progress itself isn't lost: it's
+  // already persisted via saveCareer(), so "Continue Career" on the home
+  // screen picks the same run back up.
+  state.career = null;
+  updateCareerBanner();
+  renderCareerHome();
   showScreen("screen-category");
 }
 
@@ -1480,66 +1489,6 @@ function buildGameFlow(finalScore) {
   return flow;
 }
 
-// Re-splits whatever's left of a live Final Four game's score into the
-// remaining quarters with a chosen variance, used by the live tactical
-// choice (see revealLiveGame) to let a mid-game decision actually reshape
-// how the rest of the game plays out, while the final score never moves.
-function resplitRemaining(remUs, remThem, count, variance) {
-  const partsFor = (total) => {
-    if (count <= 1) return [Math.max(0, total)];
-    const weights = Array.from({ length: count }, () => (1 - variance) + Math.random() * (2 * variance));
-    const sum = weights.reduce((a, b) => a + b, 0);
-    const parts = weights.map((w) => Math.max(0, Math.round((total * w) / sum)));
-    const diff = total - parts.reduce((a, b) => a + b, 0);
-    parts[count - 1] = Math.max(0, parts[count - 1] + diff);
-    return parts;
-  };
-  return { us: partsFor(remUs), them: partsFor(remThem) };
-}
-
-function applyTacticalChoice(g, afterQuarterIdx, style) {
-  const finalUs = g.score[0], finalThem = g.score[1];
-  const doneUs = g.flow[afterQuarterIdx].us, doneThem = g.flow[afterQuarterIdx].them;
-  const remQuarters = 3 - afterQuarterIdx;
-  if (remQuarters <= 0) return;
-  const variance = style === "fast" ? 0.55 : 0.16;
-  const { us: usParts, them: themParts } = resplitRemaining(finalUs - doneUs, finalThem - doneThem, remQuarters, variance);
-  let cumUs = doneUs, cumThem = doneThem;
-  for (let k = 0; k < remQuarters; k++) {
-    cumUs += usParts[k]; cumThem += themParts[k];
-    g.flow[afterQuarterIdx + 1 + k] = { quarter: afterQuarterIdx + 2 + k, us: cumUs, them: cumThem };
-  }
-  g.flow[3].us = finalUs;
-  g.flow[3].them = finalThem;
-}
-
-// Live Final Four tactical choice: a short pause between quarters where the
-// user picks how the team plays the next one. Purely cosmetic in its own
-// right — the real effect is applyTacticalChoice() reshaping the remaining
-// quarters' variance — with a timeout fallback so the reveal never stalls
-// if nobody clicks.
-function showTacticalPrompt(board, callback) {
-  const prompt = document.createElement("div");
-  prompt.className = "lg-tactic-prompt";
-  prompt.innerHTML = `
-    <span class="lg-tactic-label">Next quarter:</span>
-    <button class="lg-tactic-btn" data-style="fast">⚡ Hızlı Oyna</button>
-    <button class="lg-tactic-btn" data-style="steady">🛡️ Kontrollü Oyna</button>
-  `;
-  board.appendChild(prompt);
-  let settled = false;
-  const finish = (style) => {
-    if (settled) return;
-    settled = true;
-    prompt.remove();
-    callback(style);
-  };
-  prompt.querySelectorAll(".lg-tactic-btn").forEach((btn) => {
-    btn.addEventListener("click", () => { SFX.place(); finish(btn.dataset.style); });
-  });
-  setTimeout(() => finish("steady"), 4000);
-}
-
 function makeScore(edge, aWins) {
   const pace = 76 + Math.round(Math.random() * 14);
   const expected = Math.abs(edge) * 0.55;
@@ -2519,16 +2468,8 @@ function playPlayoffs(regularMargin, userRank) {
         qEl.textContent = qi === 3 ? "4TH QUARTER" : `${["1ST", "2ND", "3RD"][qi]} QUARTER`;
         barEl.style.width = ((qi + 1) / 4) * 100 + "%";
         SFX.spin();
-        const finishedQuarter = qi;
         qi++;
-        if (finishedQuarter < 3) {
-          showTacticalPrompt(board, (style) => {
-            if (style) applyTacticalChoice(g, finishedQuarter, style);
-            setTimeout(tick, 700);
-          });
-        } else {
-          setTimeout(tick, 900);
-        }
+        setTimeout(tick, 900);
       };
       setTimeout(tick, 500);
     }
@@ -4389,6 +4330,7 @@ function renderCareerHome() {
   block.querySelector("#career-abandon").addEventListener("click", () => {
     clearCareer();
     state.career = null;
+    updateCareerBanner();
     renderCareerHome();
   });
 }

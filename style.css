@@ -2728,37 +2728,6 @@ button, .pos-tab, .player-card, .court-slot, .bench-slot { -webkit-tap-highlight
   background: linear-gradient(90deg, var(--accent), #22B8E6);
   transition: width 0.7s ease;
 }
-.lg-tactic-prompt {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--line);
-  animation: streak-pop 0.25s ease;
-}
-.lg-tactic-label {
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-  flex: none;
-}
-.lg-tactic-btn {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 7px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--accent);
-  background: rgba(0,164,210,0.12);
-  color: var(--ink);
-  cursor: pointer;
-  transition: background 0.15s ease, transform 0.15s ease;
-}
-.lg-tactic-btn:hover { background: rgba(0,164,210,0.25); transform: translateY(-1px); }
-
 /* ============================================================
    v31 — clear hierarchy between Single Season and Career Mode
    ============================================================ */
