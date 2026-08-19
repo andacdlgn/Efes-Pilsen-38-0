@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v42";
+const APP_VERSION = "v43";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -885,6 +885,16 @@ function avatarHtml(name) {
   for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
   const kit = KITS[hash % KITS.length];
   return `<div class="player-avatar ${kit}">${initials}</div>`;
+}
+
+// Used wherever a player's identity must stay hidden (trivia mystery cards).
+// avatarHtml() derives both the initials AND the kit colour from the real
+// name, which quietly spoils the answer (initials narrow it to one of the
+// visible multiple-choice options). This renders a neutral placeholder with
+// no signal tied to the actual player.
+function mysteryAvatarHtml() {
+  const kit = KITS[Math.floor(Math.random() * KITS.length)];
+  return `<div class="player-avatar ${kit}">?</div>`;
 }
 
 // Per-season stat ceilings, used only to scale the little in-card bars —
@@ -4449,7 +4459,7 @@ function nextGuessRound() {
   const cardEl = document.getElementById("gp-card");
   cardEl.innerHTML = `
     <div class="gp-card-head">
-      ${avatarHtml(correct.name)}
+      ${mysteryAvatarHtml()}
       <div class="gp-card-meta">
         <span class="gp-card-pos">${(correct.positions || []).join("/") || "—"} ${flagEmoji(correct.countryCode)}</span>
         <span class="gp-card-sub">${correct.season}${correct.height ? " · " + correct.height + "m" : ""}</span>
@@ -4544,7 +4554,7 @@ function advanceHigherLower() {
 function hlCardHtml(p, revealed, side) {
   return `
     <div class="hl-card" id="hl-card-${side}">
-      ${avatarHtml(p.name)}
+      ${revealed ? avatarHtml(p.name) : mysteryAvatarHtml()}
       <div class="hl-card-name">${revealed ? p.name : "?"}</div>
       <div class="hl-card-meta">${(p.positions || []).join("/") || "—"} ${flagEmoji(p.countryCode)} · ${p.season}</div>
       <div class="hl-card-value ${revealed ? "" : "pending"}">${revealed ? p.rating.toFixed(1) : "?"}</div>
@@ -4586,6 +4596,8 @@ function guessHigherLower(choice) {
   valueEl.textContent = rightVal.toFixed(1);
   valueEl.classList.remove("pending");
   rightCard.querySelector(".hl-card-name").textContent = hl.right.name;
+  const avatarEl = rightCard.querySelector(".player-avatar");
+  if (avatarEl) avatarEl.outerHTML = avatarHtml(hl.right.name);
   rightCard.classList.add(correct ? "correct" : "wrong");
 
   if (correct) {
