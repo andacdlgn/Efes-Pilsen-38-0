@@ -142,6 +142,16 @@
       </div>
     </section>
 
+    <!-- Third route: quick trivia rounds, no drafting at all. -->
+    <section class="play-block play-trivia">
+      <div class="play-head">
+        <span class="play-tag play-tag-alt2">Something different</span>
+        <h2 class="section-title section-title-sm">Trivia Arcade</h2>
+      </div>
+      <p class="section-sub">No roster to build — just quick rounds testing what you actually know about Efes history.</p>
+      <button class="btn-secondary trivia-entry-btn" id="trivia-arcade-btn">Enter the Arcade →</button>
+    </section>
+
     <div class="history-block" id="history-block" hidden>
       <h2 class="section-title">Your Recent Rosters</h2>
       <div class="history-list" id="history-list"></div>
@@ -168,6 +178,39 @@
     <p class="data-note">Recorded player statistics run from 1997–98 (Turkish league) and 2001–02 (EuroLeague) through 2025–26. EuroLeague stats via RealGM, Turkish league stats via TBLStat.net. Squad lists exist for earlier seasons but without per-game box scores — the same is true for 2026–27, whose season hasn't tipped off yet.</p>
 
     <div class="version-badge" id="version-badge"></div>
+  </section>
+
+  <!-- TRIVIA HUB -->
+  <section id="screen-trivia-hub" class="screen">
+    <h2 class="section-title">Trivia Arcade</h2>
+    <p class="section-sub">No drafting — just how well you actually know Efes history.</p>
+    <div class="trivia-entry-grid" id="trivia-entry-grid"></div>
+  </section>
+
+  <!-- GUESS THE PLAYER -->
+  <section id="screen-guess-player" class="screen">
+    <div class="trivia-header">
+      <h2 class="section-title">Guess the Player</h2>
+      <div class="trivia-progress" id="gp-progress">Round 1 / 8</div>
+    </div>
+    <p class="section-sub">Stats only, no name — pick the right player.</p>
+    <div class="gp-card" id="gp-card"></div>
+    <div class="gp-choices" id="gp-choices"></div>
+    <div class="gp-feedback" id="gp-feedback" hidden></div>
+    <div class="gp-result" id="gp-result" hidden></div>
+    <button class="btn-secondary" id="gp-quit-btn">← Back to Trivia</button>
+  </section>
+
+  <!-- HIGHER OR LOWER -->
+  <section id="screen-higher-lower" class="screen">
+    <div class="trivia-header">
+      <h2 class="section-title">Higher or Lower</h2>
+      <div class="trivia-progress"><span id="hl-streak">Streak: 0</span> · <span id="hl-best">Best: 0</span></div>
+    </div>
+    <p class="section-sub">Is the right player's Power Rating higher or lower than the left?</p>
+    <div class="hl-board" id="hl-board"></div>
+    <div class="hl-feedback" id="hl-feedback" hidden></div>
+    <button class="btn-secondary" id="hl-quit-btn">← Back to Trivia</button>
   </section>
 
   <!-- MODE SELECT -->

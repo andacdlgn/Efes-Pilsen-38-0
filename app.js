@@ -2,7 +2,7 @@
 // Road to Glory — Anadolu Efes All-Time Lineup
 // ============================================================
 
-const APP_VERSION = "v41";
+const APP_VERSION = "v42";
 
 const POSITION_ORDER = ["PG", "SG", "SF", "PF", "C"];
 const POSITION_LABEL = { PG: "Point Guard (PG)", SG: "Shooting Guard (SG)", SF: "Small Forward (SF)", PF: "Power Forward (PF)", C: "Center (C)" };
@@ -55,6 +55,9 @@ const state = {
   coaches: [],
   coachBySeason: {},
   dataReady: false,
+  // Trivia Arcade — separate from the draft/season flow entirely.
+  gp: null,
+  hl: null,
 };
 
 // ============================================================
@@ -4341,4 +4344,289 @@ document.addEventListener("DOMContentLoaded", () => {
   const c12 = document.getElementById("career-start-12");
   if (c5) c5.addEventListener("click", () => { if (state.dataReady) startCareer("5"); });
   if (c12) c12.addEventListener("click", () => { if (state.dataReady) startCareer("12"); });
+});
+
+// ============================================================
+// Trivia Arcade — quick mini-games built on the same player data,
+// entirely separate from the draft/season/career flow. No roster,
+// no simulation: just how well you know Efes history.
+// ============================================================
+const TRIVIA_KEY = "efes380_trivia_v1";
+function loadTriviaScores() {
+  try { return JSON.parse(localStorage.getItem(TRIVIA_KEY)) || {}; } catch { return {}; }
+}
+function saveTriviaScores(scores) {
+  try { localStorage.setItem(TRIVIA_KEY, JSON.stringify(scores)); } catch { /* ignore */ }
+}
+
+// The stub entries here are honest placeholders for modes discussed but not
+// yet built (shown as "Yakında" and non-clickable) — not fake features.
+const TRIVIA_MODES = [
+  { id: "guess", name: "Guess the Player", desc: "Stats only, no name — pick the right player.", playable: true },
+  { id: "higherlower", name: "Higher or Lower", desc: "Guess whether the next player rates higher or lower.", playable: true },
+  { id: "season", name: "Hangi Sezon?", desc: "Guess the season from a couple of history clues.", playable: false },
+  { id: "realfake", name: "Gerçek mi Sahte mi?", desc: "Spot the altered stat line.", playable: false },
+  { id: "legend", name: "Efsane mi Değil mi?", desc: "Guess who's actually in the Hall of Legends.", playable: false },
+];
+
+function renderTriviaHub() {
+  const grid = document.getElementById("trivia-entry-grid");
+  if (!grid) return;
+  const scores = loadTriviaScores();
+  grid.innerHTML = "";
+  TRIVIA_MODES.forEach((m) => {
+    const card = document.createElement("button");
+    card.className = "trivia-card" + (m.playable ? "" : " trivia-soon");
+    let bestHtml = "";
+    if (m.id === "guess" && scores.guessBest != null) bestHtml = `<span class="trivia-best">Best run: ${scores.guessBest}/${GP_ROUNDS}</span>`;
+    if (m.id === "higherlower" && scores.hlBest != null) bestHtml = `<span class="trivia-best">Best streak: ${scores.hlBest}</span>`;
+    card.innerHTML = `<span class="mode-name">${m.name}</span><span class="mode-desc">${m.desc}</span>${bestHtml}`;
+    if (m.playable) {
+      card.addEventListener("click", () => {
+        if (!state.dataReady) return;
+        if (m.id === "guess") startGuessPlayer();
+        if (m.id === "higherlower") startHigherLower();
+      });
+    } else {
+      card.disabled = true;
+    }
+    grid.appendChild(card);
+  });
+}
+
+// ---------- Guess the Player ----------
+const GP_ROUNDS = 8;
+
+function pickGuessDecoys(correctPlayer, pool) {
+  const samePos = pool.filter((p) => p.name !== correctPlayer.name && p.positions.some((pos) => correctPlayer.positions.includes(pos)));
+  const others = pool.filter((p) => p.name !== correctPlayer.name);
+  const decoys = [];
+  const seen = new Set([correctPlayer.name]);
+  const drawFrom = (arr) => {
+    const shuffled = [...arr].sort(() => Math.random() - 0.5);
+    for (const p of shuffled) {
+      if (decoys.length >= 3) break;
+      if (seen.has(p.name)) continue;
+      seen.add(p.name);
+      decoys.push(p);
+    }
+  };
+  drawFrom(samePos);
+  drawFrom(others);
+  return decoys;
+}
+
+function startGuessPlayer() {
+  const pool = flatPlayerPool().filter((p) => p.rating != null);
+  const statPool = pool.filter((p) => p.euroleague || p.bsl);
+  state.gp = {
+    round: 0,
+    correct: 0,
+    pool,
+    statPool: statPool.length ? statPool : pool,
+    current: null,
+    answered: false,
+  };
+  showScreen("screen-guess-player");
+  document.getElementById("gp-result").hidden = true;
+  nextGuessRound();
+}
+
+function nextGuessRound() {
+  const gp = state.gp;
+  if (!gp) return;
+  if (gp.round >= GP_ROUNDS) { endGuessRun(); return; }
+  gp.round++;
+  document.getElementById("gp-progress").textContent = `Round ${gp.round} / ${GP_ROUNDS}`;
+  document.getElementById("gp-feedback").hidden = true;
+
+  const correct = gp.statPool[Math.floor(Math.random() * gp.statPool.length)];
+  const decoys = pickGuessDecoys(correct, gp.pool);
+  const options = [correct, ...decoys].sort(() => Math.random() - 0.5);
+  gp.current = { correct, options };
+  gp.answered = false;
+
+  const cardEl = document.getElementById("gp-card");
+  cardEl.innerHTML = `
+    <div class="gp-card-head">
+      ${avatarHtml(correct.name)}
+      <div class="gp-card-meta">
+        <span class="gp-card-pos">${(correct.positions || []).join("/") || "—"} ${flagEmoji(correct.countryCode)}</span>
+        <span class="gp-card-sub">${correct.season}${correct.height ? " · " + correct.height + "m" : ""}</span>
+      </div>
+    </div>
+    ${buildStatBlocksHtml(correct, correct.season) || '<p class="no-data-note">No per-season stats recorded for this one — guess from position and era.</p>'}
+  `;
+
+  const choicesEl = document.getElementById("gp-choices");
+  choicesEl.innerHTML = "";
+  options.forEach((opt) => {
+    const btn = document.createElement("button");
+    btn.className = "gp-choice-btn";
+    btn.textContent = opt.name;
+    btn.addEventListener("click", () => answerGuess(opt, btn));
+    choicesEl.appendChild(btn);
+  });
+}
+
+function answerGuess(picked, btnEl) {
+  const gp = state.gp;
+  if (!gp || gp.answered) return;
+  gp.answered = true;
+  const isCorrect = picked.name === gp.current.correct.name;
+  if (isCorrect) gp.correct++;
+
+  document.querySelectorAll(".gp-choice-btn").forEach((btn) => {
+    btn.disabled = true;
+    if (btn.textContent === gp.current.correct.name) btn.classList.add("correct");
+    else if (btn === btnEl) btn.classList.add("wrong");
+  });
+  if (isCorrect) SFX.win(); else SFX.loss();
+
+  const fb = document.getElementById("gp-feedback");
+  fb.hidden = false;
+  fb.textContent = isCorrect
+    ? `Doğru — ${gp.current.correct.name} (${gp.current.correct.season})`
+    : `Yanlış — doğrusu ${gp.current.correct.name} (${gp.current.correct.season})`;
+
+  setTimeout(nextGuessRound, 1400);
+}
+
+function endGuessRun() {
+  const gp = state.gp;
+  document.getElementById("gp-card").innerHTML = "";
+  document.getElementById("gp-choices").innerHTML = "";
+  document.getElementById("gp-feedback").hidden = true;
+  const scores = loadTriviaScores();
+  const best = Math.max(scores.guessBest || 0, gp.correct);
+  scores.guessBest = best;
+  saveTriviaScores(scores);
+
+  const resEl = document.getElementById("gp-result");
+  resEl.hidden = false;
+  resEl.innerHTML = `
+    <div class="gp-result-score">${gp.correct} / ${GP_ROUNDS}</div>
+    <div class="gp-result-best">Best run: ${best} / ${GP_ROUNDS}</div>
+    <button class="btn-primary" id="gp-again-btn">Play Again</button>
+  `;
+  document.getElementById("gp-again-btn").addEventListener("click", startGuessPlayer);
+  if (gp.correct === GP_ROUNDS) { SFX.crowd(); triggerConfetti(); }
+}
+
+// ---------- Higher or Lower ----------
+function startHigherLower() {
+  const pool = flatPlayerPool().filter((p) => p.rating != null);
+  const scores = loadTriviaScores();
+  state.hl = { pool, streak: 0, best: scores.hlBest || 0, left: null, right: null, answered: false };
+  showScreen("screen-higher-lower");
+  document.getElementById("hl-feedback").hidden = true;
+  state.hl.left = state.hl.pool[Math.floor(Math.random() * state.hl.pool.length)];
+  advanceHigherLower();
+}
+
+function advanceHigherLower() {
+  const hl = state.hl;
+  if (!hl) return;
+  let candidate = hl.left;
+  let guard = 0;
+  while (candidate.name === hl.left.name && guard < 20) {
+    candidate = hl.pool[Math.floor(Math.random() * hl.pool.length)];
+    guard++;
+  }
+  hl.right = candidate;
+  hl.answered = false;
+  document.getElementById("hl-streak").textContent = `Streak: ${hl.streak}`;
+  document.getElementById("hl-best").textContent = `Best: ${hl.best}`;
+  document.getElementById("hl-feedback").hidden = true;
+  renderHigherLowerBoard();
+}
+
+function hlCardHtml(p, revealed, side) {
+  return `
+    <div class="hl-card" id="hl-card-${side}">
+      ${avatarHtml(p.name)}
+      <div class="hl-card-name">${revealed ? p.name : "?"}</div>
+      <div class="hl-card-meta">${(p.positions || []).join("/") || "—"} ${flagEmoji(p.countryCode)} · ${p.season}</div>
+      <div class="hl-card-value ${revealed ? "" : "pending"}">${revealed ? p.rating.toFixed(1) : "?"}</div>
+    </div>`;
+}
+
+function renderHigherLowerBoard() {
+  const hl = state.hl;
+  const board = document.getElementById("hl-board");
+  board.innerHTML = `
+    ${hlCardHtml(hl.left, true, "left")}
+    <div class="hl-vs">VS</div>
+    <div>
+      ${hlCardHtml(hl.right, false, "right")}
+      <div class="hl-guess-row">
+        <button class="hl-guess-btn" id="hl-higher-btn">⬆ Higher</button>
+        <button class="hl-guess-btn" id="hl-lower-btn">⬇ Lower</button>
+      </div>
+    </div>
+  `;
+  document.getElementById("hl-higher-btn").addEventListener("click", () => guessHigherLower("higher"));
+  document.getElementById("hl-lower-btn").addEventListener("click", () => guessHigherLower("lower"));
+}
+
+function guessHigherLower(choice) {
+  const hl = state.hl;
+  if (!hl || hl.answered) return;
+  hl.answered = true;
+  document.getElementById("hl-higher-btn").disabled = true;
+  document.getElementById("hl-lower-btn").disabled = true;
+
+  const leftVal = hl.left.rating, rightVal = hl.right.rating;
+  // An exact tie counts as correct either way — genuinely rare with real
+  // computed ratings, but never an unfair loss if it happens.
+  const correct = leftVal === rightVal ? true : (choice === "higher") === (rightVal > leftVal);
+
+  const rightCard = document.getElementById("hl-card-right");
+  const valueEl = rightCard.querySelector(".hl-card-value");
+  valueEl.textContent = rightVal.toFixed(1);
+  valueEl.classList.remove("pending");
+  rightCard.querySelector(".hl-card-name").textContent = hl.right.name;
+  rightCard.classList.add(correct ? "correct" : "wrong");
+
+  if (correct) {
+    SFX.win();
+    hl.streak++;
+    if (hl.streak > hl.best) {
+      hl.best = hl.streak;
+      const scores = loadTriviaScores();
+      scores.hlBest = hl.best;
+      saveTriviaScores(scores);
+    }
+    setTimeout(() => {
+      hl.left = hl.right;
+      advanceHigherLower();
+    }, 1200);
+  } else {
+    SFX.loss();
+    const fb = document.getElementById("hl-feedback");
+    fb.hidden = false;
+    fb.innerHTML = `
+      <div class="hl-feedback-title">Streak ended at ${hl.streak}</div>
+      <div class="trivia-progress">Best streak: ${hl.best}</div>
+      <button class="btn-primary" id="hl-again-btn">Play Again</button>
+    `;
+    document.getElementById("hl-again-btn").addEventListener("click", startHigherLower);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderTriviaHub();
+  const arcadeBtn = document.getElementById("trivia-arcade-btn");
+  if (arcadeBtn) arcadeBtn.addEventListener("click", () => {
+    if (!state.dataReady) {
+      alert("Data hasn't loaded yet (or failed to load). Refresh the page and wait a few seconds.");
+      return;
+    }
+    renderTriviaHub();
+    showScreen("screen-trivia-hub");
+  });
+  const gpQuit = document.getElementById("gp-quit-btn");
+  if (gpQuit) gpQuit.addEventListener("click", () => { renderTriviaHub(); showScreen("screen-trivia-hub"); });
+  const hlQuit = document.getElementById("hl-quit-btn");
+  if (hlQuit) hlQuit.addEventListener("click", () => { renderTriviaHub(); showScreen("screen-trivia-hub"); });
 });
